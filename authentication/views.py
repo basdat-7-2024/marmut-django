@@ -15,7 +15,10 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 
 def show_main(request):
-    return render(request, "welcome.html")
+    return render(request, "auth.html")
+
+def login(request):
+    return render(request, "login.html")
 
 
 # Create your views here.
