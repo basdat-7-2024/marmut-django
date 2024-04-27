@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Setting Css -->
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styleguide.css' %}">
+
+        <!-- Setting Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+        <!-- Setting Google Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </head>
+
+    <body >
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <nav class="navigation-bar navbar navbar-expand-lg">
+    <a href="#" class="logo-navbar navbar-brand">
+        <img class="marmut-image" src="https://i.ibb.co/X3rKb3B/Group-3304.png" alt="Marmut" />
+        <div class="text-navbar">Marmut</div>
+    </a>
+
+    <div class="navbar-right-section">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedMarmut" aria-controls="navbarSupportedMarmut" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedMarmut">
+            <ul class="section-navbar navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Chart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Kelola Playlist</a>
+                </li>
+                <li class="nav-item active-item">
+                    <a class="nav-link"  href="{% url 'langganan_paket:listpaket' %}">Langganan Paket</a>
+                </li>
+            </ul>
+            <form class="search-and-button form-inline">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit" role="button">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a class="btn btn-outline-danger logout-button" href="#" role="button">Logout</a>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="list-paket" >
+    <div class="list-paket-wrap">
+        <div class="header-section">
+            <div class="title-wrap">
+                <img class="icon-paket" src="https://i.ibb.co/SnKh20d/Icon-Paket.png" />
+                <div class="text-wrapper">Langganan Paket</div>
+            </div>
+            <div class="button-riwayat"><button class="button">Riwayat Transaksi</button></div>
+        </div>
+        <div class="datatable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Jenis</th>
+                        <th>Harga</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1 Bulan</td>
+                        <td>Rp. 54.900</td>
+                        <td><button class="button-2">Berlangganan</button></td>
+                    </tr>
+                    <tr>
+                        <td>3 Bulan</td>
+                        <td>Rp. 149.900</td>
+                        <td><button class="button-2">Berlangganan</button></td>
+                    </tr>
+                    <tr>
+                        <td>6 Bulan</td>
+                        <td>Rp. 249.900</td>
+                        <td><button class="button-2">Berlangganan</button></td>
+                    </tr>
+                    <tr>
+                        <td>1 Tahun</td>
+                        <td>Rp. 449.900</td>
+                        <td><button class="button-2">Berlangganan</button></td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+</div>
+
+
+<style>
+
+.list-paket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 64px; 
+    margin-left: auto; 
+    margin-right: auto;
+    padding: 48px 64px 64px;
+    background-color: #ffffff;
+    border-radius: 32px;
+    box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
+    max-width: calc(85%);
+}
+
+
+.list-paket .list-paket-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.list-paket .header-section {
+    width: 1150px;
+    height: 81px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.list-paket .title-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.list-paket .icon-paket {
+    position: relative;
+    width: 48px;
+    height: 48px;
+}
+
+.list-paket .text-wrapper {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: var(--h2-font-family);
+    font-weight: var(--h2-font-weight);
+    color: var(--black);
+    font-size: var(--h2-font-size);
+    letter-spacing: var(--h2-letter-spacing);
+    line-height: var(--h2-line-height);
+    white-space: nowrap;
+    font-style: var(--h2-font-style);
+}
+
+.list-paket .button-riwayat {
+    display: inline-flex;
+    height: 56px;
+    align-items: center;
+    justify-content: center;
+    gap: var(--tokens-measurements-button-gap);
+    padding: 0px 28px;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: #60cad7;
+    border-radius: 16px;
+    border-color: transparent;
+}
+
+.list-paket .button {
+    all: unset;
+    box-sizing: border-box;
+    position: relative;
+    width: fit-content;
+    font-family: var(--desktop-semibold-large-text-font-family);
+    font-weight: var(--desktop-semibold-large-text-font-weight);
+    color: var(--white);
+    font-size: var(--desktop-semibold-large-text-font-size);
+    text-align: center;
+    letter-spacing: var(--desktop-semibold-large-text-letter-spacing);
+    line-height: var(--desktop-semibold-large-text-line-height);
+    white-space: nowrap;
+    font-style: var(--desktop-semibold-large-text-font-style);
+}
+
+.list-paket .datatable {
+    display: flex;
+    flex-direction: column;
+    width: 90%; 
+    align-items: flex-start;
+    padding: 0px 0px 12px;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #E2E8F0;
+}
+
+.list-paket table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    border-color: 1px #E2E8F0;
+    table-layout: fixed; 
+}
+
+.list-paket th, .list-paket td {
+    text-align: left;
+    padding: 8px 60px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.list-paket th {
+    background-color: #EFF6FF;
+    padding: 24px 60px;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.list-paket th.centered {
+    text-align: center;
+}
+
+
+.list-paket tr:last-child td {
+    border-bottom: none;
+}
+
+.list-paket button.button-2 {
+    background-color: #ffa54b;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.list-paket button.button-2:hover {
+    background-color: #ff8c00;
+}
+
+</style>
+</body>
+</html>
