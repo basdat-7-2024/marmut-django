@@ -16,11 +16,5 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
 
-def listpaket(request):
-    return render(request, "listpaket.html")
-
-def riwayatpaket(request):
-    return render(request, "riwayatpaket.html")
-
-def pembayaranpaket(request):
-    return render(request, "pembayaranpaket.html")
+def daftardownload(request):
+    return render(request, "daftar_download.html")

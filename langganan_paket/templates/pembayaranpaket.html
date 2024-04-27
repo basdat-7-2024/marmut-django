@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Setting Css -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleguide.css' %}">
+
+    <!-- Setting Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Setting Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Setting Css di Static -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Navigation bar-->
+    <nav class="navigation-bar navbar navbar-expand-lg">
+        <a href="#" class="logo-navbar navbar-brand">
+            <img class="marmut-image" src="https://i.ibb.co/X3rKb3B/Group-3304.png" alt="Marmut" />
+            <div class="text-navbar">Marmut</div>
+        </a>
+        <div class="navbar-right-section">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedMarmut"
+                aria-controls="navbarSupportedMarmut" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedMarmut">
+                <ul class="section-navbar navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Chart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kelola Playlist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'langganan_paket:listpaket' %}">Langganan Paket</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'downloaded_song:daftardownload' %}">Downlaoded Song</a>
+                    </li>
+                </ul>
+                <form class="search-and-button form-inline">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit" role="button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a class="btn btn-outline-danger logout-button" href="#" role="button">Logout</a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Start Fe Here-->
+    <div class="pembayaran-paket">
+        <div class="section-pembayaran">
+            <div class="upper">
+                <div class="frame">
+                    <img class="mask-group" src="https://i.ibb.co/SnKh20d/Icon-Paket.png" />
+                    <div class="text-wrapper">Pembayaran Paket</div>
+                </div>
+            </div>
+            <div class="paket-table">
+                <div class="jenis-paket">
+                    <p class="div">Informasi Paket yang Ingin Dibeli</p>
+                    <div class="table-pembayaran">
+                        <table class="datatable">
+                            <thead>
+                                <tr class="table-header">
+                                    <th class="header-cell">Jenis</th>
+                                    <th class="header-cell">Harga</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-row">
+                                    <td class="table-row-cell">1 Bulan</td>
+                                    <td>Rp. 54.900</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="dropdown-pembayaran">
+                    <div class="dropdown-wrap">
+                        <div class="text-pembayaran">Pembayaran</div>
+                        <select class="form-select" aria-label="Pilih Pembayaran">
+                            <option selected>Pilih Pembayaran</option>
+                            <option value="credit_card">Credit Card</option>
+                            <option value="bank_transfer">Bank Transfer</option>
+                            <option value="gopay">Gopay</option>
+                            <option value="Ovo">Ovo</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <button class="button">Submit</button>
+    </div>
+
+</body>
+
+<style>
+    .pembayaran-paket {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 48px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 48px 64px 32px;
+        background-color: #ffffff;
+        border-radius: 32px;
+        box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
+        max-width: calc(85%);
+        overflow: auto;
+    }
+
+
+    .pembayaran-paket .form-select {
+        display: block;
+        width: 100%;
+        /* Adjust the width as needed */
+        padding: 12px 36px 12px 12px;
+        font-size: 16px;
+        font-weight: 400;
+        /* line-height: 1.5; */
+        color: #6c757d;
+        /* Set the text color to gray */
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        /* Set the border color to gray */
+        border-radius: 0.25rem;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        appearance: none;
+        font-family: 'Poppins', sans-serif;
+        border-radius: 16px;
+    }
+
+    .pembayaran-paket .custom-select {
+        flex-grow: 1;
+        border: none;
+        background-color: transparent;
+        height: 100%;
+        padding-left: 10px;
+        font-family: "Inter-SemiBold", Helvetica, sans-serif;
+        font-size: 16px;
+        color: #828282b2;
+        appearance: none;
+    }
+
+    .pembayaran-paket .custom-select:active,
+    .pembayaran-paket .custom-select:focus {
+        color: #495057;
+    }
+
+    .pembayaran-paket .section-pembayaran {
+        display: flex;
+        flex-direction: column;
+        width: 990px;
+        align-items: flex-start;
+        gap: 48px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .pembayaran-paket .upper {
+        display: flex;
+        width: 990px;
+        height: 81px;
+        align-items: center;
+        justify-content: space-around;
+        gap: 18px;
+        position: relative;
+    }
+
+    .pembayaran-paket .frame {
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        display: inline-flex;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .pembayaran-paket .mask-group {
+        position: relative;
+        width: 48px;
+        height: 48px;
+    }
+
+    .pembayaran-paket .text-wrapper {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--h2-font-family);
+        font-weight: var(--h2-font-weight);
+        color: var(--black);
+        font-size: var(--h2-font-size);
+        letter-spacing: var(--h2-letter-spacing);
+        line-height: var(--h2-line-height);
+        white-space: nowrap;
+        font-style: var(--h2-font-style);
+    }
+
+    .pembayaran-paket .paket-table {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 48px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .pembayaran-paket .jenis-paket {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .pembayaran-paket .div {
+        position: relative;
+        width: 100%;
+        margin-top: -1px;
+        font-family: var(--large-text-medium-font-family);
+        font-weight: var(--large-text-medium-font-weight);
+        color: var(--dark-grey);
+        font-size: var(--large-text-medium-font-size);
+        letter-spacing: var(--large-text-medium-letter-spacing);
+        white-space: nowrap;
+        font-style: var(--large-text-medium-font-style);
+    }
+
+
+    .pembayaran-paket .dropdown-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px 20px;
+        display: inline-flex;
+        position: relative;
+        flex: 0 0 auto;
+        justify-content: start;
+    }
+
+    .pembayaran-paket .text-pembayaran {
+        position: relative;
+        width: fit-content;
+        font-family: var(--large-text-semi-bold-font-family);
+        font-weight: var(--large-text-semi-bold-font-weight);
+        color: var(--black);
+        font-size: var(--large-text-semi-bold-font-size);
+        text-align: center;
+        letter-spacing: var(--large-text-semi-bold-letter-spacing);
+        line-height: var(--large-text-semi-bold-line-height);
+        white-space: nowrap;
+        font-style: var(--large-text-semi-bold-font-style);
+    }
+
+
+    .pembayaran-paket .placeholder {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        color: #c8c8c8b2;
+        font-size: 16px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: 24px;
+        white-space: nowrap;
+    }
+
+    .pembayaran-paket .button {
+        box-sizing: border-box;
+        margin-top: 40px;
+        display: flex;
+        width: 280px;
+        height: 56px;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 32px;
+        position: relative;
+        background-color: #ffa54b;
+        color: #fff;
+        border-radius: 24px;
+        border: 2px solid;
+        border-color: transparent;
+    }
+
+
+    .pembayaran-paket .datatable {
+        margin: 0 auto;
+        width: 90%;
+        background-color: #ffffff;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #E2E8F0 !important;
+        border-collapse: separate;
+    }
+
+
+    /* Style for thead */
+    .pembayaran-paket .datatable thead tr th {
+        background-color: #EFF6FF;
+        border-bottom: none;
+        text-align: center;
+    }
+
+    .pembayaran-paket .datatable thead tr th,
+    .pembayaran-paket .datatable tbody tr td {
+        border: none;
+        text-align: center;
+    }
+
+    .pembayaran-paket .datatable thead tr:first-child th:first-child {
+        border-top-left-radius: 16px;
+    }
+
+    .pembayaran-paket .datatable thead tr:first-child th:last-child {
+        border-top-right-radius: 16px;
+    }
+
+    .pembayaran-paket .datatable tbody tr:last-child td:first-child {
+        border-bottom-left-radius: 16px;
+    }
+
+    .pembayaran-paket .datatable tbody tr:last-child td:last-child {
+        border-bottom-right-radius: 16px;
+    }
+
+    .pembayaran-paket .table-transaksi {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        padding: 0px 0px 16px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: #ffffff;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid;
+        border-color: #E2E8F0;
+    }
+
+    .pembayaran-paket table {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-color: 1px #E2E8F0;
+        table-layout: fixed;
+    }
+
+    .pembayaran-paket th,
+    .pembayaran-paket td {
+        text-align: left;
+        padding: 8px 60px;
+        border-bottom: 1px solid #E2E8F0;
+        border: 1px solid #E2E8F0;
+    }
+
+    .pembayaran-paket th {
+        background-color: #EFF6FF;
+        padding: 24px 60px;
+        align-items: flex-start;
+        align-self: stretch;
+    }
+
+    .pembayaran-paket th.centered {
+        text-align: center;
+    }
+
+    .pembayaran-paket tr td {
+        padding: 24px 60px;
+    }
+
+    .pembayaran-paket tr:last-child td {
+        border-bottom: none;
+    }
+</style>
+
+</html>

@@ -1,0 +1,192 @@
+/*------------------ Navigaiton Bar Style ------------------*/
+
+body {
+    background-color: #F6FAFF; /* Light blue background for the page */
+    font-family: 'Poppins', sans-serif;
+    align-items: center; 
+    overflow: auto; 
+  }
+
+nav {
+    background-color: #fff;
+}
+
+.text-navbar {
+    color: #FFA54B !important;
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 700; 
+    font-size: 28px;
+}
+
+.navigation-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 80px;
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.logo-navbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.navbar-right-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.section-navbar {
+    margin-left: auto; /* Pushes the navbar to the right */
+}
+
+.navigation-bar .navbar-nav {
+    padding-left: 4px !important; 
+}
+
+.section-navbar .nav-item:last-child {
+    margin-right: 20px; /* Increased space before the search bar */
+}
+
+.navbar-nav .active-item .nav-link {
+    color: #FFA54B !important; /* Orange color */
+    font-family: 'Poppins', sans-serif; /* Ensure Poppins is available or it will fall back to Helvetica */
+    font-weight: 700; /* Bold font weight */
+}
+
+.search-and-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.form-inline .form-control {
+    border-radius: 20px;
+    border: 2px solid #82828233;
+}
+
+.form-inline .btn {
+    border-radius: 12px;
+}
+
+/* Additional CSS for Logout Button */
+button {
+    color: white;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    line-height: 25.2px;
+    word-wrap: break-word;
+    background-color: #FFA54B; /* Assuming you want a red background */
+    border: none; /* Remove the border if not needed */
+    padding: 12px 15px; /* Add padding as necessary */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.btn-outline-danger {
+    color: white;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    line-height: 25.2px;
+    word-wrap: break-word;
+    background-color: #FF516E; 
+    border: none; 
+    padding: 12px 15px; 
+    transition: background-color 0.3s ease; 
+}
+
+.btn-outline-danger:hover {
+    background-color: #ef4763;
+    color: white; 
+}
+.btn-outline-success {
+    color: white;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 25.2px;
+    word-wrap: break-word;
+    background-color: #FFA54B !important; 
+    border: none; 
+    padding: 12px 16px; 
+    transition: background-color 0.3s ease; 
+}
+
+.btn-outline-success i { /* Icon specific styling if needed */
+    margin-right: 5px; /* Add some space between icon and text if text is included */
+}
+
+/* Hover effect for Search Button */
+.btn-outline-success:hover {
+    background-color: #FFA54B; /* Darker shade on hover */
+    color: white; /* Text color remains white on hover */
+}
+
+.form-inline .form-control {
+    padding: 10px 16px; 
+    border-radius: 16px; 
+    border: 2px solid #82828233; 
+}
+
+.navigation-bar .logo-navbar {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.navigation-bar .marmut-image {
+    position: relative;
+    width: 86px;
+    height: 72px;
+    object-fit: cover;
+}
+
+.navigation-bar .text-wrapper {
+    position: relative;
+    width: fit-content;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffa54b;
+    font-size: 28px;
+    letter-spacing: 0;
+    line-height: 39.2px;
+    white-space: nowrap;
+}
+
+.navigation-bar .section-navbar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.navigation-bar .search-and-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+    flex: 0 0 auto;
+}
+.navigation-bar .search {
+    position: relative;
+    width: 28px;
+    height: 28px;
+}
+
+.navigation-bar .frame {
+    display: flex;
+    align-items: flex-start;
+    gap: 2px;
+    position: relative;
+    flex: 1;
+    flex-grow: 1;
+}
