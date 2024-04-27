@@ -13,7 +13,6 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-import json
 
 def show_main(request):
     return render(request, "welcome.html")

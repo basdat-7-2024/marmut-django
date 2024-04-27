@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     'authentication',
     'langganan_paket',
+    'downloaded_song',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

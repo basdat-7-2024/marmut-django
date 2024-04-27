@@ -21,5 +21,5 @@ urlpatterns = [
     path('', include('authentication.urls')),
     path('admin/', admin.site.urls),
     path('langganan-paket/', include('langganan_paket.urls')),
-
+    path('downloaded_song/', include('downloaded_song.urls')),
 ]

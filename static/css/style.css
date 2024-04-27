@@ -4,6 +4,7 @@ body {
     background-color: #F6FAFF; /* Light blue background for the page */
     font-family: 'Poppins', sans-serif;
     align-items: center; 
+    overflow: auto; 
   }
 
 nav {

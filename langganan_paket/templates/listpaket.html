@@ -57,6 +57,9 @@
                     <li class="nav-item active-item">
                         <a class="nav-link" href="{% url 'langganan_paket:listpaket' %}">Langganan Paket</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'downloaded_song:daftardownload' %}">Downlaoded Song</a>
+                    </li>
                 </ul>
                 <form class="search-and-button form-inline">
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -76,7 +79,11 @@
                     <img class="icon-paket" src="https://i.ibb.co/SnKh20d/Icon-Paket.png" />
                     <div class="text-wrapper">Langganan Paket</div>
                 </div>
-                <div class="button-riwayat"><button class="button">Riwayat Transaksi</button></div>
+                <div class="button-riwayat">
+                    <a href="{% url 'langganan_paket:riwayatpaket' %}">
+                        <button class="button">Riwayat Transaksi</button>
+                    </a>
+                </div>
             </div>
             <div class="datatable">
                 <table>
@@ -91,22 +98,38 @@
                         <tr>
                             <td>1 Bulan</td>
                             <td>Rp. 54.900</td>
-                            <td><button class="button-2">Berlangganan</button></td>
+                            <td>
+                                <a href="{% url 'langganan_paket:pembayaranpaket' %}" class="button-berlangganan-link">
+                                    <button class="button-berlangganan">Berlangganan</button>
+                                </a>
+                            </td>
                         </tr>
                         <tr>
                             <td>3 Bulan</td>
                             <td>Rp. 149.900</td>
-                            <td><button class="button-2">Berlangganan</button></td>
+                            <td>
+                                <a href="{% url 'langganan_paket:pembayaranpaket' %}" class="button-berlangganan-link">
+                                    <button class="button-berlangganan">Berlangganan</button>
+                                </a>
+                            </td>
                         </tr>
                         <tr>
                             <td>6 Bulan</td>
                             <td>Rp. 249.900</td>
-                            <td><button class="button-2">Berlangganan</button></td>
+                            <td>
+                                <a href="{% url 'langganan_paket:pembayaranpaket' %}" class="button-berlangganan-link">
+                                    <button class="button-berlangganan">Berlangganan</button>
+                                </a>
+                            </td>
                         </tr>
                         <tr>
                             <td>1 Tahun</td>
                             <td>Rp. 449.900</td>
-                            <td><button class="button-2">Berlangganan</button></td>
+                            <td>
+                                <a href="{% url 'langganan_paket:pembayaranpaket' %}" class="button-berlangganan-link">
+                                    <button class="button-berlangganan">Berlangganan</button>
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -254,18 +277,26 @@
                 border-bottom: none;
             }
 
-            .list-paket button.button-2 {
+            .list-paket button.button-berlangganan {
                 background-color: #ffa54b;
                 border: none;
                 color: white;
-                padding: 10px 20px;
+                padding: 14px 24px;
                 cursor: pointer;
-                border-radius: 12px;
+                border-radius: 16px;
                 font-family: 'Poppins', sans-serif;
             }
 
-            .list-paket button.button-2:hover {
+            .list-paket button.button-berlangganan:hover {
                 background-color: #ff8c00;
+            }
+
+            .button-riwayat a {
+                text-decoration: none; 
+            }
+
+            .button-berlangganan-link {
+                text-decoration: none; 
             }
         </style>
 </body>
