@@ -18,7 +18,10 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https  ://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
     <!-- Setting Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,7 +76,250 @@
     </nav>
 
     <!-- Start Fe Here-->
+    <div class="download-lagu">
+        <div class="download-lagu-warp">
+            <header class="header">
+                <div class="title">
+                    <img class="icon" src="https://i.ibb.co/gPnGsCN/path258.png" />
+                    <div class="text-wrapper">Daftar Download Lagu</div>
+                </div>
+            </header>
+            <table class="datatable">
+                <thead>
+                    <tr>
+                        <th>Judul</th>
+                        <th>Oleh</th>
+                        <th>Tanggal Download</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Song 1</td>
+                        <td>Artist 1</td>
+                        <td>20/02/2024</td>
+                        <td class="action-cell">
+                            <button class="delete-button" data-toggle="modal" data-target="#exampleModalCenter">
+                                <img src="https://i.ibb.co/dDnHTjf/trash2-fill.png" alt="Delete" />
+                            </button>
+                            <button class="button-lihat">Lihat</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Song 2</td>
+                        <td>Artist 2</td>
+                        <td>20/02/2024</td>
+                        <td class="action-cell">
+                            <button class="delete-button" data-toggle="modal" data-target="#exampleModalCenter">
+                                <img src="https://i.ibb.co/dDnHTjf/trash2-fill.png" alt="Delete" />
+                            </button>
+                            <button class="button-lihat">Lihat</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Song 3</td>
+                        <td>Artist 3</td>
+                        <td>20/02/2024</td>
+                        <td class="action-cell">
+                            <button class="delete-button" data-toggle="modal" data-target="#exampleModalCenter">
+                                <img src="https://i.ibb.co/dDnHTjf/trash2-fill.png" alt="Delete" />
+                            </button>
+                            <button class="button-lihat">Lihat</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </body>
+
+<style>
+    .download-lagu {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 64px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 48px 64px 64px;
+        background-color: #ffffff;
+        border-radius: 32px;
+        box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
+        max-width: calc(85%);
+        overflow: auto;
+    }
+
+    .download-lagu .download-lagu-warp {
+        display: flex;
+        flex-direction: column;
+        width: 1151px;
+        align-items: flex-start;
+        gap: 64px;
+        position: relative;
+        flex: 0 0 auto;
+        margin-left: -0.5px;
+        margin-right: -0.5px;
+    }
+
+
+
+    .download-lagu .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 18px;
+        /* position: relative; */
+        align-self: stretch;
+        width: 1150px;
+        flex: 0 0 auto;
+        background-color: transparent;
+    }
+
+    .download-lagu .title {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .download-lagu .icon {
+        position: relative;
+        width: 32px;
+        height: 26px;
+    }
+
+    .download-lagu .text-wrapper {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--h2-font-family);
+        font-weight: var(--h2-font-weight);
+        color: var(--black);
+        font-size: var(--h2-font-size);
+        letter-spacing: var(--h2-letter-spacing);
+        line-height: var(--h2-line-height);
+        white-space: nowrap;
+        font-style: var(--h2-font-style);
+    }
+
+
+    .download-lagu .datatable {
+        width: 100%;
+        overflow: hidden;
+        background-color: #ffffffcf;
+        align-items: flex-end;
+        border-radius: 16px;
+        padding: 0px 0px 16px;
+        border: 1px solid;
+        border-color: #E2E8F0 !important;
+        /* Menambahkan !important untuk memastikan warna border */
+        box-shadow: 0px 0px 0px 1px #E2E8F0;
+        /* Shadow dengan warna abu-abu dan transparansi */
+
+    }
+
+
+    .download-lagu table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        border: 1px solid;
+        border-color: #E2E8F0 !important;
+        /* Menambahkan !important untuk memastikan warna border */
+        table-layout: fixed;
+    }
+
+    .download-lagu th,
+    .download-lagu td {
+        text-align: left;
+        padding: 20px 60px;
+        border-bottom: 1px solid #E2E8F0;
+    }
+
+    .download-lagu tr {
+        width: 100%;
+    }
+
+    .download-lagu th {
+        background-color: #EFF6FF;
+        padding: 32px 60px;
+    }
+
+    .download-lagu th.centered {
+        text-align: center;
+    }
+
+
+    .download-lagu tr:last-child td {
+        border-bottom: none;
+    }
+
+    .download-lagu button.button-lihat {
+        background-color: var(--orange);
+        border: none;
+        color: white;
+        padding: 16px 24px;
+        cursor: pointer;
+        border-radius: 16px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+
+    td.action-cell {
+        gap: 8px;
+        display: flex;
+        justify-content: center;
+        /* Center the buttons horizontally */
+        align-items: center;
+        /* Center the buttons vertically */
+    }
+
+    .download-lagu button.delete-button {
+        background-color: var(--red);
+        border-radius: 16px;
+        border: none;
+        padding: 14px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .delete-button img {
+        width: 28px;
+        /* Moved from inline to CSS */
+        height: 28px;
+        /* Moved from inline to CSS */
+        display: block;
+    }
+</style>
 
 </html>
