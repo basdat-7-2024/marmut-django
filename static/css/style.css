@@ -44,7 +44,7 @@ nav {
 }
 
 .navigation-bar .navbar-nav {
-    padding-left: 4px !important; 
+    padding-left: 0px !important; 
 }
 
 .section-navbar .nav-item:last-child {
@@ -165,7 +165,7 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 24px;
+    gap: 8px !important;
     position: relative;
     flex: 0 0 auto;
 }
