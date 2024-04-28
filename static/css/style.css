@@ -91,11 +91,12 @@ button {
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
+    border-radius: 12px;
     line-height: 25.2px;
     word-wrap: break-word;
     background-color: #FF516E; 
     border: none; 
-    padding: 12px 15px; 
+    padding: 14px 20px; 
     transition: background-color 0.3s ease; 
 }
 
@@ -105,14 +106,15 @@ button {
 }
 .btn-outline-success {
     color: white;
+    border-radius: 12px;
     font-size: 18px;
     font-family: 'Poppins', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 25.2px;
     word-wrap: break-word;
     background-color: #FFA54B !important; 
     border: none; 
-    padding: 12px 16px; 
+    padding: 14px 20px; 
     transition: background-color 0.3s ease; 
 }
 
