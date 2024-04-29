@@ -18,10 +18,16 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https  ://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https  ://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
     <!-- Setting Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,46 +40,7 @@
 
     <!-- Setting Css di Static -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-    <!-- Navigation bar-->
-    <nav class="navigation-bar navbar navbar-expand-lg">
-        <a href="#" class="logo-navbar navbar-brand">
-            <img class="marmut-image" src="https://i.ibb.co/X3rKb3B/Group-3304.png" alt="Marmut" />
-            <div class="text-navbar">Marmut</div>
-        </a>
-        <div class="navbar-right-section">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedMarmut"
-                aria-controls="navbarSupportedMarmut" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedMarmut">
-                <ul class="section-navbar navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Chart</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Kelola Playlist</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'langganan_paket:listpaket' %}">Langganan Paket</a>
-                    </li>
-                    <li class="nav-item active-item">
-                        <a class="nav-link active-item" href="#"> Downloaded Song</a>
-                    </li>
-                </ul>
-                <form class="search-and-button form-inline">
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit" role="button">
-                        <i class="fas fa-search"></i>
-                    </button>
-                    <a class="btn btn-outline-danger logout-button" href="#" role="button">Logout</a>
-                </form>
-            </div>
-        </div>
-    </nav>
+    {% include "navbar-premium.html" %}
 
     <!-- Start Fe Here-->
     <div class="download-lagu">
@@ -132,28 +99,23 @@
         </div>
     </div>
 
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <p>Modal body text goes here.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body" style="align-items: center;">
+                    <h4>Berhasil Menghapus Lagu dengan judul ‘Song 1’ dari unduhan!</h4>
+                    <img src="https://i.ibb.co/M9mv14c/Illustration.png" class="img-fluid mb-3 illustration"
+                        alt="Illustration">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
@@ -185,8 +147,6 @@
         margin-left: -0.5px;
         margin-right: -0.5px;
     }
-
-
 
     .download-lagu .header {
         display: flex;
@@ -253,7 +213,6 @@
         padding: 0;
         border: 1px solid;
         border-color: #E2E8F0 !important;
-        /* Menambahkan !important untuk memastikan warna border */
         table-layout: fixed;
     }
 
@@ -315,10 +274,72 @@
 
     .delete-button img {
         width: 28px;
-        /* Moved from inline to CSS */
         height: 28px;
-        /* Moved from inline to CSS */
         display: block;
+    }
+
+    .modal {
+        border-radius: 40px;
+        justify-content: center;
+        margin-top: 10%;
+
+    }
+
+    .modal .modal-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: 16px;
+    }
+
+    .modal .modal-dialog {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal .modal-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        border-end-end-radius: 20px;
+        border-radius: 20px;
+    }
+
+    .modal .modal-body h4 {
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: var(--h3-font-size);
+        line-height: var(--h3-line-height);
+        font-weight: var(--h3-font-weight);
+        color: var(--black);
+    }
+
+    .modal .modal-footer {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .modal .illustration {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        align-self: center;
+    }
+
+    .modal button.btn {
+        width: 160px;
+        height: 56px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: var(--variable-collection-border-radius);
+        color: #ffffff;
+        background-color: var(--red);
     }
 </style>
 
