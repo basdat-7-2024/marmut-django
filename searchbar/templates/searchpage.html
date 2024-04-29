@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Setting Css -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleguide.css' %}">
+
+    <!-- Setting Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Setting Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Setting Css di Static -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% include "navbar-premium.html" %}
+
+    <div class="search-marmut">
+        <div class="div">
+            <form class="search-wrap form-inline" action="#" method="get">
+                <div class="title">
+                    <img class="icon" src="https://i.ibb.co/sHfckcT/Icon.png" />
+                    <div class="text-wrapper">Search in Marmut</div>
+                </div>
+                <div class="search-bar form-group " style="margin-top: 12px;">
+                    <input class="form-search" type="search" name="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+            <div class="title-2">
+                <div class="text-wrapper-2">Hasil pencarian</div>
+                <div class="query">“<span id="display-query"></span>”</div>
+            </div>
+            <table class="datatable" id="results-table">
+                <thead>
+                    <tr class="table-header">
+                        <th class="header-cell">
+                            <div class="text-wrapper-3">Tipe</div>
+                        </th>
+                        <th>
+                            <div class="text-wrapper-3">Judul</div>
+                        </th>
+                        <th>
+                            <div class="text-wrapper-3">Oleh</div>
+                        </th>
+                        <th>
+                            <div class="text-wrapper-3">Action</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-row">
+                        <td class="table-row-cell">
+                            <div class="data-badge">
+                                <div class="documentation">Song</div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="text-wrapper-4">Love is in the air</p>
+                        </td>
+                        <td>
+                            <div class="text-wrapper-5">Artist 1</div>
+                        </td>
+                        <td>
+                            <button class="lihat-button">
+                                <div class="text-wrapper-6">Lihat</div>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-row-cell">
+                            <div class="data-badge">
+                                <div class="documentation">Song</div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="text-wrapper-4">What is Love</p>
+                        </td>
+                        <td>
+                            <div class="text-wrapper-5">Artist 2</div>
+                        </td>
+                        <td>
+                            <button class="lihat-button">
+                                <div class="text-wrapper-6">Lihat</div>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-row-cell">
+                            <div class="data-badge">
+                                <div class="documentation">Podcast</div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="text-wrapper-4">Love is Blind Pod</p>
+                        </td>
+                        <td>
+                            <div class="text-wrapper-5">Podcaster 1</div>
+                        </td>
+                        <td>
+                            <button class="lihat-button">
+                                <div class="text-wrapper-6">Lihat</div>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-row-cell">
+                            <div class="data-badge">
+                                <div class="documentation">User Playlist</div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="text-wrapper-4">90s Love Songs</p>
+                        </td>
+                        <td>
+                            <div class="text-wrapper-5">User 1</div>
+                        </td>
+                        <td>
+                            <button class="lihat-button">
+                                <div class="text-wrapper-6">Lihat</div>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="empty" id="no-results" style="display: none;">
+                <img class="empty-illustration" src="https://i.ibb.co/y5RXhHj/Empty-Illustration.png" />
+                <p class="text-wrapper">Maaf, Pencarian untuk <span id="query-text"></span> tidak ditemukan</p>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+        .search-marmut {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 64px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 48px 64px 64px;
+            background-color: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
+            max-width: calc(85%);
+            overflow: auto;
+        }
+
+        .form-inline .form-search {
+            padding: 12px 20px !important;
+            width: 400px !important;
+            border-radius: 16px;
+            border: 2px solid #82828233;
+        }
+
+        .search-marmut .div {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .search-marmut .search-wrap {
+            flex-direction: column;
+            align-items: center;
+            gap: 28px;
+            display: inline-flex;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .search-marmut .title {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .search-marmut .icon {
+            position: relative;
+            width: 38px;
+            height: 38px;
+        }
+
+        .search-marmut .text-wrapper {
+            position: relative;
+            width: fit-content;
+            font-family: var(--h3-font-family);
+            font-weight: var(--h3-font-weight);
+            color: var(--black);
+            font-size: var(--h3-font-size);
+            letter-spacing: var(--h3-letter-spacing);
+            line-height: var(--h3-line-height);
+            white-space: nowrap;
+            font-style: var(--h3-font-style);
+        }
+
+        .search-marmut .search-bar {
+            align-items: flex-start;
+            gap: 24px;
+            display: inline-flex;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .search-marmut .input-field {
+            display: flex;
+            width: 546px;
+            height: 56px;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            position: relative;
+            background-color: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid;
+            border-color: #82828233;
+        }
+
+        .search-marmut .search {
+            position: relative;
+            width: 28px;
+            height: 28px;
+        }
+
+        .search-marmut .frame {
+            display: flex;
+            align-items: flex-start;
+            gap: 2px;
+            position: relative;
+            flex: 1;
+            flex-grow: 1;
+        }
+
+        .search-marmut .placeholder {
+            position: relative;
+            width: fit-content;
+            margin-top: -1px;
+            font-family: var(--p-semi-bold-font-family);
+            font-weight: var(--p-semi-bold-font-weight);
+            color: #828282b2;
+            font-size: var(--p-semi-bold-font-size);
+            letter-spacing: var(--p-semi-bold-letter-spacing);
+            line-height: var(--p-semi-bold-line-height);
+            white-space: nowrap;
+            font-style: var(--p-semi-bold-font-style);
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        .search-marmut .button-search {
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 14px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .search-marmut .button {
+            all: unset;
+            box-sizing: border-box;
+            display: inline-flex;
+            height: 56px;
+            align-items: center;
+            justify-content: center;
+            gap: var(--tokens-measurements-button-gap);
+            padding: 0px 32px;
+            position: relative;
+            flex: 0 0 auto;
+            background-color: #60cad7;
+            border-radius: 12px;
+            border: 2px solid;
+            border-color: transparent;
+        }
+
+        .search-marmut .button-2 {
+            all: unset;
+            box-sizing: border-box;
+            position: relative;
+            width: fit-content;
+            font-family: var(--desktop-semibold-large-text-font-family);
+            font-weight: var(--desktop-semibold-large-text-font-weight);
+            color: var(--white);
+            font-size: var(--desktop-semibold-large-text-font-size);
+            text-align: center;
+            letter-spacing: var(--desktop-semibold-large-text-letter-spacing);
+            line-height: var(--desktop-semibold-large-text-line-height);
+            white-space: nowrap;
+            font-style: var(--desktop-semibold-large-text-font-style);
+        }
+
+        .search-marmut .title-2 {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .search-marmut .text-wrapper-2 {
+            position: relative;
+            width: fit-content;
+            margin-top: -1px;
+            font-family: var(--large-text-medium-font-family);
+            font-weight: var(--large-text-medium-font-weight);
+            color: var(--dark-grey);
+            font-size: var(--large-text-medium-font-size);
+            letter-spacing: var(--large-text-medium-letter-spacing);
+            line-height: var(--large-text-medium-line-height);
+            white-space: nowrap;
+            font-style: var(--large-text-medium-font-style);
+        }
+
+        .search-marmut .query {
+            position: relative;
+            width: fit-content;
+            font-family: var(--h2-font-family);
+            font-weight: var(--h2-font-weight);
+            color: var(--black);
+            font-size: var(--h2-font-size);
+            letter-spacing: var(--h2-letter-spacing);
+            line-height: var(--h2-line-height);
+            white-space: nowrap;
+            font-style: var(--h2-font-style);
+        }
+
+        .search-marmut .datatable {
+            width: 100%;
+            overflow: hidden;
+            background-color: #ffffffcf;
+            align-items: flex-end;
+            border-radius: 16px;
+            padding: 0px 0px 16px;
+            border: 1px solid;
+            border-color: #E2E8F0 !important;
+            /* Menambahkan !important untuk memastikan warna border */
+            box-shadow: 0px 0px 0px 1px #E2E8F0;
+
+        }
+
+
+        .search-marmut table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+            border: 1px solid;
+            border-color: #E2E8F0 !important;
+            table-layout: fixed;
+        }
+
+        .search-marmut th,
+        .search-marmut td {
+            text-align: left;
+            padding: 20px 60px;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .search-marmut tr {
+            width: 100%;
+        }
+
+        .search-marmut th {
+            background-color: #EFF6FF;
+            padding: 32px 60px;
+        }
+
+        .search-marmut th.centered {
+            text-align: center;
+        }
+
+
+        .search-marmut tr:last-child td {
+            border-bottom: none;
+        }
+
+        .search-marmut button.button-lihat {
+            background-color: var(--orange);
+            border: none;
+            color: white;
+            padding: 16px 24px;
+            cursor: pointer;
+            border-radius: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+
+        td.action-cell {
+            gap: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-marmut button.lihat-button {
+            background-color: var(--orange);
+            border-radius: 16px;
+            border: none;
+            padding: 14px 32px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .empty {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 40px;
+            position: relative;
+        }
+
+        .empty .empty-illustration {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 268px;
+            height: 259px;
+            object-fit: cover;
+        }
+
+        .empty .text-wrapper {
+            padding-top: 12px;
+            position: relative;
+            width: fit-content;
+            font-family: var(--h3-font-family);
+            font-weight: var(--h3-font-weight);
+            color: var(--black);
+            font-size: var(--h3-font-size);
+            letter-spacing: var(--h3-letter-spacing);
+            line-height: var(--h3-line-height);
+            white-space: nowrap;
+            font-style: var(--h3-font-style);
+        }
+    </style>
+
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const queryDisplay = document.getElementById('display-query');
+        const queryText = document.getElementById('query-text');
+        const urlPath = window.location.pathname;
+        const resultsTable = document.getElementById('results-table');
+        const noResults = document.getElementById('no-results');
+
+        const pathSegments = urlPath.split('/').filter(Boolean);
+        if (pathSegments[0] === 'search' && pathSegments.length > 1) {
+            const searchQuery = decodeURIComponent(pathSegments[1]);
+            queryDisplay.textContent = searchQuery;
+            queryText.textContent = `"${searchQuery}"`;
+            if (searchQuery.toLowerCase() === "love") {
+                resultsTable.style.display = '';
+                noResults.style.display = 'none';
+            } else {
+                resultsTable.style.display = 'none';
+                noResults.style.display = 'flex';
+            }
+        } else {
+            resultsTable.style.display = 'none';
+            noResults.style.display = 'flex';
+        }
+
+        const searchForm = document.querySelector('.search-marmut .search-wrap');
+        const searchInput = searchForm.querySelector('input[type="search"]');
+        searchForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const query = searchInput.value.trim();
+            if (query) {
+                window.location.href = `/search/${encodeURIComponent(query)}/`; // Redirect to the search URL
+            }
+        });
+    });
+</script>
+
+</html>
