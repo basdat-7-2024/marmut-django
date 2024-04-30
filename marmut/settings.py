@@ -28,6 +28,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+# Tailwind config
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+TAILWIND_APP_NAME = 'theme'
+
+NPM_BIN_PATH = 'C:Users/afati/AppData/Roaming/npm'
+
 # Application definition
 
 INSTALLED_APPS = [

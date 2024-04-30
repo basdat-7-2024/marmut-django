@@ -30,18 +30,18 @@
 <body>
     <!-- Setting Css di Static -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    {% include "navbar-premium.html" %}
+    {% include "navbar-guest.html" %}
 </body>
 
 <style>
 </style>
 
 <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         const searchForm = document.querySelector('.search-and-button');
         const searchInput = document.querySelector('.form-control');
 
-        searchForm.addEventListener('submit', function(event) {
+        searchForm.addEventListener('submit', function (event) {
             event.preventDefault(); // Menghentikan form dari submit biasa
             const query = searchInput.value;
             window.location.href = `/search/${encodeURIComponent(query)}/`; // Mengalihkan user ke URL yang benar
