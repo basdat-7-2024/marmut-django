@@ -18,3 +18,14 @@ import json
 def dashboard_podcaster(request):
     return render(request, "dashboard-podcaster.html")
 
+def dashboard_label(request):
+    return render(request, "dashboard-label.html")
+
+def dashboard_pengguna(request):
+    return render(request, "dashboard-pengguna.html")
+
+def dashboard_singer(request):
+    return render(request, "dashboard-singer.html")
+
+
+
