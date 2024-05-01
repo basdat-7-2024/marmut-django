@@ -35,6 +35,8 @@
     <!-- Setting Css di Static -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% include "navbar-podcaster.html" %}
+    {% include "create-episode.html" %}
+    {% include "create-podcast.html" %}
 
     <!-- Start Fe Here-->
     <div class="dashboard-podcaster dashboard">
@@ -44,9 +46,11 @@
             <div class="div-4">
                 <div class="frame-title">
                     <div class="text-wrapper-16">List Podcast</div>
-                    <div class="add-podcast">
-                        <div class="text-wrapper-17">Tambah Podcast</div>
-                    </div>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <div class="add-podcast">
+                            <div class="text-wrapper-17">Tambah Podcast</div>
+                        </div>
+                    </a>
                 </div>
                 <div class="div-4">
                     
@@ -81,9 +85,11 @@
                                 <td>
                                     <div class="frame-2">
                                         <div class="fill-wrapper"><img class="fill" src="https://i.ibb.co/bRFvJj7/trash2-fill.png" /></div>
-                                        <div class="frame-3">
-                                            <div class="text-wrapper-22">Tambah Episode</div>
-                                        </div>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#create-episode">
+                                            <div class="frame-3">
+                                                <div class="text-wrapper-22">Tambah Episode</div>
+                                            </div>
+                                        </a>
                                         <div class="frame-4">
                                             <div class="text-wrapper-22">Lihat Daftar Episode</div>
                                         </div>
@@ -103,9 +109,11 @@
                                 <td>
                                     <div class="frame-2">
                                         <div class="fill-wrapper"><img class="fill" src="https://i.ibb.co/bRFvJj7/trash2-fill.png" /></div>
-                                        <div class="frame-3">
-                                            <div class="text-wrapper-22">Tambah Episode</div>
-                                        </div>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <div class="frame-3">
+                                                <div class="text-wrapper-22">Tambah Episode</div>
+                                            </div>
+                                        </a>
                                         <div class="frame-4">
                                             <div class="text-wrapper-22">Lihat Daftar Episode</div>
                                         </div>

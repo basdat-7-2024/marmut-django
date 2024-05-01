@@ -1,42 +1,25 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="create-episode" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="container-title">
-                    <div class="text-wrapper">Create Podcast</div>
+                    <div class="text-wrapper">Create Episode</div>
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="form" onsubmit="return false;">
+                    <div class="mb-3 d-flex align-items-center">
+                        <label for="podcast" class="form-label">Podcast:</label>
+                        <div class="podcast-name">Podcast1</div>
+                    </div>
                     <div class="mb-3">
                         <label for="title" class="col-form-label">Judul:</label>
                         <input type="text" class="form-control" id="title" name="title"></input>
                     </div>
                     <div class="mb-3">
-                        <label for="genre" class="col-form-label">Genre:</label>
-                        <!-- Multiple checkboxes for genre selection -->
-                        <div class="checkbox-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Genre 1" id="genre1">
-                                <label class="form-check-label" for="genre1">
-                                    Genre 1
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Genre 2" id="genre2">
-                                <label class="form-check-label" for="genre2">
-                                    Genre 2
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Genre 3" id="genre3">
-                                <label class="form-check-label" for="genre3">
-                                    Genre 3
-                                </label>
-                            </div>
-                            <!-- More genres can be added similarly -->
-                        </div>
+                        <label for="description" class="form-label">Deskripsi:</label>
+                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="duration" class="col-form-label">Durasi:</label>
@@ -64,9 +47,12 @@
 
     .modal-header {
         display: flex;
-        align-items: center; /* Menyelaraskan item secara vertikal */
-        justify-content: space-between; /* Menyebar item di header */
-        padding: 1rem; /* Padding untuk estetika */
+        align-items: center;
+        /* Menyelaraskan item secara vertikal */
+        justify-content: space-between;
+        /* Menyebar item di header */
+        padding: 1rem;
+        /* Padding untuk estetika */
     }
 
     .container-title {
@@ -92,7 +78,8 @@
     .modal-footer {
         display: flex;
         align-items: center;
-        justify-content: center; /* Menengahkan tombol di footer */
+        justify-content: center;
+        /* Menengahkan tombol di footer */
         padding: 1rem;
         border-top: none;
     }
@@ -114,6 +101,27 @@
         /* Padding inside text inputs */
     }
 
+    .d-flex {
+        display: flex;
+        align-items: center;
+        /* Menyelaraskan item secara vertikal */
+    }
+
+    .form-label {
+        margin-bottom: 0;
+        /* Menghilangkan margin bawah pada label */
+        white-space: nowrap;
+        /* Mencegah label dari wrapping */
+    }
+
+    .podcast-name {
+        margin-left: 0.4rem;
+        padding: 0.375rem 0.25rem;
+        background-color: #ffffff;
+        border-radius: 0.375rem;
+        font-weight: bold;
+    }
+
     .button {
         all: unset;
         box-sizing: border-box;
@@ -122,7 +130,8 @@
         height: 56px;
         align-items: center;
         justify-content: center;
-        padding: 0px 32px; /* Sesuaikan padding jika perlu */
+        padding: 0px 32px;
+        /* Sesuaikan padding jika perlu */
         background-color: #ffa54b;
         border-radius: var(--variable-collection-border-radius);
         border: 2px solid;
