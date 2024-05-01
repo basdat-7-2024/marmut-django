@@ -9,7 +9,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="btn btn-outline-success logout-button" href="{% url 'authentication:login' %}" role="button">Login</a>
-        <a class="btn btn-outline-danger logout-button" href="#" role="button">Register</a>
+        <a class="btn btn-outline-danger logout-button" href="{% url 'authentication:register' %}"
+            role="button">Register</a>
 
         </form>
     </div>

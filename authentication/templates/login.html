@@ -28,31 +28,313 @@
 </head>
 
 <body>
-
     <!-- Setting Css di Static -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <!-- Navigation bar-->
-    <nav class="navigation-bar navbar navbar-expand-lg">
-        <a href="#" class="logo-navbar navbar-brand">
-            <img class="marmut-image" src="https://i.ibb.co/X3rKb3B/Group-3304.png" alt="Marmut" />
-            <div class="text-navbar">Marmut</div>
-        </a>
-        <div class="navbar-right-section">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedMarmut"
-                aria-controls="navbarSupportedMarmut" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="btn btn-outline-success logout-button" href="#" role="button">Login</a>
-            <a class="btn btn-outline-danger logout-button" href="#" role="button">Register</a>
+    {% include "navbar-guest.html" %}
 
+    <div class="form-login">
+        <div class="wrap-login">
+            <div class="header-login">
+                <img class="logo-marmut" src="https://i.ibb.co/m9FtFLP/Logo-Marmut.png" />
+                <div class="frame">
+                    <div class="text-wrapper">Marmut C-7</div>
+                    <div class="div">Form Login</div>
+                </div>
+            </div>
+            <form class="body-login form-control" style="border: none;">
+                <div class="input-field">
+                    <div class="div-2">
+                        <label class="text-wrapper-2" for="input-1">Email</label>
+                        <div class="text-input">
+                            <img class="img" src="https://i.ibb.co/VN56vyF/envelope-fill.png" />
+                            <div class="frame-2">
+                                <input class="frame-2" placeholder="Email" type="email" id="email" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-2">
+                        <div class="text-wrapper-2">Password</div>
+                        <div class="text-input">
+                            <img class="img" src="https://i.ibb.co/sFxfCkq/Vector-1.png" />
+                            <div class="frame-2">
+                                <input class="frame-2" placeholder="Password" type="password" id="password" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="login-button">
+                    <button class="button">
+                        <div class="text-wrapper-3">Login</div>
+                    </button>
+                </button>
             </form>
         </div>
-        </div>
-    </nav>
+    </div>
 
+    <!-- <div class="welcome-card">
+        <div class="div">
+            <div class="div">
+                <div class="row">
+                    <img class="logo-marmut" src="https://i.ibb.co/X3rKb3B/Group-3304.png" />
+                    <div class="col">
+                        <div class="text-wrapper">Marmut - C7</div>
+                        <div class="text-wrapper-2">Form Login</div>
+                    </div>
+                </div>
+                <div class="div">
+                    <form action="">
+                        <input type="text" class="form-input" name="" id="" placeholder="username">
+                        <input type="text" class="form-input" name="" id="" placeholder="password">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+</body>
 
 <style>
+    .form-login {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 64px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 48px 64px 64px;
+        background-color: #ffffff;
+        border-radius: 32px;
+        box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
+        max-width: calc(40%);
+        overflow: auto;
 
+    }
+
+    .form-login .wrap-login {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .form-login .header-login {
+        display: inline-flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 20px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .form-login .logo-marmut {
+        position: relative;
+        width: 85px;
+        height: 85px;
+    }
+
+    .form-login .frame {
+        display: inline-flex;
+        flex-direction: column;
+        flex: 0 0 auto;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .form-login .text-wrapper {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--p-semi-bold-font-family);
+        font-weight: var(--p-semi-bold-font-weight);
+        color: var(--light-grey);
+        font-size: var(--p-semi-bold-font-size);
+        letter-spacing: var(--p-semi-bold-letter-spacing);
+        line-height: var(--p-semi-bold-line-height);
+        white-space: nowrap;
+        font-style: var(--p-semi-bold-font-style);
+    }
+
+    .form-login .div {
+        position: relative;
+        width: fit-content;
+        font-family: var(--h2-font-family);
+        font-weight: var(--h2-font-weight);
+        color: #ffa54b;
+        font-size: var(--h2-font-size);
+        letter-spacing: var(--h2-letter-spacing);
+        line-height: var(--h2-line-height);
+        white-space: nowrap;
+        font-style: var(--h2-font-style);
+    }
+
+    .form-login .body-login {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .form-login .input-field {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .form-login .div-2 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .form-login .text-wrapper-2 {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--large-text-semi-bold-font-family);
+        font-weight: var(--large-text-semi-bold-font-weight);
+        color: var(--dark-grey);
+        font-size: var(--large-text-semi-bold-font-size);
+        text-align: center;
+        letter-spacing: var(--large-text-semi-bold-letter-spacing);
+        line-height: var(--large-text-semi-bold-line-height);
+        white-space: nowrap;
+        font-style: var(--large-text-semi-bold-font-style);
+    }
+
+    .form-login .text-input {
+        display: flex;
+        width: 392px;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 20px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: #ffffff;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 2px solid;
+        border-color: #82828233;
+    }
+
+    .form-login .img {
+        object-fit: contain;
+        position: relative;
+        width: 28px;
+        height: 28px;
+    }
+
+    .form-login .frame-2 {
+        display: flex;
+        gap: 2px;
+        flex: 1;
+        flex-grow: 1;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .text-input,
+    textarea,
+    #email,
+    #password {
+        border: none;
+        background-color: #ffffff;
+        outline: none;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px white inset !important;
+    }
+
+
+    .form-login .placeholder {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: "Inter-SemiBold", Helvetica;
+        font-weight: 600;
+        color: #828282b2;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 24px;
+        white-space: nowrap;
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+
+    .form-login .placeholder-2 {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: "Inter-SemiBold", Helvetica;
+        font-weight: 600;
+        color: #828282b2;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 24px;
+        white-space: nowrap;
+    }
+
+    .form-login .login-button {
+        all: unset;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        width: 360px;
+        align-items: flex-start;
+        gap: 20px;
+        position: relative;
+        flex: 0 0 auto;
+        opacity: 0.5;
+    }
+
+    .form-login .button {
+        all: unset;
+        box-sizing: border-box;
+        display: flex;
+        height: 64px;
+        align-items: center;
+        justify-content: center;
+        gap: var(--tokens-measurements-button-gap);
+        padding: 0px 32px;
+        position: relative;
+        align-self: stretch;
+        width: 100%;
+        background-color: #ffa54b;
+        border-radius: 16px;
+        border: 2px solid;
+        border-color: transparent;
+    }
+
+    .form-login .text-wrapper-3 {
+        position: relative;
+        width: fit-content;
+        font-family: var(--large-text-semi-bold-font-family);
+        font-weight: var(--large-text-semi-bold-font-weight);
+        color: #ffffff;
+        font-size: var(--large-text-semi-bold-font-size);
+        text-align: center;
+        letter-spacing: var(--large-text-semi-bold-letter-spacing);
+        line-height: var(--large-text-semi-bold-line-height);
+        white-space: nowrap;
+        font-style: var(--large-text-semi-bold-font-style);
+    }
 </style>
+
 </html>

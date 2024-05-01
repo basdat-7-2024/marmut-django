@@ -15,23 +15,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
 
-def dashboard_podcaster(request):
-    return render(request, "dashboard-podcaster.html")
-
-def dashboard_podcaster_none(request):
-    return render(request, "dashboard-podcaster-none.html")
-
-def dashboard_label(request):
-    return render(request, "dashboard-label.html")
-
-def dashboard_pengguna(request):
-    return render(request, "dashboard-pengguna.html")
-
-def dashboard_singer(request):
-    return render(request, "dashboard-singer.html")
-
-def tes_create(request):
-    return render(request, "create-podcast.html")
-
-
+def chart_list(request):
+    return render(request, "chart-list.html")
 

@@ -28,6 +28,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+# Tailwind config
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+TAILWIND_APP_NAME = 'theme'
+
+NPM_BIN_PATH = 'C:Users/afati/AppData/Roaming/npm'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -35,6 +44,8 @@ INSTALLED_APPS = [
     'langganan_paket',
     'downloaded_song',
     'searchbar',
+    'chart',
+    'dashboard',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -124,8 +135,6 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
     
 ]
-
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
