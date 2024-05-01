@@ -1,30 +1,3 @@
-.dashboard-podcaster .text-wrapper-14 {
-    position: relative;
-    width: fit-content;
-    margin-top: -1px;
-    font-family: var(--large-text-semi-bold-font-family);
-    font-weight: var(--large-text-semi-bold-font-weight);
-    color: var(--dark-grey);
-    font-size: var(--large-text-semi-bold-font-size);
-    letter-spacing: var(--large-text-semi-bold-letter-spacing);
-    line-height: var(--large-text-semi-bold-line-height);
-    white-space: nowrap;
-    font-style: var(--large-text-semi-bold-font-style);
-}
-
-.dashboard-podcaster .text-wrapper-15 {
-    position: relative;
-    width: fit-content;
-    font-family: var(--h4-font-family);
-    font-weight: var(--h4-font-weight);
-    color: var(--black);
-    font-size: var(--h4-font-size);
-    letter-spacing: var(--h4-letter-spacing);
-    line-height: var(--h4-line-height);
-    white-space: nowrap;
-    font-style: var(--h4-font-style);
-}
-
 .dashboard-podcaster .frame-title {
     display: flex;
     align-items: center;

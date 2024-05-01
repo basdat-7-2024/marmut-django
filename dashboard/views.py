@@ -18,6 +18,9 @@ import json
 def dashboard_podcaster(request):
     return render(request, "dashboard-podcaster.html")
 
+def dashboard_podcaster_none(request):
+    return render(request, "dashboard-podcaster-none.html")
+
 def dashboard_label(request):
     return render(request, "dashboard-label.html")
 
