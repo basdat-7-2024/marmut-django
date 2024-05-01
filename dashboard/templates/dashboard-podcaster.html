@@ -9,7 +9,10 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styleguide.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard_podcaster_style.css' %}">
+    <!-- jangan dihapus ya yang ini -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard_podcaster_style.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/general_dashboard_style.css' %}"> 
+    
 
     <!-- Setting Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css">
@@ -34,7 +37,7 @@
     {% include "navbar-podcaster.html" %}
 
     <!-- Start Fe Here-->
-    <div class="dashboard-podcaster">
+    <div class="dashboard-podcaster dashboard">
         {% include "detail-pengguna.html" %}
 
         <div class="frame-list">
