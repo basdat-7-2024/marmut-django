@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'langganan_paket',
     'downloaded_song',
     'searchbar',
+    'chart',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

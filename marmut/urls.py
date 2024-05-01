@@ -23,4 +23,5 @@ urlpatterns = [
     path('langganan-paket/', include('langganan_paket.urls')),
     path('downloaded_song/', include('downloaded_song.urls')),
     path('search/<str:query>/', include('searchbar.urls')),
+    path('chart/', include('chart.urls')),
 ]
