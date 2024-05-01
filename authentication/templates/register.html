@@ -30,23 +30,386 @@
 <body>
     <!-- Setting Css di Static -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Navigation bar-->
     {% include "navbar-guest.html" %}
+
+    <div class="form-register">
+        <div class="wrap-login">
+            <div class="header-login">
+                <img class="logo-marmut" src="https://i.ibb.co/m9FtFLP/Logo-Marmut.png" />
+                <div class="frame">
+                    <div class="text-wrapper">Marmut C-7</div>
+                    <div class="div">Form Register</div>
+                </div>
+            </div>
+            <form class="body-login form-control" style="border: none; flex-direction: column;">
+                <div class="input-field">
+                    <div style="flex-direction: row; display: flex;">
+                        <div class="col" style="display: flex; flex-direction: column; gap: 24px;">
+                            <div class=" div-2">
+                                <label class="text-wrapper-2" for="input-1">Email</label>
+                                <div class="text-input">
+                                    <img class="img" src="https://i.ibb.co/VN56vyF/envelope-fill.png" />
+                                    <div class="frame-2">
+                                        <input class="frame-2" placeholder="Email" type="email" id="email" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="div-2">
+                                <div class="text-wrapper-2">Nama</div>
+                                <div class="text-input">
+                                    <img class="img" src="https://i.ibb.co/sFxfCkq/Vector-1.png" />
+                                    <div class="frame-2">
+                                        <input class="frame-2" placeholder="Nama" type="text" id="nama" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="div-2">
+                                <div class="text-wrapper-2">Tempat Lahir</div>
+                                <div class="text-input">
+                                    <img class="img" src="https://i.ibb.co/sFxfCkq/Vector-1.png" />
+                                    <div class="frame-2">
+                                        <input class="frame-2" placeholder="Password" type="text" id="tempat-lahir" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="div-2">
+                                <div class="text-wrapper-2">Kota Asal</div>
+                                <div class="text-input">
+                                    <img class="img" src="https://i.ibb.co/sFxfCkq/Vector-1.png" />
+                                    <div class="frame-2">
+                                        <input class="frame-2" placeholder="Kota Asal" type="Text" id="tempat-lahir" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- COLLLUMMNN -->
+                        <div style="padding: 12px;"></div>
+                        <div class="col" style="display: flex; flex-direction: column; gap: 24px;">
+                            <div class=" div-2">
+                                <div class="text-wrapper-2">Password</div>
+                                <div class="text-input">
+                                    <img class="img" src="https://i.ibb.co/sFxfCkq/Vector-1.png" />
+                                    <div class="frame-2">
+                                        <input class="frame-2" placeholder="Password" type="text" id="tempat-lahir" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="div-2">
+                                <div class="text-wrapper-2">Gender</div>
+                                <div class="text-input">
+                                    <img class="img" src="https://i.ibb.co/sFxfCkq/Vector-1.png" />
+                                    <div class="frame-2">
+                                        <input class="frame-2" placeholder="Gender" type="text" id="gender" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="div-2">
+                                <div class="text-wrapper-2">Tanggal Lahir</div>
+                                <div class="text-input">
+                                    <img class="img" src="https://i.ibb.co/sFxfCkq/Vector-1.png" />
+                                    <div class="frame-2">
+                                        <input class="frame-2" placeholder="Password" type="date" id="tempat-lahir" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="align-self: self-start;">
+                    <div class="text-wrapper-2">Role</div>
+                    <div style="display: flex; flex-direction: row; gap: 24px;">
+                        <div>
+                            <input type="checkbox" name="podcaster" id="podcaster" value="podcaster"
+                                style="width: 16px; height: 16px;vertical-align: middle;">
+                            <label for="podcaster" style="vertical-align: middle;">Podcaster</label>
+                        </div>
+
+                        <div>
+                            <input type="checkbox" name="artist" id="artist" value="artist"
+                                style="width: 16px; height: 16px;vertical-align: middle;">
+                            <label for="artist" style="vertical-align: middle;">Artist</label>
+                        </div>
+
+                        <div>
+                            <input type="checkbox" name="songwriter" id="songwriter" value="songwriter"
+                                style="width: 16px; height: 16px; vertical-align: middle;">
+                            <label for="songwriter" style="vertical-align: middle;">Songwriter</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    <button class="login-button">
+                        <button class="button">
+                            <div class="text-wrapper-3">Login</div>
+                        </button>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- <div class="welcome-card">
+        <div class="div">
+            <div class="div">
+                <div class="row">
+                    <img class="logo-marmut" src="https://i.ibb.co/X3rKb3B/Group-3304.png" />
+                    <div class="col">
+                        <div class="text-wrapper">Marmut - C7</div>
+                        <div class="text-wrapper-2">Form Login</div>
+                    </div>
+                </div>
+                <div class="div">
+                    <form action="">
+                        <input type="text" class="form-input" name="" id="" placeholder="username">
+                        <input type="text" class="form-input" name="" id="" placeholder="password">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
 </body>
 
 <style>
+    .form-register {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        margin-top: 64px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 48px 96px 64px;
+        background-color: #ffffff;
+        border-radius: 32px;
+        box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
+        max-width: calc(70%);
+        overflow: auto;
+    }
+
+    .form-register .wrap-login {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .form-register .header-login {
+        display: inline-flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 20px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .form-register .logo-marmut {
+        position: relative;
+        width: 85px;
+        height: 85px;
+    }
+
+    .form-register .frame {
+        display: inline-flex;
+        flex-direction: column;
+        flex: 0 0 auto;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .form-register .text-wrapper {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--p-semi-bold-font-family);
+        font-weight: var(--p-semi-bold-font-weight);
+        color: var(--light-grey);
+        font-size: var(--p-semi-bold-font-size);
+        letter-spacing: var(--p-semi-bold-letter-spacing);
+        line-height: var(--p-semi-bold-line-height);
+        white-space: nowrap;
+        font-style: var(--p-semi-bold-font-style);
+    }
+
+    .form-register .div {
+        position: relative;
+        width: fit-content;
+        font-family: var(--h2-font-family);
+        font-weight: var(--h2-font-weight);
+        color: #FF516E;
+        font-size: var(--h2-font-size);
+        letter-spacing: var(--h2-letter-spacing);
+        line-height: var(--h2-line-height);
+        white-space: nowrap;
+        font-style: var(--h2-font-style);
+    }
+
+    .form-register .body-login {
+        display: inline-flex;
+        align-items: center;
+        gap: 40px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .form-register .input-field {
+        display: inline-flex;
+        align-items: center;
+        gap: 24px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .form-register .div-2 {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .form-register .text-wrapper-2 {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--large-text-semi-bold-font-family);
+        font-weight: var(--large-text-semi-bold-font-weight);
+        color: var(--dark-grey);
+        font-size: var(--large-text-semi-bold-font-size);
+        text-align: center;
+        letter-spacing: var(--large-text-semi-bold-letter-spacing);
+        line-height: var(--large-text-semi-bold-line-height);
+        white-space: nowrap;
+        font-style: var(--large-text-semi-bold-font-style);
+    }
+
+    .form-register .text-input {
+        display: flex;
+        width: 392px;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 20px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: #ffffff;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 2px solid;
+        border-color: #82828233;
+    }
+
+    .form-register .img {
+        object-fit: contain;
+        position: relative;
+        width: 28px;
+        height: 28px;
+    }
+
+    .form-register .frame-2 {
+        display: flex;
+        gap: 2px;
+        flex: 1;
+        flex-grow: 1;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .text-input,
+    textarea,
+    input {
+        border: none;
+        background-color: #ffffff;
+        outline: none;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px white inset !important;
+    }
+
+
+    .form-register .placeholder {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: "Inter-SemiBold", Helvetica;
+        font-weight: 600;
+        color: #828282b2;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 24px;
+        white-space: nowrap;
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+
+    .form-register .placeholder-2 {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: "Inter-SemiBold", Helvetica;
+        font-weight: 600;
+        color: #828282b2;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 24px;
+        white-space: nowrap;
+    }
+
+    .form-register .login-button {
+        all: unset;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        width: 360px;
+        align-items: flex-start;
+        gap: 20px;
+        position: relative;
+        flex: 0 0 auto;
+        opacity: 0.5;
+    }
+
+    .form-register .button {
+        all: unset;
+        box-sizing: border-box;
+        display: flex;
+        height: 64px;
+        align-items: center;
+        justify-content: center;
+        gap: var(--tokens-measurements-button-gap);
+        padding: 0px 32px;
+        position: relative;
+        align-self: stretch;
+        width: 100%;
+        background-color: #FF516E;
+        border-radius: 16px;
+        border: 2px solid;
+        border-color: transparent;
+    }
+
+    .form-register .text-wrapper-3 {
+        position: relative;
+        width: fit-content;
+        font-family: var(--large-text-semi-bold-font-family);
+        font-weight: var(--large-text-semi-bold-font-weight);
+        color: #ffffff;
+        font-size: var(--large-text-semi-bold-font-size);
+        text-align: center;
+        letter-spacing: var(--large-text-semi-bold-letter-spacing);
+        line-height: var(--large-text-semi-bold-line-height);
+        white-space: nowrap;
+        font-style: var(--large-text-semi-bold-font-style);
+    }
 </style>
-
-<script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function () {
-        const searchForm = document.querySelector('.search-and-button');
-        const searchInput = document.querySelector('.form-control');
-
-        searchForm.addEventListener('submit', function (event) {
-            event.preventDefault(); // Menghentikan form dari submit biasa
-            const query = searchInput.value;
-            window.location.href = `/search/${encodeURIComponent(query)}/`; // Mengalihkan user ke URL yang benar
-        });
-    });
-</script>
 
 </html>
