@@ -24,4 +24,5 @@ urlpatterns = [
     path('downloaded_song/', include('downloaded_song.urls')),
     path('search/<str:query>/', include('searchbar.urls')),
     path('chart/', include('chart.urls')),
+    path('dashboard/', include('dashboard.urls')),
 ]
