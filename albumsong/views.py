@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 import datetime
 from django.http import HttpResponseRedirect
@@ -15,8 +16,22 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
 
-def chart_list(request):
-    return render(request, "chart-list.html")
+# Create your views here.
 
-def chart_detail(request):
-    return render(request, "chart-detail.html")
+def albumsong(request):
+    return render(request, 'albumsong.html')
+
+def readalbum(request):
+    return render(request, 'readalbum.html')
+
+def albumkosong(request):
+    return render(request, 'albumkosong.html')
+
+def detaillagualbum(request):
+    return render(request, 'detaillagualbum.html')
+
+def listroyalti(request):
+    return render(request, 'listroyalti.html')
+
+def readdeletealbum(request):
+    return render(request, 'readdeletealbum.html')
