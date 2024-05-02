@@ -25,6 +25,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
@@ -34,33 +36,75 @@
   <!-- Navigation bar-->
   {% include "navbar-guest.html" %}
 
-  <div class="form-register" style="display: flex; justify-content: center;">
+  <div class="form-register">
     <div class="wrap-login">
       <div class="header-login">
         <img class="logo-marmut" src="https://i.ibb.co/m9FtFLP/Logo-Marmut.png" />
         <div class="frame">
           <div class="text-wrapper">Marmut C-7</div>
-          <div class="div">Register</div>
+          <div class="div">Register Label</div>
         </div>
       </div>
+      <form class="body-login form-control" style="border: none; flex-direction: column;">
+        <div class="input-field">
+          <div style="flex-direction: row; display: flex;">
+            <div class="col" style="display: flex; flex-direction: column; gap: 24px;">
+              <div class=" div-2">
+                <label class="text-wrapper-2" for="input-1">Email</label>
+                <div class="text-input">
+                  <img class="img" src="https://i.ibb.co/VN56vyF/envelope-fill.png" />
+                  <div class="frame-2">
+                    <input class="frame-2" placeholder="Email" type="email" id="email" />
+                  </div>
+                </div>
+              </div>
+              <div class="div-2">
+                <div class="text-wrapper-2">Nama</div>
+                <div class="text-input">
+                  <img class="img" src="https://i.ibb.co/ZYvQFby/Vector-2.png" />
+                  <div class="frame-2">
+                    <input class="frame-2" placeholder="Nama" type="text" id="nama" />
+                  </div>
+                </div>
+              </div>
+            </div>
 
-      <div>
-        <button class="login-button">
-          <a href="{% url 'authentication:register' %}">
+            <!-- COLLLUMMNN -->
+            <div style="padding: 12px;"></div>
+            <div class="col" style="display: flex; flex-direction: column; gap: 24px;">
+              <div class=" div-2">
+                <div class="text-wrapper-2">Password</div>
+                <div class="text-input">
+                  <img class="img" src="https://i.ibb.co/sFxfCkq/Vector-1.png" />
+                  <div class="frame-2">
+                    <input class="frame-2" placeholder="Password" type="text" id="tempat-lahir" />
+                  </div>
+                </div>
+              </div>
+              <div class="div-2">
+                <div class="text-wrapper-2">Kontak</div>
+                <div class="text-input">
+                  <!-- <img class="img" src="https://i.ibb.co/3SMVTP5/Vector-5.png" /> -->
+                  <span class="material-symbols-outlined" style="color: gray;">
+                    call
+                  </span>
+                  <div class="frame-2">
+                    <input class="frame-2" placeholder="Kontak" type="text" id="kontak" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button class="login-button">
             <button class="button">
-              <div class="text-wrapper-3">Sebagai Pengguna</div>
+              <div class="text-wrapper-3">Register Label</div>
             </button>
-          </a>
-        </button>
-        <div style="padding: 12px;"></div>
-        <button class="login-button">
-          <a href="{% url 'authentication:register_label' %}">
-            <button class="button" style="background-color: white; border: 3.5px solid #FF516E; ">
-              <div class="text-wrapper-3" style="color: #FF516E;">Sebagai Label</div>
-            </button>
-          </a>
-        </button>
-      </div>
+          </button>
+        </div>
+
+      </form>
     </div>
   </div>
 
@@ -87,10 +131,6 @@
 </body>
 
 <style>
-  a {
-    text-decoration: none;
-  }
-
   .form-register {
     padding: 0;
     display: flex;
@@ -102,7 +142,7 @@
     background-color: #ffffff;
     border-radius: 32px;
     box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
-    max-width: calc(40%);
+    max-width: calc(70%);
     overflow: auto;
   }
 
