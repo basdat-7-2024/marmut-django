@@ -21,5 +21,8 @@ def podcast_detail(request):
 def kelola_podcast(request):
     return render(request, "kelola-podcast.html")
 
+def kelola_podcast_none(request):
+    return render(request, "kelola-podcast-none.html")
+
 def lihat_episode(request):
     return render(request, "lihat-episode-2.html")
