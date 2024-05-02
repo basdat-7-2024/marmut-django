@@ -15,11 +15,5 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
 
-def chart_list(request):
-    return render(request, "chart-list.html")
-
-def chart_detail(request):
-    return render(request, "chart-detail.html")
-
 def podcast_detail(request):
     return render(request, "podcastdetail.html")

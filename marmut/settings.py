@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'downloaded_song',
     'searchbar',
     'chart',
+    'podcast',
     'dashboard',
     'django.contrib.admin',
     'django.contrib.auth',
