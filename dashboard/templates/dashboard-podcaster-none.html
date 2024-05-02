@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Setting Css -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleguide.css' %}">
+
+    <!-- jangan dihapus ya yang ini -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/general_dashboard_style.css' %}">
+
+
+    <!-- Setting Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Setting Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- sesuaikan navbar -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% include "navbar-podcaster.html" %}
+    {% include "create-podcast.html" %}
+
+    <div class="dashboard">
+        {% include "detail-pengguna.html" %}
+        <div class="frame-list">
+            <div class="container-list">
+                <div class="container">
+                    <div class="container-icon">
+                        <img class="fun-writter" src="https://i.ibb.co/tPFw4R3/Fun-Writter.png" />
+                        <div class="text-wrapper">Anda belum Memiliki Podcast</div>
+                    </div>
+                    <button class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <div class="button-text">Create Podcast</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+
+</body>
+
+<style>
+    .container-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 48px 437px;
+        background-color: #ffffff;
+        width: 100%;
+        max-width: 1155px;
+        min-height: 500px;
+    }
+
+    .container-list .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .container-list .container-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .container-list .fun-writter {
+        width: 250px;
+        height: 250px;
+    }
+
+    .container-list .text-wrapper {
+        font-family: var(--h3-font-family);
+        font-weight: var(--h3-font-weight);
+        color: var(--black);
+        font-size: var(--h3-font-size);
+        letter-spacing: var(--h3-letter-spacing);
+        line-height: var(--h3-line-height);
+        text-align: center;
+        margin-top: 320px;
+        margin-left: 95px;
+    }
+
+    .container-list .button {
+        all: unset;
+        display: flex;
+        width: 350px;
+        height: 64px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 32px;
+        background-color: #ffa54b;
+        border-radius: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+        /* Menambahkan margin atas untuk memberi jarak dari teks */
+    }
+
+    .container-list .div {
+        position: relative;
+        width: fit-content;
+        font-family: var(--large-text-semi-bold-font-family);
+        font-weight: var(--large-text-semi-bold-font-weight);
+        color: #ffffff;
+        font-size: var(--large-text-semi-bold-font-size);
+        text-align: center;
+        letter-spacing: var(--large-text-semi-bold-letter-spacing);
+        line-height: var(--large-text-semi-bold-line-height);
+        white-space: nowrap;
+        font-style: var(--large-text-semi-bold-font-style);
+    }
+
+    .container-list .button-text {
+        font-family: var(--large-text-semi-bold-font-family);
+        font-weight: var(--large-text-semi-bold-font-weight);
+        color: #ffffff;
+        font-size: var(--large-text-semi-bold-font-size);
+        letter-spacing: var(--large-text-semi-bold-letter-spacing);
+        line-height: var(--large-text-semi-bold-line-height);
+        text-align: center;
+    }
+</style>
+
+</html>

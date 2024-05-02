@@ -28,6 +28,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+# Tailwind config
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+TAILWIND_APP_NAME = 'theme'
+
+NPM_BIN_PATH = 'C:Users/afati/AppData/Roaming/npm'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -62,7 +71,7 @@ ROOT_URLCONF = 'marmut.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,6 +135,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
+    
 ]
 
 # Default primary key field type
