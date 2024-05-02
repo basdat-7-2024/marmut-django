@@ -22,5 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('langganan-paket/', include('langganan_paket.urls')),
     path('downloaded_song/', include('downloaded_song.urls')),
+    path('search/<str:query>/', include('searchbar.urls')),
+    path('chart/', include('chart.urls')),
+    path('dashboard/', include('dashboard.urls')),
+    path('podcast/', include('podcast.urls')),
     path('albumsong/', include('albumsong.urls')),
 ]

@@ -32,3 +32,6 @@ def detaillagualbum(request):
 
 def listroyalti(request):
     return render(request, 'listroyalti.html')
+
+def readdeletealbum(request):
+    return render(request, 'readdeletealbum.html')

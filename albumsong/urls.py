@@ -10,4 +10,5 @@ urlpatterns = [
     path('albumkosong/', albumkosong, name='albumkosong'),
     path('detaillagualbum/', detaillagualbum, name='detaillagualbum'),
     path('listroyalti/', listroyalti, name='listroyalti'),
+    path('readdeletealbum/', readdeletealbum, name='readdeletealbum'),
 ]
