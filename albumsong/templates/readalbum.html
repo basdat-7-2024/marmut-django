@@ -414,24 +414,24 @@
                 <div class="frame-9">
                   <!-- Add checkboxes for each genre -->
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="genre1">
-                    <label class="form-check-label" for="genre1">Genre 1</label>
+                    <input class="form-check-input" type="checkbox" value="" id="genre1a">
+                    <label class="form-check-label" for="genre1a">Genre 1</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="genre2">
-                    <label class="form-check-label" for="genre2">Genre 2</label>
+                    <input class="form-check-input" type="checkbox" value="" id="genre2a">
+                    <label class="form-check-label" for="genre2a">Genre 2</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="genre3">
-                    <label class="form-check-label" for="genre3">Genre 3</label>
+                    <input class="form-check-input" type="checkbox" value="" id="genre3a">
+                    <label class="form-check-label" for="genre3a">Genre 3</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="genre4">
-                    <label class="form-check-label" for="genre4">Genre 4</label>
+                    <input class="form-check-input" type="checkbox" value="" id="genre4a">
+                    <label class="form-check-label" for="genre4a">Genre 4</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="genre5">
-                    <label class="form-check-label" for="genre5">Genre 5</label>
+                    <input class="form-check-input" type="checkbox" value="" id="genre5a">
+                    <label class="form-check-label" for="genre5a">Genre 5</label>
                   </div>
                   <!-- Add more genres as needed -->
                 </div>
@@ -2191,7 +2191,6 @@
 
 </html>
 
-<input class="form-check-input" type="checkbox" value="" id="genre1">
 
 <script>
     document.getElementById('genre1').addEventListener('change', function() {
@@ -2227,6 +2226,46 @@
     });
 
     document.getElementById('genre5').addEventListener('change', function() {
+        if(this.checked) {
+            this.style.backgroundColor = '#ffa54b';
+        } else {
+            this.style.backgroundColor = 'initial';
+        }
+    });
+
+    document.getElementById('genre1a').addEventListener('change', function() {
+        if(this.checked) {
+            this.style.backgroundColor = '#ffa54b';
+        } else {
+            this.style.backgroundColor = 'initial';
+        }
+    });
+
+    document.getElementById('genre2a').addEventListener('change', function() {
+        if(this.checked) {
+            this.style.backgroundColor = '#ffa54b';
+        } else {
+            this.style.backgroundColor = 'initial';
+        }
+    });
+
+    document.getElementById('genre3a').addEventListener('change', function() {
+        if(this.checked) {
+            this.style.backgroundColor = '#ffa54b';
+        } else {
+            this.style.backgroundColor = 'initial';
+        }
+    });
+
+    document.getElementById('genre4a').addEventListener('change', function() {
+        if(this.checked) {
+            this.style.backgroundColor = '#ffa54b';
+        } else {
+            this.style.backgroundColor = 'initial';
+        }
+    });
+
+    document.getElementById('genre5a').addEventListener('change', function() {
         if(this.checked) {
             this.style.backgroundColor = '#ffa54b';
         } else {

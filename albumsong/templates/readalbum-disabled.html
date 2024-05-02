@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Setting Css -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleguide.css' %}">
+
+    <!-- jangan dihapus ya yang ini -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/general_dashboard_style.css' %}">
+
+    <!-- Setting Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Setting Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- sesuaikan navbar -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% include "navbar-podcaster.html" %}
+
+    <div class="dashboard">
+        {% include "detail-pengguna.html" %}
+
+        <div class="frame">  
+            <div class="div">      
+                <div class="div-2">      
+                    <div class="text-wrapper">List Album</div>           
+                        <button class="button"><div class="text-wrapper-2">Tambah Album</div>
+                        </button>         
+                    </div>         
+                    <div class="div">           
+                        <div class="datatable">             
+                            <div class="table-header">               
+                                <div class="header-cell"><div class="text-wrapper-3">Judul</div></div>               
+                                <div class="sort-button-wrapper">                 
+                                    <div class="sort-button"><div class="text-wrapper-3">Label</div></div>               
+                                </div>               
+                                <div class="div-wrapper">                 
+                                    <div class="sort-button-2"><div class="text-wrapper-3">Jumlah Lagu</div></div>               
+                                </div>               
+                                <div class="div-wrapper">                
+                                     <div class="sort-button"><div class="text-wrapper-3">Total Durasi</div></div>               
+                                    </div>               
+                                    <div class="header-cell-2">                 
+                                        <div class="sort-button"><div class="text-wrapper-3">Action</div></div>               
+                                    </div>             
+                                </div>             
+                                <div class="table-row">               
+                                    <div class="table-row-cell"><div class="text-wrapper-4">Album New</div></div>               
+                                    <div class="table-row-cell-2"><div class="text-wrapper-5">Label D</div></div>               
+                                    <div class="table-row-cell-3"><div class="text-wrapper-6">0</div></div>               
+                                    <div class="table-row-cell-3"><div class="text-wrapper-6">0 Menit</div></div>               
+                                    <div class="div-3">                 
+                                        <div class="fill-wrapper"><img class="fill" src="img/trash2-fill.svg" /></div>                 
+                                        <div class="div-wrapper-2"><div class="text-wrapper-7">Lihat Daftar Lagu</div></div>                 
+                                        <div class="div-wrapper-3"><div class="text-wrapper-7">Tambah Lagu</div></div>               
+                                    </div>             
+                                </div>             
+                                <div class="table-row">               
+                                    <div class="table-row-cell"><div class="text-wrapper-4">Album 1</div></div>               
+                                    <div class="table-row-cell-2"><div class="text-wrapper-5">Label A</div></div>               
+                                    <div class="table-row-cell-3"><div class="text-wrapper-6">4</div></div>               
+                                    <div class="table-row-cell-3"><div class="text-wrapper-6">28 Menit</div></div>               
+                                    <div class="div-3">                 
+                                        <div class="fill-wrapper"><img class="fill" src="img/trash2-fill.svg" /></div>                 
+                                        <div class="div-wrapper-2"><div class="text-wrapper-7">Lihat Daftar Lagu</div></div>                 
+                                        <div class="div-wrapper-3"><div class="text-wrapper-7">Tambah Lagu</div></div>               
+                                    </div>             
+                                </div>             
+                                <div class="table-row">               
+                                    <div class="table-row-cell"><div class="text-wrapper-4">Album B</div></div>               
+                                    <div class="table-row-cell-2"><div class="text-wrapper-5">Label B</div></div>               
+                                    <div class="table-row-cell-3"><div class="text-wrapper-6">0</div></div>               
+                                    <div class="table-row-cell-3"><div class="text-wrapper-6">0 Menit</div></div>               
+                                    <div class="div-3">                 
+                                        <div class="fill-wrapper"><img class="fill" src="img/trash2-fill.svg" /></div>                 
+                                    <div class="div-wrapper-2"><div class="text-wrapper-7">Lihat Daftar Lagu</div></div>                 
+                                    <div class="div-wrapper-3"><div class="text-wrapper-7">Tambah Lagu</div></div>               
+                                </div>             
+                            </div>             
+                            <div class="table-row">               
+                                <div class="table-row-cell"><div class="text-wrapper-4">Album 1</div></div>               
+                                <div class="table-row-cell-2"><div class="text-wrapper-5">Label A</div></div>               
+                                <div class="table-row-cell-3"><div class="text-wrapper-6">4</div></div>               
+                                <div class="table-row-cell-3"><div class="text-wrapper-6">28 Menit</div></div>               
+                                <div class="div-3">                 
+                                    <div class="fill-wrapper"><img class="fill" src="img/trash2-fill.svg" /></div>                 
+                                    <div class="div-wrapper-2"><div class="text-wrapper-7">Lihat Daftar Lagu</div></div>                 
+                                    <div class="div-wrapper-3"><div class="text-wrapper-7">Tambah Lagu</div></div>               
+                                </div>             
+                            </div>           
+                        </div>         
+                    </div>       
+                </div>     
+            </div>
+     
+    
+    </div>
+
+    
+
+    
+
+</body>
+
+<style>
+   .frame {   display: inline-flex;   flex-direction: column;   align-items: flex-start;   gap: 10px;   padding: 48px 64px;   position: relative;   background-color: #ffffff;   border-radius: 30px;   overflow: hidden; }
+
+    
+    .frame .div {   display: inline-flex;   flex-direction: column;   gap: 32px;   flex: 0 0 auto;   align-items: center;   position: relative; }  .frame .div-2 {   display: flex;   justify-content: space-between;   align-self: stretch;   width: 100%;   flex: 0 0 auto;   align-items: center;   position: relative; }  .frame .text-wrapper {   position: relative;   width: fit-content;   font-family: var(--h2-font-family);   font-weight: var(--h2-font-weight);   color: var(--black);   font-size: var(--h2-font-size);   letter-spacing: var(--h2-letter-spacing);   line-height: var(--h2-line-height);   white-space: nowrap;   font-style: var(--h2-font-style); }  .frame .button {   all: unset;   box-sizing: border-box;   display: flex;   width: 240px;   height: 56px;   align-items: center;   justify-content: center;   gap: var(--tokens-measurements-button-gap);   padding: 0px 32px;   position: relative;   background-color: #ffa54b;   border-radius: 16px;   border: 2px solid;   border-color: transparent; }  .frame .text-wrapper-2 {   position: relative;   width: fit-content;   font-family: var(--large-text-semi-bold-font-family);   font-weight: var(--large-text-semi-bold-font-weight);   color: #ffffff;   font-size: var(--large-text-semi-bold-font-size);   text-align: center;   letter-spacing: var(--large-text-semi-bold-letter-spacing);   line-height: var(--large-text-semi-bold-line-height);   white-space: nowrap;   font-style: var(--large-text-semi-bold-font-style); }  .frame .datatable {   display: flex;   flex-direction: column;   width: 1150px;   align-items: flex-start;   padding: 0px 0px 12px;   position: relative;   flex: 0 0 auto;   background-color: #ffffff;   border-radius: 12px;   overflow: hidden;   border: 1px solid;   border-color: var(--shadcn-ui-border); }  .frame .table-header {   padding: 8px 40px;   background-color: #eef5fe;   display: flex;   align-items: flex-start;   position: relative;   align-self: stretch;   width: 100%;   flex: 0 0 auto;   border-bottom-width: 1px;   border-bottom-style: solid;   border-color: var(--shadcn-ui-border); }  .frame .header-cell {   width: 210px;   padding: 0px 12px 0px 0px;   display: flex;   height: 56px;   align-items: center;   position: relative; }  .frame .text-wrapper-3 {   position: relative;   width: fit-content;   font-family: var(--large-text-semi-bold-font-family);   font-weight: var(--large-text-semi-bold-font-weight);   color: var(--black);   font-size: var(--large-text-semi-bold-font-size);   letter-spacing: var(--large-text-semi-bold-letter-spacing);   line-height: var(--large-text-semi-bold-line-height);   white-space: nowrap;   font-style: var(--large-text-semi-bold-font-style); }  .frame .sort-button-wrapper {   width: 150px;   justify-content: center;   display: flex;   height: 56px;   align-items: center;   position: relative; }  .frame .sort-button {   display: inline-flex;   height: 32px;   align-items: center;   justify-content: center;   gap: var(--tailwind-primitives-gap-gap-2);   padding: 0px var(--tailwind-primitives-padding-px-py-px-3) 0px var(--tailwind-primitives-padding-px-py-px-3);   position: relative;   flex: 0 0 auto;   border-radius: var(--shadcn-ui-radius-md); }  .frame .div-wrapper {   display: flex;   width: 140px;   height: 56px;   align-items: center;   justify-content: center;   position: relative; }  .frame .sort-button-2 {   display: inline-flex;   height: 32px;   align-items: center;   justify-content: center;   gap: var(--tailwind-primitives-gap-gap-2);   padding: 0px var(--tailwind-primitives-padding-px-py-px-3) 0px var(--tailwind-primitives-padding-px-py-px-3);   position: relative;   flex: 0 0 auto;   margin-left: -1.5px;   margin-right: -1.5px;   border-radius: var(--shadcn-ui-radius-md); }  .frame .header-cell-2 {   justify-content: center;   flex: 1;   flex-grow: 1;   display: flex;   height: 56px;   align-items: center;   position: relative; }  .frame .table-row {   padding: 4px 40px;   display: flex;   align-items: flex-start;   position: relative;   align-self: stretch;   width: 100%;   flex: 0 0 auto;   border-bottom-width: 1px;   border-bottom-style: solid;   border-color: var(--shadcn-ui-border); }  .frame .table-row-cell {   display: flex;   width: 210px;   align-items: center;   gap: 10px;   padding: var(--tailwind-primitives-padding-px-py-py-4) 0px var(--tailwind-primitives-padding-px-py-py-4) 0px;   position: relative; }  .frame .text-wrapper-4 {   position: relative;   flex: 1;   margin-top: -1px;   font-family: var(--p-medium-font-family);   font-weight: var(--p-medium-font-weight);   color: var(--shadcn-ui-foreground);   font-size: var(--p-medium-font-size);   letter-spacing: var(--p-medium-letter-spacing);   line-height: var(--p-medium-line-height);   overflow: hidden;   text-overflow: ellipsis;   display: -webkit-box;   -webkit-line-clamp: 1;   -webkit-box-orient: vertical;   font-style: var(--p-medium-font-style); }  .frame .table-row-cell-2 {   width: 150px;   gap: 10px;   display: flex;   align-items: center;   justify-content: center;   padding: var(--tailwind-primitives-padding-px-py-py-4) 0px var(--tailwind-primitives-padding-px-py-py-4) 0px;   position: relative; }  .frame .text-wrapper-5 {   position: relative;   flex: 1;   margin-top: -1px;   font-family: var(--p-medium-font-family);   font-weight: var(--p-medium-font-weight);   color: var(--shadcn-ui-foreground);   font-size: var(--p-medium-font-size);   text-align: center;   letter-spacing: var(--p-medium-letter-spacing);   line-height: var(--p-medium-line-height);   overflow: hidden;   text-overflow: ellipsis;   display: -webkit-box;   -webkit-line-clamp: 1;   -webkit-box-orient: vertical;   font-style: var(--p-medium-font-style); }  .frame .table-row-cell-3 {   width: 140px;   gap: var(--tailwind-primitives-gap-gap-2);   display: flex;   align-items: center;   justify-content: center;   padding: var(--tailwind-primitives-padding-px-py-py-4) 0px var(--tailwind-primitives-padding-px-py-py-4) 0px;   position: relative; }  .frame .text-wrapper-6 {   position: relative;   width: fit-content;   margin-top: -1px;   font-family: var(--p-medium-font-family);   font-weight: var(--p-medium-font-weight);   color: var(--shadcn-ui-foreground);   font-size: var(--p-medium-font-size);   text-align: right;   letter-spacing: var(--p-medium-letter-spacing);   line-height: var(--p-medium-line-height);   white-space: nowrap;   font-style: var(--p-medium-font-style); }  .frame .div-3 {   display: flex;   flex-wrap: wrap;   justify-content: center;   gap: 12px 12px;   flex: 1;   align-self: stretch;   flex-grow: 1;   align-items: center;   position: relative; }  .frame .fill-wrapper {   display: inline-flex;   align-items: center;   justify-content: center;   gap: 10px;   padding: 10px;   position: relative;   flex: 0 0 auto;   background-color: var(--red);   border-radius: 10px;   overflow: hidden; }  .frame .fill {   position: relative;   width: 28px;   height: 28px; }  .frame .div-wrapper-2 {   display: inline-flex;   justify-content: center;   gap: 10px;   padding: 10px 24px;   flex: 0 0 auto;   background-color: var(--orange);   border-radius: 10px;   overflow: hidden;   align-items: center;   position: relative; }  .frame .text-wrapper-7 {   position: relative;   width: fit-content;   margin-top: -1px;   font-family: var(--p-semi-bold-font-family);   font-weight: var(--p-semi-bold-font-weight);   color: #ffffff;   font-size: var(--p-semi-bold-font-size);   text-align: center;   letter-spacing: var(--p-semi-bold-letter-spacing);   line-height: var(--p-semi-bold-line-height);   white-space: nowrap;   font-style: var(--p-semi-bold-font-style); }  .frame .div-wrapper-3 {   display: inline-flex;   justify-content: center;   gap: 10px;   padding: 10px 24px;   flex: 0 0 auto;   background-color: var(--cyan);   border-radius: 10px;   overflow: hidden;   align-items: center;   position: relative; }
+</style>
+
+</html>
