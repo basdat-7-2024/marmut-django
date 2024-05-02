@@ -11,5 +11,6 @@ urlpatterns = [
     path('tes/', tes_create, name='tes_create'),
     path('label/', dashboard_label, name='dashboard_label'),
     path('pengguna/', dashboard_pengguna, name='dashboard_pengguna'),
+    path('pengguna-none/', dashboard_pengguna_none, name='dashboard-pengguna-none'),
     path('singer/', dashboard_singer, name='dashboard_singer'),
 ]

@@ -36,5 +36,8 @@ def dashboard_singer(request):
 def tes_create(request):
     return render(request, "create-podcast.html")
 
+def dashboard_pengguna_none(request):
+    return render(request, "dashboard-pengguna-none.html")
+
 
 
