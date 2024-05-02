@@ -17,3 +17,6 @@ import json
 
 def podcast_detail(request):
     return render(request, "podcastdetail.html")
+
+def kelola_podcast(request):
+    return render(request, "kelola-podcast.html")
