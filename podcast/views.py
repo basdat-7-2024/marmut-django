@@ -20,3 +20,6 @@ def podcast_detail(request):
 
 def kelola_podcast(request):
     return render(request, "kelola-podcast.html")
+
+def lihat_episode(request):
+    return render(request, "lihat-episode-2.html")

@@ -7,4 +7,5 @@ app_name = 'podcast'
 urlpatterns = [
     path('detail/', podcast_detail, name='podcast_detail'),
     path('kelola/', kelola_podcast, name='kelola_podcast'),
+    path('lihat-episode/', lihat_episode, name='lihat_episode'),
 ]
