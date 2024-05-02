@@ -13,4 +13,6 @@ urlpatterns = [
     path('pengguna/', dashboard_pengguna, name='dashboard_pengguna'),
     path('pengguna-none/', dashboard_pengguna_none, name='dashboard-pengguna-none'),
     path('singer/', dashboard_singer, name='dashboard_singer'),
+    path('song-detail/', song_detail, name='song_detail'),
+    path('playlist-detail/', playlist_detail, name='playlist_detail'),
 ]

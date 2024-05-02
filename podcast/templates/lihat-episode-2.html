@@ -39,7 +39,7 @@
         <div class="container-widget-ep">
             <div class="container-title">
                 <div class="div">
-                    <a href="{% url 'dashboard:dashboard_podcaster' %}">
+                    <a href="{% url 'podcast:kelola_podcast' %}">
                         <div class="back-btn">
                             <img class="vector" src="https://i.ibb.co/NKWfKkn/Vector-3.png" />
                             <div class="text-wrapper">Kembali</div>
@@ -56,86 +56,32 @@
                 <div class="tabel">
                     <table class="datatable">
                         <tr class="table-header">
-                            <th class="header-cell">
-                                <div class="text-wrapper-4">Judul Episode</div>
-                            </th>
-                            <th class="sort-button-wrapper">
-                                <div class="sort-button">
-                                    <div class="text-wrapper-4">Deskripsi</div>
-                                </div>
-                            </th>
-                            <th class="sort-button-wrapper">
-                                <div class="header-3">
-                                    <div class="text-wrapper-4">Durasi</div>
-                                </div>
-                            </th>
-                            <th class="sort-button-wrapper">
-                                <div class="header-4">
-                                    <div class="text-wrapper-4">Tanggal</div>
-                                </div>
-                            </th>
-                            <th class="sort-button-wrapper">
-                                <div class="header-5">
-                                    <div class="text-wrapper-4">Action</div>
-                                </div>
-                            </th>
+                            <th class="header-cell"><div class="text-wrapper-4">Judul Episode</div></th>
+                            <th class="sort-button-wrapper"><div class="sort-button"><div class="text-wrapper-4">Deskripsi</div></div></th>
+                            <th class="sort-button-wrapper"><div class="header-3"><div class="text-wrapper-4">Durasi</div></div></th>
+                            <th class="sort-button-wrapper"><div class="header-4"><div class="text-wrapper-4">Tanggal</div></div></th>
+                            <th class="sort-button-wrapper"><div class="header-5"><div class="text-wrapper-4">Action</div></div></th>
                         </tr>
                         <tr class="table-row">
-                            <td class="table-row-cell">
-                                <div class="text-wrapper-5">SubJudul1</div>
-                            </td>
-                            <td class="table-row-cell-2">
-                                <p class="text-wrapper-5">Lorem ipsum dolor sit amet consectetur.</p>
-                            </td>
-                            <td class="table-row-cell-3">
-                                <div class="text-wrapper-6">59 Menit</div>
-                            </td>
-                            <td class="table-row-cell-3">
-                                <div class="text-wrapper-6">18/03/2024</div>
-                            </td>
-                            <td class="frame-wrapper">
-                                <div class="frame">
-                                    <div class="text-wrapper-7">Hapus</div>
-                                </div>
-                            </td>
+                            <td class="table-row-cell"><div class="text-wrapper-5">SubJudul1</div></td>
+                            <td class="table-row-cell-2"><p class="text-wrapper-5">Lorem ipsum dolor sit amet consectetur.</p></td>
+                            <td class="table-row-cell-3"><div class="text-wrapper-6">59 Menit</div></td>
+                            <td class="table-row-cell-3"><div class="text-wrapper-6">18/03/2024</div></td>
+                            <td class="frame-wrapper"><div class="frame"><div class="text-wrapper-7">Hapus</div></div></td>
                         </tr>
                         <tr class="table-row">
-                            <td class="table-row-cell">
-                                <div class="text-wrapper-5">SubJudul2</div>
-                            </td>
-                            <td class="table-row-cell-2">
-                                <p class="text-wrapper-5">Lorem ipsum dolor sit amet consectetur.</p>
-                            </td>
-                            <td class="table-row-cell-3">
-                                <div class="text-wrapper-6">1 Jam 2 Menit</div>
-                            </td>
-                            <td class="table-row-cell-3">
-                                <div class="text-wrapper-6">25/03/2024</div>
-                            </td>
-                            <td class="frame-wrapper">
-                                <div class="frame">
-                                    <div class="text-wrapper-7">Hapus</div>
-                                </div>
-                            </td>
+                            <td class="table-row-cell"><div class="text-wrapper-5">SubJudul2</div></td>
+                            <td class="table-row-cell-2"><p class="text-wrapper-5">Lorem ipsum dolor sit amet consectetur.</p></td>
+                            <td class="table-row-cell-3"><div class="text-wrapper-6">1 Jam 2 Menit</div></td>
+                            <td class="table-row-cell-3"><div class="text-wrapper-6">25/03/2024</div></td>
+                            <td class="frame-wrapper"><div class="frame"><div class="text-wrapper-7">Hapus</div></div></td>
                         </tr>
                         <tr class="table-row">
-                            <td class="table-row-cell">
-                                <div class="text-wrapper-5">SubJudul3</div>
-                            </td>
-                            <td class="table-row-cell-2">
-                                <p class="text-wrapper-5">Lorem ipsum dolor sit amet consectetur.</p>
-                            </td>
-                            <td class="table-row-cell-3">
-                                <div class="text-wrapper-6">1 Jam 2 Menit</div>
-                            </td>
-                            <td class="table-row-cell-3">
-                                <div class="text-wrapper-6">25/03/2024</div>
-                            </td>
-                            <td class="frame-wrapper">
-                                <div class="frame">
-                                    <div class="text-wrapper-7">Hapus</div>
-                                </div>
-                            </td>
+                            <td class="table-row-cell"><div class="text-wrapper-5">SubJudul3</div></td>
+                            <td class="table-row-cell-2"><p class="text-wrapper-5">Lorem ipsum dolor sit amet consectetur.</p></td>
+                            <td class="table-row-cell-3"><div class="text-wrapper-6">1 Jam 2 Menit</div></td>
+                            <td class="table-row-cell-3"><div class="text-wrapper-6">25/03/2024</div></td>
+                            <td class="frame-wrapper"><div class="frame"><div class="text-wrapper-7">Hapus</div></div></td>
                         </tr>
                     </table>
                 </div>
@@ -221,20 +167,15 @@
     .container-detail .title {
         display: flex;
         align-items: center;
-        justify-content: center;
-        /* Memusatkan semua isi secara horizontal */
-        width: 100%;
-        /* Pastikan ini mengambil lebar penuh */
+        justify-content: center; /* Memusatkan semua isi secara horizontal */
+        width: 100%; /* Pastikan ini mengambil lebar penuh */
         padding-right: 120px;
     }
 
     .container-detail .mask-group {
-        width: 40px;
-        /* Atau ukuran yang sesuai */
-        height: 40px;
-        /* Atau ukuran yang sesuai */
-        display: block;
-        /* Jika perlu untuk mengatur ulang dari default */
+        width: 40px; /* Atau ukuran yang sesuai */
+        height: 40px; /* Atau ukuran yang sesuai */
+        display: block; /* Jika perlu untuk mengatur ulang dari default */
     }
 
     .container-detail .text-wrapper-2 {
@@ -246,10 +187,9 @@
         letter-spacing: var(--h2-letter-spacing);
         white-space: nowrap;
         font-style: var(--h2-font-style);
-        text-align: center;
-        /* Menjaga teks terpusat jika perlu */
+        text-align: center; /* Menjaga teks terpusat jika perlu */
     }
-
+    
 
     .container-detail .img {
         position: relative;
@@ -373,9 +313,9 @@
     }
 
     .container-detail .header-3 {
-        display: flex;
-        justify-content: flex-end;
-        width: 150%;
+        display: flex;     
+        justify-content: flex-end; 
+        width: 150%; 
         height: 32px;
         align-items: center;
         gap: var(--tailwind-primitives-gap-gap-2);
@@ -386,9 +326,9 @@
     }
 
     .container-detail .header-4 {
-        display: flex;
-        justify-content: flex-end;
-        width: 132%;
+        display: flex;     
+        justify-content: flex-end; 
+        width: 132%; 
         height: 32px;
         align-items: center;
         gap: var(--tailwind-primitives-gap-gap-2);
@@ -399,9 +339,9 @@
     }
 
     .container-detail .header-5 {
-        display: flex;
-        justify-content: flex-end;
-        width: 109%;
+        display: flex;     
+        justify-content: flex-end; 
+        width: 109%; 
         height: 32px;
         align-items: center;
         gap: var(--tailwind-primitives-gap-gap-2);

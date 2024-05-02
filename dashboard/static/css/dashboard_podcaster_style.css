@@ -45,6 +45,10 @@
     border-color: transparent;
 }
 
+.dashboard-podcaster .frame-title a {
+    text-decoration: none !important; /* Menggunakan !important untuk memaksa perubahan */
+}
+
 .dashboard-podcaster .text-wrapper-17 {
     position: relative;
     width: fit-content;

@@ -39,5 +39,8 @@ def tes_create(request):
 def dashboard_pengguna_none(request):
     return render(request, "dashboard-pengguna-none.html")
 
+def song_detail(request):
+    return render(request, "song-detail.html")
 
-
+def playlist_detail(request):
+    return render(request, "playlist-detail.html")

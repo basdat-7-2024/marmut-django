@@ -23,4 +23,10 @@ def login(request):
 def register(request):
     return render(request, "register.html")
 
+def pilih_register(request):
+    return render(request, "pilih-register.html")
+
+def register_label(request):
+    return render(request, "register-label.html")
+
 # Create your views here.
