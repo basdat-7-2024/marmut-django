@@ -20,6 +20,3 @@ def chart_list(request):
 
 def chart_detail(request):
     return render(request, "chart-detail.html")
-
-def podcast_detail(request):
-    return render(request, "podcastdetail.html")
