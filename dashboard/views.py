@@ -21,6 +21,9 @@ def dashboard_podcaster(request):
 def dashboard_podcaster_none(request):
     return render(request, "dashboard-podcaster-none.html")
 
+def lihat_episode(request):
+    return render(request, "lihat-episode.html")
+
 def dashboard_label(request):
     return render(request, "dashboard-label.html")
 
@@ -32,6 +35,9 @@ def dashboard_singer(request):
 
 def tes_create(request):
     return render(request, "create-podcast.html")
+
+def dashboard_pengguna_none(request):
+    return render(request, "dashboard-pengguna-none.html")
 
 
 

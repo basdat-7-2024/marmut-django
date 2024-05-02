@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Setting Css -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleguide.css' %}">
+
+
+    <!-- Setting Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Setting Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Setting Css di Static -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% include "navbar-podcaster.html" %}
+
+    <!-- Start Fe Here-->
+    <div class="container-detail">
+        <div class="container-widget-ep">
+            <div class="container-title">
+                <div class="div">
+                    <a href="{% url 'dashboard:dashboard_podcaster' %}">
+                        <div class="back-btn">
+                            <img class="vector" src="https://i.ibb.co/NKWfKkn/Vector-3.png" />
+                            <div class="text-wrapper">Kembali</div>
+                        </div>
+                    </a>
+                    <div class="title">
+                        <img class="mask-group" src="https://i.ibb.co/SdTyF9Q/Mask-group.png" />
+                        <div class="text-wrapper-2">Daftar Episode Podcast1</div>
+                    </div>
+                </div>
+            </div>
+            <div class="daftar-episode">
+                <div class="text-wrapper-3">Daftar Episode</div>
+                <div class="tabel">
+                    <table class="datatable">
+                        <tr class="table-header">
+                            <th class="header-cell"><div class="text-wrapper-4">Judul Episode</div></th>
+                            <th class="sort-button-wrapper"><div class="sort-button"><div class="text-wrapper-4">Deskripsi</div></div></th>
+                            <th class="sort-button-wrapper"><div class="header-3"><div class="text-wrapper-4">Durasi</div></div></th>
+                            <th class="sort-button-wrapper"><div class="header-4"><div class="text-wrapper-4">Tanggal</div></div></th>
+                            <th class="sort-button-wrapper"><div class="header-5"><div class="text-wrapper-4">Action</div></div></th>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-row-cell"><div class="text-wrapper-5">SubJudul1</div></td>
+                            <td class="table-row-cell-2"><p class="text-wrapper-5">Lorem ipsum dolor sit amet consectetur.</p></td>
+                            <td class="table-row-cell-3"><div class="text-wrapper-6">59 Menit</div></td>
+                            <td class="table-row-cell-3"><div class="text-wrapper-6">18/03/2024</div></td>
+                            <td class="frame-wrapper"><div class="frame"><div class="text-wrapper-7">Hapus</div></div></td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-row-cell"><div class="text-wrapper-5">SubJudul2</div></td>
+                            <td class="table-row-cell-2"><p class="text-wrapper-5">Lorem ipsum dolor sit amet consectetur.</p></td>
+                            <td class="table-row-cell-3"><div class="text-wrapper-6">1 Jam 2 Menit</div></td>
+                            <td class="table-row-cell-3"><div class="text-wrapper-6">25/03/2024</div></td>
+                            <td class="frame-wrapper"><div class="frame"><div class="text-wrapper-7">Hapus</div></div></td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-row-cell"><div class="text-wrapper-5">SubJudul3</div></td>
+                            <td class="table-row-cell-2"><p class="text-wrapper-5">Lorem ipsum dolor sit amet consectetur.</p></td>
+                            <td class="table-row-cell-3"><div class="text-wrapper-6">1 Jam 2 Menit</div></td>
+                            <td class="table-row-cell-3"><div class="text-wrapper-6">25/03/2024</div></td>
+                            <td class="frame-wrapper"><div class="frame"><div class="text-wrapper-7">Hapus</div></div></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+    .container-detail {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 64px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 48px 64px 64px;
+        background-color: #ffffff;
+        border-radius: 32px;
+        box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
+        max-width: calc(85%);
+        overflow: auto;
+    }
+
+    .container-detail .container-widget-ep {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 64px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .container-detail .container-title {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 48px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .container-detail .div {
+        display: flex;
+        width: 1150px;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .container-detail .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .container-detail .vector {
+        position: relative;
+        width: 28.6px;
+        height: 20.8px;
+        margin-left: -1.3px;
+    }
+
+    .container-detail .text-wrapper {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--large-text-semi-bold-font-family);
+        font-weight: var(--large-text-semi-bold-font-weight);
+        color: var(--dark-grey);
+        font-size: var(--large-text-semi-bold-font-size);
+        text-align: center;
+        letter-spacing: var(--large-text-semi-bold-letter-spacing);
+        line-height: var(--large-text-semi-bold-line-height);
+        white-space: nowrap;
+        font-style: var(--large-text-semi-bold-font-style);
+    }
+
+    .container-detail .title {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Memusatkan semua isi secara horizontal */
+        width: 100%; /* Pastikan ini mengambil lebar penuh */
+        padding-right: 120px;
+    }
+
+    .container-detail .mask-group {
+        width: 40px; /* Atau ukuran yang sesuai */
+        height: 40px; /* Atau ukuran yang sesuai */
+        display: block; /* Jika perlu untuk mengatur ulang dari default */
+    }
+
+    .container-detail .text-wrapper-2 {
+        font-size: var(--h2-font-size);
+        line-height: var(--h2-line-height);
+        font-family: var(--h2-font-family);
+        font-weight: var(--h2-font-weight);
+        color: var(--black);
+        letter-spacing: var(--h2-letter-spacing);
+        white-space: nowrap;
+        font-style: var(--h2-font-style);
+        text-align: center; /* Menjaga teks terpusat jika perlu */
+    }
+    
+
+    .container-detail .img {
+        position: relative;
+        width: 26px;
+        height: 18.2px;
+        margin-top: -9617.1px;
+        margin-left: -10675px;
+    }
+
+    .container-detail .daftar-episode {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .container-detail .text-wrapper-3 {
+        font-size: var(--h3-font-size);
+        line-height: var(--h3-line-height);
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--h3-font-family);
+        font-weight: var(--h3-font-weight);
+        color: var(--black);
+        letter-spacing: var(--h3-letter-spacing);
+        white-space: nowrap;
+        font-style: var(--h3-font-style);
+    }
+
+    .container-detail .tabel {
+        display: flex;
+        flex-direction: column;
+        width: 1152px;
+        align-items: center;
+        gap: 32px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .container-detail .datatable {
+        display: flex;
+        flex-direction: column;
+        width: 1150px;
+        align-items: flex-start;
+        padding: 0px 2px 12px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid;
+        border-color: #E2E8F0;
+    }
+
+    .container-detail .table-header {
+        padding: 8px 40px;
+        background-color: #eef5fe;
+        display: flex;
+        width: 1148px;
+        align-items: flex-start;
+        position: relative;
+        flex: 0 0 auto;
+        margin-right: -2px;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-color: #E2E8F0;
+    }
+
+    .container-detail .header-cell {
+        width: 200px;
+        padding: 0px 12px 0px 0px;
+        display: flex;
+        height: 56px;
+        align-items: center;
+        position: relative;
+    }
+
+    .container-detail .text-wrapper-4 {
+        position: relative;
+        width: fit-content;
+        font-family: var(--large-text-semi-bold-font-family);
+        font-weight: var(--large-text-semi-bold-font-weight);
+        color: var(--black);
+        font-size: var(--large-text-semi-bold-font-size);
+        letter-spacing: var(--large-text-semi-bold-letter-spacing);
+        line-height: var(--large-text-semi-bold-line-height);
+        white-space: nowrap;
+        font-style: var(--large-text-semi-bold-font-style);
+    }
+
+    .container-detail .sort-button-wrapper {
+        width: 200px;
+        display: flex;
+        height: 56px;
+        align-items: center;
+        position: relative;
+    }
+
+    .container-detail .sort-button {
+        display: inline-flex;
+        height: 32px;
+        align-items: center;
+        gap: var(--tailwind-primitives-gap-gap-2);
+        padding: 0px var(--tailwind-primitives-padding-px-py-px-3) 0px var(--tailwind-primitives-padding-px-py-px-3);
+        position: relative;
+        flex: 0 0 auto;
+        border-radius: var(--shadcn-ui-radius-md);
+    }
+
+    .container-detail .div-wrapper {
+        display: flex;
+        height: 56px;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        flex: 1;
+        flex-grow: 1;
+    }
+
+    .container-detail .header-3 {
+        display: flex;     
+        justify-content: flex-end; 
+        width: 150%; 
+        height: 32px;
+        align-items: center;
+        gap: var(--tailwind-primitives-gap-gap-2);
+        padding: 0px var(--tailwind-primitives-padding-px-py-px-3) 0px var(--tailwind-primitives-padding-px-py-px-3);
+        position: relative;
+        flex: 0 0 auto;
+        border-radius: var(--shadcn-ui-radius-md);
+    }
+
+    .container-detail .header-4 {
+        display: flex;     
+        justify-content: flex-end; 
+        width: 132%; 
+        height: 32px;
+        align-items: center;
+        gap: var(--tailwind-primitives-gap-gap-2);
+        padding: 0px var(--tailwind-primitives-padding-px-py-px-3) 0px var(--tailwind-primitives-padding-px-py-px-3);
+        position: relative;
+        flex: 0 0 auto;
+        border-radius: var(--shadcn-ui-radius-md);
+    }
+
+    .container-detail .header-5 {
+        display: flex;     
+        justify-content: flex-end; 
+        width: 109%; 
+        height: 32px;
+        align-items: center;
+        gap: var(--tailwind-primitives-gap-gap-2);
+        padding: 0px var(--tailwind-primitives-padding-px-py-px-3) 0px var(--tailwind-primitives-padding-px-py-px-3);
+        position: relative;
+        flex: 0 0 auto;
+        border-radius: var(--shadcn-ui-radius-md);
+    }
+
+    .container-detail .table-row {
+        padding: 4px 40px;
+        display: flex;
+        width: 1148px;
+        align-items: center;
+        position: relative;
+        flex: 0 0 auto;
+        margin-right: -2px;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-color: #E2E8F0;
+    }
+
+    .container-detail .table-row-cell {
+        display: flex;
+        width: 200px;
+        align-items: center;
+        gap: 10px;
+        padding: var(--tailwind-primitives-padding-px-py-py-4) 12px var(--tailwind-primitives-padding-px-py-py-4) 0px;
+        position: relative;
+    }
+
+    .container-detail .text-wrapper-5 {
+        position: relative;
+        flex: 1;
+        margin-top: -1px;
+        font-family: var(--p-medium-font-family);
+        font-weight: var(--p-medium-font-weight);
+        color: var(--shadcn-ui-foreground);
+        font-size: var(--p-medium-font-size);
+        letter-spacing: var(--p-medium-letter-spacing);
+        line-height: var(--p-medium-line-height);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        font-style: var(--p-medium-font-style);
+    }
+
+    .container-detail .table-row-cell-2 {
+        width: 385px;
+        gap: 10px;
+        padding: var(--tailwind-primitives-padding-px-py-py-4) 8px var(--tailwind-primitives-padding-px-py-py-4) 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .container-detail .table-row-cell-3 {
+        gap: var(--tailwind-primitives-gap-gap-2);
+        padding: var(--tailwind-primitives-padding-px-py-py-4) 0px var(--tailwind-primitives-padding-px-py-py-4) var(--tailwind-primitives-padding-px-py-px-3);
+        flex: 1;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .container-detail .text-wrapper-6 {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--p-medium-font-family);
+        font-weight: var(--p-medium-font-weight);
+        color: var(--shadcn-ui-foreground);
+        font-size: var(--p-medium-font-size);
+        text-align: right;
+        letter-spacing: var(--p-medium-letter-spacing);
+        line-height: var(--p-medium-line-height);
+        white-space: nowrap;
+        font-style: var(--p-medium-font-style);
+    }
+
+    .container-detail .frame-wrapper {
+        height: 58px;
+        gap: var(--tailwind-primitives-gap-gap-2);
+        padding: var(--tailwind-primitives-padding-px-py-py-4) 0px var(--tailwind-primitives-padding-px-py-py-4) var(--tailwind-primitives-padding-px-py-px-3);
+        flex: 1;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .container-detail .frame {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 24px;
+        position: relative;
+        flex: 0 0 auto;
+        margin-top: -10px;
+        margin-bottom: -10px;
+        background-color: #ff516e;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .container-detail .text-wrapper-7 {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--p-semi-bold-font-family);
+        font-weight: var(--p-semi-bold-font-weight);
+        color: #ffffff;
+        font-size: var(--p-semi-bold-font-size);
+        text-align: center;
+        letter-spacing: var(--p-semi-bold-letter-spacing);
+        line-height: var(--p-semi-bold-line-height);
+        white-space: nowrap;
+        font-style: var(--p-semi-bold-font-style);
+    }
+</style>
+
+
+</html>

@@ -18,3 +18,5 @@ import json
 def chart_list(request):
     return render(request, "chart-list.html")
 
+def chart_detail(request):
+    return render(request, "chart-detail.html")
