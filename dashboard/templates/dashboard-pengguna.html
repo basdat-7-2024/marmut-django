@@ -9,9 +9,10 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styleguide.css' %}">
-
     <!-- jangan dihapus ya yang ini -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard_podcaster_style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/general_dashboard_style.css' %}">
+
 
     <!-- Setting Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css">
@@ -31,23 +32,135 @@
 </head>
 
 <body>
-    <!-- sesuaikan navbar -->
+    <!-- Setting Css di Static -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    {% include "navbar-podcaster.html" %}
+    {% include "navbar-nonpremium.html" %}
+    {% include "create-playlist.html" %}
+    {% include "ubah-playlist.html" %}
 
-    <div class="dashboard">
+    <!-- Start Fe Here-->
+    <div class="dashboard-podcaster dashboard">
         {% include "detail-pengguna.html" %}
+
         <div class="frame-list">
             <div class="div-4">
-                
+                <div class="frame-title">
+                    <div class="text-wrapper-16">User Playlist</div>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#create-playlist">
+                        <div class="add-podcast">
+                            <div class="text-wrapper-17">Tambah Playlist</div>
+                        </div>
+                    </a>
+                </div>
                 <div class="div-4">
 
-                    
+                    <table class="datatable">
+                        <thead>
+                            <tr class="table-header">
+                                <th class="header-cell">
+                                    <div class="text-wrapper-18">Judul</div>
+                                </th>
+                                <th class="header-cell">
+                                    <div class="text-wrapper-18 header-2">Jumlah Lagu</div>
+                                </th>
+                                <th class="header-cell">
+                                    <div class="text-wrapper-18 header-3">Total Durasi</div>
+                                </th>
+                                <th class="header-cell">
+                                    <div class="text-wrapper-18 header-4">Action</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody style="width: calc(100%);">
+                            <tr class="table-row">
+                                <td class="table-row-cell">
+                                    <div class="text-wrapper-19">Playlist Galau Sekali</div>
+                                </td>
+                                <td class="table-row-cell">
+                                    <div class="text-wrapper-20">4</div>
+                                </td>
+                                <td class="table-row-cell">
+                                    <div class="text-wrapper-21">28 Menit</div>
+                                </td>
+                                <td>
+                                    <div class="frame-2" style="justify-content: end; width: 400px;">
+                                        <div class="frame-3" style="background-color: var(--red);">
+                                            <div class="text-wrapper-22">Detail</div>
+                                        </div>
+                                        <div class="frame-3">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#ubah-playlist">
+                                                <div class="text-wrapper-22">Ubah</div>
+                                            </a>
+                                        </div>
+                                        <div class="frame-4">
+                                            <div class="text-wrapper-22">Hapus</div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-row-cell">
+                                    <div class="text-wrapper-19">Nangis brot brot</div>
+                                </td>
+                                <td class="table-row-cell">
+                                    <div class="text-wrapper-20">7</div>
+                                </td>
+                                <td class="table-row-cell">
+                                    <div class="text-wrapper-21">1 Jam 23 Menit</div>
+                                </td>
+                                <td>
+                                    <div class="frame-2" style="justify-content: end; width: 400px;">
+                                        <div class="frame-3" style="background-color: var(--red);">
+                                            <div class="text-wrapper-22">Detail</div>
+                                        </div>
+                                        <div class="frame-3">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#ubah-playlist">
+                                                <div class="text-wrapper-22">Ubah</div>
+                                            </a>
+                                        </div>
+                                        <div class="frame-4">
+                                            <div class="text-wrapper-22">Hapus</div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td class="table-row-cell">
+                                    <div class="text-wrapper-19">Playlist enak</div>
+                                </td>
+                                <td class="table-row-cell">
+                                    <div class="text-wrapper-20">2</div>
+                                </td>
+                                <td class="table-row-cell">
+                                    <div class="text-wrapper-21">10 Menit</div>
+                                </td>
+                                <td>
+                                    <div class="frame-2" style="justify-content: end; width: 400px;">
+                                        <div class="frame-3" style="background-color: var(--red);">
+                                            <div class="text-wrapper-22">Detail</div>
+                                        </div>
+                                        <div class="frame-3">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#ubah-playlist">
+                                                <div class="text-wrapper-22">Ubah</div>
+                                            </a>
+                                        </div>
+                                        <div class="frame-4">
+                                            <div class="text-wrapper-22">Hapus</div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>
 
 </html>
