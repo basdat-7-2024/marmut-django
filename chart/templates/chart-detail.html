@@ -1,39 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+{% include 'base.html' %}
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Setting Css -->
+    <!-- Setting Specific Css -->
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styleguide.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/chart_detail_style.css' %}">
-
-    <!-- Setting Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
-    <!-- Setting Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
 </head>
 
 <body>
-
-    <!-- Setting Css di Static -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    {% include "navbar-nonpremium.html" %}
-
     <!-- Start Fe Here-->
     <div class="chart-detail">
         <div class="container-widget">
@@ -53,145 +26,86 @@
                 <div class="text-wrapper-2">Tipe: Daily Top 20</div>
                 <div class="isi-tabel">
                     <div class="datatable">
-                        <div class="table-header">
-                            <div class="header-cell">
-                                <div class="text-wrapper-3">Judul Lagu</div>
-                            </div>
-                            <div class="sort-button-wrapper">
-                                <div class="sort-button">
-                                    <div class="text-wrapper-3">Oleh</div>
-                                </div>
-                            </div>
-                            <div class="sort-button-wrapper">
-                                <div class="sort-button">
-                                    <div class="text-wrapper-3">Tanggal&nbsp;&nbsp;Rilis</div>
-                                </div>
-                            </div>
-                            <div class="sort-button-wrapper">
-                                <div class="sort-button-2">
-                                    <div class="text-wrapper-3">Total Plays</div>
-                                </div>
-                            </div>
-                            <div class="sort-button-wrapper">
-                                <div class="sort-button">
-                                    <div class="text-wrapper-3">Actions</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="table-row">
-                            <div class="table-row-cell">
-                                <div class="text-wrapper-4">Song1</div>
-                            </div>
-                            <div class="div-wrapper">
-                                <div class="text-wrapper-5">Artist 1</div>
-                            </div>
-                            <div class="div-wrapper">
-                                <div class="text-wrapper-5">09/03/2024</div>
-                            </div>
-                            <div class="table-row-cell-2">
-                                <div class="text-wrapper-6">21000</div>
-                            </div>
-                            <div class="frame">
-                                <div class="frame-2">
-                                    <div class="text-wrapper-7">Lihat</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="table-row">
-                            <div class="table-row-cell">
-                                <div class="text-wrapper-4">Song2</div>
-                            </div>
-                            <div class="div-wrapper">
-                                <div class="text-wrapper-5">Artist 2</div>
-                            </div>
-                            <div class="div-wrapper">
-                                <div class="text-wrapper-5">02/03/2024</div>
-                            </div>
-                            <div class="table-row-cell-2">
-                                <div class="text-wrapper-6">19000</div>
-                            </div>
-                            <div class="frame">
-                                <div class="frame-2">
-                                    <div class="text-wrapper-7">Lihat</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="table-row">
-                            <div class="table-row-cell">
-                                <div class="text-wrapper-4">Song3</div>
-                            </div>
-                            <div class="div-wrapper">
-                                <div class="text-wrapper-5">Artist 2</div>
-                            </div>
-                            <div class="div-wrapper">
-                                <div class="text-wrapper-5">02/03/2024</div>
-                            </div>
-                            <div class="table-row-cell-2">
-                                <div class="text-wrapper-6">19000</div>
-                            </div>
-                            <div class="frame">
-                                <div class="frame-2">
-                                    <div class="text-wrapper-7">Lihat</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="table-row">
-                            <div class="table-row-cell">
-                                <div class="text-wrapper-4">Song4</div>
-                            </div>
-                            <div class="div-wrapper">
-                                <div class="text-wrapper-5">Artist 1</div>
-                            </div>
-                            <div class="div-wrapper">
-                                <div class="text-wrapper-5">09/03/2024</div>
-                            </div>
-                            <div class="table-row-cell-2">
-                                <div class="text-wrapper-6">21000</div>
-                            </div>
-                            <div class="frame">
-                                <div class="frame-2">
-                                    <div class="text-wrapper-7">Lihat</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="table-row">
-                            <div class="table-row-cell">
-                                <div class="text-wrapper-4">Song5</div>
-                            </div>
-                            <div class="div-wrapper">
-                                <div class="text-wrapper-5">Artist 2</div>
-                            </div>
-                            <div class="div-wrapper">
-                                <div class="text-wrapper-5">02/03/2024</div>
-                            </div>
-                            <div class="table-row-cell-2">
-                                <div class="text-wrapper-6">19000</div>
-                            </div>
-                            <div class="frame">
-                                <div class="frame-2">
-                                    <div class="text-wrapper-7">Lihat</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="table-row">
-                            <div class="table-row-cell">
-                                <div class="text-wrapper-4">Song6</div>
-                            </div>
-                            <div class="div-wrapper">
-                                <div class="text-wrapper-5">Artist 2</div>
-                            </div>
-                            <div class="div-wrapper">
-                                <div class="text-wrapper-5">02/03/2024</div>
-                            </div>
-                            <div class="table-row-cell-2">
-                                <div class="text-wrapper-6">19000</div>
-                            </div>
-                            <div class="frame">
-                                <div class="frame-2">
-                                    <div class="text-wrapper-7">Lihat</div>
-                                </div>
-                            </div>
-                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Judul Lagu</th>
+                                    <th>Oleh</th>
+                                    <th>Tanggal Rilis</th>
+                                    <th>Total Plays</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Song1</td>
+                                    <td>Artist 1</td>
+                                    <td>09/03/2024</td>
+                                    <td>21000</td>
+                                    <td>
+                                        <button class="lihat-button">
+                                            <div class="text-wrapper-6">Lihat</div>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Song2</td>
+                                    <td>Artist 2</td>
+                                    <td>02/03/2024</td>
+                                    <td>19000</td>
+                                    <td>
+                                        <button class="lihat-button">
+                                            <div class="text-wrapper-6">Lihat</div>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Song3</td>
+                                    <td>Artist 2</td>
+                                    <td>02/03/2024</td>
+                                    <td>19000</td>
+                                    <td>
+                                        <button class="lihat-button">
+                                            <div class="text-wrapper-6">Lihat</div>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Song4</td>
+                                    <td>Artist 1</td>
+                                    <td>09/03/2024</td>
+                                    <td>21000</td>
+                                    <td>
+                                        <button class="lihat-button">
+                                            <div class="text-wrapper-6">Lihat</div>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Song5</td>
+                                    <td>Artist 2</td>
+                                    <td>02/03/2024</td>
+                                    <td>19000</td>
+                                    <td>
+                                        <button class="lihat-button">
+                                            <div class="text-wrapper-6">Lihat</div>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Song6</td>
+                                    <td>Artist 2</td>
+                                    <td>02/03/2024</td>
+                                    <td>19000</td>
+                                    <td>
+                                        <button class="lihat-button">
+                                            <div class="text-wrapper-6">Lihat</div>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </div>
                 </div>
             </div>
@@ -343,205 +257,71 @@
         overflow: hidden;
         border: 1px solid;
         border-color: #E2E8F0;
+
     }
 
-    .chart-detail .table-header {
-        align-items: flex-start;
-        padding: 8px 40px;
-        background-color: #eef5fe;
-        display: flex;
-        width: 1148px;
-        position: relative;
-        flex: 0 0 auto;
-        border-bottom-width: 1px;
-        border-bottom-style: solid;
-        border-color: #E2E8F0;
+
+    .chart-detail table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        border: 1px solid;
+        border-color: #E2E8F0 !important;
+        table-layout: fixed;
     }
 
-    .chart-detail .header-cell {
-        display: flex;
-        height: 56px;
-        align-items: center;
-        padding: 0px 12px 0px 0px;
-        position: relative;
-        flex: 1;
-        flex-grow: 1;
+    .chart-detail th,
+    .chart-detail td {
+        text-align: left;
+        padding: 20px 60px;
+        border-bottom: 1px solid #E2E8F0;
     }
 
-    .chart-detail .text-wrapper-3 {
-        position: relative;
-        width: fit-content;
-        font-family: var(--large-text-semi-bold-font-family);
-        font-weight: var(--large-text-semi-bold-font-weight);
-        color: var(--black);
-        font-size: var(--large-text-semi-bold-font-size);
-        letter-spacing: var(--large-text-semi-bold-letter-spacing);
-        line-height: var(--large-text-semi-bold-line-height);
-        white-space: nowrap;
-        font-style: var(--large-text-semi-bold-font-style);
+    .chart-detail tr {
+        width: 100%;
     }
 
-    .chart-detail .sort-button-wrapper {
-        display: flex;
-        height: 56px;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        flex: 1;
-        flex-grow: 1;
+    .chart-detail th {
+        background-color: #EFF6FF;
+        padding: 32px 60px;
     }
 
-    .chart-detail .sort-button {
-        display: inline-flex;
-        height: 32px;
-        align-items: center;
-        justify-content: center;
-        gap: var(--tailwind-primitives-gap-gap-2);
-        padding: 0px var(--tailwind-primitives-padding-px-py-px-3) 0px var(--tailwind-primitives-padding-px-py-px-3);
-        position: relative;
-        flex: 0 0 auto;
-        border-radius: var(--shadcn-ui-radius-md);
-    }
-
-    .chart-detail .sort-button-2 {
-        display: inline-flex;
-        height: 32px;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        flex: 0 0 auto;
-        border-radius: var(--shadcn-ui-radius-md);
-    }
-
-    .chart-detail .table-row {
-        align-items: center;
-        padding: 4px 40px;
-        display: flex;
-        width: 1148px;
-        position: relative;
-        flex: 0 0 auto;
-        border-bottom-width: 1px;
-        border-bottom-style: solid;
-        border-color: #E2E8F0;
-    }
-
-    .chart-detail .table-row-cell {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: var(--tailwind-primitives-padding-px-py-py-4) 12px var(--tailwind-primitives-padding-px-py-py-4) 0px;
-        position: relative;
-        flex: 1;
-        flex-grow: 1;
-    }
-
-    .chart-detail .text-wrapper-4 {
-        position: relative;
-        flex: 1;
-        margin-top: -1px;
-        font-family: var(--p-medium-font-family);
-        font-weight: var(--p-medium-font-weight);
-        color: var(--shadcn-ui-foreground);
-        font-size: var(--p-medium-font-size);
-        letter-spacing: var(--p-medium-letter-spacing);
-        line-height: var(--p-medium-line-height);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        font-style: var(--p-medium-font-style);
-    }
-
-    .chart-detail .div-wrapper {
-        gap: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: var(--tailwind-primitives-padding-px-py-py-4) var(--tailwind-primitives-padding-px-py-px-3) var(--tailwind-primitives-padding-px-py-py-4) var(--tailwind-primitives-padding-px-py-px-3);
-        position: relative;
-        flex: 1;
-        flex-grow: 1;
-    }
-
-    .chart-detail .text-wrapper-5 {
-        position: relative;
-        flex: 1;
-        margin-top: -1px;
-        font-family: var(--p-medium-font-family);
-        font-weight: var(--p-medium-font-weight);
-        color: var(--shadcn-ui-foreground);
-        font-size: var(--p-medium-font-size);
+    .chart-detail th.centered {
         text-align: center;
-        letter-spacing: var(--p-medium-letter-spacing);
-        line-height: var(--p-medium-line-height);
-        font-style: var(--p-medium-font-style);
     }
 
-    .chart-detail .table-row-cell-2 {
-        gap: var(--tailwind-primitives-gap-gap-2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: var(--tailwind-primitives-padding-px-py-py-4) var(--tailwind-primitives-padding-px-py-px-3) var(--tailwind-primitives-padding-px-py-py-4) var(--tailwind-primitives-padding-px-py-px-3);
-        position: relative;
-        flex: 1;
-        flex-grow: 1;
+
+    .chart-detail tr:last-child td {
+        border-bottom: none;
     }
 
-    .chart-detail .text-wrapper-6 {
-        position: relative;
-        width: fit-content;
-        margin-top: -1px;
-        font-family: var(--p-medium-font-family);
-        font-weight: var(--p-medium-font-weight);
-        color: var(--shadcn-ui-foreground);
-        font-size: var(--p-medium-font-size);
-        text-align: right;
-        letter-spacing: var(--p-medium-letter-spacing);
-        line-height: var(--p-medium-line-height);
-        white-space: nowrap;
-        font-style: var(--p-medium-font-style);
-    }
-
-    .chart-detail .frame {
-        display: flex;
-        height: 58px;
-        gap: 12px;
-        flex: 1;
-        flex-grow: 1;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-    }
-
-    .chart-detail .frame-2 {
-        display: inline-flex;
-        gap: 10px;
-        padding: 10px 24px;
-        flex: 0 0 auto;
+    .chart-detail button.button-lihat {
         background-color: var(--orange);
-        border-radius: 10px;
-        overflow: hidden;
-        align-items: center;
-        justify-content: center;
-        position: relative;
+        border: none;
+        color: white;
+        padding: 16px 24px;
+        cursor: pointer;
+        border-radius: 16px;
+        font-family: 'Poppins', sans-serif;
     }
 
-    .chart-detail .text-wrapper-7 {
-        position: relative;
-        width: fit-content;
-        margin-top: -1px;
-        font-family: var(--p-semi-bold-font-family);
-        font-weight: var(--p-semi-bold-font-weight);
-        color: #ffffff;
-        font-size: var(--p-semi-bold-font-size);
-        text-align: center;
-        letter-spacing: var(--p-semi-bold-letter-spacing);
-        line-height: var(--p-semi-bold-line-height);
-        white-space: nowrap;
-        font-style: var(--p-semi-bold-font-style);
+
+    td.action-cell {
+        gap: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .chart-detail button.lihat-button {
+        background-color: var(--orange);
+        border-radius: 16px;
+        border: none;
+        padding: 14px 32px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>
-
-</html>
