@@ -12,13 +12,17 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
+from django.db import connection
 from django.http import JsonResponse
 
 def show_main(request):
     return render(request, "auth.html")
 
 def login(request):
-    return render(request, "login.html")
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM AKUN")
+    print(cursor.fetchall())
+    return render(request, 'login.html')
 
 def register(request):
     return render(request, "register.html")
