@@ -7,6 +7,7 @@
         <img class="marmut-image" src="../../static/img/Logo Marmut Auth.png" alt="Marmut" />
         <div class="text-navbar">Marmut</div>
     </a>
+    {% if user_is_login %}
     <div class="navbar-right-section">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedMarmut"
             aria-controls="navbarSupportedMarmut" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,9 +27,32 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'langganan_paket:listpaket' %}">Langganan Paket</a>
                 </li>
+                {% if boolean_premium %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'downloaded_song:daftardownload' %}">Downloaded Song</a>
                 </li>
+                {% endif %}
+                {% if user_role == 'Podcaster' %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'podcast:kelola_podcast' %}">Kelola Podcast</a>
+                </li>
+                {% endif %}
+                {% if user_role == 'Artist' or user_role == 'Songwriter' %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Kelola Album & Song</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cek Royalti</a>
+                </li>
+                {% endif %}
+                {% if user_role == 'Label' %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Kelola Album</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cek Royalti</a>
+                </li>
+                {% endif %}
             </ul>
             <form class="search-and-button form-inline" action="#" method="get">
                 <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">
@@ -36,9 +60,20 @@
                     <i class="fas fa-search"></i>
                 </button>
                 <a class="btn btn-outline-danger logout-button" href="{% url 'authentication:logout' %}" role="button">Logout</a>
-            </form>
+            </form>        
         </div>
     </div>
+    {% else %}
+        <div class="navbar-right-section">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedMarmut"
+                aria-controls="navbarSupportedMarmut" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="btn btn-outline-success logout-button" href="{% url 'authentication:login' %}" role="button">Login</a>
+            <a class="btn btn-outline-danger logout-button" href="{% url 'authentication:register' %}"
+                role="button">Register</a>
+        </div>
+    {% endif %}
 </nav>
 
 <script type="text/javascript">
