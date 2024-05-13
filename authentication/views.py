@@ -26,19 +26,26 @@ def first_init(request):
     request.session['nama'] = cursor.fetchone()[0]
 
     cursor.execute(get_gender_akun(request.session.get('email')))
-    request.session['gender'] = cursor.fetchone()[0]
+    temp_gender = cursor.fetchone()[0]
+    if temp_gender == 0:
+        temp_gender = "Perempuan"
+    
+    elif temp_gender == 1:
+        temp_gender = "Laki-laki"
 
-    # cursor.execute(get_tempat_lahir_akun(request.session.get('email')))
-    # request.session['tempat_lahir'] = cursor.fetchone()[0]
+    request.session['gender'] = temp_gender
 
-    # cursor.execute(get_tanggal_lahir_akun(request.session.get('email')))
-    # request.session['tanggal_lahir'] = cursor.fetchone()[0]
+    cursor.execute(get_tempat_lahir_akun(request.session.get('email')))
+    request.session['tempat_lahir'] = cursor.fetchone()[0]
 
-    # cursor.execute(get_is_verified_akun(request.session.get('email')))
-    # request.session['is_verified'] = cursor.fetchone()[0]
+    cursor.execute(get_tanggal_lahir_akun(request.session.get('email')))
+    request.session['tanggal_lahir'] = cursor.fetchone()[0].isoformat()
 
-    # cursor.execute(get_kota_asal_akun(request.session.get('email')))
-    # request.session['kota_asal'] = cursor.fetchone()[0]
+    cursor.execute(get_is_verified_akun(request.session.get('email')))
+    request.session['is_verified'] = cursor.fetchone()[0]
+
+    cursor.execute(get_kota_asal_akun(request.session.get('email')))
+    request.session['kota_asal'] = cursor.fetchone()[0]
 
 def login(request):
     if request.method == 'POST':
