@@ -9,6 +9,8 @@ body {
 
 nav {
 	background-color: #fff;
+	position: fixed;
+	top: 0;
 }
 
 .text-navbar {
@@ -16,15 +18,27 @@ nav {
 	font-family: 'Poppins', sans-serif;
 	font-weight: 700;
 	font-size: 28px;
+	z-index: 1000;
 }
 
+/* Additional CSS for Fixed Navigation Bar */
+nav.navigation-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+
 .navigation-bar {
+	position: fixed;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 8px 80px;
 	background-color: #ffffff;
 	width: 100%;
+	
 }
 
 .logo-navbar {
