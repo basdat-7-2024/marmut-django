@@ -19,7 +19,7 @@ from authentication.query import *
 def show_main(request):
     return render(request, "auth.html")
 
-def first_init(request):
+def init_non_label(request):
     cursor = connection.cursor()
 
     cursor.execute(get_nama_akun(request.session.get('email')))
@@ -29,7 +29,7 @@ def first_init(request):
     temp_gender = cursor.fetchone()[0]
     if temp_gender == 0:
         temp_gender = "Perempuan"
-    
+
     elif temp_gender == 1:
         temp_gender = "Laki-laki"
 
@@ -52,19 +52,38 @@ def login(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        cursor = connection.cursor()
-        cursor.execute(get_email_password(email, password))
-        account = cursor.fetchone()
+        cursor_non_label = connection.cursor()
+        cursor_label = connection.cursor()
 
-        if account:
+        cursor_non_label.execute(get_email_password_from_akun(email, password))
+        cursor_label.execute(get_email_password_from_label(email, password))
+
+        account_non_label = cursor_non_label.fetchone()
+        account_label = cursor_label.fetchone()
+
+        #Saat login sebagai label
+        if account_label:
+            request.session['email'] = email
+            request.session['is_label'] = True
+            request.session['is_login'] = True
             print(1)
             messages.success(request, "Login berhasil!")
-            request.session['email'] = email
-            first_init(request)
-
             return HttpResponseRedirect(reverse("dashboard:dashboard"))
+
+        #Saat login sebagai non label
+        elif account_non_label:
+            print(1)
+            request.session['email'] = email
+            request.session['is_label'] = False
+            request.session['is_login'] = True
+            init_non_label(request)
+            messages.success(request, "Login berhasil!")
+            return HttpResponseRedirect(reverse("dashboard:dashboard"))
+            
+        #Saat tidak berhasil login
         else:
             print(0)
+            request.session['is_login'] = False
             messages.error(request, "Login gagal! Email atau password salah.")
     
     return render(request, 'login.html')
@@ -80,5 +99,5 @@ def register_label(request):
 
 def logout(request):
     request.session.flush()
-    return render(request, "login.html")
+    return render(request, "auth.html")
 # Create your views here.

@@ -1,3 +1,4 @@
+from django.db import connection
 from django.shortcuts import render
 import datetime
 from django.http import HttpResponseRedirect
@@ -14,8 +15,11 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
+from dashboard.query import *
 
-def dashboard(request):    
+def dashboard(request):
+    set_role(request)
+
     context = {
         'email': request.session.get('email'),
         'nama': request.session.get('nama'),
@@ -24,10 +28,43 @@ def dashboard(request):
         'tanggal_lahir': request.session.get('tanggal_lahir'),
         'is_verified': request.session.get('is_verified'),
         'kota_asal': request.session.get('kota_asal'),
+        'role': request.session.get('role'),
     }
 
     return render(request, "dashboard.html", context)
 
+def set_role(request):
+    cursor = connection.cursor()
+    result_role = "Pengguna Biasa"
+
+    cursor.execute(get_artist_role(request.session.get('email')))
+    temp_role = cursor.fetchall()
+    if (temp_role != []):
+        result_role = "Artist"
+
+    cursor.execute(get_songwriter_role(request.session.get('email')))
+    temp_role = cursor.fetchall()
+    if (temp_role != []):
+        result_role = "Songwriter"
+
+    cursor.execute(get_podcaster_role(request.session.get('email')))
+    temp_role = cursor.fetchall()
+    if (temp_role != []):
+        result_role = "Podcaster"
+
+    cursor.execute(get_premium_role(request.session.get('email')))
+    temp_role = cursor.fetchall()
+    if (temp_role != []):
+        request.session['premium'] = True
+    
+    cursor.execute(get_nonpremium_role(request.session.get('email')))
+    temp_role = cursor.fetchall()
+    if (temp_role != []):
+        request.session['premium'] = False
+
+    print(result_role)
+    request.session['role'] = result_role
+    
 def dashboard_podcaster(request):
     return render(request, "dashboard-podcaster.html")
 

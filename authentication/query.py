@@ -1,5 +1,8 @@
-def get_email_password(email, password):
+def get_email_password_from_akun(email, password):
     return f"SELECT * FROM AKUN WHERE email = \'{email}\' AND password = \'{password}\'"
+
+def get_email_password_from_label(email, password):
+    return f"SELECT * FROM LABEL WHERE email = \'{email}\' AND password = \'{password}\'"
 
 def get_nama_akun(email):
     return f"SELECT nama FROM AKUN WHERE email = \'{email}\'"
