@@ -15,10 +15,18 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
 
-def dashboard(request):
-    
+def dashboard(request):    
+    context = {
+        'email': request.session.get('email'),
+        'nama': request.session.get('nama'),
+        'gender': request.session.get('gender'),
+        'tempat_lahir': request.session.get('tempat_lahir'),
+        'tanggal_lahir': request.session.get('tanggal_lahir'),
+        'is_verified': request.session.get('is_verified'),
+        'kota_asal': request.session.get('kota_asal'),
+    }
 
-    return render(request, "dashboard.html")
+    return render(request, "dashboard.html", context)
 
 def dashboard_podcaster(request):
     return render(request, "dashboard-podcaster.html")
