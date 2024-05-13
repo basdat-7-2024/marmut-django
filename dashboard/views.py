@@ -64,6 +64,7 @@ def set_role(request):
 
     print(result_role)
     request.session['role'] = result_role
+
     
 def dashboard_podcaster(request):
     return render(request, "dashboard-podcaster.html")
