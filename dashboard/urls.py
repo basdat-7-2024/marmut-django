@@ -5,6 +5,7 @@ from dashboard.views import *
 app_name = 'dashboard'
 
 urlpatterns = [
+    path('', dashboard, name='dashboard'),
     path('podcaster/', dashboard_podcaster, name='dashboard_podcaster'),
     path('podcaster-none/', dashboard_podcaster_none, name='dashboard_podcaster_none'),
     path('lihat-episode/', lihat_episode, name='lihat_episode'),

@@ -15,7 +15,7 @@
                     <div class="div">Form Login</div>
                 </div>
             </div>
-            <form class="body-login form-control" style="border: none;">
+            <form class="body-login form-control" style="border: none;" action="{% url 'authentication:login' %}" method="post">
                 {% csrf_token %}
                 <div class="input-field">
                     <div class="div-2">
@@ -23,7 +23,7 @@
                         <div class="text-input">
                             <img class="img" src="../../static/img/icon/Mail.png" />
                             <div class="frame-2">
-                                <input class="frame-2" placeholder="Email" type="email" id="email" name="username"/>
+                                <input class="frame-2" placeholder="Email" type="email" id="email" name="email"/>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="login-button">
+                <button class="login-button" type="submit">
                     <button class="button">
                         <div class="text-wrapper-3">Login</div>
                     </button>

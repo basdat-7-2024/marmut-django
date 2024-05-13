@@ -15,6 +15,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
 
+def dashboard(request):
+    
+
+    return render(request, "dashboard.html")
+
 def dashboard_podcaster(request):
     return render(request, "dashboard-podcaster.html")
 
