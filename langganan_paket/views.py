@@ -34,13 +34,10 @@ def listpaket(request):
 
 
 def riwayatpaket(request):
-    # Fetch email from session
     user_email = request.session.get('email')
     
-    # Check if the email exists in the session
     if not user_email:
-        # Redirect to a valid error page if no email is found
-        return redirect('login')  # Assuming 'login' is a valid URL pattern
+        return redirect('login')  
 
     query = get_history_paket(user_email)
     
