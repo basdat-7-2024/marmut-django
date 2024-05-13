@@ -26,11 +26,14 @@
                                     <th class="header-cell">Harga</th>
                                 </tr>
                             </thead>
+
                             <tbody>
-                                <tr class="table-row">
-                                    <td class="table-row-cell">1 Bulan</td>
-                                    <td>Rp. 54.900</td>
+                                {% for jenis, harga in jenis_harga %}
+                                <tr>
+                                    <td>{{ jenis }}</td>
+                                    <td>Rp. {{ harga|floatformat:0 }}</td>
                                 </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>

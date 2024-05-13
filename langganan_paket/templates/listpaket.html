@@ -29,42 +29,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for jenis, harga in jenis_harga %}
                         <tr>
-                            <td>1 Bulan</td>
-                            <td>Rp. 54.900</td>
+                            <td>{{ jenis }}</td>
+                            <td>Rp. {{ harga|floatformat:0 }}</td>
                             <td>
-                                <a href="{% url 'langganan_paket:pembayaranpaket' %}" class="button-berlangganan-link">
-                                    <button class="button-berlangganan">Berlangganan</button>
-                                </a>
+                                <form method="POST" >
+                                    {% csrf_token %}
+                                    <input type="hidden" name="jenis_paket" value="{{ jenis }}">
+                                    <button type="submit" class="button-berlangganan">Berlangganan</button>
+                                </form>
                             </td>
                         </tr>
-                        <tr>
-                            <td>3 Bulan</td>
-                            <td>Rp. 149.900</td>
-                            <td>
-                                <a href="{% url 'langganan_paket:pembayaranpaket' %}" class="button-berlangganan-link">
-                                    <button class="button-berlangganan">Berlangganan</button>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6 Bulan</td>
-                            <td>Rp. 249.900</td>
-                            <td>
-                                <a href="{% url 'langganan_paket:pembayaranpaket' %}" class="button-berlangganan-link">
-                                    <button class="button-berlangganan">Berlangganan</button>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1 Tahun</td>
-                            <td>Rp. 449.900</td>
-                            <td>
-                                <a href="{% url 'langganan_paket:pembayaranpaket' %}" class="button-berlangganan-link">
-                                    <button class="button-berlangganan">Berlangganan</button>
-                                </a>
-                            </td>
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
