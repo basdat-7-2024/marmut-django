@@ -25,10 +25,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for song in downloaded_songs %}
                     <tr>
-                        <td>Song 1</td>
-                        <td>Artist 1</td>
-                        <td>20/02/2024</td>
+                        <td>{{ song.Judul }}</td>
+                        <td>{{ song.Artis }}</td>
+                        <td>{{ song.Tanggal_Download }}</td>
                         <td class="action-cell">
                             <button class="delete-button" data-toggle="modal" data-target="#exampleModalCenter">
                                 <img src="../../static/img/icon/Delete Icon.png" alt="Delete" />
@@ -36,33 +37,11 @@
                             <button class="button-lihat">Lihat</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Song 2</td>
-                        <td>Artist 2</td>
-                        <td>20/02/2024</td>
-                        <td class="action-cell">
-                            <button class="delete-button" data-toggle="modal" data-target="#exampleModalCenter">
-                                <img src="../../static/img/icon/Delete Icon.png"  alt="Delete" />
-                            </button>
-                            <button class="button-lihat">Lihat</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Song 3</td>
-                        <td>Artist 3</td>
-                        <td>20/02/2024</td>
-                        <td class="action-cell">
-                            <button class="delete-button" data-toggle="modal" data-target="#exampleModalCenter">
-                                <img src="../../static/img/icon/Delete Icon.png"  alt="Delete" />
-                            </button>
-                            <button class="button-lihat">Lihat</button>
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
-
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -80,7 +59,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 <style>

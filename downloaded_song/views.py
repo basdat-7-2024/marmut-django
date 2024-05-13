@@ -1,20 +1,30 @@
-
-from django.shortcuts import render
-import datetime
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.core import serializers
-from django.shortcuts import redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages  
-from django.contrib.auth import authenticate, login
-from django.contrib.auth import logout
-from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
-import json
+from django.shortcuts import render, redirect
+from django.db import connection
+from .query import get_downloaded_song
 
 def daftardownload(request):
-    return render(request, "daftar_download.html")
+    user_email = request.session.get('email')
+    
+    if not user_email:
+        # Redirect to a valid error page or login page if no email is found
+        return redirect('login')  # Assuming 'login' is a valid URL pattern
+    
+    query = get_downloaded_song(user_email)
+    
+    with connection.cursor() as cursor:
+        cursor.execute(query)
+        rows = cursor.fetchall()
+    
+    downloaded_songs = [
+        {
+            'Judul': row[0],
+            'id_konten': row[1],
+            'Tanggal_Download': row[2],
+        }
+        for row in rows
+    ]
+    
+    context = {
+        'downloaded_songs': downloaded_songs
+    }
+    return render(request, "daftar_download.html", context)
