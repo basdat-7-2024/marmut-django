@@ -23,6 +23,9 @@ def dashboard(request):
 
     request.session['list_podcast'] = []
 
+    #Hanya buat testing nanti "tes" nya bisa dihapus
+    request.session['list_playlist'] = ["tes"]
+
     if (request.session.get('role') == "Podcaster"):
         load_podcast(request)
 
@@ -35,7 +38,8 @@ def dashboard(request):
         'is_verified': request.session.get('is_verified'),
         'kota_asal': request.session.get('kota_asal'),
         'role': request.session.get('role'),
-        'list_podcast': request.session.get('list_podcast')
+        'list_podcast': request.session.get('list_podcast'),
+        'list_playlist': request.session.get('list_playlist'),
     }
 
     return render(request, "dashboard.html", context)
