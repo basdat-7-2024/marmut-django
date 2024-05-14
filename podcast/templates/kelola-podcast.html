@@ -3,8 +3,8 @@
 <head>
     <!-- Setting Specific Css -->
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard_podcaster_style.css' %}"> 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/general_dashboard_style.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard_podcaster_style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/general_dashboard_style.css' %}">
 </head>
 
 <body>
@@ -26,7 +26,7 @@
                     </a>
                 </div>
                 <div class="div-4">
-                    
+
                     <table class="datatable">
                         <thead>
                             <tr class="table-header">
@@ -45,15 +45,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for podcast in list_podcast %}
                             <tr class="table-row">
                                 <td class="table-row-cell">
-                                    <div class="text-wrapper-19">Podcast Seru Sekali</div>
+                                    <div class="text-wrapper-19">{{podcast.0}}</div>
                                 </td>
                                 <td class="table-row-cell">
-                                    <div class="text-wrapper-20">4</div>
+                                    <div class="text-wrapper-20">{{podcast.4}}</div>
                                 </td>
                                 <td class="table-row-cell">
-                                    <div class="text-wrapper-21">28 Menit</div>
+                                    <div class="text-wrapper-21">{{podcast.3}}</div>
                                 </td>
                                 <td>
                                     <div class="frame-2">
@@ -71,32 +72,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="table-row">
-                                <td class="table-row-cell">
-                                    <div class="text-wrapper-19">Podcast Seru Sekali</div>
-                                </td>
-                                <td class="table-row-cell">
-                                    <div class="text-wrapper-20">4</div>
-                                </td>
-                                <td class="table-row-cell">
-                                    <div class="text-wrapper-21">28 Menit</div>
-                                </td>
-                                <td>
-                                    <div class="frame-2">
-                                        <div class="fill-wrapper"><img class="fill" src="https://i.ibb.co/bRFvJj7/trash2-fill.png" /></div>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <div class="frame-3">
-                                                <div class="text-wrapper-22">Tambah Episode</div>
-                                            </div>
-                                        </a>
-                                        <a href="{% url 'podcast:lihat_episode' %}">
-                                            <div class="frame-4">
-                                                <div class="text-wrapper-22">Lihat Daftar Episode</div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -104,4 +80,3 @@
         </div>
     </div>
 </body>
-
