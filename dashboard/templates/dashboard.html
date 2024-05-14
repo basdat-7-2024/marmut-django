@@ -22,5 +22,11 @@
                 {% include "kelola-podcast-none.html" %}
             {% endif %}
         {% endif %}
+
+        {% if role == 'Pengguna Biasa' %}
+            {% if list_playlist %}
+                {% include "list-playlist.html" %}
+            {% endif %}
+        {% endif %}
     </div>
 </body>
