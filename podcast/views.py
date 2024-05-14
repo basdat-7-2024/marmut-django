@@ -61,5 +61,8 @@ def kelola_podcast(request):
 
     return render(request, "kelola-podcast.html", context)
 
-def lihat_episode(request):
+def lihat_episode_kelola(request):
     return render(request, "lihat-episode-2.html")
+
+def lihat_episode_dashboard(request):
+    return render(request, "lihat-episode.html")

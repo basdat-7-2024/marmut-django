@@ -71,10 +71,6 @@ def set_role(request):
 
     request.session['role'] = result_role
 
-
-def lihat_episode(request):
-    return render(request, "lihat-episode.html")
-
 def dashboard_label(request):
     return render(request, "dashboard-label.html")
 
