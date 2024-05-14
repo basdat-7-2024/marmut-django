@@ -16,7 +16,11 @@
         {% include "detail-pengguna.html" %}
 
         {% if role == 'Podcaster' %}
-            {% include "list-podcast.html" %}
+            {% if list_podcast %}
+                {% include "list-podcast.html" %}
+            {% else %}
+                {% include "kelola-podcast-none.html" %}
+            {% endif %}
         {% endif %}
     </div>
 </body>

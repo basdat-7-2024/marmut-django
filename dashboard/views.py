@@ -16,9 +16,15 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
 from dashboard.query import *
+from podcast.views import *
 
 def dashboard(request):
     set_role(request)
+
+    request.session['list_podcast'] = []
+
+    if (request.session.get('role') == "Podcaster"):
+        load_podcast(request)
 
     context = {
         'email': request.session.get('email'),
@@ -29,6 +35,7 @@ def dashboard(request):
         'is_verified': request.session.get('is_verified'),
         'kota_asal': request.session.get('kota_asal'),
         'role': request.session.get('role'),
+        'list_podcast': request.session.get('list_podcast')
     }
 
     return render(request, "dashboard.html", context)
@@ -62,15 +69,8 @@ def set_role(request):
     if (temp_role != []):
         request.session['premium'] = False
 
-    print(result_role)
     request.session['role'] = result_role
 
-    
-def dashboard_podcaster(request):
-    return render(request, "dashboard-podcaster.html")
-
-def dashboard_podcaster_none(request):
-    return render(request, "dashboard-podcaster-none.html")
 
 def lihat_episode(request):
     return render(request, "lihat-episode.html")
@@ -80,9 +80,6 @@ def dashboard_label(request):
 
 def dashboard_pengguna(request):
     return render(request, "dashboard-pengguna.html")
-
-def dashboard_singer(request):
-    return render(request, "dashboard-singer.html")
 
 def tes_create(request):
     return render(request, "create-podcast.html")
