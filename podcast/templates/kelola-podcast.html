@@ -14,6 +14,7 @@
     {% include "create-podcast.html" %}
 
     <!-- Start Fe Here-->
+    {% if list_podcast %}
     <div class="dashboard-podcaster dashboard">
         <div class="frame-list">
             <div class="div-4">
@@ -79,4 +80,7 @@
             </div>
         </div>
     </div>
+    {% else %}
+        {% include "kelola-podcast-none.html" %}
+    {% endif %}
 </body>

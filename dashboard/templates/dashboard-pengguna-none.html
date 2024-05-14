@@ -1,35 +1,19 @@
-
-
-{% include 'base.html' %}
-
-<head>
-    <!-- Setting Specific Css -->
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/general_dashboard_style.css' %}">
-</head>
-
-<body>
-    {% include "create-playlist.html" %}
-    {% include "ubah-playlist.html" %}
-
-    <div class="dashboard">
-        {% include "detail-pengguna-role.html" %}
-        <div class="frame-list">
-            <div class="container-list">
-                <div class="container">
-                    <div class="container-icon">
-                        <img class="fun-writter" src="https://i.ibb.co/pyScQjQ/Illus.png" />
-                        <div class="text-wrapper">Anda belum Memiliki Playlist</div>
-                    </div>
-                    <button class="button" data-bs-toggle="modal" data-bs-target="#create-playlist">
-                        <div class="button-text">Tambah Playlist</div>
-                    </button>
+<div class="dashboard">
+    <div class="frame-list">
+        <div class="container-list">
+            <div class="container">
+                <div class="container-icon">
+                    <img class="fun-writter" src="https://i.ibb.co/pyScQjQ/Illus.png" />
+                    <div class="text-wrapper">Anda belum Memiliki Playlist</div>
                 </div>
+                <button class="button" data-bs-toggle="modal" data-bs-target="#create-playlist">
+                    <div class="button-text">Tambah Playlist</div>
+                </button>
             </div>
         </div>
     </div>
+</div>
 
-</body>
 <style>
     .container-list {
         display: flex;
