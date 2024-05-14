@@ -3,16 +3,129 @@
 <head>
     <!-- Setting Specific Css -->
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/general_dashboard_style.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/general_dashboard_style.css' %}">
 </head>
 
 <body>
-    <!-- Start Fe Here-->
-    <div class="dashboard-podcaster dashboard">
+    <div class="dashboard">
         {% include "detail-pengguna-label.html" %}
-
-        <div class="frame-list">
-            
+            <div class="label-dashboard">
+                <table class="datatable">
+                    <thead>
+                        <tr class="table-header">
+                            <th class="header-cell">Judul</th>
+                            <th class="header-cell">Jumlah Lagu</th>
+                            <th class="header-cell">Total Durasi</th>
+                            <th class="header-cell">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-row">
+                            <td class="table-row-cell">Album New</td>
+                            <td class="table-row-cell">0</td>
+                            <td class="table-row-cell">0 Menit</td>
+                            <td class="action-cell">
+                                <button class="delete-button"><img class="fill"
+                                        src="../../static/img/icon/Delete Icon.png" /></button>
+                                <button class="button-lihat"> Lihat Daftar Lagu </button>
+                            </td>
+                        </tr>
+                        <!-- Repeat for each row as needed -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+    </div>
 </body>
+
+
+<style>
+    .label-dashboard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 64px auto;
+        padding: 48px 64px 64px;
+        background-color: #ffffff;
+        border-radius: 32px;
+        max-width: 85%;
+        overflow: auto;
+    }
+
+    .datatable {
+        width: 100%;
+        background-color: #ffffffcf;
+        align-items: flex-end;
+        border-radius: 16px;
+        padding: 0 0 16px;
+        border: 1px solid #E2E8F0;
+        box-shadow: 0 0 0 1px #E2E8F0;
+        table-layout: fixed;
+    }
+
+    .datatable th,
+    .datatable td {
+        text-align: left;
+        padding: 20px 40px;
+        border-bottom: 1px solid #E2E8F0;
+    }
+
+    /* Set specific width for the first three columns */
+    .datatable th:not(:last-child),
+    .datatable td:not(:last-child) {
+        width: 180px;
+    }
+
+    .datatable th:last-child,
+    .datatable td:last-child {
+        width: 350px;
+        /* Wider width for action cell */
+    }
+
+    .datatable th {
+        background-color: #EFF6FF;
+        padding: 32px 60px;
+    }
+
+    .datatable tr:last-child td {
+        border-bottom: none;
+    }
+
+    .button-lihat {
+        background-color: var(--orange);
+        border: none;
+        color: white;
+        padding: 16px 24px;
+        cursor: pointer;
+        border-radius: 16px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .action-cell {
+        display: flex;
+        justify-content: space-around;
+        /* change from center to space-around for better spacing between buttons */
+        align-items: center;
+        gap: 8px;
+        /* maintain gap */
+        width: 400px;
+    }
+
+    .delete-button {
+        background-color: var(--red);
+        border-radius: 16px;
+        border: none;
+        padding: 14px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .delete-button img {
+        width: 28px;
+        height: 28px;
+        display: block;
+    }
+</style>
