@@ -47,6 +47,17 @@ def init_non_label(request):
     cursor.execute(get_kota_asal_akun(request.session.get('email')))
     request.session['kota_asal'] = cursor.fetchone()[0]
 
+def init_label(request):
+    cursor = connection.cursor()
+
+    cursor.execute(get_nama_label(request.session.get('email')))
+    request.session['nama'] = cursor.fetchone()[0]
+
+    cursor.execute(get_kontak_label(request.session.get('email')))
+    request.session['kontak'] = cursor.fetchone()[0]
+
+    request.session['role'] = "Label"
+
 def login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -64,17 +75,14 @@ def login(request):
         #Saat login sebagai label
         if account_label:
             request.session['email'] = email
-            request.session['is_label'] = True
             request.session['is_login'] = True
-            print(1)
+            init_label(request)
             messages.success(request, "Login berhasil!")
-            return HttpResponseRedirect(reverse("dashboard:dashboard"))
+            return HttpResponseRedirect(reverse("dashboard:dashboard_label"))
 
         #Saat login sebagai non label
         elif account_non_label:
-            print(1)
             request.session['email'] = email
-            request.session['is_label'] = False
             request.session['is_login'] = True
             init_non_label(request)
             messages.success(request, "Login berhasil!")
@@ -82,7 +90,6 @@ def login(request):
             
         #Saat tidak berhasil login
         else:
-            print(0)
             request.session['is_login'] = False
             messages.error(request, "Login gagal! Email atau password salah.")
     

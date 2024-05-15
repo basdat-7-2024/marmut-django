@@ -12,3 +12,4 @@ def get_premium_role(email):
 
 def get_nonpremium_role(email):
     return f"SELECT * FROM NONPREMIUM WHERE email = \'{email}\'"
+
