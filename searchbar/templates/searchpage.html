@@ -11,7 +11,7 @@
         <div class="div">
             <form class="search-wrap form-inline" action="#" method="get">
                 <div class="title">
-                    <img class="icon" src="https://i.ibb.co/sHfckcT/Icon.png" />
+                    <img class="icon" src="../../static/img/icon/Search Icon.png" />
                     <div class="text-wrapper">Search in Marmut</div>
                 </div>
                 <div class="search-bar form-group " style="margin-top: 12px;">
@@ -58,9 +58,11 @@
                             <div class="text-wrapper-5">{{ result.2 }}</div> <!-- By -->
                         </td>
                         <td>
-                            <button class="lihat-button">
-                                <div class="text-wrapper-6">Lihat</div>
-                            </button>
+                            <form method="get" action="/{{ result.0|lower }}/{{ result.1|slugify }}/">
+                                <button type="submit" class="lihat-button">
+                                    <div class="text-wrapper-6">Lihat</div>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                     {% endfor %}
