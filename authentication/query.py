@@ -22,6 +22,9 @@ def get_is_verified_akun(email):
 def get_kota_asal_akun(email):
     return f"SELECT kota_asal FROM AKUN WHERE email = \'{email}\'"
 
+def get_id_label(email):
+    return f"SELECT id FROM LABEL WHERE email = \'{email}\'"
+
 def get_nama_label(email):
     return f"SELECT nama FROM LABEL WHERE email = \'{email}\'"
 

@@ -15,6 +15,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
+from albumsong.views import *
 from dashboard.query import *
 from podcast.views import *
 
@@ -25,9 +26,17 @@ def dashboard(request):
 
     #Hanya buat testing nanti "tes" nya bisa dihapus
     request.session['list_playlist'] = ["tes"]
+    request.session['list_lagu_artist'] = ["tes"]
+    request.session['list_lagu_songwriter'] = ["tes"]
 
     if (request.session.get('role') == "Podcaster"):
         load_podcast(request)
+        
+    if (request.session.get('role') == "Artist"):
+        load_lagu_artist(request)
+
+    if (request.session.get('role') == "Songwriter"):
+        load_lagu_songwriter(request)
 
     context = {
         'email': request.session.get('email'),
@@ -40,16 +49,23 @@ def dashboard(request):
         'role': request.session.get('role'),
         'list_podcast': request.session.get('list_podcast'),
         'list_playlist': request.session.get('list_playlist'),
+        'list_lagu_artist': request.session.get('list_lagu_artist'),
+        'list_lagu_songwriter': request.session.get('list_lagu_songwriter'),
     }
 
     return render(request, "dashboard.html", context)
 
 def dashboard_label(request):
+    request.session['list_album'] = ["tes"]
+
+    load_album_label(request)
+
     context = {
         'email': request.session.get('email'),
         'nama': request.session.get('nama'),
         'kontak': request.session.get('kontak'),
         'role': request.session.get('role'),
+        'list_album': request.session.get('list_album'),
     }
 
     return render(request, "dashboard-label.html", context)
