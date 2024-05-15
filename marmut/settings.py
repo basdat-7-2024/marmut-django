@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'dashboard',
     'albumsong', 
     'user_playlist',
+    'kelola_playlist',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -93,7 +94,7 @@ WSGI_APPLICATION = 'marmut.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
+load_dotenv()
 DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql',
