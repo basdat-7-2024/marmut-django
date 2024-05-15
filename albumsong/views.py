@@ -1,4 +1,5 @@
 
+from django.db import connection
 from django.shortcuts import render
 import datetime
 from django.http import HttpResponseRedirect
@@ -16,7 +17,17 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
 
+from albumsong.query import *
+
 # Create your views here.
+
+def load_album(request):
+    cursor = connection.cursor()
+
+    cursor.execute(get_id_album(request.session.get('email')))
+    temp_id_album = cursor.fetchall()
+    
+    request.session['list_album'] = temp_id_album
 
 def albumsong(request):
     return render(request, 'albumsong.html')
