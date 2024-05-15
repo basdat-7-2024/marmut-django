@@ -20,17 +20,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                    {% for album in list_album %}
                         <tr class="table-row">
-                            <td class="table-row-cell">Album New</td>
-                            <td class="table-row-cell">0</td>
-                            <td class="table-row-cell">0 Menit</td>
+                            <td class="table-row-cell">{{album.0}}</td>
+                            <td class="table-row-cell">{{album.1}}</td>
+                            <td class="table-row-cell">{{album.2}} Menit</td>
                             <td class="action-cell">
                                 <button class="delete-button"><img class="fill"
                                         src="../../static/img/icon/Delete Icon.png" /></button>
                                 <button class="button-lihat"> Lihat Daftar Lagu </button>
                             </td>
                         </tr>
-                        <!-- Repeat for each row as needed -->
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>

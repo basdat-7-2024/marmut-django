@@ -15,6 +15,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
+from albumsong.views import *
 from dashboard.query import *
 from podcast.views import *
 
@@ -45,11 +46,16 @@ def dashboard(request):
     return render(request, "dashboard.html", context)
 
 def dashboard_label(request):
+    request.session['list_album'] = ["tes"]
+
+    load_album(request)
+
     context = {
         'email': request.session.get('email'),
         'nama': request.session.get('nama'),
         'kontak': request.session.get('kontak'),
         'role': request.session.get('role'),
+        'list_album': request.session.get('list_album'),
     }
 
     return render(request, "dashboard-label.html", context)
