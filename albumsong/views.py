@@ -21,13 +21,31 @@ from albumsong.query import *
 
 # Create your views here.
 
-def load_album(request):
+def load_album_label(request):
     cursor = connection.cursor()
 
-    cursor.execute(get_id_album(request.session.get('email')))
+    cursor.execute(get_information_album_label(request.session.get('email')))
     temp_id_album = cursor.fetchall()
     
     request.session['list_album'] = temp_id_album
+
+def load_lagu_artist(request):
+    cursor = connection.cursor()
+
+    cursor.execute(get_information_lagu(request.session.get('email')))
+    temp_id_lagu = cursor.fetchall()
+    
+    request.session['list_lagu_artist'] = temp_id_lagu
+
+def load_lagu_songwriter(request):
+    cursor = connection.cursor()
+
+    cursor.execute(get_information_songwriter(request.session.get('email')))
+    temp_id_lagu = cursor.fetchall()
+
+    print(temp_id_lagu)
+    
+    request.session['list_lagu_songwriter'] = temp_id_lagu
 
 def albumsong(request):
     return render(request, 'albumsong.html')

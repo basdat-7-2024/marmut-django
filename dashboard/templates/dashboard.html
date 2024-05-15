@@ -28,5 +28,17 @@
                 {% include "list-playlist.html" %}
             {% endif %}
         {% endif %}
+
+        {% if role == 'Artist' %}
+            {% if list_lagu_artist %}
+                {% include "list-artist.html" %}
+            {% endif %}
+        {% endif %}
+
+        {% if role == 'Songwriter' %}
+            {% if list_lagu_songwriter %}
+                {% include "list-songwriter.html" %}
+            {% endif %}
+        {% endif %}
     </div>
 </body>
