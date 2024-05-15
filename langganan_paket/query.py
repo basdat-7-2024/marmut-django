@@ -15,3 +15,8 @@ def get_history_paket(email):
         WHERE email = '{email}' 
         ORDER BY timestamp_dimulai DESC;
     """
+
+def get_latest_end_date(email):
+    return f"""
+    SELECT MAX(timestamp_berakhir) FROM transaction WHERE email = '{email}' AND timestamp_berakhir > NOW();
+    """

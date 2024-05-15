@@ -11,7 +11,7 @@
         <div class="section-pembayaran">
             <div class="upper">
                 <div class="frame">
-                    <img class="mask-group" src="../../static/img/icon/Langganan Paket.png"/>
+                    <img class="mask-group" src="../../static/img/icon/Langganan Paket.png" />
                     <div class="text-wrapper">Pembayaran Paket</div>
                 </div>
             </div>
@@ -38,24 +38,26 @@
                         </table>
                     </div>
                 </div>
-                <div class="dropdown-pembayaran">
-                    <div class="dropdown-wrap">
-                        <div class="text-pembayaran">Pembayaran</div>
-                        <select class="form-select" aria-label="Pilih Pembayaran">
-                            <option selected>Pilih Pembayaran</option>
-                            <option value="credit_card">Credit Card</option>
-                            <option value="bank_transfer">Bank Transfer</option>
-                            <option value="gopay">Gopay</option>
-                            <option value="Ovo">Ovo</option>
-                        </select>
+                <form method="post" action="{% url 'langganan_paket:pembayaranpaket' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="email" value="{{ request.session.email }}">
+                    <div class="dropdown-pembayaran">
+                        <div class="dropdown-wrap">
+                            <div class="text-pembayaran">Pembayaran</div>
+                            <select class="form-select" name="metode_bayar">
+                                <option selected>Pilih Pembayaran</option>
+                                <option value="credit_card">Credit Card</option>
+                                <option value="bank_transfer">Bank Transfer</option>
+                                <option value="gopay">Gopay</option>
+                                <option value="ovo">Ovo</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-
+                    <button type="submit" class="button">Submit</button>
+                </form>                
             </div>
         </div>
-        <button class="button">Submit</button>
     </div>
-
 </body>
 
 <style>
@@ -342,3 +344,4 @@
         border-bottom: none;
     }
 </style>
+
