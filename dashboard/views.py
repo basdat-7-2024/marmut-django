@@ -26,9 +26,17 @@ def dashboard(request):
 
     #Hanya buat testing nanti "tes" nya bisa dihapus
     request.session['list_playlist'] = ["tes"]
+    request.session['list_lagu_artist'] = ["tes"]
+    request.session['list_lagu_songwriter'] = ["tes"]
 
     if (request.session.get('role') == "Podcaster"):
         load_podcast(request)
+        
+    if (request.session.get('role') == "Artist"):
+        load_lagu_artist(request)
+
+    if (request.session.get('role') == "Songwriter"):
+        load_lagu_songwriter(request)
 
     context = {
         'email': request.session.get('email'),
@@ -41,6 +49,8 @@ def dashboard(request):
         'role': request.session.get('role'),
         'list_podcast': request.session.get('list_podcast'),
         'list_playlist': request.session.get('list_playlist'),
+        'list_lagu_artist': request.session.get('list_lagu_artist'),
+        'list_lagu_songwriter': request.session.get('list_lagu_songwriter'),
     }
 
     return render(request, "dashboard.html", context)
@@ -48,7 +58,7 @@ def dashboard(request):
 def dashboard_label(request):
     request.session['list_album'] = ["tes"]
 
-    load_album(request)
+    load_album_label(request)
 
     context = {
         'email': request.session.get('email'),
