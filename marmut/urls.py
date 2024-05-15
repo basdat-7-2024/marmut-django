@@ -28,4 +28,5 @@ urlpatterns = [
     path('podcast/', include('podcast.urls')),
     path('albumsong/', include('albumsong.urls')),
     path('playlist/', include('user_playlist.urls')),
+    path('kelola-playlist/', include('kelola_playlist.urls')),
 ]
