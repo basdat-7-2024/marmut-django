@@ -107,4 +107,3 @@ def register_label(request):
 def logout(request):
     request.session.flush()
     return render(request, "auth.html")
-# Create your views here.
