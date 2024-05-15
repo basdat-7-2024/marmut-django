@@ -1,13 +1,18 @@
+# views.py
+from django.db import connection
 from django.shortcuts import render
-
-
+from django.utils.html import escape
+from .query import get_search_query  # Ensure this import reflects your project structure
 
 def searchpage(request, query):
-    # Proses query untuk mendapatkan hasil pencarian
-    # Misalnya, filter objek atau jalankan query database
+    results = perform_search(query) if query else []
+    return render(request, 'searchpage.html', {'query': query, 'results': results})
 
-    context = {
-        'query': query,
-        'results': []  # Gantikan dengan hasil pencarian sesungguhnya
-    }
-    return render(request, 'searchpage.html', context)
+def perform_search(query):
+    # Fetch the SQL query from query.py
+    search_query = get_search_query()
+    with connection.cursor() as cursor:
+        search_pattern = '%' + query + '%'
+        cursor.execute(search_query, [search_pattern, search_pattern, search_pattern])
+        results = cursor.fetchall()
+    return results
