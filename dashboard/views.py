@@ -44,6 +44,16 @@ def dashboard(request):
 
     return render(request, "dashboard.html", context)
 
+def dashboard_label(request):
+    context = {
+        'email': request.session.get('email'),
+        'nama': request.session.get('nama'),
+        'kontak': request.session.get('kontak'),
+        'role': request.session.get('role'),
+    }
+
+    return render(request, "dashboard-label.html", context)
+
 def set_role(request):
     cursor = connection.cursor()
     result_role = "Pengguna Biasa"
@@ -74,9 +84,6 @@ def set_role(request):
         request.session['premium'] = False
 
     request.session['role'] = result_role
-
-def dashboard_label(request):
-    return render(request, "dashboard-label.html")
 
 def dashboard_pengguna(request):
     return render(request, "dashboard-pengguna.html")
