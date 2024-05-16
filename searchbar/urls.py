@@ -5,5 +5,5 @@ from searchbar.views import *
 app_name = 'searchbar'
 
 urlpatterns = [
-    path('', searchpage, name='searchpage'),
+    path('<str:query>/', searchpage, name='searchpage'),
 ]

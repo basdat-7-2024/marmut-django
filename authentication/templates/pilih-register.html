@@ -1,0 +1,300 @@
+{% include 'base.html' %}
+
+<head>
+    <!-- Setting Specific Css -->
+    {% load static %}
+</head>
+
+<body>
+  <div class="form-register" style="display: flex; justify-content: center;">
+    <div class="wrap-login">
+      <div class="header-login">
+        <img class="logo-marmut" src="../../static/img/Logo Marmut Auth.png"  />
+        <div class="frame">
+          <div class="text-wrapper">Marmut C-7</div>
+          <div class="div">Register</div>
+        </div>
+      </div>
+
+      <div>
+        <button class="login-button">
+          <a href="{% url 'authentication:register' %}">
+            <button class="button">
+              <div class="text-wrapper-3">Sebagai Pengguna</div>
+            </button>
+          </a>
+        </button>
+        <div style="padding: 12px;"></div>
+        <button class="login-button">
+          <a href="{% url 'authentication:register_label' %}">
+            <button class="button" style="background-color: white; border: 3.5px solid #FF516E; ">
+              <div class="text-wrapper-3" style="color: #FF516E;">Sebagai Label</div>
+            </button>
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="welcome-card">
+        <div class="div">
+            <div class="div">
+                <div class="row">
+                    <img class="logo-marmut" src="https://i.ibb.co/X3rKb3B/Group-3304.png" />
+                    <div class="col">
+                        <div class="text-wrapper">Marmut - C7</div>
+                        <div class="text-wrapper-2">Form Login</div>
+                    </div>
+                </div>
+                <div class="div">
+                    <form action="">
+                        <input type="text" class="form-input" name="" id="" placeholder="username">
+                        <input type="text" class="form-input" name="" id="" placeholder="password">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+</body>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+
+  .form-register {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    margin-top: 64px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 48px 96px 64px;
+    background-color: #ffffff;
+    border-radius: 32px;
+    box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
+    max-width: calc(40%);
+    overflow: auto;
+  }
+
+  .form-register .wrap-login {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  .form-register .header-login {
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  .form-register .logo-marmut {
+    position: relative;
+    width: 85px;
+    height: 85px;
+  }
+
+  .form-register .frame {
+    display: inline-flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .form-register .text-wrapper {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: var(--p-semi-bold-font-family);
+    font-weight: var(--p-semi-bold-font-weight);
+    color: var(--light-grey);
+    font-size: var(--p-semi-bold-font-size);
+    letter-spacing: var(--p-semi-bold-letter-spacing);
+    line-height: var(--p-semi-bold-line-height);
+    white-space: nowrap;
+    font-style: var(--p-semi-bold-font-style);
+  }
+
+  .form-register .div {
+    position: relative;
+    width: fit-content;
+    font-family: var(--h2-font-family);
+    font-weight: var(--h2-font-weight);
+    color: #FF516E;
+    font-size: var(--h2-font-size);
+    letter-spacing: var(--h2-letter-spacing);
+    line-height: var(--h2-line-height);
+    white-space: nowrap;
+    font-style: var(--h2-font-style);
+  }
+
+  .form-register .body-login {
+    display: inline-flex;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  .form-register .input-field {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  .form-register .div-2 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  .form-register .text-wrapper-2 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: var(--large-text-semi-bold-font-family);
+    font-weight: var(--large-text-semi-bold-font-weight);
+    color: var(--dark-grey);
+    font-size: var(--large-text-semi-bold-font-size);
+    text-align: center;
+    letter-spacing: var(--large-text-semi-bold-letter-spacing);
+    line-height: var(--large-text-semi-bold-line-height);
+    white-space: nowrap;
+    font-style: var(--large-text-semi-bold-font-style);
+  }
+
+  .form-register .text-input {
+    display: flex;
+    width: 392px;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid;
+    border-color: #82828233;
+  }
+
+  .form-register .img {
+    object-fit: contain;
+    position: relative;
+    width: 28px;
+    height: 28px;
+  }
+
+  .form-register .frame-2 {
+    display: flex;
+    gap: 2px;
+    flex: 1;
+    flex-grow: 1;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .text-input,
+  textarea,
+  input {
+    border: none;
+    background-color: #ffffff;
+    outline: none;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+
+
+  .form-register .placeholder {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #828282b2;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 24px;
+    white-space: nowrap;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .form-register .placeholder-2 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #828282b2;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 24px;
+    white-space: nowrap;
+  }
+
+  .form-register .login-button {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    flex: 0 0 auto;
+    opacity: 0.5;
+  }
+
+  .form-register .button {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    height: 64px;
+    align-items: center;
+    justify-content: center;
+    gap: var(--tokens-measurements-button-gap);
+    padding: 0px 32px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    background-color: #FF516E;
+    border-radius: 16px;
+    border: 2px solid;
+    border-color: transparent;
+  }
+
+  .form-register .text-wrapper-3 {
+    position: relative;
+    width: fit-content;
+    font-family: var(--large-text-semi-bold-font-family);
+    font-weight: var(--large-text-semi-bold-font-weight);
+    color: #ffffff;
+    font-size: var(--large-text-semi-bold-font-size);
+    text-align: center;
+    letter-spacing: var(--large-text-semi-bold-letter-spacing);
+    line-height: var(--large-text-semi-bold-line-height);
+    white-space: nowrap;
+    font-style: var(--large-text-semi-bold-font-style);
+  }
+</style>

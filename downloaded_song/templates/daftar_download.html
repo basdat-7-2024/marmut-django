@@ -1,53 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+{% include 'base.html' %}
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Setting Css -->
+    <!-- Setting Specific Css -->
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styleguide.css' %}">
-
-    <!-- Setting Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https  ://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-
-    <!-- Setting Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
 </head>
 
 <body>
-
-    <!-- Setting Css di Static -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    {% include "navbar-premium.html" %}
-
     <!-- Start Fe Here-->
     <div class="download-lagu">
-        <div class="download-lagu-warp">
+        <div class="download-lagu-wrap">
             <header class="header">
                 <div class="title">
-                    <img class="icon" src="https://i.ibb.co/gPnGsCN/path258.png" />
+                    <img class="icon" src="../../static/img/icon/Downloaded Song.png" alt="Icon" />
                     <div class="text-wrapper">Daftar Download Lagu</div>
                 </div>
             </header>
@@ -55,130 +19,96 @@
                 <thead>
                     <tr>
                         <th>Judul</th>
-                        <th>Oleh</th>
-                        <th>Tanggal Download</th>
-                        <th>Action</th>
+                        <th class="action-cell">Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for song in downloaded_song %}
                     <tr>
-                        <td>Song 1</td>
-                        <td>Artist 1</td>
-                        <td>20/02/2024</td>
+                        <td>{{ song.Judul }}</td>
                         <td class="action-cell">
-                            <button class="delete-button" data-toggle="modal" data-target="#exampleModalCenter">
-                                <img src="https://i.ibb.co/dDnHTjf/trash2-fill.png" alt="Delete" />
-                            </button>
+                            <form method="post" action="">
+                                {% csrf_token %}
+                                <input type="hidden" name="song_id" value="{{ song.id }}">
+                                <input type="hidden" name="song_title" value="{{ song.Judul }}">
+                                <button type="submit" class="delete-button">
+                                    <img src="../../static/img/icon/Delete Icon.png" alt="Delete" />
+                                </button>
+                            </form>
                             <button class="button-lihat">Lihat</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Song 2</td>
-                        <td>Artist 2</td>
-                        <td>20/02/2024</td>
-                        <td class="action-cell">
-                            <button class="delete-button" data-toggle="modal" data-target="#exampleModalCenter">
-                                <img src="https://i.ibb.co/dDnHTjf/trash2-fill.png" alt="Delete" />
-                            </button>
-                            <button class="button-lihat">Lihat</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Song 3</td>
-                        <td>Artist 3</td>
-                        <td>20/02/2024</td>
-                        <td class="action-cell">
-                            <button class="delete-button" data-toggle="modal" data-target="#exampleModalCenter">
-                                <img src="https://i.ibb.co/dDnHTjf/trash2-fill.png" alt="Delete" />
-                            </button>
-                            <button class="button-lihat">Lihat</button>
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
 
-
+    {% if delete_success %}
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade show" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalTitle" aria-hidden="true" style="display: block;">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-body" style="align-items: center;">
-                    <h4>Berhasil Menghapus Lagu dengan judul ‘Song 1’ dari unduhan!</h4>
-                    <img src="https://i.ibb.co/M9mv14c/Illustration.png" class="img-fluid mb-3 illustration"
-                        alt="Illustration">
+                <div class="modal-body">
+                    <h4>Berhasil menghapus Lagu dengan judul ‘{{ deleted_song_title }}’ dari unduhan!</h4>
+                    <img src="../../static/img/Delete Success.png" class="img-fluid mb-3 illustration" alt="Illustration">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='{{ request.path }}';">Kembali</button>
                 </div>
             </div>
         </div>
     </div>
-
+    {% endif %}
 </body>
 
 <style>
+    /* styles.css */
     .download-lagu {
         padding: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 64px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 64px auto;
         padding: 48px 64px 64px;
         background-color: #ffffff;
         border-radius: 32px;
         box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
-        max-width: calc(85%);
+        max-width: 85%;
         overflow: auto;
     }
 
-    .download-lagu .download-lagu-warp {
+    .download-lagu-wrap {
         display: flex;
         flex-direction: column;
         width: 1151px;
         align-items: flex-start;
         gap: 64px;
         position: relative;
-        flex: 0 0 auto;
-        margin-left: -0.5px;
-        margin-right: -0.5px;
     }
 
-    .download-lagu .header {
+    .header {
         display: flex;
         align-items: center;
         justify-content: space-around;
         gap: 18px;
-        /* position: relative; */
-        align-self: stretch;
         width: 1150px;
-        flex: 0 0 auto;
         background-color: transparent;
     }
 
-    .download-lagu .title {
+    .title {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 18px;
-        position: relative;
-        flex: 0 0 auto;
     }
 
-    .download-lagu .icon {
-        position: relative;
+    .icon {
         width: 32px;
         height: 26px;
     }
 
-    .download-lagu .text-wrapper {
-        position: relative;
-        width: fit-content;
-        margin-top: -1px;
+    .text-wrapper {
         font-family: var(--h2-font-family);
         font-weight: var(--h2-font-weight);
         color: var(--black);
@@ -186,62 +116,42 @@
         letter-spacing: var(--h2-letter-spacing);
         line-height: var(--h2-line-height);
         white-space: nowrap;
-        font-style: var(--h2-font-style);
     }
 
-
-    .download-lagu .datatable {
+    .datatable {
         width: 100%;
-        overflow: hidden;
         background-color: #ffffffcf;
         align-items: flex-end;
         border-radius: 16px;
-        padding: 0px 0px 16px;
-        border: 1px solid;
-        border-color: #E2E8F0 !important;
-        /* Menambahkan !important untuk memastikan warna border */
-        box-shadow: 0px 0px 0px 1px #E2E8F0;
-        /* Shadow dengan warna abu-abu dan transparansi */
-
+        padding: 0 0 16px;
+        border: 1px solid #E2E8F0;
+        box-shadow: 0 0 0 1px #E2E8F0;
     }
 
-
-    .download-lagu table {
+    .datatable table {
         width: 100%;
         border-collapse: collapse;
-        margin: 0;
-        padding: 0;
-        border: 1px solid;
-        border-color: #E2E8F0 !important;
+        border: 1px solid #E2E8F0;
         table-layout: fixed;
     }
 
-    .download-lagu th,
-    .download-lagu td {
+    .datatable th,
+    .datatable td {
         text-align: left;
         padding: 20px 60px;
         border-bottom: 1px solid #E2E8F0;
     }
 
-    .download-lagu tr {
-        width: 100%;
-    }
-
-    .download-lagu th {
+    .datatable th {
         background-color: #EFF6FF;
         padding: 32px 60px;
     }
 
-    .download-lagu th.centered {
-        text-align: center;
-    }
-
-
-    .download-lagu tr:last-child td {
+    .datatable tr:last-child td {
         border-bottom: none;
     }
 
-    .download-lagu button.button-lihat {
+    .button-lihat {
         background-color: var(--orange);
         border: none;
         color: white;
@@ -251,17 +161,14 @@
         font-family: 'Poppins', sans-serif;
     }
 
-
-    td.action-cell {
-        gap: 8px;
+    .action-cell {
         display: flex;
         justify-content: center;
-        /* Center the buttons horizontally */
         align-items: center;
-        /* Center the buttons vertically */
+        gap: 8px;
     }
 
-    .download-lagu button.delete-button {
+    .delete-button {
         background-color: var(--red);
         border-radius: 16px;
         border: none;
@@ -282,10 +189,9 @@
         border-radius: 40px;
         justify-content: center;
         margin-top: 10%;
-
     }
 
-    .modal .modal-body {
+    .modal-body {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -294,22 +200,21 @@
         margin-top: 16px;
     }
 
-    .modal .modal-dialog {
+    .modal-dialog {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .modal .modal-content {
+    .modal-content {
         width: 100%;
         display: flex;
         flex-direction: column;
         padding: 20px;
-        border-end-end-radius: 20px;
         border-radius: 20px;
     }
 
-    .modal .modal-body h4 {
+    .modal-body h4 {
         margin-bottom: 20px;
         text-align: center;
         font-size: var(--h3-font-size);
@@ -318,17 +223,16 @@
         color: var(--black);
     }
 
-    .modal .modal-footer {
+    .modal-footer {
         padding: 20px;
         display: flex;
         justify-content: center;
     }
 
-    .modal .illustration {
+    .illustration {
         width: 300px;
         height: 300px;
         object-fit: cover;
-        align-self: center;
     }
 
     .modal button.btn {
@@ -342,5 +246,3 @@
         background-color: var(--red);
     }
 </style>
-
-</html>

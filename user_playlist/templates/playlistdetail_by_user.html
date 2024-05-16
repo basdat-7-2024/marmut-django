@@ -1,0 +1,574 @@
+{% include 'base.html' %}
+
+<head>
+    <!-- Setting Specific Css -->
+    {% load static %}
+</head>
+
+<body>
+    <div class="user-playlist-detail">
+        <div class="div">
+            <header class="header">
+                <div class="frame">
+                    <div class="frame-2">
+                        <img class="vector" src="https://i.ibb.co/n6g23xN/Vector-3-2.png" />
+                        <div class="text-wrapper">Kembali</div>
+                    </div>
+                    <div class="frame-3">
+                        <img class="path"  src="https://i.ibb.co/ZdbZDdQ/path258-1.png" />
+                        <div class="text-wrapper-2">User Playlist Detail</div>
+                    </div>
+                    <div class="frame-4">
+                        <img class="img" src="https://i.ibb.co/n6g23xN/Vector-3-2.png" />
+                        <div class="text-wrapper">Kembali</div>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <div class="wrap-double">
+                        <div class="wrap-title">
+                            <div class="text-wrapper-3">Judul</div>
+                            <div class="text-wrapper-4">Playlist 1</div>
+                        </div>
+                        <div class="wrap-title">
+                            <div class="text-wrapper-3">Pembuat</div>
+                            <div class="text-wrapper-4">Pembuat 1</div>
+                        </div>
+                    </div>
+                    <div class="wrap-double-2">
+                        <div class="wrap-title-2">
+                            <div class="text-wrapper-3">Jumlah Lagu</div>
+                            <div class="text-wrapper-4">12 Lagu</div>
+                        </div>
+                        <div class="wrap-title-2">
+                            <div class="text-wrapper-3">Total Durasi</div>
+                            <div class="text-wrapper-4">8 Jam 20 Menit</div>
+                        </div>
+                    </div>
+                    <div class="wrap-double-3">
+                        <div class="wrap-title-2">
+                            <div class="text-wrapper-3">Tanggal Dibuat</div>
+                            <div class="text-wrapper-4">18/03/24</div>
+                        </div>
+                        <div class="wrap-title-2">
+                            <div class="text-wrapper-3">Deskripsi</div>
+                            <p class="p">
+                                Lorem ipsum dolor sit amet consectetur. Nunc consequat consequat sed neque habitant
+                                dolor tincidunt
+                                purus. Pretium nec gravida non lacus sit feugiat in pellentesque sapien. Sit diam
+                                hendrerit enim vel
+                                vestibulum tincidunt. Morbi et lorem feugiat libero non odio.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="table">
+                <div class="button-detail">
+                    <button class="button"><span class="button-2">Shuffle Play</span></button>
+                </div>                
+                <div class="datatable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Judul</th>
+                                <th>Oleh</th>
+                                <th>Durasi</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Song 1</td>
+                                <td>Artist 1</td>
+                                <td>2 Menit</td>
+                                <td class="row-action">
+                                    <button class="frame-6">Lihat</button>
+                                    <button class="frame-7">Play</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Song 2</td>
+                                <td>Artist 2</td>
+                                <td>3 Menit</td>
+                                <td class="row-action">
+                                    <button class="frame-6">Lihat</button>
+                                    <button class="frame-7">Play</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Song 3</td>
+                                <td>Artist 2</td>
+                                <td>4 Menit</td>
+                                <td class="row-action">
+                                    <button class="frame-6">Lihat</button>
+                                    <button class="frame-7">Play</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <style>
+        .user-playlist-detail {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 64px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 48px 64px 64px;
+            background-color: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
+            max-width: calc(85%);
+            overflow: auto;
+        }
+
+        .user-playlist-detail .div {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 64px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .user-playlist-detail .header {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 48px;
+            position: relative;
+            flex: 0 0 auto;
+            background-color: transparent;
+        }
+
+        .user-playlist-detail .frame {
+            display: flex;
+            width: 1150px;
+            justify-content: space-between;
+            flex: 0 0 auto;
+            align-items: center;
+            position: relative;
+        }
+
+        .user-playlist-detail .frame-2 {
+            display: inline-flex;
+            gap: 16px;
+            flex: 0 0 auto;
+            align-items: center;
+            position: relative;
+        }
+
+        .user-playlist-detail .vector {
+            position: relative;
+            width: 28.6px;
+            height: 20.8px;
+            margin-left: -1.3px;
+        }
+
+        .user-playlist-detail .text-wrapper {
+            position: relative;
+            width: fit-content;
+            margin-top: -1px;
+            font-family: var(--large-text-semi-bold-font-family);
+            font-weight: var(--large-text-semi-bold-font-weight);
+            color: var(--dark-grey);
+            font-size: var(--large-text-semi-bold-font-size);
+            text-align: center;
+            letter-spacing: var(--large-text-semi-bold-letter-spacing);
+            line-height: var(--large-text-semi-bold-line-height);
+            white-space: nowrap;
+            font-style: var(--large-text-semi-bold-font-style);
+        }
+
+        .user-playlist-detail .frame-3 {
+            display: inline-flex;
+            justify-content: center;
+            gap: 18px;
+            flex: 0 0 auto;
+            align-items: center;
+            position: relative;
+        }
+
+        .user-playlist-detail .path {
+            position: relative;
+            width: 32px;
+            height: 26px;
+        }
+
+        .user-playlist-detail .text-wrapper-2 {
+            position: relative;
+            width: fit-content;
+            margin-top: -1px;
+            font-family: var(--h2-font-family);
+            font-weight: var(--h2-font-weight);
+            color: var(--black);
+            font-size: var(--h2-font-size);
+            letter-spacing: var(--h2-letter-spacing);
+            line-height: var(--h2-line-height);
+            white-space: nowrap;
+            font-style: var(--h2-font-style);
+        }
+
+        .user-playlist-detail .frame-4 {
+            display: inline-flex;
+            gap: 16px;
+            flex: 0 0 auto;
+            opacity: 0;
+            align-items: center;
+            position: relative;
+        }
+
+        .user-playlist-detail .img {
+            position: relative;
+            width: 26px;
+            height: 18.2px;
+            margin-top: -6366.1px;
+            margin-left: -13057px;
+        }
+
+        .user-playlist-detail .wrap {
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 124px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .user-playlist-detail .wrap-double {
+            gap: 36px;
+            display: flex;
+            flex-direction: column;
+            width: 197px;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .user-playlist-detail .wrap-title {
+            gap: 8px;
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            width: 197px;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .user-playlist-detail .text-wrapper-3 {
+            position: relative;
+            width: fit-content;
+            margin-top: -1px;
+            font-family: var(--h4-font-family);
+            font-weight: 500;
+            color: var(--dark-grey);
+            font-size: var(--h4-font-size);
+            letter-spacing: var(--h4-letter-spacing);
+            line-height: var(--h4-line-height);
+            white-space: nowrap;
+            font-style: var(--h4-font-style);
+        }
+
+        .user-playlist-detail .text-wrapper-4 {
+            position: relative;
+            width: fit-content;
+            font-family: var(--h4-font-family);
+            font-weight: var(--h4-font-weight);
+            color: var(--black);
+            font-size: var(--h4-font-size);
+            letter-spacing: var(--h4-letter-spacing);
+            line-height: var(--h4-line-height);
+            white-space: nowrap;
+            font-style: var(--h4-font-style);
+        }
+
+        .user-playlist-detail .wrap-double-2 {
+            display: flex;
+            width: 200px;
+            gap: 36px;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .user-playlist-detail .wrap-title-2 {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .user-playlist-detail .wrap-double-3 {
+            display: inline-flex;
+            gap: 24px;
+            flex: 0 0 auto;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+        }
+
+
+        .user-playlist-detail th:not(:last-child),
+        .user-playlist-detail td:not(:last-child) {
+            /* Panjang kolom header dan isi tabel kecuali kolom action */
+            width: calc(50% - 30px);
+            /* 30px adalah lebar padding */
+        }
+
+        .user-playlist-detail th:last-child,
+        .user-playlist-detail td:last-child {
+            /* Kolom action */
+            width: calc(50% + 30px);
+            /* Menambah 30px untuk padding */
+        }
+
+        .user-playlist-detail .row-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            /* Jarak antar tombol */
+            flex-grow: 1;
+            /* Mengatur agar baris action memperluas secara fleksibel */
+            padding: 20px 0;
+            /* Tambahkan padding atas dan bawah */
+        }
+
+        .user-playlist-detail tr:last-child td {
+            border-bottom: none;
+        }
+
+        
+
+
+        .user-playlist-detail .p {
+            position: relative;
+            width: 199px;
+            height: 57px;
+            font-family: var(--h4-font-family);
+            font-weight: var(--h4-font-weight);
+            color: var(--black);
+            font-size: var(--h4-font-size);
+            letter-spacing: var(--h4-letter-spacing);
+            line-height: var(--h4-line-height);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            font-style: var(--h4-font-style);
+        }
+
+        .user-playlist-detail .table {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .user-playlist-detail .button-detail {
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 30px;
+            flex: 0 0 auto;
+            justify-content: center;
+            position: relative;
+        }
+
+        .user-playlist-detail .button {
+            all: unset;
+            box-sizing: border-box;
+            display: flex;
+            width: 200px;
+            height: 56px;
+            align-items: center;
+            gap: var(--tokens-measurements-button-gap);
+            padding: 0px 32px;
+            background-color: var(--red);
+            border-radius: 12px;
+            border: 2px solid;
+            border-color: transparent;
+            justify-content: center;
+            position: relative;
+        }
+
+        .user-playlist-detail .button-2 {
+            all: unset;
+            box-sizing: border-box;
+            position: relative;
+            width: fit-content;
+            font-family: var(--desktop-semibold-large-text-font-family);
+            font-weight: var(--desktop-semibold-large-text-font-weight);
+            color: var(--white);
+            font-size: var(--desktop-semibold-large-text-font-size);
+            text-align: center;
+            letter-spacing: var(--desktop-semibold-large-text-letter-spacing);
+            line-height: var(--desktop-semibold-large-text-line-height);
+            white-space: nowrap;
+            font-style: var(--desktop-semibold-large-text-font-style);
+        }
+
+        .user-playlist-detail .button-3 {
+            all: unset;
+            box-sizing: border-box;
+            display: flex;
+            width: 200px;
+            height: 56px;
+            align-items: center;
+            gap: var(--tokens-measurements-button-gap);
+            padding: 0px 32px;
+            background-color: var(--orange);
+            border-radius: 12px;
+            border: 2px solid;
+            border-color: transparent;
+            justify-content: center;
+            position: relative;
+        }
+
+        .user-playlist-detail .datatable {
+            width: 100%;
+            overflow: hidden;
+            background-color: #ffffffcf;
+            align-items: flex-end;
+            border-radius: 16px;
+            padding: 0px 0px 16px;
+            border: 1px solid;
+            border-color: #E2E8F0 !important;
+            box-shadow: 0px 0px 0px 1px #E2E8F0;
+
+        }
+
+
+        .user-playlist-detail table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+            border: 1px solid;
+            border-color: #E2E8F0 !important;
+            table-layout: fixed;
+        }
+
+        .user-playlist-detail th,
+        .user-playlist-detail td {
+            text-align: left;
+            padding: 20px 60px;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .user-playlist-detail tr {
+            width: 100%;
+        }
+
+        .user-playlist-detail th {
+            background-color: #EFF6FF;
+            padding: 32px 60px;
+        }
+
+        .user-playlist-detail th.centered {
+            text-align: center;
+        }
+
+
+        .user-playlist-detail tr:last-child td {
+            border-bottom: none;
+        }
+
+        .description-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-height: 3.6em;
+            /* Adjust based on your line-height */
+            line-height: 1.8em;
+            /* Adjust based on your preferences */
+        }
+
+        .user-playlist-detail .frame-5 {
+            display: flex;
+            height: 56px;
+            justify-content: center;
+            gap: 12px;
+            flex: 1;
+            flex-grow: 1;
+            align-items: center;
+            position: relative;
+        }
+
+        .user-playlist-detail .fill-wrapper {
+            display: inline-flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            flex: 0 0 auto;
+            background-color: var(--red);
+            border-radius: 10px;
+            overflow: hidden;
+            align-items: center;
+            position: relative;
+        }
+
+        .user-playlist-detail .fill {
+            position: relative;
+            width: 28px;
+            height: 28px;
+        }
+
+        .user-playlist-detail .frame-6 {
+            display: inline-flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 24px;
+            flex: 0 0 auto;
+            background-color: #60cad7;
+            border-radius: 10px;
+            overflow: hidden;
+            align-items: center;
+            position: relative;
+        }
+
+        .user-playlist-detail .text-wrapper-9 {
+            position: relative;
+            width: fit-content;
+            margin-top: -1px;
+            font-family: var(--p-semi-bold-font-family);
+            font-weight: var(--p-semi-bold-font-weight);
+            color: #ffffff;
+            font-size: var(--p-semi-bold-font-size);
+            text-align: center;
+            letter-spacing: var(--p-semi-bold-letter-spacing);
+            line-height: var(--p-semi-bold-line-height);
+            white-space: nowrap;
+            font-style: var(--p-semi-bold-font-style);
+        }
+
+        .user-playlist-detail .frame-7 {
+            display: inline-flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 24px;
+            flex: 0 0 auto;
+            background-color: var(--orange);
+            border-radius: 10px;
+            overflow: hidden;
+            align-items: center;
+            position: relative;
+        }
+    </style>
+
+</body>
+
+
+</html>

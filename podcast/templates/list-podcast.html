@@ -1,0 +1,66 @@
+{% include "create-episode.html" %}
+{% include "create-podcast.html" %}
+
+<div class="frame-list">
+    <div class="div-4">
+        <div class="frame-title">
+            <div class="text-wrapper-16">List Podcast</div>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <div class="add-podcast">
+                    <div class="text-wrapper-17">Tambah Podcast</div>
+                </div>
+            </a>
+        </div>
+        <div class="div-4">
+            <table class="datatable">
+                <thead>
+                    <tr class="table-header">
+                        <th class="header-cell">
+                            <div class="text-wrapper-18">Judul</div>
+                        </th>
+                        <th class="header-cell">
+                            <div class="text-wrapper-18 header-2">Jumlah Episode</div>
+                        </th>
+                        <th class="header-cell">
+                            <div class="text-wrapper-18 header-3">Total Durasi</div>
+                        </th>
+                        <th class="header-cell">
+                            <div class="text-wrapper-18 header-4">Action</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for podcast in list_podcast %}
+                    <tr class="table-row">
+                        <td class="table-row-cell">
+                            <div class="text-wrapper-19">{{podcast.0}}</div>
+                        </td>
+                        <td class="table-row-cell">
+                            <div class="text-wrapper-20">{{podcast.4}}</div>
+                        </td>
+                        <td class="table-row-cell">
+                            <div class="text-wrapper-21">{{podcast.3}}</div>
+                        </td>
+                        <td>
+                            <div class="frame-2">
+                                <div class="fill-wrapper"><img class="fill" src="../../static/img/icon/Delete Icon.png" /></div>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#create-episode">
+                                    <div class="frame-3">
+                                        <div class="text-wrapper-22">Tambah Episode</div>
+                                    </div>
+                                </a>
+                                <a href="{% url 'podcast:lihat_episode_dashboard' %}">
+                                    <div class="frame-4">
+                                        <div class="text-wrapper-22">Lihat Daftar Episode</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>
