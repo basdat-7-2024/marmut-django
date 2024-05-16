@@ -1,12 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-from django.urls import reverse
-from django.db import connection
+from django.db import connection, DatabaseError, transaction as db_transaction
 from django.utils import timezone
-from .query import get_jenis_paket,get_history_paket, get_latest_end_date
+from .query import get_jenis_paket, get_history_paket
 import datetime
-import uuid 
-
+import uuid
 def listpaket(request):
     cursor = connection.cursor()
     cursor.execute(get_jenis_paket())
@@ -68,13 +66,7 @@ def pembayaranpaket(request):
     if request.method == "POST":
         jenis_paket = selected_package
         metode_bayar = request.POST.get('metode_bayar')
-
-        cursor.execute(get_latest_end_date(user_email))
-        latest_end_date_result = cursor.fetchone()
-        if latest_end_date_result and latest_end_date_result[0]:
-            timestamp_dimulai = latest_end_date_result[0]
-        else:
-            timestamp_dimulai = timezone.now()
+        timestamp_dimulai = timezone.now()
         timestamp_berakhir = calculate_end_date(jenis_paket, timestamp_dimulai)
         nominal = get_nominal(jenis_paket)
         
@@ -83,23 +75,23 @@ def pembayaranpaket(request):
                 # Generate a unique ID for the transaction
                 transaction_id = str(uuid.uuid4())
                 
-                cursor.execute(
-                    "INSERT INTO transaction (id, jenis_paket, email, timestamp_dimulai, timestamp_berakhir, metode_bayar, nominal) "
-                    "VALUES (%s, %s, %s, %s, %s, %s, %s)",
-                    [transaction_id, jenis_paket, user_email, timestamp_dimulai, timestamp_berakhir, metode_bayar, nominal]
-                )
-                cursor.execute(
-                    "INSERT INTO premium (email) SELECT %s WHERE NOT EXISTS (SELECT 1 FROM premium WHERE email = %s)",
-                    [user_email, user_email]
-                )
+                with db_transaction.atomic():
+                    cursor.execute(
+                        "INSERT INTO transaction (id, jenis_paket, email, timestamp_dimulai, timestamp_berakhir, metode_bayar, nominal) "
+                        "VALUES (%s, %s, %s, %s, %s, %s, %s)",
+                        [transaction_id, jenis_paket, user_email, timestamp_dimulai, timestamp_berakhir, metode_bayar, nominal]
+                    )
                 connection.commit()
+                request.session['boolean_premium'] = True
+                cursor.execute(f"DELETE FROM nonpremium WHERE email='{user_email}';")
                 return redirect('langganan_paket:riwayatpaket')
-            except Exception as e:
+            except DatabaseError as e:
                 context['error'] = str(e)
         else:
             context['error'] = 'Email not found in session'
         
     return render(request, "pembayaranpaket.html", context)
+
 
 def calculate_end_date(jenis_paket, timestamp_dimulai):
     if jenis_paket == "1 Bulan":
