@@ -82,7 +82,7 @@ def pembayaranpaket(request):
                         [transaction_id, jenis_paket, user_email, timestamp_dimulai, timestamp_berakhir, metode_bayar, nominal]
                     )
                 connection.commit()
-                request.session['boolean_premium'] = True
+                request.session['premium'] = True
                 cursor.execute(f"DELETE FROM nonpremium WHERE email='{user_email}';")
                 return redirect('langganan_paket:riwayatpaket')
             except DatabaseError as e:

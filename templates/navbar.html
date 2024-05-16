@@ -24,25 +24,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'kelola_playlist:kelola_playlist' %}">Kelola Playlist</a>
                 </li>
-                
+                {% if user_role != 'Label' %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'langganan_paket:listpaket' %}">Langganan Paket</a>
+                </li>
+                {% endif %}
                 {% if boolean_premium %}
-
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'downloaded_song:daftardownload' %}">Downloaded Song</a>
                 </li>
                 {% endif %}
                 {% if user_role == 'Podcaster' %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'langganan_paket:listpaket' %}">Langganan Paket</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{% url 'podcast:kelola_podcast' %}">Kelola Podcast</a>
                 </li>
                 {% endif %}
                 {% if user_role == 'Artist' or user_role == 'Songwriter' %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'langganan_paket:listpaket' %}">Langganan Paket</a>
-                </li> 
                 <li class="nav-item">
                     <a class="nav-link" href="#">Kelola Album & Song</a>
                 </li>
