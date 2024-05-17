@@ -15,7 +15,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedMarmut">
             <ul class="section-navbar navbar-nav">
-                {% if user_role != 'Label' %}
+                {% if 'Label' not in user_role %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'dashboard:dashboard' %}">Dashboard</a>
                     </li>
@@ -33,12 +33,12 @@
                         <a class="nav-link" href="{% url 'downloaded_song:daftardownload' %}">Downloaded Song</a>
                     </li>
                     {% endif %}
-                    {% if user_role == 'Podcaster' %}
+                    {% if 'Podcaster' in user_role %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'podcast:kelola_podcast' %}">Kelola Podcast</a>
                     </li>
                     {% endif %}
-                    {% if user_role == 'Artist' or user_role == 'Songwriter' %}
+                    {% if 'Artist' in user_role or 'Songwriter' in user_role %}
                     <li class="nav-item">
                         <a class="nav-link" href="#">Kelola Album & Song</a>
                     </li>
@@ -47,7 +47,7 @@
                     </li>
                     {% endif %}
                 {% endif %}
-                {% if user_role == 'Label' %}
+                {% if 'Label' in user_role %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'dashboard:dashboard_label' %}">Dashboard</a>
                     </li>
