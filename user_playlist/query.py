@@ -11,5 +11,6 @@ def insert_into_akun_play_user_playlist(email_pemain, id_user_playlist, email_pe
     # email_pemain id_user_playlist email_pembuat waktu
     timezone_offset = 0  # UTC
     tzinfo = datetime.timezone(datetime.timedelta(hours=timezone_offset))
-    time_now = datetime.now(tzinfo)
+    datetime.datetime.now
+    time_now =  datetime.datetime.now(tzinfo)
     return f"insert into akun_play_user_playlist (email_pemain, id_user_playlist, email_pembuat, waktu) values (\'{email_pemain}\', \'{id_user_playlist}\', \'{email_pembuat}\', \'{time_now}\')"

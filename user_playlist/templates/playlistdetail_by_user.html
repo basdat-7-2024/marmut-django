@@ -95,7 +95,7 @@
 
     <script>
         async function shufflePlay() {
-            await fetch(`{% url 'user_playlist:shuffle_play' %}?id={{playlist_info.id_playlist}}&email_pembuat={{playlist_info.email_pembuat}}`).then(alert('Shuffle play berhasil!'))
+            await fetch(`{% url 'user_playlist:shuffle_play' %}?id={{playlist_info.id_user_playlist}}&email_pembuat={{playlist_info.email_pembuat}}`).then(alert('Shuffle play berhasil!'))
         }
     </script>
 
