@@ -163,7 +163,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CSRF_TRUSTED_ORIGINS = ['https://marmut-c7.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://marmut-c7.up.railway.app']
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
