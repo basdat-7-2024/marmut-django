@@ -126,12 +126,13 @@ def register(request):
         cursor = connection.cursor()
         cursor.execute(register_to_akun_to_tabel(email, password, nama, gender, tempat_lahir, tanggal_lahir, is_verified, kota_asal))
 
-        if role_artist == 'artist':
+        if role_artist == 'artist' or role_songwriter == 'songwriter':
             cursor.execute(register_pemilik_to_tabel(uuid_pemilik_hak, rate_royalti))
+
+        if role_artist == 'artist':
             cursor.execute(register_artist_to_tabel(uuid_artist, email, uuid_pemilik_hak))
 
-        if role_artist == 'songwriter':
-            cursor.execute(register_pemilik_to_tabel(uuid_pemilik_hak, rate_royalti))
+        if role_songwriter == 'songwriter':
             cursor.execute(register_songwriter_to_tabel(uuid_songwriter, email, uuid_pemilik_hak))
 
         if role_podcaster == 'podcaster':

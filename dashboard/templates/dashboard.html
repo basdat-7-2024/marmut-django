@@ -15,7 +15,7 @@
     <div class="dashboard-podcaster dashboard">
         {% include "detail-pengguna.html" %}
 
-        {% if role == 'Podcaster' %}
+        {% if 'Podcaster' in role %}
             {% if list_podcast %}
                 {% include "list-podcast.html" %}
             {% else %}
@@ -23,19 +23,19 @@
             {% endif %}
         {% endif %}
 
-        {% if role == 'Pengguna Biasa' %}
+        {% if 'Pengguna Biasa' in role %}
             {% if list_playlist %}
                 {% include "list-playlist.html" %}
             {% endif %}
         {% endif %}
 
-        {% if role == 'Artist' %}
+        {% if 'Artist' in role %}
             {% if list_lagu_artist %}
                 {% include "list-artist.html" %}
             {% endif %}
         {% endif %}
 
-        {% if role == 'Songwriter' %}
+        {% if 'Songwriter' in role %}
             {% if list_lagu_songwriter %}
                 {% include "list-songwriter.html" %}
             {% endif %}
