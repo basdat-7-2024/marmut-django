@@ -111,6 +111,7 @@ def register(request):
         uuid_artist = uuid.uuid4()
         uuid_songwriter = uuid.uuid4()
         uuid_pemilik_hak = uuid.uuid4()
+        rate_royalti = 10
 
         if gender == 'Perempuan':
             gender = 0
@@ -125,28 +126,42 @@ def register(request):
         cursor = connection.cursor()
         cursor.execute(register_to_akun_to_tabel(email, password, nama, gender, tempat_lahir, tanggal_lahir, is_verified, kota_asal))
 
-        cursor.execute(register_nonpremium_to_tabel(email))
-
-        if role_artist == 'Artist':
+        if role_artist == 'artist':
+            cursor.execute(register_pemilik_to_tabel(uuid_pemilik_hak, rate_royalti))
             cursor.execute(register_artist_to_tabel(uuid_artist, email, uuid_pemilik_hak))
 
-        if role_artist == 'Songwriter':
+        if role_artist == 'songwriter':
+            cursor.execute(register_pemilik_to_tabel(uuid_pemilik_hak, rate_royalti))
             cursor.execute(register_songwriter_to_tabel(uuid_songwriter, email, uuid_pemilik_hak))
 
-        if role_podcaster == 'Podcaster':
+        if role_podcaster == 'podcaster':
             cursor.execute(register_podcaster_to_tabel(email))
 
         messages.success(request, "Register berhasil!")
         return HttpResponseRedirect(reverse("authentication:login"))
-    else:
-        messages.error(request, "Register gagal! Email atau password salah.")
-
+    
     return render(request, "register.html")
 
 def pilih_register(request):
     return render(request, "pilih-register.html")
 
 def register_label(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        nama = request.POST.get('nama')
+        password = request.POST.get('password')
+        kontak = request.POST.get('kontak')
+        uuid_pemilik_hak = uuid.uuid4()
+        uuid_label = uuid.uuid4()
+        rate_royalti = 10
+
+        cursor = connection.cursor()
+        cursor.execute(register_pemilik_to_tabel(uuid_pemilik_hak, rate_royalti))
+
+        cursor.execute(register_label_to_tabel(uuid_label, nama, email, password, kontak, uuid_pemilik_hak))
+
+        messages.success(request, "Register berhasil!")
+        return HttpResponseRedirect(reverse("authentication:login"))
     
     return render(request, "register-label.html")
 
