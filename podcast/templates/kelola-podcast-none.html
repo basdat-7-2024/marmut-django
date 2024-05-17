@@ -1,34 +1,19 @@
-{% include 'base.html' %}
 
-<head>
-    <!-- Setting Specific Css -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/general_dashboard_style.css' %}">
-    {% load static %}
-</head>
-
-<body>
-    <!-- sesuaikan navbar -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    {% include "create-podcast.html" %}
-
-    <div class="dashboard">
-        <div class="frame-list">
-            <div class="container-list">
-                <div class="container">
-                    <div class="container-icon">
-                        <img class="fun-writter" src="https://i.ibb.co/tPFw4R3/Fun-Writter.png" />
-                        <div class="text-wrapper">Anda belum Memiliki Podcast</div>
-                    </div>
-                    <button class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <div class="button-text">Create Podcast</div>
-                    </button>
+<div class="dashboard">
+    <div class="frame-list">
+        <div class="container-list">
+            <div class="container">
+                <div class="container-icon">
+                    <img class="fun-writter" src="../../static/img/Empty Podcaster.png" />
+                    <div class="text-wrapper">Anda belum Memiliki Podcast</div>
                 </div>
+                <button class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="button-text">Create Podcast</div>
+                </button>
             </div>
         </div>
     </div>
-        
-
-</body>
+</div>
 
 <style>
     .container-list {

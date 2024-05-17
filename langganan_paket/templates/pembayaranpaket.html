@@ -11,7 +11,7 @@
         <div class="section-pembayaran">
             <div class="upper">
                 <div class="frame">
-                    <img class="mask-group" src="https://i.ibb.co/SnKh20d/Icon-Paket.png" />
+                    <img class="mask-group" src="../../static/img/icon/Langganan Paket.png" />
                     <div class="text-wrapper">Pembayaran Paket</div>
                 </div>
             </div>
@@ -26,33 +26,62 @@
                                     <th class="header-cell">Harga</th>
                                 </tr>
                             </thead>
+
                             <tbody>
-                                <tr class="table-row">
-                                    <td class="table-row-cell">1 Bulan</td>
-                                    <td>Rp. 54.900</td>
+                                {% for jenis, harga in jenis_harga %}
+                                <tr>
+                                    <td>{{ jenis }}</td>
+                                    <td>Rp. {{ harga|floatformat:0 }}</td>
                                 </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class="dropdown-pembayaran">
-                    <div class="dropdown-wrap">
-                        <div class="text-pembayaran">Pembayaran</div>
-                        <select class="form-select" aria-label="Pilih Pembayaran">
-                            <option selected>Pilih Pembayaran</option>
-                            <option value="credit_card">Credit Card</option>
-                            <option value="bank_transfer">Bank Transfer</option>
-                            <option value="gopay">Gopay</option>
-                            <option value="Ovo">Ovo</option>
-                        </select>
+                <form method="post" action="{% url 'langganan_paket:pembayaranpaket' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="email" value="{{ request.session.email }}">
+                    <div class="dropdown-pembayaran">
+                        <div class="dropdown-wrap">
+                            <div class="text-pembayaran">Pembayaran</div>
+                            <select class="form-select" name="metode_bayar">
+                                <option selected>Pilih Pembayaran</option>
+                                <option value="credit_card">Credit Card</option>
+                                <option value="bank_transfer">Bank Transfer</option>
+                                <option value="gopay">Gopay</option>
+                                <option value="ovo">Ovo</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-
+                    <button type="submit" class="button">Submit</button>
+                </form>                
             </div>
         </div>
-        <button class="button">Submit</button>
     </div>
 
+    {% if error %}
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errorModalLabel">Error</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Kamu sudah merupakan User Premium, Tunggu Tanggal {{timestamp}} Untuk membeli paket Premium Baru!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var errorModal = new bootstrap.Modal(document.getElementById('errorModal'), {});
+        errorModal.show();
+    </script>
+    {% endif %}
+    
 </body>
 
 <style>
@@ -339,3 +368,4 @@
         border-bottom: none;
     }
 </style>
+

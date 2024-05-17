@@ -13,11 +13,11 @@
         <div class="wrap-transaksi">
             <header class="header">
                 <a href="{% url 'langganan_paket:listpaket' %}" class="back-button btn ">
-                    <img class="vector" src="https://i.ibb.co/BK7QMrC/Vector-3.png" />
+                    <img class="vector" src="../../static/img/icon/Back.png" />
                     <div class="text-wrapper">Kembali</div>
                 </a>
                 <div class="title">
-                    <img class="icon-transaksi" src="https://i.ibb.co/RyXtHkf/Icon-Transaksi.png" />
+                    <img class="icon-transaksi" src="../../static/img/icon/History.png" />
                     <div class="div">Riwayat Transaksi Paket</div>
                 </div>
             </header>
@@ -33,29 +33,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for transaction in transactions %}
                         <tr class="table-row">
-                            <td class="table-row-cell">1 Bulan</td>
-                            <td>8 April 2024, 23:00</td>
-                            <td>8 Mei 2024, 23:00</td>
-                            <td>E-Wallet</td>
-                            <td>Rp. 54.900</td>
+                            <td class="table-row-cell">{{ transaction.Judul }}</td>
+                            <td>{{ transaction.Tanggal_Dimulai }}</td>
+                            <td>{{ transaction.Tanggal_Berakhir }}</td>
+                            <td>{{ transaction.Metode_Pembayaran }}</td>
+                            <td>Rp. {{ transaction.Nominal }}</td>
                         </tr>
-                        <tr class="table-row">
-                            <td class="table-row-cell">3 Bulan</td>
-                            <td>8 Februari 2024, 23:00</td>
-                            <td>8 April 2024, 23:00</td>
-                            <td>Transfer Bank</td>
-                            <td>Rp. 149.900</td>
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    </div>
-    </div>
-
-
 </body>
 
 <style>
