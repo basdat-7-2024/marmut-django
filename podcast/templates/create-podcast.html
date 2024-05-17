@@ -8,49 +8,48 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form" onsubmit="return false;">
+                <form id="form" method="POST" action="{% url 'podcast:create_podcast' %}">
+                    {% csrf_token %}
                     <div class="mb-3">
                         <label for="title" class="col-form-label">Judul:</label>
-                        <input type="text" class="form-control" id="title" name="title"></input>
+                        <input type="text" class="form-control" id="title" name="title">
                     </div>
                     <div class="mb-3">
                         <label for="genre" class="col-form-label">Genre:</label>
                         <!-- Multiple checkboxes for genre selection -->
                         <div class="checkbox-group">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Genre 1" id="genre1">
-                                <label class="form-check-label" for="genre1">
-                                    Genre 1
+                                <input class="form-check-input" type="checkbox" value="Action" name="Action" id="Action">
+                                <label class="form-check-label" for="Action">
+                                    Action
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Genre 2" id="genre2">
-                                <label class="form-check-label" for="genre2">
-                                    Genre 2
+                                <input class="form-check-input" type="checkbox" value="Romance" name="Romance" id="Romance">
+                                <label class="form-check-label" for="Romance">
+                                    Romance
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Genre 3" id="genre3">
-                                <label class="form-check-label" for="genre3">
-                                    Genre 3
+                                <input class="form-check-input" type="checkbox" value="Comedy" name="Comedy" id="Comedy">
+                                <label class="form-check-label" for="Comedy">
+                                    Comedy
                                 </label>
                             </div>
-                            <!-- More genres can be added similarly -->
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="duration" class="col-form-label">Durasi:</label>
-                        <input type="text" class="form-control" id="duration" name="duration"></input>
+                        <input type="text" class="form-control" id="duration" name="duration">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="button button-2">Submit</button>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="button button-2" id="button_submit" data-bs-dismiss="modal">Submit</button>
             </div>
         </div>
     </div>
 </div>
-
 
 <style>
     .modal-content {
@@ -64,9 +63,12 @@
 
     .modal-header {
         display: flex;
-        align-items: center; /* Menyelaraskan item secara vertikal */
-        justify-content: space-between; /* Menyebar item di header */
-        padding: 1rem; /* Padding untuk estetika */
+        align-items: center;
+        /* Menyelaraskan item secara vertikal */
+        justify-content: space-between;
+        /* Menyebar item di header */
+        padding: 1rem;
+        /* Padding untuk estetika */
     }
 
     .container-title {
@@ -92,7 +94,8 @@
     .modal-footer {
         display: flex;
         align-items: center;
-        justify-content: center; /* Menengahkan tombol di footer */
+        justify-content: center;
+        /* Menengahkan tombol di footer */
         padding: 1rem;
         border-top: none;
     }
@@ -122,7 +125,8 @@
         height: 56px;
         align-items: center;
         justify-content: center;
-        padding: 0px 32px; /* Sesuaikan padding jika perlu */
+        padding: 0px 32px;
+        /* Sesuaikan padding jika perlu */
         background-color: #ffa54b;
         border-radius: var(--variable-collection-border-radius);
         border: 2px solid;
