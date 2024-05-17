@@ -18,9 +18,32 @@ from django.http import JsonResponse
 import json
 from podcast.query import *
 
+def format_duration(minutes):
+    if minutes >= 60:
+        hours = minutes // 60
+        remaining_minutes = minutes % 60
+        return f"{hours} jam {remaining_minutes} menit" if remaining_minutes else f"{hours} jam"
+    else:
+        return f"{minutes} menit"
+
 def podcast_detail(request, podcast_id):
-    print(podcast_id)
-    return render(request, "podcast-detail.html")
+    cursor = connection.cursor()
+    cursor.execute(get_detail_podcast(podcast_id))
+    temp_detail = cursor.fetchall()
+    temp_detail = list(temp_detail[0])
+
+    temp_detail[4] = format_duration(temp_detail[4])
+
+    cursor.execute(get_episode_podcast(podcast_id))
+    temp_detail_episode = cursor.fetchall()
+
+    context = {
+        'temp_path': request.session.get('temp_path'),
+        'list_detail_podcast': temp_detail,
+        'list_detail_episode': temp_detail_episode,
+    }
+
+    return render(request, "podcast-detail.html", context)
 
 def count_episode(request, id_konten):
     cursor = connection.cursor()
@@ -30,7 +53,7 @@ def count_episode(request, id_konten):
 def load_podcast(request):
     cursor = connection.cursor()
     list_podcast = []
-    request.session['temp_podcaster_path'] = request.path
+    request.session['path_to_episode'] = request.path
 
     cursor.execute(get_konten_podcast(request.session.get('email')))
     temp_id_konten = cursor.fetchall()
@@ -42,13 +65,28 @@ def load_podcast(request):
         #Menghitung jumlah episode dari tiap podcast
         temp_count_episode = count_episode(request, id[0])
         sum_episode = len(temp_count_episode)
-        
+
+        #Menghitung total durasi tiap podcast
+        temp_durasi = 0
+        for ep in temp_count_episode:
+            temp_durasi += ep[2]
+
         temp_list = list(info_podcast[0])
         temp_list.append(sum_episode)
+
+        #Update pada database
+        cursor.execute(update_durasi_podcast(temp_durasi, temp_list[4]))
+
+        #Mengubah id dari uuid ke str agar bisa masuk ke session
         temp_list[4] = str(temp_list[4])
+
+        #Update pada list total durasinya
+        temp_list[3] = format_duration(temp_durasi)
 
         #Mengubah format date agar bisa masuk ke session
         temp_list[1] = temp_list[1].isoformat()
+
+        print(temp_list)
 
         list_podcast.append(temp_list)
         
@@ -127,9 +165,6 @@ def delete_episode(request, podcast_id, episode_id):
 
     return redirect('podcast:lihat_episode_dashboard', podcast_id=podcast_id, judul_podcast=judul)
 
-def lihat_episode_kelola(request):
-    return render(request, "lihat-episode-2.html")
-
 def lihat_episode_dashboard(request, judul_podcast, podcast_id):
     cursor = connection.cursor()
     cursor.execute(get_episode_from_tabel(podcast_id))
@@ -139,6 +174,7 @@ def lihat_episode_dashboard(request, judul_podcast, podcast_id):
         'list_episode': temp_episode,
         'judul_podcast': judul_podcast,
         'podcast_id': podcast_id,
+        'path_back': request.session.get('path_to_episode'),
     }
 
     return render(request, "lihat-episode.html", context)

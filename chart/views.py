@@ -29,9 +29,9 @@ def chart_list(request):
 
     return render(request, "chart-list.html", context)
 
-def chart_detail(request, id_playlist):
+def chart_detail(request):
     cursor = connection.cursor()
-    cursor.execute(get_detail_chart(id_playlist))
+    cursor.execute(get_all_chart())
     temp_chart_detail = cursor.fetchall()
 
     context = {

@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .query import get_search_query  # Ensure this import reflects your project structure
 
 def searchpage(request, query):
+    request.session['temp_path'] = request.path
     results = perform_search(query) if query else []
     return render(request, 'searchpage.html', {'query': query, 'results': results})
 

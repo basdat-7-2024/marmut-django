@@ -12,12 +12,12 @@
         <div class="container-widget-ep">
             <div class="container-title">
                 <div class="div">
-                    <a href="{% url 'dashboard:dashboard' %}">
-                        <div class="back-btn">
-                            <img class="vector" src="../../static/img/icon/Back.png" />
+                    <form method="get" action="{{ path_back }}">
+                        <button type="submit" class="back-btn" style="background-color: #FFFFFF;">
+                            <img class="vector" src="../../static/img/icon/Back.png"  alt="Vector-3-1" />
                             <div class="text-wrapper">Kembali</div>
-                        </div>
-                    </a>
+                        </button>
+                    </form>
                     <div class="title">
                         <img class="mask-group" src="../../static/img/icon/Podcast.png" />
                         <div class="text-wrapper-2">{{judul_podcast}}</div>
