@@ -67,5 +67,11 @@ def register_label_to_tabel(id, nama, email, password, kontak, id_pemilik_hak_ci
     VALUES (\'{id}\', \'{nama}\', \'{email}\', \'{password}\', \'{kontak}\', \'{id_pemilik_hak_cipta}\');
     """
 
+def register_pemilik_to_tabel(id, rate_royalti):
+    return f"""
+    INSERT INTO PEMILIK_HAK_CIPTA
+    VALUES (\'{id}\', \'{rate_royalti}\');
+    """
+
 
 
