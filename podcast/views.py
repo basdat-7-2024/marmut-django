@@ -32,10 +32,8 @@ def podcast_detail(request, podcast_id):
         'list_detail_podcast': temp_detail,
         'list_detail_episode': temp_detail_episode,
     }
-    print(temp_detail)
 
     return render(request, "podcast-detail.html", context)
-
 
 def count_episode(request, id_konten):
     cursor = connection.cursor()
@@ -45,7 +43,7 @@ def count_episode(request, id_konten):
 def load_podcast(request):
     cursor = connection.cursor()
     list_podcast = []
-    request.session['temp_podcaster_path'] = request.path
+    request.session['path_to_episode'] = request.path
 
     cursor.execute(get_konten_podcast(request.session.get('email')))
     temp_id_konten = cursor.fetchall()
@@ -57,9 +55,22 @@ def load_podcast(request):
         #Menghitung jumlah episode dari tiap podcast
         temp_count_episode = count_episode(request, id[0])
         sum_episode = len(temp_count_episode)
-        
+
+        #Menghitung total durasi tiap podcast
+        temp_durasi = 0
+        for ep in temp_count_episode:
+            temp_durasi += ep[2]
+
         temp_list = list(info_podcast[0])
         temp_list.append(sum_episode)
+
+        #Update pada list total durasinya
+        temp_list[2] = temp_durasi
+
+        #Update pada database
+        cursor.execute(update_durasi_podcast(temp_durasi, temp_list[4]))
+
+        #Mengubah id dari uuid ke str agar bisa masuk ke session
         temp_list[4] = str(temp_list[4])
 
         #Mengubah format date agar bisa masuk ke session
@@ -142,9 +153,6 @@ def delete_episode(request, podcast_id, episode_id):
 
     return redirect('podcast:lihat_episode_dashboard', podcast_id=podcast_id, judul_podcast=judul)
 
-def lihat_episode_kelola(request):
-    return render(request, "lihat-episode-2.html")
-
 def lihat_episode_dashboard(request, judul_podcast, podcast_id):
     cursor = connection.cursor()
     cursor.execute(get_episode_from_tabel(podcast_id))
@@ -154,6 +162,7 @@ def lihat_episode_dashboard(request, judul_podcast, podcast_id):
         'list_episode': temp_episode,
         'judul_podcast': judul_podcast,
         'podcast_id': podcast_id,
+        'path_back': request.session.get('path_to_episode'),
     }
 
     return render(request, "lihat-episode.html", context)
