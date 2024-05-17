@@ -15,7 +15,7 @@
                         <div class="text-wrapper">Kembali</div>
                     </div>
                     <div class="frame-3">
-                        <img class="path"  src="https://i.ibb.co/ZdbZDdQ/path258-1.png" />
+                        <img class="path" src="https://i.ibb.co/ZdbZDdQ/path258-1.png" />
                         <div class="text-wrapper-2">User Playlist Detail</div>
                     </div>
                     <div class="frame-4">
@@ -27,36 +27,32 @@
                     <div class="wrap-double">
                         <div class="wrap-title">
                             <div class="text-wrapper-3">Judul</div>
-                            <div class="text-wrapper-4">Playlist 1</div>
+                            <div class="text-wrapper-4">{{ playlist_info.judul }}</div>
                         </div>
                         <div class="wrap-title">
                             <div class="text-wrapper-3">Pembuat</div>
-                            <div class="text-wrapper-4">Pembuat 1</div>
+                            <div class="text-wrapper-4">{{ playlist_info.nama }}</div>
                         </div>
                     </div>
                     <div class="wrap-double-2">
                         <div class="wrap-title-2">
                             <div class="text-wrapper-3">Jumlah Lagu</div>
-                            <div class="text-wrapper-4">12 Lagu</div>
+                            <div class="text-wrapper-4">{{ playlist_info.jumlah_lagu }} Lagu</div>
                         </div>
                         <div class="wrap-title-2">
                             <div class="text-wrapper-3">Total Durasi</div>
-                            <div class="text-wrapper-4">8 Jam 20 Menit</div>
+                            <div class="text-wrapper-4">{{playlist_info.total_durasi}}</div>
                         </div>
                     </div>
                     <div class="wrap-double-3">
                         <div class="wrap-title-2">
                             <div class="text-wrapper-3">Tanggal Dibuat</div>
-                            <div class="text-wrapper-4">18/03/24</div>
+                            <div class="text-wrapper-4">{{ playlist_info.tanggal_dibuat }}</div>
                         </div>
                         <div class="wrap-title-2">
                             <div class="text-wrapper-3">Deskripsi</div>
                             <p class="p">
-                                Lorem ipsum dolor sit amet consectetur. Nunc consequat consequat sed neque habitant
-                                dolor tincidunt
-                                purus. Pretium nec gravida non lacus sit feugiat in pellentesque sapien. Sit diam
-                                hendrerit enim vel
-                                vestibulum tincidunt. Morbi et lorem feugiat libero non odio.
+                                {{playlist_info.deskripsi}}
                             </p>
                         </div>
                     </div>
@@ -64,8 +60,10 @@
             </header>
             <div class="table">
                 <div class="button-detail">
-                    <button class="button"><span class="button-2">Shuffle Play</span></button>
-                </div>                
+                    <button class="button" style="cursor: pointer;" onclick="shufflePlay()"><span
+                            class="button-2">Shuffle
+                            Play</span></button>
+                </div>
                 <div class="datatable">
                     <table>
                         <thead>
@@ -77,33 +75,17 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for i in songs %}
                             <tr>
-                                <td>Song 1</td>
-                                <td>Artist 1</td>
-                                <td>2 Menit</td>
+                                <td>{{ i.judul }}</td>
+                                <td>{{ i.artist }}</td>
+                                <td>{{ i.durasi }}</td>
                                 <td class="row-action">
                                     <button class="frame-6">Lihat</button>
                                     <button class="frame-7">Play</button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Song 2</td>
-                                <td>Artist 2</td>
-                                <td>3 Menit</td>
-                                <td class="row-action">
-                                    <button class="frame-6">Lihat</button>
-                                    <button class="frame-7">Play</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Song 3</td>
-                                <td>Artist 2</td>
-                                <td>4 Menit</td>
-                                <td class="row-action">
-                                    <button class="frame-6">Lihat</button>
-                                    <button class="frame-7">Play</button>
-                                </td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -111,7 +93,11 @@
         </div>
     </div>
 
-
+    <script>
+        async function shufflePlay() {
+            await fetch(`{% url 'user_playlist:shuffle_play' %}?id={{playlist_info.id_playlist}}&email_pembuat={{playlist_info.email_pembuat}}`).then(alert('Shuffle play berhasil!'))
+        }
+    </script>
 
     <style>
         .user-playlist-detail {
@@ -346,7 +332,7 @@
             border-bottom: none;
         }
 
-        
+
 
 
         .user-playlist-detail .p {
