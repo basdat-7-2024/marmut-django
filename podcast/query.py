@@ -51,3 +51,10 @@ def delete_episode_from_tabel(id):
     return f"""
     DELETE FROM EPISODE WHERE id_episode = \'{id}\';
     """
+
+def update_durasi_podcast(durasi, id_podcast):
+    return f"""
+    UPDATE KONTEN
+    SET durasi = \'{durasi}\'
+    WHERE id = \'{id_podcast}\';
+    """

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% include "create-episode.html" %}
     {% include "create-podcast.html" %}
+    {% include "delete-podcast.html" %}
 
     <!-- Start Fe Here-->
     {% if list_podcast %}
@@ -58,13 +59,15 @@
                                 </td>
                                 <td>
                                     <div class="frame-2">
-                                        <div class="fill-wrapper"><img class="fill" src="../../static/img/icon/Delete Icon.png" /></div>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#create-episode">
+                                        <button class="fill-wrapper" data-bs-toggle="modal" data-bs-target="#deletePodcastModal" data-podcast-id="{{ podcast.4 }}">
+                                            <img class="fill" src="../../static/img/icon/Delete Icon.png" />
+                                        </button>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#create-episode"  data-podcast-title="{{ podcast.0 }}" data-podcast-id="{{ podcast.4 }}">
                                             <div class="frame-3">
                                                 <div class="text-wrapper-22">Tambah Episode</div>
                                             </div>
                                         </a>
-                                        <a href="{% url 'podcast:lihat_episode_kelola' %}">
+                                        <a href="{% url 'podcast:lihat_episode_dashboard' judul_podcast=podcast.0 podcast_id=podcast.4 %}">
                                             <div class="frame-4">
                                                 <div class="text-wrapper-22">Lihat Daftar Episode</div>
                                             </div>
@@ -75,7 +78,7 @@
                             {% endfor %}
                         </tbody>
                     </table>
-                </div>
+                </div>  
             </div>
         </div>
     </div>
