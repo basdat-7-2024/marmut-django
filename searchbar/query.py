@@ -1,5 +1,3 @@
-# query.py
-
 def get_search_query():
     return """
     SELECT 'Song' AS type, konten.judul AS judul, akun.nama AS oleh
