@@ -60,7 +60,7 @@ def shuffle_play(request):
     email_pemain = request.session.get('email')
     id_playlist = request.GET.get('id')
     email_pembuat = request.GET.get('email_pembuat')
-    print(f'{email_pemain} {id_playlist} {email_pembuat}')
+    # print(f'{email_pemain} {id_playlist} {email_pembuat}')
 
-    # cursor.execute(insert_into_akun_play_user_playlist(email_pemain, id_playlist, email_pembuat))
+    cursor.execute(insert_into_akun_play_user_playlist(email_pemain, id_playlist, email_pembuat))
     return HttpResponse('OK')
