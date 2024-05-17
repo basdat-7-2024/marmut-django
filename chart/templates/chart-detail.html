@@ -37,72 +37,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for detail in list_chart_detail %}
                                 <tr>
-                                    <td>Song1</td>
-                                    <td>Artist 1</td>
-                                    <td>09/03/2024</td>
-                                    <td>21000</td>
+                                    <td>{{detail.0}}</td>
+                                    <td>{{detail.1}}</td>
+                                    <td>{{detail.2}}</td>
+                                    <td>{{detail.3}}</td>
                                     <td>
-                                        <button class="lihat-button">
-                                            <div class="text-wrapper-6">Lihat</div>
-                                        </button>
+                                        <a href="{% url 'dashboard:song_detail' %}" text-decoration="none">
+                                            <button class="lihat-button">
+                                                <div class="text-wrapper-6">Lihat</div>
+                                            </button>
+                                        </a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>Song2</td>
-                                    <td>Artist 2</td>
-                                    <td>02/03/2024</td>
-                                    <td>19000</td>
-                                    <td>
-                                        <button class="lihat-button">
-                                            <div class="text-wrapper-6">Lihat</div>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Song3</td>
-                                    <td>Artist 2</td>
-                                    <td>02/03/2024</td>
-                                    <td>19000</td>
-                                    <td>
-                                        <button class="lihat-button">
-                                            <div class="text-wrapper-6">Lihat</div>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Song4</td>
-                                    <td>Artist 1</td>
-                                    <td>09/03/2024</td>
-                                    <td>21000</td>
-                                    <td>
-                                        <button class="lihat-button">
-                                            <div class="text-wrapper-6">Lihat</div>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Song5</td>
-                                    <td>Artist 2</td>
-                                    <td>02/03/2024</td>
-                                    <td>19000</td>
-                                    <td>
-                                        <button class="lihat-button">
-                                            <div class="text-wrapper-6">Lihat</div>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Song6</td>
-                                    <td>Artist 2</td>
-                                    <td>02/03/2024</td>
-                                    <td>19000</td>
-                                    <td>
-                                        <button class="lihat-button">
-                                            <div class="text-wrapper-6">Lihat</div>
-                                        </button>
-                                    </td>
-                                </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
 

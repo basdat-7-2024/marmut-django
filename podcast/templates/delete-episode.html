@@ -1,0 +1,41 @@
+<div class="modal fade" id="deleteEpisodeModal" tabindex="-1" aria-labelledby="deleteEpisodeLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteEpisodeModalLabel">Konfirmasi Penghapusan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Apakah kamu ingin menghapus Episode ini?
+            </div>
+            <div class="modal-footer">
+                <form id="deleteForm" action="#" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="episode_id" id="episodeIdToDelete">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-danger">Yes</button>
+                </form>
+            </div>            
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var deleteButtons = document.querySelectorAll('.delete-episode-button');
+        deleteButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var episodeId = this.getAttribute('data-episode-id');
+                var podcastId = this.getAttribute('data-podcast-id');
+                var deleteForm = document.getElementById('deleteForm');
+                var episodeIdToDelete = document.getElementById('episodeIdToDelete');
+    
+                deleteForm.action = "{% url 'podcast:delete_episode' podcast_id='podcast_id_placeholder' episode_id='episode_id_placeholder' %}"
+                .replace('podcast_id_placeholder', podcastId)
+                .replace('episode_id_placeholder', episodeId);
+                episodeIdToDelete.value = episodeId;
+            });
+        });
+    });
+</script>
+    

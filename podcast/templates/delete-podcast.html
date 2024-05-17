@@ -1,0 +1,39 @@
+<div class="modal fade" id="deletePodcastModal" tabindex="-1" aria-labelledby="deletePodcastModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deletePodcastModalLabel">Konfirmasi Penghapusan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Apakah kamu ingin menghapus Podcast ini?
+            </div>
+            <div class="modal-footer">
+                <form id="deleteForm" action="{% url 'podcast:delete_podcast' 0 %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="podcast_id" id="podcastIdToDelete">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-danger">Yes</button>
+                </form>
+            </div>            
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var deleteButtons = document.querySelectorAll('.fill-wrapper');
+        deleteButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var podcastId = this.getAttribute('data-podcast-id');
+                var deleteForm = document.getElementById('deleteForm');
+                var podcastIdToDelete = document.getElementById('podcastIdToDelete');
+    
+                // Pastikan URL asli yang digunakan untuk replace adalah benar
+                deleteForm.action = `{% url 'podcast:delete_podcast' 0 %}`.replace('0', podcastId);
+                podcastIdToDelete.value = podcastId;
+            });
+        });
+    });
+</script>
+    
