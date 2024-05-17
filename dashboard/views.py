@@ -14,6 +14,7 @@ from podcast.views import *
 def dashboard(request):
     set_role(request)
 
+    status = "Non Premium"
     request.session['list_podcast'] = []
 
     #Hanya buat testing nanti "tes" nya bisa dihapus
@@ -30,6 +31,9 @@ def dashboard(request):
     if (request.session.get('role') == "Songwriter"):
         load_lagu_songwriter(request)
 
+    if (request.session.get('premium')):
+        status = "Premium"
+
     context = {
         'email': request.session.get('email'),
         'nama': request.session.get('nama'),
@@ -38,6 +42,7 @@ def dashboard(request):
         'tanggal_lahir': request.session.get('tanggal_lahir'),
         'is_verified': request.session.get('is_verified'),
         'kota_asal': request.session.get('kota_asal'),
+        'status': status,
         'role': request.session.get('role'),
         'list_podcast': request.session.get('list_podcast'),
         'list_playlist': request.session.get('list_playlist'),
