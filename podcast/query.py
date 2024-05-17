@@ -7,6 +7,12 @@ def get_information_podcast(id_konten):
 def get_episode_podcast(id_konten_podcast):
     return f"SELECT judul, deskripsi, durasi, tanggal_rilis FROM EPISODE WHERE id_konten_podcast = \'{id_konten_podcast}\'"
 
+def get_detail_podcast(id_podcast):
+    return f"""SELECT K.judul, P.email_podcaster, K.tanggal_rilis, G.genre, K.durasi, K.tahun
+    FROM KONTEN as K, PODCAST as P, GENRE as G
+    WHERE (K.id = P.id_konten AND K.id = G.id_konten) AND K.id = \'{id_podcast}\';
+    """
+
 def create_konten_podcast(id, judul, tanggal_rilis, tahun, durasi):
     return f"""
     INSERT INTO KONTEN
