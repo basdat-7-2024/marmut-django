@@ -114,7 +114,6 @@ def create_podcast(request):
 
     if request.method == 'POST':
         title = request.POST.get('title')
-        duration = request.POST.get('duration')
 
         if 'Action' in request.POST:
             genres.append(request.POST['Action'])
@@ -125,7 +124,7 @@ def create_podcast(request):
         
         genre_string = ', '.join(genres)
 
-        cursor.execute(create_konten_podcast(random_uuid, title, today, year, duration))
+        cursor.execute(create_konten_podcast(random_uuid, title, today, year, 0))
         cursor.execute(create_tabel_podcast(random_uuid, request.session.get('email')))
         cursor.execute(create_genre_podcast(random_uuid, genre_string))
 
