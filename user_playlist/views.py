@@ -25,6 +25,7 @@ def user_playlist_detail(request):
     playlist_info = {}
     
     playlist_info['email_pembuat'] = playlist_info_raw[0]
+    playlist_info['id_user_playlist'] = playlist_info_raw[1]
     playlist_info['judul'] = playlist_info_raw[2]
     playlist_info['jumlah_lagu'] = playlist_info_raw[3]
     playlist_info['tanggal_dibuat'] = playlist_info_raw[4]
