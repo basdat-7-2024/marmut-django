@@ -19,8 +19,23 @@ import json
 from podcast.query import *
 
 def podcast_detail(request, podcast_id):
-    print(podcast_id)
-    return render(request, "podcast-detail.html")
+    cursor = connection.cursor()
+    cursor.execute(get_detail_podcast(podcast_id))
+    temp_detail = cursor.fetchall()
+    temp_detail = temp_detail[0]
+
+    cursor.execute(get_episode_podcast(podcast_id))
+    temp_detail_episode = cursor.fetchall()
+
+    context = {
+        'temp_path': request.session.get('temp_path'),
+        'list_detail_podcast': temp_detail,
+        'list_detail_episode': temp_detail_episode,
+    }
+    print(temp_detail)
+
+    return render(request, "podcast-detail.html", context)
+
 
 def count_episode(request, id_konten):
     cursor = connection.cursor()
