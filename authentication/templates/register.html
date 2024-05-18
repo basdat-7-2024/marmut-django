@@ -9,7 +9,7 @@
     <div class="form-register">
         <div class="wrap-login">
             <div class="header-login">
-                <img class="logo-marmut" src="../../static/img/Logo Marmut Auth.png"  />
+                <img class="logo-marmut" src="../../static/img/Logo Marmut Auth.png" />
                 <div class="frame">
                     <div class="text-wrapper">Marmut C-7</div>
                     <div class="div">Form Register</div>
@@ -25,7 +25,8 @@
                                 <div class="text-input">
                                     <img class="img" src="../../static/img/icon/Mail.png" />
                                     <div class="frame-2">
-                                        <input class="frame-2" placeholder="Email" type="email" id="email" name="email"/>
+                                        <input class="frame-2" placeholder="Email" type="email" id="email"
+                                            name="email" />
                                     </div>
                                 </div>
                             </div>
@@ -34,7 +35,7 @@
                                 <div class="text-input">
                                     <img class="img" src="../../static/img/icon/Name.png" />
                                     <div class="frame-2">
-                                        <input class="frame-2" placeholder="Nama" type="text" id="nama" name="nama"/>
+                                        <input class="frame-2" placeholder="Nama" type="text" id="nama" name="nama" />
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +44,8 @@
                                 <div class="text-input">
                                     <img class="img" src="../../static/img/icon/Tempat Lahir.png" />
                                     <div class="frame-2">
-                                        <input class="frame-2" placeholder="tempat-lahir" type="text" id="tempat-lahir" name="tempat-lahir"/>
+                                        <input class="frame-2" placeholder="tempat-lahir" type="text" id="tempat-lahir"
+                                            name="tempat-lahir" />
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +54,8 @@
                                 <div class="text-input">
                                     <img class="img" src="../../static/img/icon/Kota Asal.png" />
                                     <div class="frame-2">
-                                        <input class="frame-2" placeholder="Kota Asal" type="Text" id="kota-asal" name="kota-asal"/>
+                                        <input class="frame-2" placeholder="Kota Asal" type="Text" id="kota-asal"
+                                            name="kota-asal" />
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +69,8 @@
                                 <div class="text-input">
                                     <img class="img" src="../../static/img/icon/Password.png" />
                                     <div class="frame-2">
-                                        <input class="frame-2" placeholder="Password" type="password" id="password" name="password"/>
+                                        <input class="frame-2" placeholder="Password" type="password" id="password"
+                                            name="password" />
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +79,7 @@
                                 <div class="text-input">
                                     <img class="img" src="../../static/img/icon/Gender.png" />
                                     <div class="frame-2">
-                                        <select class="frame-2" id="gender" name="gender">
+                                        <select id="gender" name="gender">
                                             <option value="Laki-laki">Laki-laki</option>
                                             <option value="Perempuan">Perempuan</option>
                                         </select>
@@ -85,9 +89,10 @@
                             <div class="div-2">
                                 <div class="text-wrapper-2">Tanggal Lahir</div>
                                 <div class="text-input">
-                                    <img class="img" src="../../static/img/icon/Tanggal Lahir.png"/>
+                                    <img class="img" src="../../static/img/icon/Tanggal Lahir.png" />
                                     <div class="frame-2">
-                                        <input class="frame-2" placeholder="Tanggal Lahir" type="date" id="tanggal-lahir" name="tanggal-lahir"/>
+                                        <input class="frame-2" placeholder="Tanggal Lahir" type="date"
+                                            id="tanggal-lahir" name="tanggal-lahir" />
                                     </div>
                                 </div>
                             </div>
@@ -175,6 +180,45 @@
 </body>
 
 <style>
+    .form-register .frame-2 select {
+        height: 40px;
+        /* Sesuaikan tinggi */
+        width: 100%;
+        /* Lebar penuh dalam container-nya */
+        padding: 8px 12px;
+        /* Padding yang nyaman */
+        border: none;
+        /* Border serupa dengan input lain */
+        border-radius: 20px;
+        /* Border radius yang serupa */
+        background-color: #ffffff;
+        /* Warna latar belakang yang sama */
+        font-family: inherit;
+        /* Warisan font dari parent */
+        font-size: 16px;
+        /* Ukuran font yang sama */
+        color: #333;
+        /* Warna teks */
+        box-sizing: border-box;
+        /* Border dan padding dihitung ke dalam width/height */
+        -webkit-appearance: none;
+        /* Menghilangkan style default pada beberapa browser */
+        -moz-appearance: none;
+        /* Menghilangkan style default pada beberapa browser */
+        appearance: none;
+        /* Menghilangkan style default pada beberapa browser */
+    }
+
+    /* Tambahkan ikon panah bawaan untuk dropdown */
+    .form-register .frame-2 select {
+        background-image: url('path_to_your_dropdown_arrow_icon');
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        /* Posisi ikon di kanan tengah */
+        background-size: 12px;
+        /* Ukuran ikon */
+    }
+
     .form-register {
         padding: 0;
         display: flex;
