@@ -26,12 +26,16 @@
         {% if 'Artist' in role %}
             {% if list_lagu_artist %}
                 {% include "list-artist.html" %}
+            {% else %}
+                {% include "list-artist-none.html" %}
             {% endif %}
         {% endif %}
 
         {% if 'Songwriter' in role %}
             {% if list_lagu_songwriter %}
                 {% include "list-songwriter.html" %}
+            {% else %}
+                {% include "list-songwriter-none.html" %}
             {% endif %}
         {% endif %}
 

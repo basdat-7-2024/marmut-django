@@ -18,10 +18,9 @@ def dashboard(request):
     status = "Non Premium"
     request.session['list_podcast'] = []
     request.session['list_playlist'] = []
+    request.session['list_lagu_artist'] = []
+    request.session['list_lagu_songwriter'] = []
 
-    #Hanya buat testing nanti "tes" nya bisa dihapus
-    request.session['list_lagu_artist'] = ["tes"]
-    request.session['list_lagu_songwriter'] = ["tes"]
 
     if ("Podcaster" in request.session.get('role')):
         load_podcast(request)
