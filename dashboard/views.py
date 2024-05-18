@@ -9,6 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 import json
 from albumsong.views import *
 from dashboard.query import *
+from kelola_playlist.views import load_playlist
 from podcast.views import *
 
 def dashboard(request):
@@ -16,9 +17,9 @@ def dashboard(request):
 
     status = "Non Premium"
     request.session['list_podcast'] = []
+    request.session['list_playlist'] = []
 
     #Hanya buat testing nanti "tes" nya bisa dihapus
-    request.session['list_playlist'] = ["tes"]
     request.session['list_lagu_artist'] = ["tes"]
     request.session['list_lagu_songwriter'] = ["tes"]
 
@@ -30,6 +31,9 @@ def dashboard(request):
 
     if ("Songwriter" in request.session.get('role')):
         load_lagu_songwriter(request)
+
+    if ("Pengguna Biasa" in request.session.get('role')):
+        load_playlist(request)
 
     if (request.session.get('premium')):
         status = "Premium"
@@ -101,7 +105,6 @@ def set_role(request):
         request.session['premium'] = False
 
     role_string = ', '.join(list_role)
-    print(role_string)
     request.session['role'] = role_string
 
 def dashboard_pengguna(request):
