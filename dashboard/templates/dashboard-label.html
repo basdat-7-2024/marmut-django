@@ -9,34 +9,36 @@
 <body>
     <div class="dashboard">
         {% include "detail-pengguna-label.html" %}
-            <div class="label-dashboard">
-                <table class="datatable">
-                    <thead>
-                        <tr class="table-header">
-                            <th class="header-cell">Judul</th>
-                            <th class="header-cell">Jumlah Lagu</th>
-                            <th class="header-cell">Total Durasi</th>
-                            <th class="header-cell">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+        {% if list_album %}
+        <div class="label-dashboard">
+            <table class="datatable">
+                <thead>
+                    <tr class="table-header">
+                        <th class="header-cell">Judul</th>
+                        <th class="header-cell">Jumlah Lagu</th>
+                        <th class="header-cell">Total Durasi</th>
+                        <th class="header-cell">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
                     {% for album in list_album %}
-                        <tr class="table-row">
-                            <td class="table-row-cell">{{album.0}}</td>
-                            <td class="table-row-cell">{{album.1}}</td>
-                            <td class="table-row-cell">{{album.2}} Menit</td>
-                            <td class="action-cell">
-                                <button class="delete-button"><img class="fill"
-                                        src="../../static/img/icon/Delete Icon.png" /></button>
-                                <button class="button-lihat"> Lihat Daftar Lagu </button>
-                            </td>
-                        </tr>
+                    <tr class="table-row">
+                        <td class="table-row-cell">{{album.0}}</td>
+                        <td class="table-row-cell">{{album.1}}</td>
+                        <td class="table-row-cell">{{album.2}} Menit</td>
+                        <td class="action-cell">
+                            <button class="delete-button"><img class="fill"
+                                    src="../../static/img/icon/Delete Icon.png" /></button>
+                            <button class="button-lihat"> Lihat Daftar Lagu </button>
+                        </td>
+                    </tr>
                     {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
         </div>
-    </div>
+        {% else %}
+            {% include "list-label-none.html" %}
+        {% endif %}
     </div>
 </body>
 
