@@ -13,7 +13,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
-from django.db import InternalError, connection, IntegrityError
+from django.db import DataError, InternalError, connection
 from django.http import JsonResponse
 from authentication.query import *
 
@@ -93,6 +93,7 @@ def login(request):
         else:
             request.session['is_login'] = False
             messages.error(request, "Login gagal! Email atau password salah.")
+            return render(request, 'login.html', {'error': 'Login gagal! Email atau password salah.'})
     
     return render(request, 'login.html')
 
@@ -146,6 +147,10 @@ def register(request):
             if 'Email' in str(e):
                 messages.error(request, 'Email sudah terdaftar.')
                 return render(request, 'register.html', {'error': 'Email sudah terdaftar, silakan coba Email lain!.'})
+            
+        except DataError as e:
+            messages.error(request, 'Input tidak sesuai!.')
+            return render(request, 'register.html', {'error': 'Input tidak sesuai, isi yang benar!.'})
             
     return render(request, "register.html")
 

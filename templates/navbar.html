@@ -4,7 +4,7 @@
 
 <nav class="navigation-bar navbar navbar-expand-lg">
     <a href="#" class="logo-navbar navbar-brand">
-        <img class="marmut-image" src="../../static/img/Logo Marmut Auth.png" alt="Marmut" />
+        <img class="marmut-image" src="{% static 'img/Logo Marmut Auth.png' %}" alt="Marmut" />
         <div class="text-navbar">Marmut</div>
     </a>
     {% if user_is_login %}
@@ -40,10 +40,10 @@
                     {% endif %}
                     {% if 'Artist' in user_role or 'Songwriter' in user_role %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kelola Album & Song</a>
+                        <a class="nav-link" href="{% url 'albumsong:kelola_album' %}">Kelola Album & Song</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cek Royalti</a>
+                        <a class="nav-link" href="{% url 'cek_royalti:cek_royalti' %}">Cek Royalti</a>
                     </li>
                     {% endif %}
                 {% endif %}
@@ -52,10 +52,10 @@
                         <a class="nav-link" href="{% url 'dashboard:dashboard_label' %}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kelola Album</a>
+                        <a class="nav-link" href="{% url 'albumsong:kelola_album' %}">Kelola Album</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cek Royalti</a>
+                        <a class="nav-link" href="{% url 'cek_royalti:cek_royalti' %}">Cek Royalti</a>
                     </li>
                 {% endif %}
             </ul>

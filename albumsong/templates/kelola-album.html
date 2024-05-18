@@ -1,0 +1,18 @@
+{% include 'base.html' %}
+
+<head>
+    <!-- Setting Specific Css -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard_podcaster_style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/general_dashboard_style.css' %}">
+</head>
+
+
+<body>
+    <!-- Setting Css di Static -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% include "list-album.html" %}
+
+
+
+</body>

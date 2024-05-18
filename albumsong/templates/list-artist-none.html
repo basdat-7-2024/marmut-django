@@ -6,9 +6,11 @@
                     <img class="fun-writter" src="../../static/img/Empty Podcaster.png" />
                     <div class="text-wrapper">Anda belum Memiliki Song</div>
                 </div>
-                <button class="button">
-                    <div class="button-text add-podcast">Create Song From Artist</div>
-                </button>
+                <a href="{% url 'albumsong:kelola_album' %}" style="text-decoration: none;">
+                    <button class="button">
+                        <div class="button-text add-podcast">Create Song From Artist</div>
+                    </button>
+                </a>
             </div>
         </div>
     </div>
