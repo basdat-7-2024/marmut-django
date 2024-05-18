@@ -22,6 +22,7 @@ import json
 from albumsong.query import *
 from dashboard.query import *
 from podcast.views import *
+from dashboard.views import *
 
 # Create your views here.
 
@@ -32,12 +33,35 @@ def load_album_label(request):
     
     request.session['list_album'] = temp_id_album
 
-def load_album_artist(request):
+def load_album_artist_songwriter(request):
     cursor = connection.cursor()
-    cursor.execute(get_information_album_artist(request.session.get('email')))
+    result_role = "Pengguna Biasa"
+    list_role = ["Pengguna Biasa"]
+
+    cursor.execute(get_artist_role(request.session.get('email')))
+    temp_role = cursor.fetchall()
+    if (temp_role != []):
+        result_role = "Artist"
+        list_role.append(result_role)
+        cursor = connection.cursor()
+        cursor.execute(get_information_album_artist(request.session.get('email')))
+
+    if (result_role != "Artist"):    
+        cursor.execute(get_songwriter_role(request.session.get('email')))
+        temp_role = cursor.fetchall()
+        if (temp_role != []):
+            result_role = "Songwriter"
+            list_role.append(result_role)
+            cursor = connection.cursor()
+            cursor.execute(get_information_album_songwriter(request.session.get('email')))
+
+
     temp_id_album = cursor.fetchall()
+
     
-    request.session['list_album_artist'] = temp_id_album
+    request.session['list_album_artist_songwriter'] = temp_id_album
+    role_string = ', '.join(list_role)
+    request.session['role'] = role_string
 
 def load_lagu_artist(request):
     cursor = connection.cursor()
@@ -107,17 +131,17 @@ def kelola_album(request):
 
     return render(request, 'kelola-album.html', context)
 
-def kelola_album_artist(request):
-    request.session['list_album_artist'] = ["tes"]
+def kelola_album_artist_songwriter(request):
+    request.session['list_album_artist_songwriter'] = ["tes"]
 
-    load_album_artist(request)
+    load_album_artist_songwriter(request)
 
     context = {
         'email': request.session.get('email'),
         'nama': request.session.get('nama'),
         'kontak': request.session.get('kontak'),
         'role': request.session.get('role'),
-        'list_album_artist': request.session.get('list_album'),
+        'list_album_artist_songwriter': request.session.get('list_album_artist_songwriter'),
         
     }
 
