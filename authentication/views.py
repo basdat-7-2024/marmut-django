@@ -93,6 +93,7 @@ def login(request):
         else:
             request.session['is_login'] = False
             messages.error(request, "Login gagal! Email atau password salah.")
+            return render(request, 'login.html', {'error': 'Login gagal! Email atau password salah.'})
     
     return render(request, 'login.html')
 
