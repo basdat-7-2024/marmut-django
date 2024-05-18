@@ -31,6 +31,7 @@
                             </div>
                         </div>
                     </div>
+                    {% if 'Label' in role %}
                     {% for album in list_album %}
                     <div class="table-row">
                         <div class="table-row-cell">
@@ -51,6 +52,31 @@
                         </td>
                     </div>
                     {% endfor %}
+                    {% endif %}
+
+
+                    {% if 'Artist' in role or 'Songwriter' in role %}
+                    {% for album in list_album_artist_songwriter %}
+                    <div class="table-row">
+                        <div class="table-row-cell">
+                            <div class="text-wrapper-23">{{album.0}}</div>
+                        </div>
+                        <div class="table-row-cell-3">
+                            <div class="text-wrapper-25">{{nama}}</div>
+                        </div>
+                        <div class="table-row-cell-3">
+                            <div class="text-wrapper-25">{{album.1}}</div>
+                        </div>
+                        <div class="table-row-cell-3">
+                            <div class="text-wrapper-25">{{album.2}} Menit</div>
+                        </div>
+                        <td class="action-cell">
+                            <button class="delete-button"><img class="fill" src="../../static/img/icon/Delete Icon.png" /></button>
+                            <button class="button-lihat" onclick="location.href='{% url 'albumsong:daftar_lagu' album.0 %}';"> Lihat Daftar Lagu </button>
+                        </td>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
                 </div>
             </div>
 
