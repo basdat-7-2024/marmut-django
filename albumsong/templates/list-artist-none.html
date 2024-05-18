@@ -1,0 +1,99 @@
+<div class="dashboard">
+    <div class="frame-list">
+        <div class="container-list">
+            <div class="container">
+                <div class="container-icon">
+                    <img class="fun-writter" src="../../static/img/Empty Podcaster.png" />
+                    <div class="text-wrapper">Anda belum Memiliki Song</div>
+                </div>
+                <button class="button">
+                    <div class="button-text add-podcast">Create Song From Artist</div>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 48px 437px;
+        background-color: #ffffff;
+        width: 100%;
+        max-width: 1155px;
+        min-height: 500px;
+    }
+
+    .container-list .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .container-list .container-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .container-list .fun-writter {
+        width: 250px;
+        height: 250px;
+    }
+
+    .container-list .text-wrapper {
+        font-family: var(--h3-font-family);
+        font-weight: var(--h3-font-weight);
+        color: var(--black);
+        font-size: var(--h3-font-size);
+        letter-spacing: var(--h3-letter-spacing);
+        line-height: var(--h3-line-height);
+        text-align: center;
+        margin-top: 320px;
+        margin-left: 95px;
+    }
+
+    .container-list .button {
+        all: unset;
+        display: flex;
+        width: 350px;
+        height: 64px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 32px;
+        background-color: #ffa54b;
+        border-radius: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+        /* Menambahkan margin atas untuk memberi jarak dari teks */
+    }
+
+    .container-list .div {
+        position: relative;
+        width: fit-content;
+        font-family: var(--large-text-semi-bold-font-family);
+        font-weight: var(--large-text-semi-bold-font-weight);
+        color: #ffffff;
+        font-size: var(--large-text-semi-bold-font-size);
+        text-align: center;
+        letter-spacing: var(--large-text-semi-bold-letter-spacing);
+        line-height: var(--large-text-semi-bold-line-height);
+        white-space: nowrap;
+        font-style: var(--large-text-semi-bold-font-style);
+    }
+
+    .container-list .button-text {
+        font-family: var(--large-text-semi-bold-font-family);
+        font-weight: var(--large-text-semi-bold-font-weight);
+        color: #ffffff;
+        font-size: var(--large-text-semi-bold-font-size);
+        letter-spacing: var(--large-text-semi-bold-letter-spacing);
+        line-height: var(--large-text-semi-bold-line-height);
+        text-align: center;
+    }
+</style>

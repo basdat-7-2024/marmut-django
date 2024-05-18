@@ -13,7 +13,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
-from django.db import connection
+from django.db import InternalError, connection, IntegrityError
 from django.http import JsonResponse
 from authentication.query import *
 
@@ -123,23 +123,30 @@ def register(request):
         if role_artist != None or role_podcaster != None or role_songwriter != None:
             is_verified = True
 
-        cursor = connection.cursor()
-        cursor.execute(register_to_akun_to_tabel(email, password, nama, gender, tempat_lahir, tanggal_lahir, is_verified, kota_asal))
+        try:
+            cursor = connection.cursor()
+            cursor.execute(register_to_akun_to_tabel(email, password, nama, gender, tempat_lahir, tanggal_lahir, is_verified, kota_asal))
 
-        if role_artist == 'artist':
-            cursor.execute(register_pemilik_to_tabel(uuid_pemilik_hak, rate_royalti))
-            cursor.execute(register_artist_to_tabel(uuid_artist, email, uuid_pemilik_hak))
+            if role_artist == 'artist' or role_songwriter == 'songwriter':
+                cursor.execute(register_pemilik_to_tabel(uuid_pemilik_hak, rate_royalti))
 
-        if role_artist == 'songwriter':
-            cursor.execute(register_pemilik_to_tabel(uuid_pemilik_hak, rate_royalti))
-            cursor.execute(register_songwriter_to_tabel(uuid_songwriter, email, uuid_pemilik_hak))
+            if role_artist == 'artist':
+                cursor.execute(register_artist_to_tabel(uuid_artist, email, uuid_pemilik_hak))
 
-        if role_podcaster == 'podcaster':
-            cursor.execute(register_podcaster_to_tabel(email))
+            if role_songwriter == 'songwriter':
+                cursor.execute(register_songwriter_to_tabel(uuid_songwriter, email, uuid_pemilik_hak))
 
-        messages.success(request, "Register berhasil!")
-        return HttpResponseRedirect(reverse("authentication:login"))
-    
+            if role_podcaster == 'podcaster':
+                cursor.execute(register_podcaster_to_tabel(email))
+
+            messages.success(request, "Register berhasil!")
+            return HttpResponseRedirect(reverse("authentication:login"))
+        
+        except InternalError as e:
+            if 'Email' in str(e):
+                messages.error(request, 'Email sudah terdaftar.')
+                return render(request, 'register.html', {'error': 'Email sudah terdaftar, silakan coba Email lain!.'})
+            
     return render(request, "register.html")
 
 def pilih_register(request):
@@ -155,13 +162,18 @@ def register_label(request):
         uuid_label = uuid.uuid4()
         rate_royalti = 10
 
-        cursor = connection.cursor()
-        cursor.execute(register_pemilik_to_tabel(uuid_pemilik_hak, rate_royalti))
+        try:
+            cursor = connection.cursor()
+            cursor.execute(register_pemilik_to_tabel(uuid_pemilik_hak, rate_royalti))
 
-        cursor.execute(register_label_to_tabel(uuid_label, nama, email, password, kontak, uuid_pemilik_hak))
+            cursor.execute(register_label_to_tabel(uuid_label, nama, email, password, kontak, uuid_pemilik_hak))
 
-        messages.success(request, "Register berhasil!")
-        return HttpResponseRedirect(reverse("authentication:login"))
+            messages.success(request, "Register berhasil!")
+            return HttpResponseRedirect(reverse("authentication:login"))
+        except InternalError as e:
+            if 'Email' in str(e):
+                messages.error(request, 'Email sudah terdaftar.')
+                return render(request, 'register-label.html', {'error': 'Email sudah terdaftar, silakan coba Email lain!.'})
     
     return render(request, "register-label.html")
 

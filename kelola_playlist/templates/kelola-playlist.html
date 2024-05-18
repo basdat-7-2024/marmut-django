@@ -41,15 +41,16 @@
                             </tr>
                         </thead>
                         <tbody style="width: calc(100%)">
+                            {% for playlist in list_playlist %}
                             <tr class="table-row">
                                 <td class="table-row-cell">
-                                    <div class="text-wrapper-19">Playlist Galau Sekali</div>
+                                    <div class="text-wrapper-19">{{playlist.0}}</div>
                                 </td>
                                 <td class="table-row-cell">
-                                    <div class="text-wrapper-20">4</div>
+                                    <div class="text-wrapper-20">{{playlist.1}}</div>
                                 </td>
                                 <td class="table-row-cell">
-                                    <div class="text-wrapper-21">28 Menit</div>
+                                    <div class="text-wrapper-21">{{playlist.2}}</div>
                                 </td>
                                 <td>
                                     <div class="frame-2" style="justify-content: end; width: 400px">
@@ -69,62 +70,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="table-row">
-                                <td class="table-row-cell">
-                                    <div class="text-wrapper-19">Nangis brot brot</div>
-                                </td>
-                                <td class="table-row-cell">
-                                    <div class="text-wrapper-20">7</div>
-                                </td>
-                                <td class="table-row-cell">
-                                    <div class="text-wrapper-21">1 Jam 23 Menit</div>
-                                </td>
-                                <td>
-                                    <div class="frame-2" style="justify-content: end; width: 400px">
-                                        <div class="frame-3" style="background-color: var(--red)">
-                                            <a href="{% url 'kelola_playlist:playlist_detail' %}">
-                                                <div class="text-wrapper-22">Detail</div>
-                                            </a>
-                                        </div>
-                                        <div class="frame-3">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#ubah-playlist">
-                                                <div class="text-wrapper-22">Ubah</div>
-                                            </a>
-                                        </div>
-                                        <div class="frame-4">
-                                            <div class="text-wrapper-22">Hapus</div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="table-row">
-                                <td class="table-row-cell">
-                                    <div class="text-wrapper-19">Playlist enak</div>
-                                </td>
-                                <td class="table-row-cell">
-                                    <div class="text-wrapper-20">2</div>
-                                </td>
-                                <td class="table-row-cell">
-                                    <div class="text-wrapper-21">10 Menit</div>
-                                </td>
-                                <td>
-                                    <div class="frame-2" style="justify-content: end; width: 400px">
-                                        <div class="frame-3" style="background-color: var(--red)">
-                                            <a href="{% url 'kelola_playlist:playlist_detail' %}">
-                                                <div class="text-wrapper-22">Detail</div>
-                                            </a>
-                                        </div>
-                                        <div class="frame-3">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#ubah-playlist">
-                                                <div class="text-wrapper-22">Ubah</div>
-                                            </a>
-                                        </div>
-                                        <div class="frame-4">
-                                            <div class="text-wrapper-22">Hapus</div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

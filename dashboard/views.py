@@ -9,6 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 import json
 from albumsong.views import *
 from dashboard.query import *
+from kelola_playlist.views import load_playlist
 from podcast.views import *
 
 def dashboard(request):
@@ -16,20 +17,22 @@ def dashboard(request):
 
     status = "Non Premium"
     request.session['list_podcast'] = []
+    request.session['list_playlist'] = []
+    request.session['list_lagu_artist'] = []
+    request.session['list_lagu_songwriter'] = []
 
-    #Hanya buat testing nanti "tes" nya bisa dihapus
-    request.session['list_playlist'] = ["tes"]
-    request.session['list_lagu_artist'] = ["tes"]
-    request.session['list_lagu_songwriter'] = ["tes"]
 
-    if (request.session.get('role') == "Podcaster"):
+    if ("Podcaster" in request.session.get('role')):
         load_podcast(request)
         
-    if (request.session.get('role') == "Artist"):
+    if ("Artist" in request.session.get('role')):
         load_lagu_artist(request)
 
-    if (request.session.get('role') == "Songwriter"):
+    if ("Songwriter" in request.session.get('role')):
         load_lagu_songwriter(request)
+
+    if ("Pengguna Biasa" in request.session.get('role')):
+        load_playlist(request)
 
     if (request.session.get('premium')):
         status = "Premium"
@@ -70,21 +73,25 @@ def dashboard_label(request):
 def set_role(request):
     cursor = connection.cursor()
     result_role = "Pengguna Biasa"
+    list_role = ["Pengguna Biasa"]
 
     cursor.execute(get_artist_role(request.session.get('email')))
     temp_role = cursor.fetchall()
     if (temp_role != []):
         result_role = "Artist"
+        list_role.append(result_role)
 
     cursor.execute(get_songwriter_role(request.session.get('email')))
     temp_role = cursor.fetchall()
     if (temp_role != []):
         result_role = "Songwriter"
+        list_role.append(result_role)
 
     cursor.execute(get_podcaster_role(request.session.get('email')))
     temp_role = cursor.fetchall()
     if (temp_role != []):
         result_role = "Podcaster"
+        list_role.append(result_role)
 
     cursor.execute(get_premium_role(request.session.get('email')))
     temp_role = cursor.fetchall()
@@ -96,7 +103,8 @@ def set_role(request):
     if (temp_role != []):
         request.session['premium'] = False
 
-    request.session['role'] = result_role
+    role_string = ', '.join(list_role)
+    request.session['role'] = role_string
 
 def dashboard_pengguna(request):
     return render(request, "dashboard-pengguna.html")

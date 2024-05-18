@@ -74,9 +74,6 @@ def load_podcast(request):
         temp_list = list(info_podcast[0])
         temp_list.append(sum_episode)
 
-        #Update pada database
-        cursor.execute(update_durasi_podcast(temp_durasi, temp_list[4]))
-
         #Mengubah id dari uuid ke str agar bisa masuk ke session
         temp_list[4] = str(temp_list[4])
 
@@ -85,8 +82,6 @@ def load_podcast(request):
 
         #Mengubah format date agar bisa masuk ke session
         temp_list[1] = temp_list[1].isoformat()
-
-        print(temp_list)
 
         list_podcast.append(temp_list)
         
@@ -114,7 +109,6 @@ def create_podcast(request):
 
     if request.method == 'POST':
         title = request.POST.get('title')
-        duration = request.POST.get('duration')
 
         if 'Action' in request.POST:
             genres.append(request.POST['Action'])
@@ -125,7 +119,7 @@ def create_podcast(request):
         
         genre_string = ', '.join(genres)
 
-        cursor.execute(create_konten_podcast(random_uuid, title, today, year, duration))
+        cursor.execute(create_konten_podcast(random_uuid, title, today, year, 0))
         cursor.execute(create_tabel_podcast(random_uuid, request.session.get('email')))
         cursor.execute(create_genre_podcast(random_uuid, genre_string))
 
