@@ -56,7 +56,7 @@ def dashboard(request):
     return render(request, "dashboard.html", context)
 
 def dashboard_label(request):
-    request.session['list_album'] = ["tes"]
+    request.session['list_album'] = []
 
     load_album_label(request)
 
