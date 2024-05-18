@@ -20,3 +20,20 @@ def get_information_songwriter(email):
     """
 
 
+def get_information_lagu_album(email):
+    return f"""SELECT
+    k.judul AS judul_lagu,
+    k.durasi,
+    s.total_play,
+    s.total_download
+FROM
+    ALBUM a
+JOIN
+    SONG s ON a.id = s.id_album
+JOIN
+    Konten k ON s.id_konten = k.id
+WHERE
+    a.judul = \'{email}\';
+    """
+
+

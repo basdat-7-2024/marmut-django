@@ -1,0 +1,239 @@
+{% include 'base.html' %}
+
+<head>
+    <!-- Setting Specific Css -->
+    {% load static %}
+</head>
+
+<body>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!-- Start Fe Here-->
+    <div class="riwayat-transaksi">
+        <div class="wrap-transaksi">
+            <header class="header">
+                <a href="{% url 'albumsong:kelola_album' %}" class="back-button btn ">
+                    <img class="vector" src="{% static 'img/icon/Back.png' %}" />
+                    <div class="text-wrapper">Kembali</div>
+                </a>
+                <div class="title">
+                    <img class="icon-transaksi" src="{% static 'img/icon/Downloaded Song.png' %}" />
+                    <div class="div">Daftar Lagu Pada {{album_title}}</div>
+                </div>
+            </header>
+            <div class="table-transaksi">
+                <table class="datatable">
+                    <thead>
+                        <tr class="table-header">
+                            <th class="header-cell">Judul</th>
+                            <th class="sort-button-wrapper">Durasi</th>
+                            <th class="sort-button-wrapper">Total Play</th>
+                            <th class="sort-button-wrapper">Total Download</th>
+                            <th class="sort-button-wrapper">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for lagu in list_lagu_album %}
+                        <tr class="table-row">
+                            <td class="table-row-cell">{{ lagu.0 }}</td>
+                            <td>{{ lagu.1 }} Menit</td>
+                            <td>{{ lagu.2 }}</td>
+                            <td>{{ lagu.3 }}</td>
+                            <td class="action-cell">
+                                <button class="delete-button"><img class="fill" src="{% static 'img/icon/Delete Icon.png' %}" /></button>
+                                <button class="button-lihat" > Lihat Detail</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+ .button-lihat {
+        background-color: var(--orange);
+        border: none;
+        color: white;
+        padding: 16px 24px;
+        cursor: pointer;
+        border-radius: 16px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .action-cell {
+        display: flex;
+        justify-content: space-around;
+        /* change from center to space-around for better spacing between buttons */
+        align-items: center;
+        gap: 8px;
+        /* maintain gap */
+        width: 200px;
+    }
+
+    .delete-button {
+        background-color: var(--red);
+        border-radius: 16px;
+        border: none;
+        padding: 14px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .delete-button img {
+        width: 28px;
+        height: 28px;
+        display: block;
+    }
+
+
+    .riwayat-transaksi {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 64px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 48px 64px 64px;
+        background-color: #ffffff;
+        border-radius: 32px;
+        box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
+        max-width: calc(85%);
+    }
+
+    .riwayat-transaksi .wrap-transaksi {
+        display: flex;
+        flex-direction: column;
+        width: 1151px;
+        align-items: flex-start;
+        gap: 64px;
+        position: relative;
+        flex: 0 0 auto;
+        margin-left: -0.5px;
+        margin-right: -0.5px;
+    }
+
+    .riwayat-transaksi .header {
+        position: relative;
+        width: 1151px;
+        height: 81px;
+        background-color: transparent;
+    }
+
+    .riwayat-transaksi .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        position: absolute;
+        top: 28px;
+        left: 0;
+    }
+
+    .riwayat-transaksi .vector {
+        position: relative;
+        width: 28.6px;
+        height: 20.8px;
+        margin-left: -1.3px;
+    }
+
+    .riwayat-transaksi .text-wrapper {
+        position: relative;
+        width: fit-content;
+        margin-top: -1px;
+        font-family: var(--large-text-semi-bold-font-family);
+        font-weight: var(--large-text-semi-bold-font-weight);
+        color: var(--dark-grey);
+        font-size: var(--large-text-semi-bold-font-size);
+        text-align: center;
+        letter-spacing: var(--large-text-semi-bold-letter-spacing);
+        line-height: var(--large-text-semi-bold-line-height);
+        white-space: nowrap;
+        font-style: var(--large-text-semi-bold-font-style);
+    }
+
+    .riwayat-transaksi .title {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        position: absolute;
+        top: 16px;
+        left: 314px;
+    }
+
+    .riwayat-transaksi .icon-transaksi {
+        position: relative;
+        width: 48px;
+        height: 48px;
+    }
+
+    .riwayat-transaksi .div {
+        margin-top: -1px;
+        font-family: var(--h2-font-family);
+        font-weight: var(--h2-font-weight);
+        font-size: var(--h2-font-size);
+        line-height: var(--h2-line-height);
+        position: relative;
+        width: fit-content;
+        color: var(--black);
+        letter-spacing: var(--h2-letter-spacing);
+        white-space: nowrap;
+        font-style: var(--h2-font-style);
+    }
+
+
+
+    .riwayat-transaksi .table-transaksi {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        padding: 0px 0px 16px;
+        position: relative;
+        flex: 0 0 auto;
+        background-color: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid;
+        border-color: #E2E8F0;
+    }
+
+    .riwayat-transaksi table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        border-color: 1px #E2E8F0;
+        table-layout: fixed;
+    }
+
+    .riwayat-transaksi th,
+    .riwayat-transaksi td {
+        text-align: left;
+        padding: 8px 60px;
+        border-bottom: 1px solid #E2E8F0;
+    }
+
+    .riwayat-transaksi th {
+        background-color: #EFF6FF;
+        padding: 24px 60px;
+        align-items: flex-start;
+        align-self: stretch;
+    }
+
+    .riwayat-transaksi th.centered {
+        text-align: center;
+    }
+
+    .riwayat-transaksi tr td {
+        padding: 24px 60px;
+    }
+
+    .riwayat-transaksi tr:last-child td {
+        border-bottom: none;
+    }
+</style>

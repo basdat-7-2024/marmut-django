@@ -7,9 +7,17 @@
 </head>
 
 <body>
-    <div class="dashboard">
+    <div class="dashboard-label dashboard">
         {% include "detail-pengguna-label.html" %}
             <div class="label-dashboard">
+
+        <div class="frame-list">
+            <div class="div-4">
+                <div class="frame-title">
+                    <div class="text-wrapper-16">List Album</div>
+                    </a>
+                </div>
+
                 <table class="datatable">
                     <thead>
                         <tr class="table-header">
@@ -128,5 +136,20 @@
         width: 28px;
         height: 28px;
         display: block;
+    }
+
+
+    .text-wrapper-16 {
+        position: relative;
+        width: fit-content;
+        font-family: var(--h2-font-family);
+        font-weight: var(--h2-font-weight);
+        color: var(--black);
+        font-size: var(--h2-font-size);
+        letter-spacing: var(--h2-letter-spacing);
+        line-height: var(--h2-line-height);
+        white-space: nowrap;
+        font-style: var(--h2-font-style);
+        margin-bottom: 20px; /* Adjust this value as needed */
     }
 </style>
