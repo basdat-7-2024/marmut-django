@@ -40,10 +40,10 @@
                     {% endif %}
                     {% if 'Artist' in user_role or 'Songwriter' in user_role %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'albumsong:' %}">Kelola Album & Song</a>
+                        <a class="nav-link" href="{% url 'albumsong:kelola_album' %}">Kelola Album & Song</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cek Royalti</a>
+                        <a class="nav-link" href="{% url 'cek_royalti:cek_royalti' %}">Cek Royalti</a>
                     </li>
                     {% endif %}
                 {% endif %}
