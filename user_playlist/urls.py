@@ -6,4 +6,5 @@ app_name = 'user_playlist'
 
 urlpatterns = [
     path('', user_playlist_detail, name='user_playlist_detail'),
+    path('shuffle-play/', shuffle_play, name='shuffle_play'),
 ]

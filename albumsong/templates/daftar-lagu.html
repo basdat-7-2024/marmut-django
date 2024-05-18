@@ -6,7 +6,9 @@
 </head>
 
 <body>
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% include "detail-song.html" %}
 
     <!-- Start Fe Here-->
     <div class="riwayat-transaksi">
@@ -41,7 +43,7 @@
                             <td>{{ lagu.3 }}</td>
                             <td class="action-cell">
                                 <button class="delete-button"><img class="fill" src="{% static 'img/icon/Delete Icon.png' %}" /></button>
-                                <button class="button-lihat" > Lihat Detail</button>
+                                <button class="button-lihat"  data-bs-toggle="modal" data-bs-target="#details-song" > Lihat Detail</button>
                             </td>
                         </tr>
                         {% endfor %}

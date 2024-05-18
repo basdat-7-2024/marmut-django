@@ -37,3 +37,36 @@ WHERE
     """
 
 
+def get_information_song_details(name):
+    return f"""SELECT 
+    k.judul AS judul_lagu,
+    STRING_AGG(DISTINCT g.genre, ', ') AS genres,
+    a.email_akun AS artist_email,
+    STRING_AGG(DISTINCT sw.email_akun, ', ') AS songwriter_emails,
+    k.durasi,
+    k.tanggal_rilis,
+    k.tahun,
+    s.total_play,
+    s.total_download,
+    al.judul AS judul_album
+FROM 
+    SONG s
+JOIN 
+    Konten k ON s.id_konten = k.id
+JOIN 
+    ALBUM al ON s.id_album = al.id
+JOIN 
+    ARTIST a ON s.id_artist = a.id
+JOIN 
+    Genre g ON k.id = g.id_konten
+LEFT JOIN 
+    SONGWRITER_WRITE_SONG sws ON s.id_konten = sws.id_song
+LEFT JOIN 
+    SONGWRITER sw ON sws.id_songwriter = sw.id
+WHERE 
+    k.judul = \'{name}\'
+GROUP BY 
+    k.judul, a.email_akun, k.durasi, k.tanggal_rilis, k.tahun, s.total_play, s.total_download, al.judul;
+    """
+
+

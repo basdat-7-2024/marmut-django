@@ -6,20 +6,21 @@
 </head>
 
 <body>
+    {% include 'delete-episode.html' %}
     <!-- Start Fe Here-->
     <div class="container-detail">
         <div class="container-widget-ep">
             <div class="container-title">
                 <div class="div">
-                    <a href="{% url 'dashboard:dashboard' %}">
-                        <div class="back-btn">
-                            <img class="vector" src="../../static/img/icon/Back.png" />
+                    <form method="get" action="{{ path_back }}">
+                        <button type="submit" class="back-btn" style="background-color: #FFFFFF;">
+                            <img class="vector" src="../../static/img/icon/Back.png"  alt="Vector-3-1" />
                             <div class="text-wrapper">Kembali</div>
-                        </div>
-                    </a>
+                        </button>
+                    </form>
                     <div class="title">
                         <img class="mask-group" src="../../static/img/icon/Podcast.png" />
-                        <div class="text-wrapper-2">Daftar Episode Podcast1</div>
+                        <div class="text-wrapper-2">{{judul_podcast}}</div>
                     </div>
                 </div>
             </div>
@@ -52,63 +53,27 @@
                                 </div>
                             </th>
                         </tr>
+                        {% for episode in list_episode %}
                         <tr class="table-row">
                             <td class="table-row-cell">
-                                <div class="text-wrapper-5">SubJudul1</div>
+                                <div class="text-wrapper-5">{{episode.2}}</div>
                             </td>
                             <td class="table-row-cell-2">
-                                <p class="text-wrapper-5">Lorem ipsum dolor sit amet consectetur.</p>
+                                <p class="text-wrapper-5">{{episode.3}}</p>
                             </td>
                             <td class="table-row-cell-3">
-                                <div class="text-wrapper-6">59 Menit</div>
+                                <div class="text-wrapper-6">{{episode.4}}</div>
                             </td>
                             <td class="table-row-cell-3">
-                                <div class="text-wrapper-6">18/03/2024</div>
+                                <div class="text-wrapper-6">{{episode.5}}</div>
                             </td>
                             <td class="frame-wrapper">
-                                <div class="frame">
+                                <button class="delete-episode-button frame" data-bs-toggle="modal" data-bs-target="#deleteEpisodeModal" data-episode-id="{{ episode.0 }}" data-podcast-id="{{ podcast_id }}">
                                     <div class="text-wrapper-7">Hapus</div>
-                                </div>
+                                </button>
                             </td>
                         </tr>
-                        <tr class="table-row">
-                            <td class="table-row-cell">
-                                <div class="text-wrapper-5">SubJudul2</div>
-                            </td>
-                            <td class="table-row-cell-2">
-                                <p class="text-wrapper-5">Lorem ipsum dolor sit amet consectetur.</p>
-                            </td>
-                            <td class="table-row-cell-3">
-                                <div class="text-wrapper-6">1 Jam 2 Menit</div>
-                            </td>
-                            <td class="table-row-cell-3">
-                                <div class="text-wrapper-6">25/03/2024</div>
-                            </td>
-                            <td class="frame-wrapper">
-                                <div class="frame">
-                                    <div class="text-wrapper-7">Hapus</div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-row-cell">
-                                <div class="text-wrapper-5">SubJudul3</div>
-                            </td>
-                            <td class="table-row-cell-2">
-                                <p class="text-wrapper-5">Lorem ipsum dolor sit amet consectetur.</p>
-                            </td>
-                            <td class="table-row-cell-3">
-                                <div class="text-wrapper-6">1 Jam 2 Menit</div>
-                            </td>
-                            <td class="table-row-cell-3">
-                                <div class="text-wrapper-6">25/03/2024</div>
-                            </td>
-                            <td class="frame-wrapper">
-                                <div class="frame">
-                                    <div class="text-wrapper-7">Hapus</div>
-                                </div>
-                            </td>
-                        </tr>
+                        {% endfor %}
                     </table>
                 </div>
             </div>

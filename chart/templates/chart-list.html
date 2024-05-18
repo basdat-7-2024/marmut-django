@@ -29,9 +29,10 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for chart in list_chart %}
                     <tr class="table-row">
                         <td class="table-row-cell">
-                            <div class="text-wrapper-3">Daily Top 20</div>
+                            <div class="text-wrapper-3">{{chart.0}}</div>
                         </td>
                         <td class="frame-wrapper">
                             <div class="frame">
@@ -39,41 +40,12 @@
                             </div>
                         </td>
                     </tr>
-                    <tr class="table-row">
-                        <td class="table-row-cell">
-                            <div class="text-wrapper-3">Weekly Top 20</div>
-                        </td>
-                        <td class="frame-wrapper">
-                            <div class="frame">
-                                <a href="{% url 'chart:chart_detail' %}" class="button-table">Lihat Daftar Lagu</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-row-cell">
-                            <div class="text-wrapper-3">Monthly Top 20</div>
-                        </td>
-                        <td class="frame-wrapper">
-                            <div class="frame">
-                                <a href="{% url 'chart:chart_detail' %}" class="button-table">Lihat Daftar Lagu</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="table-row-cell">
-                            <div class="text-wrapper-3">Yearly Top 20</div>
-                        </td>
-                        <td class="frame-wrapper">
-                            <div class="frame">
-                                <a href="{% url 'chart:chart_detail' %}" class="button-table">Lihat Daftar Lagu</a>
-                            </div>
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
         <div class="button-container">
-            <a href="#" class="button">Kembali ke Home</a>
+            <a href="{% url 'dashboard:dashboard' %}" class="button">Kembali ke Home</a>
         </div>
     </div>
 </body>

@@ -57,14 +57,20 @@ def load_lagu_album(request):
 
     request.session['list_lagu_album'] = temp_id_lagu_album
 
+
+def get_song_details(request):
+    cursor = connection.cursor()
+
+    cursor.execute(get_information_song_details(request.session.get('song_details')))
+    temp_id_song_details = cursor.fetchall()
+
+    request.session['song_details'] = temp_id_song_details
+
 def albumsong(request):
     return render(request, 'albumsong.html')
 
 def readalbum(request):
     return render(request, 'readalbum.html')
-
-def albumkosong(request):
-    return render(request, 'albumkosong.html')
 
 def detaillagualbum(request):
     return render(request, 'detaillagualbum.html')
@@ -108,6 +114,19 @@ def daftar_lagu(request, album_title):
         'role': request.session.get('role'),
         'list_lagu_album': request.session.get('list_lagu_album'),
         'album_title': request.session.get('album_title'),
+        'song_details': request.session.get('song_details'),
+        'list_song_details': request.session.get('list_song_details'),
     }
 
     return render(request, 'daftar-lagu.html', context)
+
+
+def song_details_modal(request, song_title):
+    request.session['song_details'] = song_title
+    request.session['list_song_details'] = ["tes"]
+
+    context = {
+        'song_details': request.session.get('song_details'),
+        'list_song_details': request.session.get('list_song_details'),
+    }
+    return render(request, 'detail-song.html', context)
