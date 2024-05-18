@@ -15,4 +15,5 @@ urlpatterns = [
     path('save-album-title/<str:album_title>/', save_album_title, name='save_album_title'),
     path('daftar_lagu/<str:album_title>/', daftar_lagu, name='daftar_lagu'),
     path('song_details_ajax/<str:album_title>/<str:song_title>/', song_details_ajax, name='song_details_ajax'),
+    path('add_album_ajax/', add_album_ajax, name='add_album_ajax')
 ]
