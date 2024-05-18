@@ -3,6 +3,7 @@
 <head>
     <!-- Setting Specific Css -->
     {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -43,7 +44,7 @@
                             <td>{{ lagu.3 }}</td>
                             <td class="action-cell">
                                 <button class="delete-button"><img class="fill" src="{% static 'img/icon/Delete Icon.png' %}" /></button>
-                                <button class="button-lihat"  data-bs-toggle="modal" data-bs-target="#details-song" > Lihat Detail</button>
+                                <button class="button-lihat"  data-bs-toggle="modal" data-bs-target="#details-song" data-song="{{ lagu.0 }}" > Lihat Detail</button>
                             </td>
                         </tr>
                         {% endfor %}
@@ -239,3 +240,45 @@
         border-bottom: none;
     }
 </style>
+
+
+
+<script>
+    $(document).ready(function() {
+        $('.button-lihat').on('click', function() {
+            var albumTitle = "{{ album_title }}";
+            var songTitle = $(this).data('song');
+            $.ajax({
+                url: '/albumsong/song_details_ajax/' + albumTitle + '/' + songTitle + '/',
+                method: 'GET',
+                success: function(data) {
+                    $('#judul-lagu').text(data.judul_lagu);
+                    $('#genres').text(data.genres);
+                    $('#artist-email').text(data.artist_email);
+                    $('#songwriter-emails').text(data.songwriter_emails);
+                    $('#durasi').text(data.durasi + ' menit');
+                    $('#tanggal-rilis').text(data.tanggal_rilis);
+                    $('#tahun').text(data.tahun);
+                    $('#total-play').text(data.total_play);
+                    $('#total-download').text(data.total_download);
+                    $('#judul-album').text(data.judul_album);
+                }
+            });
+        });
+
+        $('#details-song').on('hidden.bs.modal', function () {
+            // Reset modal content
+            $('#judul-lagu').text('');
+            $('#genres').text('');
+            $('#artist-email').text('');
+            $('#songwriter-emails').text('');
+            $('#durasi').text('');
+            $('#tanggal-rilis').text('');
+            $('#tahun').text('');
+            $('#total-play').text('');
+            $('#total-download').text('');
+            $('#judul-album').text('');
+        });
+        
+    });
+</script>

@@ -5,65 +5,69 @@
     <title>Detail Lagu</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-<div class="modal fade" id="details-song" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="container-title">
-          <div class="text-wrapper">Detail Lagu</div>
+
+    <div class="modal fade" id="details-song" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="container-title">
+                <div class="text-wrapper">Detail Lagu</div>
+              </div>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label class="col-form-label">Judul:</label>
+                <div class="form-control" id="judul-lagu"></div>
+              </div>
+              <div class="mb-3">
+                <label class="col-form-label">Genre(s):</label>
+                <div class="form-control" id="genres"></div>
+              </div>
+              <div class="mb-3">
+                <label class="col-form-label">Artist:</label>
+                <div class="form-control" id="artist-email"></div>
+              </div>
+              <div class="mb-3">
+                <label class="col-form-label">Songwriter(s):</label>
+                <div class="form-control" id="songwriter-emails"></div>
+              </div>
+              <div class="mb-3">
+                <label class="col-form-label">Durasi:</label>
+                <div class="form-control" id="durasi"></div>
+              </div>
+              <div class="mb-3">
+                <label class="col-form-label">Tanggal Rilis:</label>
+                <div class="form-control" id="tanggal-rilis"></div>
+              </div>
+              <div class="mb-3">
+                <label class="col-form-label">Tahun:</label>
+                <div class="form-control" id="tahun"></div>
+              </div>
+              <div class="mb-3">
+                <label class="col-form-label">Total Play:</label>
+                <div class="form-control" id="total-play"></div>
+              </div>
+              <div class="mb-3">
+                <label class="col-form-label">Total Downloads:</label>
+                <div class="form-control" id="total-download"></div>
+              </div>
+              <div class="mb-3">
+                <label class="col-form-label">Album:</label>
+                <div class="form-control" id="judul-album"></div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="button button-2" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
         </div>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <div class="mb-3">
-          <label class="col-form-label">Judul:</label>
-          <div class="form-control">{{ song_details.0 }}</div>
-        </div>
-        <div class="mb-3">
-          <label class="col-form-label">Genre(s):</label>
-          <div class="form-control">{{ song_details.1 }}</div>
-        </div>
-        <div class="mb-3">
-          <label class="col-form-label">Artist:</label>
-          <div class="form-control">{{ song_details.2 }}</div>
-        </div>
-        <div class="mb-3">
-          <label class="col-form-label">Songwriter(s):</label>
-          <div class="form-control">{{ song_details.3 }}</div>
-        </div>
-        <div class="mb-3">
-          <label class="col-form-label">Durasi:</label>
-          <div class="form-control">{{ song_details.4 }} menit</div>
-        </div>
-        <div class="mb-3">
-          <label class="col-form-label">Tanggal Rilis:</label>
-          <div class="form-control">{{ song_details.5|date:"d/m/Y" }}</div>
-        </div>
-        <div class="mb-3">
-          <label class="col-form-label">Tahun:</label>
-          <div class="form-control">{{ song_details.6 }}</div>
-        </div>
-        <div class="mb-3">
-          <label class="col-form-label">Total Play:</label>
-          <div class="form-control">{{ song_details.7 }}</div>
-        </div>
-        <div class="mb-3">
-          <label class="col-form-label">Total Downloads:</label>
-          <div class="form-control">{{ song_details.8 }}</div>
-        </div>
-        <div class="mb-3">
-          <label class="col-form-label">Album:</label>
-          <div class="form-control">{{ song_details.9 }}</div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="button button-2" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+
 </body>
 </html>
 
@@ -131,4 +135,6 @@
       text-align: center;
     }
   </style>
+
+  
   

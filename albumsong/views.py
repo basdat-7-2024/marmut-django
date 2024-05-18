@@ -99,6 +99,44 @@ def get_song_details(request):
 
     request.session['song_details'] = temp_id_song_details
 
+def get_information_song_details(name):
+    query = f"""
+    SELECT 
+        k.judul AS judul_lagu,
+        STRING_AGG(DISTINCT g.genre, ', ') AS genres,
+        a.email_akun AS artist_email,
+        STRING_AGG(DISTINCT sw.email_akun, ', ') AS songwriter_emails,
+        k.durasi,
+        k.tanggal_rilis,
+        k.tahun,
+        s.total_play,
+        s.total_download,
+        al.judul AS judul_album
+    FROM 
+        SONG s
+    JOIN 
+        Konten k ON s.id_konten = k.id
+    JOIN 
+        ALBUM al ON s.id_album = al.id
+    JOIN 
+        ARTIST a ON s.id_artist = a.id
+    JOIN 
+        Genre g ON k.id = g.id_konten
+    LEFT JOIN 
+        SONGWRITER_WRITE_SONG sws ON s.id_konten = sws.id_song
+    LEFT JOIN 
+        SONGWRITER sw ON sws.id_songwriter = sw.id
+    WHERE 
+        k.judul = '{name}'
+    GROUP BY 
+        k.judul, a.email_akun, k.durasi, k.tanggal_rilis, k.tahun, s.total_play, s.total_download, al.judul;
+    """
+    with connection.cursor() as cursor:
+        cursor.execute(query)
+        result = cursor.fetchone()
+    
+    return result
+
 def albumsong(request):
     return render(request, 'albumsong.html')
 
@@ -173,12 +211,18 @@ def daftar_lagu(request, album_title):
 
 
 
-def song_details_modal(request, song_title):
-    request.session['song_details'] = song_title
-    request.session['list_song_details'] = ["tes"]
-
-    context = {
-        'song_details': request.session.get('song_details'),
-        'list_song_details': request.session.get('list_song_details'),
+def song_details_ajax(request, album_title, song_title):
+    song_details = get_information_song_details(song_title)
+    data = {
+        'judul_lagu': song_details[0],
+        'genres': song_details[1],
+        'artist_email': song_details[2],
+        'songwriter_emails': song_details[3],
+        'durasi': song_details[4],
+        'tanggal_rilis': song_details[5].strftime("%d/%m/%Y"),
+        'tahun': song_details[6],
+        'total_play': song_details[7],
+        'total_download': song_details[8],
+        'judul_album': song_details[9],
     }
-    return render(request, 'detail-song.html', context)
+    return JsonResponse(data)
