@@ -210,7 +210,7 @@
                         <div class="frame-12">
                           <div class="fill-wrapper"><img class="img-2" src="https://i.ibb.co/bzwSL16/image.png" /></div>
                           <div class="frame-13"><div class="text-wrapper-26">Lihat Daftar Lagu</div></div>
-                          <button class="frame-14" data-bs-toggle="modal" data-bs-target="#myModal2"><div class="text-wrapper-26">Tambah Lagu</div></div>
+                          <button class="frame-14" data-bs-toggle="modal" data-bs-target="#myModal4"><div class="text-wrapper-26">Tambah Lagu</div></div>
                         </div>
                       </div>
                       
@@ -300,7 +300,6 @@
         <div class="modal-dialog">
           <div class="modal-content frame">
             <div class="modal-header div">
-              <img class="group" src="img/group-3306.png" />
               <h5 class="modal-title text-wrapper" id="exampleModalLabel">Create Lagu</h5>
               <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <img class="img" src="https://i.ibb.co/mRYVg7b/image.png" />
@@ -340,6 +339,22 @@
                     <input class="form-check-input" type="checkbox" value="" id="genre1">
                     <label class="form-check-label" for="genre1">Genre 1</label>
                   </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="genre2">
+                    <label class="form-check-label" for="genre2">Genre 2</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="genre3">
+                    <label class="form-check-label" for="genre3">Genre 3</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="genre4">
+                    <label class="form-check-label" for="genre4">Genre 4</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="genre5">
+                    <label class="form-check-label" for="genre5">Genre 5</label>
+                  </div>
                   <!-- Add more genres as needed -->
                 </div>
               </div>
@@ -358,6 +373,85 @@
           </div>
         </div>
       </div>
+
+      <div class="modal fade" id="myModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content frame">
+            <div class="modal-header div">
+              <h5 class="modal-title text-wrapper" id="exampleModalLabel">Create Lagu</h5>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <img class="img" src="https://i.ibb.co/mRYVg7b/image.png" />
+              </button>
+            </div>
+            <div class="modal-body div-4">
+              <div class="frame-4">
+                <div class="text-wrapper-2">Album:</div>
+                <div class="text-wrapper-3">Album1</div>
+              </div>
+              <div class="frame-5">
+                <div class="text-wrapper-4">Judul</div>
+                <div class="text-input">
+                  <div class="frame-6">
+                    <input type="text" class="placeholder-2" placeholder="Judul" style="text-align: left;">
+                  </div>
+                </div>
+              </div>
+              <div class="frame-5">
+                <div class="text-wrapper-4">Artist</div>
+                <div class="text-input-2">
+                  <div class="frame-7">
+                    <input type="text" class="placeholder-2" placeholder="Artist" style="text-align: left;">
+                  </div>
+                  <img class="polygon" src="https://i.ibb.co/8DxMPZQ/image.png" />
+                </div>
+              </div>
+              <div class="frame-4">
+                <div class="text-wrapper-2">Song Writter:</div>
+                <div class="text-wrapper-3">Song Writter ini</div>
+              </div>
+              <div class="frame-8">
+                <div class="text-wrapper-4">Genre:</div>
+                <div class="frame-9">
+                  <!-- Add checkboxes for each genre -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="genre1a">
+                    <label class="form-check-label" for="genre1a">Genre 1</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="genre2a">
+                    <label class="form-check-label" for="genre2a">Genre 2</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="genre3a">
+                    <label class="form-check-label" for="genre3a">Genre 3</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="genre4a">
+                    <label class="form-check-label" for="genre4a">Genre 4</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="genre5a">
+                    <label class="form-check-label" for="genre5a">Genre 5</label>
+                  </div>
+                  <!-- Add more genres as needed -->
+                </div>
+              </div>
+              <div class="frame-5">
+                <div class="text-wrapper-4">Durasi</div>
+                <div class="text-input">
+                  <div class="frame-6">
+                    <input type="text" class="placeholder-2" placeholder="Durasi" style="text-align: left;">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="button" data-bs-dismiss="modal">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
 
@@ -2018,8 +2112,52 @@
   flex: 0 0 auto;
 }
 
-.as-singer .text-wrapper-2 {   position: relative;   width: fit-content;   font-family: var(--large-text-semi-bold-font-family);   font-weight: var(--large-text-semi-bold-font-weight);   color: var(--dark-grey);   font-size: var(--large-text-semi-bold-font-size);   text-align: center;   letter-spacing: var(--large-text-semi-bold-letter-spacing);   line-height: var(--large-text-semi-bold-line-height);   white-space: nowrap;   font-style: var(--large-text-semi-bold-font-style); }  .as-singer .text-wrapper-3 {   position: relative;   width: fit-content;   margin-top: -1px;   font-family: var(--h4-font-family);   font-weight: var(--h4-font-weight);   color: var(--black);   font-size: var(--h4-font-size);   letter-spacing: var(--h4-letter-spacing);   line-height: var(--h4-line-height);   white-space: nowrap;   font-style: var(--h4-font-style); }  .as-singer .frame-5 {   display: inline-flex;   flex-direction: column;   align-items: flex-start;   gap: 12px;   position: relative;   flex: 0 0 auto; }  .as-singer .text-wrapper-4 {   position: relative;   width: fit-content;   margin-top: -1px;   font-family: var(--large-text-semi-bold-font-family);   font-weight: var(--large-text-semi-bold-font-weight);   color: var(--dark-grey);   font-size: var(--large-text-semi-bold-font-size);   text-align: center;   letter-spacing: var(--large-text-semi-bold-letter-spacing);   line-height: var(--large-text-semi-bold-line-height);   white-space: nowrap;   font-style: var(--large-text-semi-bold-font-style); }  .as-singer .text-input {   display: flex;   width: 392px;   align-items: center;   gap: 12px;   padding: 12px 20px;   position: relative;   flex: 0 0 auto;   background-color: #ffffff;   border-radius: 20px;   overflow: hidden;   border: 2px solid;   border-color: #82828233; }  .as-singer .frame-6 {   display: flex;   align-items: flex-start;   gap: 2px;   position: relative;   flex: 1;   flex-grow: 1; }  .as-singer .placeholder {   position: relative;   width: fit-content;   margin-top: -1px;   font-family: "Inter-SemiBold", Helvetica;   font-weight: 600;   color: #828282b2;   font-size: 16px;   letter-spacing: 0;   line-height: 24px;   white-space: nowrap; }  .as-singer .text-input-2 {   display: flex;   width: 392px;   align-items: center;   justify-content: space-between;   padding: 12px 20px;   position: relative;   flex: 0 0 auto;   background-color: #ffffff;   border-radius: 20px;   overflow: hidden;   border: 2px solid;   border-color: #82828233; }  .as-singer .frame-7 {   display: inline-flex;   align-items: flex-start;   gap: 2px;   position: relative;   flex: 0 0 auto; }  .as-singer .placeholder-2 {   position: relative;   width: fit-content;   margin-top: -1px;   font-family: "Inter-SemiBold", Helvetica;   font-weight: 600;   color: #828282b2;   font-size: 16px;   text-align: center;   letter-spacing: 0;   line-height: 24px;   white-space: nowrap; }  .as-singer .polygon {   position: relative;   width: 13.53px;   height: 12.25px; }  .as-singer .frame-8 {   display: flex;   flex-direction: column;   align-items: flex-start;   gap: 14px;   position: relative;   align-self: stretch;   width: 100%;   flex: 0 0 auto; }  .as-singer .frame-9 {   display: flex;   flex-wrap: wrap;   align-items: flex-start;   gap: 24px 24px;   position: relative;   align-self: stretch;   width: 100%;   flex: 0 0 auto; }  .as-singer .checks {   display: inline-flex;   align-items: center;   justify-content: center;   position: relative;   flex: 0 0 auto; }  .as-singer .icon {   display: inline-flex;   align-items: flex-start;   gap: 8px;   padding: 8px;   position: relative;   flex: 0 0 auto; }  .as-singer .checkbox-icons {   position: relative;   width: 20px;   height: 20px;   background-color: #ffffff;   border-radius: 2.5px;   border: 1.25px solid;   border-color: var(--secondarylight-color); }  .as-singer .label {   position: relative;   width: fit-content;   font-family: var(--p-medium-font-family);   font-weight: var(--p-medium-font-weight);   color: var(--gray-800);   font-size: var(--p-medium-font-size);   letter-spacing: var(--p-medium-letter-spacing);   line-height: var(--p-medium-line-height);   white-space: nowrap;   font-style: var(--p-medium-font-style); }  .as-singer .checkbox-icons-2 {   position: relative;   width: 20px;   height: 20px; }  
 
+  .as-singer .frame-5 {   display: inline-flex;   flex-direction: column;   align-items: flex-start;   gap: 12px;   position: relative;   flex: 0 0 auto; }  .as-singer .text-wrapper-4 {   position: relative;   width: fit-content;   margin-top: -1px;   font-family: var(--large-text-semi-bold-font-family);   font-weight: var(--large-text-semi-bold-font-weight);   color: var(--dark-grey);   font-size: var(--large-text-semi-bold-font-size);   text-align: center;   letter-spacing: var(--large-text-semi-bold-letter-spacing);   line-height: var(--large-text-semi-bold-line-height);   white-space: nowrap;   font-style: var(--large-text-semi-bold-font-style); }  .as-singer .text-input {   display: flex;   width: 392px;   align-items: center;   gap: 12px;   padding: 12px 20px;   position: relative;   flex: 0 0 auto;   background-color: #ffffff;   border-radius: 20px;   overflow: hidden;   border: 2px solid;   border-color: #82828233; }  .as-singer .frame-6 {   display: flex;   align-items: flex-start;   gap: 2px;   position: relative;   flex: 1;   flex-grow: 1; }  .as-singer .placeholder {   position: relative;   width: fit-content;   margin-top: -1px;   font-family: "Inter-SemiBold", Helvetica;   font-weight: 600;   color: #828282b2;   font-size: 16px;   letter-spacing: 0;   line-height: 24px;   white-space: nowrap; }  .as-singer .text-input-2 {   display: flex;   width: 392px;   align-items: center;   justify-content: space-between;   padding: 12px 20px;   position: relative;   flex: 0 0 auto;   background-color: #ffffff;   border-radius: 20px;   overflow: hidden;   border: 2px solid;   border-color: #82828233; }  .as-singer .frame-7 {   display: inline-flex;   align-items: flex-start;   gap: 2px;   position: relative;   flex: 0 0 auto; }  .as-singer .placeholder-2 {   position: relative;   width: fit-content;   margin-top: -1px;   font-family: "Inter-SemiBold", Helvetica;   font-weight: 600;   color: #828282b2;   font-size: 16px;   text-align: center;   letter-spacing: 0;   line-height: 24px;   white-space: nowrap; }  .as-singer .polygon {   position: relative;   width: 13.53px;   height: 12.25px; }  .as-singer .frame-8 {   display: flex;   flex-direction: column;   align-items: flex-start;   gap: 14px;   position: relative;   align-self: stretch;   width: 100%;   flex: 0 0 auto; }  .as-singer .frame-9 {   display: flex;   flex-wrap: wrap;   align-items: flex-start;   gap: 24px 24px;   position: relative;   align-self: stretch;   width: 100%;   flex: 0 0 auto; }  .as-singer .checks {   display: inline-flex;   align-items: center;   justify-content: center;   position: relative;   flex: 0 0 auto; }  .as-singer .icon {   display: inline-flex;   align-items: flex-start;   gap: 8px;   padding: 8px;   position: relative;   flex: 0 0 auto; }  .as-singer .checkbox-icons {   position: relative;   width: 20px;   height: 20px;   background-color: #ffffff;   border-radius: 2.5px;   border: 1.25px solid;   border-color: var(--secondarylight-color); }  .as-singer .label {   position: relative;   width: fit-content;   font-family: var(--p-medium-font-family);   font-weight: var(--p-medium-font-weight);   color: var(--gray-800);   font-size: var(--p-medium-font-size);   letter-spacing: var(--p-medium-letter-spacing);   line-height: var(--p-medium-line-height);   white-space: nowrap;   font-style: var(--p-medium-font-style); }  .as-singer .checkbox-icons-2 {   position: relative;   width: 20px;   height: 20px; }  
+
+
+
+  
+  .as-singer .text-wrapper-2 {
+  position: relative;
+  width: auto; /* Change this line */
+  font-family: var(--large-text-semi-bold-font-family);
+  font-weight: var(--large-text-semi-bold-font-weight);
+  color: var(--dark-grey);
+  font-size: var(--large-text-semi-bold-font-size);
+  text-align: center;
+  letter-spacing: var(--large-text-semi-bold-letter-spacing);
+  line-height: var(--large-text-semi-bold-line-height);
+  white-space: nowrap;
+  font-style: var(--large-text-semi-bold-font-style);
+}
+
+.as-singer .text-wrapper-3 {
+  position: relative;
+  width: auto; /* Change this line */
+  margin-top: -1px;
+  font-family: var(--h4-font-family);
+  font-weight: var(--h4-font-weight);
+  color: var(--black);
+  font-size: var(--h4-font-size);
+  letter-spacing: var(--h4-letter-spacing);
+  line-height: var(--h4-line-height);
+  white-space: nowrap;
+  font-style: var(--h4-font-style);
+}
+
+  
+.as-singer .frame-4 {
+  display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 14px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+  
+}
 
 .as-singer .button {   
   all: unset;   
@@ -2047,6 +2185,91 @@
 
 
 
+
+
 </style>
 
 </html>
+
+
+<script>
+    document.getElementById('genre1').addEventListener('change', function() {
+        if(this.checked) {
+            this.style.backgroundColor = '#ffa54b';
+        } else {
+            this.style.backgroundColor = 'initial';
+        }
+    });
+
+    document.getElementById('genre2').addEventListener('change', function() {
+        if(this.checked) {
+            this.style.backgroundColor = '#ffa54b';
+        } else {
+            this.style.backgroundColor = 'initial';
+        }
+    });
+
+    document.getElementById('genre3').addEventListener('change', function() {
+        if(this.checked) {
+            this.style.backgroundColor = '#ffa54b';
+        } else {
+            this.style.backgroundColor = 'initial';
+        }
+    });
+
+    document.getElementById('genre4').addEventListener('change', function() {
+        if(this.checked) {
+            this.style.backgroundColor = '#ffa54b';
+        } else {
+            this.style.backgroundColor = 'initial';
+        }
+    });
+
+    document.getElementById('genre5').addEventListener('change', function() {
+        if(this.checked) {
+            this.style.backgroundColor = '#ffa54b';
+        } else {
+            this.style.backgroundColor = 'initial';
+        }
+    });
+
+    document.getElementById('genre1a').addEventListener('change', function() {
+        if(this.checked) {
+            this.style.backgroundColor = '#ffa54b';
+        } else {
+            this.style.backgroundColor = 'initial';
+        }
+    });
+
+    document.getElementById('genre2a').addEventListener('change', function() {
+        if(this.checked) {
+            this.style.backgroundColor = '#ffa54b';
+        } else {
+            this.style.backgroundColor = 'initial';
+        }
+    });
+
+    document.getElementById('genre3a').addEventListener('change', function() {
+        if(this.checked) {
+            this.style.backgroundColor = '#ffa54b';
+        } else {
+            this.style.backgroundColor = 'initial';
+        }
+    });
+
+    document.getElementById('genre4a').addEventListener('change', function() {
+        if(this.checked) {
+            this.style.backgroundColor = '#ffa54b';
+        } else {
+            this.style.backgroundColor = 'initial';
+        }
+    });
+
+    document.getElementById('genre5a').addEventListener('change', function() {
+        if(this.checked) {
+            this.style.backgroundColor = '#ffa54b';
+        } else {
+            this.style.backgroundColor = 'initial';
+        }
+    });
+</script>
