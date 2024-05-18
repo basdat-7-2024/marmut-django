@@ -9,27 +9,6 @@
 <body>
     <div class="dashboard-label dashboard">
         {% include "detail-pengguna-label.html" %}
-<<<<<<< HEAD
-            <div class="label-dashboard">
-
-        <div class="frame-list">
-            <div class="div-4">
-                <div class="frame-title">
-                    <div class="text-wrapper-16">List Album</div>
-                    </a>
-                </div>
-
-                <table class="datatable">
-                    <thead>
-                        <tr class="table-header">
-                            <th class="header-cell">Judul</th>
-                            <th class="header-cell">Jumlah Lagu</th>
-                            <th class="header-cell">Total Durasi</th>
-                            <th class="header-cell">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-=======
         {% if list_album %}
         <div class="label-dashboard">
             <table class="datatable">
@@ -42,7 +21,6 @@
                     </tr>
                 </thead>
                 <tbody>
->>>>>>> 405370163d6448a13c605c2c19815fc11fd08238
                     {% for album in list_album %}
                     <tr class="table-row">
                         <td class="table-row-cell">{{album.0}}</td>

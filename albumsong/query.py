@@ -5,6 +5,13 @@ def get_information_album_label(email):
     WHERE a.id_label = l.id AND l.email = \'{email}\'
     """
 
+def get_information_album_artist(email):
+    return f"""
+    SELECT a.judul, a.jumlah_lagu, a.total_durasi
+    FROM ARTIST as ar, ALBUM as a, SONG as s
+    WHERE ar.id = s.id_artist AND s.id_album = a.id AND ar.email_akun = \'{email}\'
+    """
+
 def get_information_lagu(email):
     return f"""
     SELECT k.judul, s.total_play, s.total_download

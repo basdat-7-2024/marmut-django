@@ -32,6 +32,13 @@ def load_album_label(request):
     
     request.session['list_album'] = temp_id_album
 
+def load_album_artist(request):
+    cursor = connection.cursor()
+    cursor.execute(get_information_album_artist(request.session.get('email')))
+    temp_id_album = cursor.fetchall()
+    
+    request.session['list_album_artist'] = temp_id_album
+
 def load_lagu_artist(request):
     cursor = connection.cursor()
 
@@ -54,6 +61,8 @@ def load_lagu_album(request):
 
     cursor.execute(get_information_lagu_album(request.session.get('album_title')))
     temp_id_lagu_album = cursor.fetchall()
+
+
 
     request.session['list_lagu_album'] = temp_id_lagu_album
 
@@ -93,6 +102,23 @@ def kelola_album(request):
         'kontak': request.session.get('kontak'),
         'role': request.session.get('role'),
         'list_album': request.session.get('list_album'),
+        
+    }
+
+    return render(request, 'kelola-album.html', context)
+
+def kelola_album_artist(request):
+    request.session['list_album_artist'] = ["tes"]
+
+    load_album_artist(request)
+
+    context = {
+        'email': request.session.get('email'),
+        'nama': request.session.get('nama'),
+        'kontak': request.session.get('kontak'),
+        'role': request.session.get('role'),
+        'list_album_artist': request.session.get('list_album'),
+        
     }
 
     return render(request, 'kelola-album.html', context)
@@ -119,6 +145,8 @@ def daftar_lagu(request, album_title):
     }
 
     return render(request, 'daftar-lagu.html', context)
+
+
 
 
 def song_details_modal(request, song_title):
