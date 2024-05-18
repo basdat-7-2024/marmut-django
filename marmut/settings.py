@@ -99,10 +99,10 @@ load_dotenv()
 DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': getenv('PGDATABASE'),
-    'USER': getenv('PGUSER'),
-    'PASSWORD': getenv('PGPASSWORD'),
-    'HOST': getenv('PGHOST'),
+    'NAME': 'basdatdb',
+    'USER': 'basdatdb_owner',
+    'PASSWORD': '3DIZiEM8QjlN',
+    'HOST': 'ep-nameless-dust-a5vrg4wl.us-east-2.aws.neon.tech',
     'PORT': '5432',
     'OPTIONS': {
       'sslmode': 'require',

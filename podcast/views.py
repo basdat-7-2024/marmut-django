@@ -74,9 +74,6 @@ def load_podcast(request):
         temp_list = list(info_podcast[0])
         temp_list.append(sum_episode)
 
-        #Update pada database
-        cursor.execute(update_durasi_podcast(temp_durasi, temp_list[4]))
-
         #Mengubah id dari uuid ke str agar bisa masuk ke session
         temp_list[4] = str(temp_list[4])
 
@@ -85,8 +82,6 @@ def load_podcast(request):
 
         #Mengubah format date agar bisa masuk ke session
         temp_list[1] = temp_list[1].isoformat()
-
-        print(temp_list)
 
         list_podcast.append(temp_list)
         
