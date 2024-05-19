@@ -48,7 +48,8 @@ def user_playlist_detail(request, *args, **kwargs):
 
     context = {
         'playlist_info': playlist_info,
-        'songs':lagu_in_playlist
+        'songs':lagu_in_playlist,
+        'temp_path': request.session.get('temp_path'),
     }
     # print(cursor.fetchall())
     return render(request, 'playlistdetail_by_user.html', context)
@@ -97,6 +98,7 @@ def song_detail(request, *args, **kwargs):
             'genre': genre,
             'songwriter': songwriter
         },
+        'temp_path': request.session.get('temp_path'),
     }
 
     return render(request, 'song-detail.html', context)
