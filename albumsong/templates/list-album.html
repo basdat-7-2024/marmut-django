@@ -1,4 +1,5 @@
 {% include "tambah-album.html" %}
+{% include "tambah-lagu-modal.html" %}
 
 <div class="artist-songwritter">
     <div class="frame-9">
@@ -80,7 +81,9 @@
                         <td class="action-cell">
                             <button class="delete-button"><img class="fill" src="../../static/img/icon/Delete Icon.png" /></button>
                             <button class="button-lihat" onclick="location.href='{% url 'albumsong:daftar_lagu' album.0 %}';"> Lihat Daftar Lagu </button>
-                            <button class="button-tambah-lagu"> Tambah Lagu </button>
+                            <button class="button-tambah-lagu" data-bs-toggle="modal" data-bs-target="#create-lagu" onclick='var albumTitle = "{{ album.0 }}";
+                            document.getElementById("albumLabel").textContent = "Album: " + albumTitle;
+                            window.albumTitle = "{{ album.0 }}"; '> Tambah Lagu </button>
                         </td>
                     </div>
                     {% endfor %}
@@ -2030,3 +2033,4 @@
         /* Add this line */
     }
 </style>
+

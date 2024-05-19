@@ -173,6 +173,15 @@ def kelola_album(request):
 def kelola_album_artist_songwriter(request):
     request.session['list_album_artist_songwriter'] = ["tes"]
 
+    # Mendapatkan daftar artis dari database menggunakan SQL
+    with connection.cursor() as cursor:
+        cursor.execute("""
+            SELECT artist.id, akun.nama 
+            FROM ARTIST AS artist 
+            INNER JOIN AKUN AS akun ON artist.email_akun = akun.email
+        """)
+        artists = [row[1] for row in cursor.fetchall()]
+
     # Mendapatkan daftar songwriter dari database menggunakan SQL
     with connection.cursor() as cursor:
         cursor.execute("""
@@ -198,6 +207,7 @@ def kelola_album_artist_songwriter(request):
         'role': request.session.get('role'),
         'list_album_artist_songwriter': request.session.get('list_album_artist_songwriter'),
         'labels': labels,
+        'artists': artists,
         'songwriters': songwriters,
         'genres': genres,
         
@@ -312,6 +322,69 @@ def add_album_ajax(request):
             return JsonResponse({'message': str(e)}, status=500)
 
     return JsonResponse({'message': 'Invalid request'}, status=400)
+
+def add_lagu_ajax(request, album_title):
+    request.session['album_title'] = album_title
+    context = {
+        'album_title': request.session.get('album_title'),
+    }
+    return JsonResponse(context)
+
+
+def add_lagu_ajax_post(request, album_title):
+    if request.method == 'POST':
+        artist_email = request.session.get('email')
+        artist_id = get_artist_id(artist_email)
+    
+        if not artist_id:
+            return JsonResponse({'message': 'Artist with provided email not found'}, status=400)
+        
+        try:
+            # Manual query to check if label exists
+            with connection.cursor() as cursor:
+
+                # Insert new KONTEN for the first song
+                first_song_title = request.POST.get('song_title')
+                first_song_duration = request.POST.get('duration')
+
+
+                cursor.execute("""
+                    INSERT INTO KONTEN (id, judul, tanggal_rilis, tahun, durasi)
+                    VALUES (uuid_generate_v4(), %s, NOW(), EXTRACT(YEAR FROM NOW()), %s)""", 
+                    [first_song_title, first_song_duration])
+
+
+
+                # Insert into SONG table for the first song
+                cursor.execute("""
+                    INSERT INTO SONG (id_konten, id_artist, id_album, total_play, total_download)
+                    VALUES ((SELECT id FROM KONTEN WHERE judul = %s), %s, (SELECT id FROM ALBUM WHERE judul = %s), 0, 0)
+                """, [first_song_title, artist_id, album_title])
+
+                songwriter_name = request.POST.get('songwriter-2')
+                genre = request.POST.get('genre-2')
+
+
+                # Insert into GENRE
+                cursor.execute("""
+                    INSERT INTO Genre (id_konten, genre)
+                    VALUES ((SELECT id FROM KONTEN WHERE judul = %s), %s)
+                """, [first_song_title, request.POST.get('genre-2')])
+
+                # Insert into SONGWRITER_WRITE_SONG
+                cursor.execute("""
+                    INSERT INTO SONGWRITER_WRITE_SONG (id_songwriter, id_song)
+                    VALUES ( (SELECT id FROM SONGWRITER WHERE email_akun = (SELECT email FROM AKUN WHERE nama = %s) ), (SELECT id FROM KONTEN WHERE judul = %s))
+                """, [songwriter_name, first_song_title])
+            
+            return JsonResponse({'message': 'Album and song successfully added'}, status=200)
+        except Exception as e:
+            return JsonResponse({'message': str(e)}, status=500)
+
+    return JsonResponse({'message': 'Invalid request'}, status=400)
+
+
+        
 
 
 
