@@ -9,13 +9,14 @@
     <div class="form-register">
         <div class="wrap-login">
             <div class="header-login">
-                <img class="logo-marmut" src="../../static/img/Logo Marmut Auth.png"  />
+                <img class="logo-marmut" src="../../static/img/Logo Marmut Auth.png" />
                 <div class="frame">
                     <div class="text-wrapper">Marmut C-7</div>
                     <div class="div">Form Register</div>
                 </div>
             </div>
-            <form class="body-login form-control" style="border: none; flex-direction: column;">
+            <form class="body-login form-control" style="border: none; flex-direction: column;">\
+                {% csrf_token %}
                 <div class="input-field">
                     <div style="flex-direction: row; display: flex;">
                         <div class="col" style="display: flex; flex-direction: column; gap: 24px;">
@@ -81,7 +82,7 @@
                             <div class="div-2">
                                 <div class="text-wrapper-2">Tanggal Lahir</div>
                                 <div class="text-input">
-                                    <img class="img" src="../../static/img/icon/Tanggal Lahir.png"/>
+                                    <img class="img" src="../../static/img/icon/Tanggal Lahir.png" />
                                     <div class="frame-2">
                                         <input class="frame-2" placeholder="Password" type="date" id="tempat-lahir" />
                                     </div>
