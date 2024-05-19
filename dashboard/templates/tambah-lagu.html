@@ -8,20 +8,34 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="form" onsubmit="return false;">
+        <form id="form" action="{% url 'kelola_playlist:tambah_lagu_playlist' %}" method="post">
+          {% csrf_token %}
           <div class="mb-3">
             <label for="title" class="col-form-label">Lagu</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="Judul lagu"></input>
+            <input type="text" id="id_playlist" name="id_playlist" hidden value={{playlist_info.id_playlist}}>
+            <select name="id" id="id_tambah" class="form-control">
+              {% for entry in all_song %}
+              <option value="{{ entry.id }}">{{ entry.judul }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="button button-2" id="button_submit" data-bs-dismiss="modal">Submit</button>
           </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="button button-2" id="button_submit" data-bs-dismiss="modal">Submit</button>
       </div>
     </div>
   </div>
 </div>
 
+<!-- <script>
+  function tambah_lagu(id) {
+    let id_playlist = document.getElementById("id_playlist")
+    id_playlist.setAttribute("value", id)
+    id_playlist.value = id
+  }
+
+</script> -->
 
 <style>
   .modal-content {

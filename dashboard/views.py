@@ -1,3 +1,4 @@
+import uuid
 from django.db import connection
 from django.shortcuts import render
 import datetime
@@ -120,3 +121,11 @@ def song_detail(request):
 
 def playlist_detail(request):
     return render(request, "playlist-detail.html")
+
+def tambah_playlist(request):
+    cursor = connection.cursor()
+    if(request.method == "POST"):
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        cursor.execute(add_playlist(title, description, request.session.get('email')))
+    return HttpResponseRedirect(reverse('dashboard:dashboard'))

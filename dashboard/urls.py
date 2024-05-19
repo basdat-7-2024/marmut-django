@@ -10,6 +10,6 @@ urlpatterns = [
     path('label/', dashboard_label, name='dashboard_label'),
     path('pengguna/', dashboard_pengguna, name='dashboard_pengguna'),
     path('pengguna-none/', dashboard_pengguna_none, name='dashboard-pengguna-none'),
-    path('song-detail/', song_detail, name='song_detail'),
-    path('playlist-detail/', playlist_detail, name='playlist_detail'),
+    path('tambah-playlist/', tambah_playlist, name='tambah_playlist'),
+    # path('song-detail/', song_detail, name='song_detail'),
 ]

@@ -15,7 +15,7 @@ def get_information_album_artist(email):
 
 def get_information_album_songwriter(email):
     return f"""
-SELEC DISTINCT a.judul, a.jumlah_lagu, a.total_durasi
+SELECT DISTINCT a.judul, a.jumlah_lagu, a.total_durasi
 FROM ALBUM AS a
 INNER JOIN SONG AS s ON a.id = s.id_album
 INNER JOIN SONGWRITER_WRITE_SONG AS sws ON s.id_konten = sws.id_song
