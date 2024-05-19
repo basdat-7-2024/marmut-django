@@ -1,8 +1,15 @@
+{% include "tambah-album.html" %}
+
 <div class="artist-songwritter">
     <div class="frame-9">
         <div class="frame-10">
             <div class="frame-11">
                 <div class="text-wrapper-20">List Album</div>
+                {% if 'Artist' in role or 'Songwriter' in role %}
+                <button class="add-button" data-bs-toggle="modal" data-bs-target="#create-album">
+                    <div class="button-text">Tambah Album</div>
+                </button>
+                {% endif %}
             </div>
             <div class="frame-10">
                 <div class="datatable">
@@ -31,6 +38,7 @@
                             </div>
                         </div>
                     </div>
+                    {% if 'Label' in role %}
                     {% for album in list_album %}
                     <div class="table-row">
                         <div class="table-row-cell">
@@ -51,6 +59,32 @@
                         </td>
                     </div>
                     {% endfor %}
+                    {% endif %}
+
+
+                    {% if 'Artist' in role or 'Songwriter' in role %}
+                    {% for album in list_album_artist_songwriter %}
+                    <div class="table-row">
+                        <div class="table-row-cell">
+                            <div class="text-wrapper-23">{{album.0}}</div>
+                        </div>
+                        <div class="table-row-cell-3">
+                            <div class="text-wrapper-25">{{nama}}</div>
+                        </div>
+                        <div class="table-row-cell-3">
+                            <div class="text-wrapper-25">{{album.1}}</div>
+                        </div>
+                        <div class="table-row-cell-3">
+                            <div class="text-wrapper-25">{{album.2}} Menit</div>
+                        </div>
+                        <td class="action-cell">
+                            <button class="delete-button"><img class="fill" src="../../static/img/icon/Delete Icon.png" /></button>
+                            <button class="button-lihat" onclick="location.href='{% url 'albumsong:daftar_lagu' album.0 %}';"> Lihat Daftar Lagu </button>
+                            <button class="button-tambah-lagu"> Tambah Lagu </button>
+                        </td>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
                 </div>
             </div>
 
@@ -63,9 +97,37 @@
 </body>
 
 <style>
+      .add-button {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    width: 220px;
+    height: 56px;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 32px;
+    /* Sesuaikan padding jika perlu */
+    background-color: #ffa54b;
+    border-radius: var(--variable-collection-border-radius);
+    border: 2px solid;
+    border-color: transparent;
+    color:white;
+  }
+
     .delete-button {
         background-color: var(--red);
         border-radius: 16px;
+        border: none;
+        padding: 14px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .button-tambah-lagu {
+        background-color: #60CAD7;
+        border-radius: 0px;
         border: none;
         padding: 14px;
         cursor: pointer;
