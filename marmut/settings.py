@@ -49,8 +49,7 @@ INSTALLED_APPS = [
     'chart',
     'podcast',
     'dashboard',
-    'albumsong',
-    'cek_royalti', 
+    'albumsong', 
     'user_playlist',
     'kelola_playlist',
     'django.contrib.admin',
@@ -63,7 +62,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -100,19 +98,16 @@ load_dotenv()
 DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'basdatdb',
-    'USER': 'basdatdb_owner',
-    'PASSWORD': '3DIZiEM8QjlN',
-    'HOST': 'ep-nameless-dust-a5vrg4wl.us-east-2.aws.neon.tech',
-    'PORT': '5432',
+    'NAME': getenv('PGDATABASE'),
+    'USER': getenv('PGUSER'),
+    'PASSWORD': getenv('PGPASSWORD'),
+    'HOST': getenv('PGHOST'),
+    'PORT': getenv('PGPORT', 5432),
     'OPTIONS': {
       'sslmode': 'require',
     },
   }
 }
-
-
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Password validation
@@ -164,7 +159,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CSRF_TRUSTED_ORIGINS = ['https://marmut-c7.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://marmut-c7.up.railway.app/']
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True

@@ -10,33 +10,42 @@ from django.contrib.auth.forms import UserCreationForm
 import json
 from albumsong.views import *
 from dashboard.query import *
-from kelola_playlist.views import load_playlist
 from podcast.views import *
 
 def dashboard(request):
     set_role(request)
 
-    status = "Non Premium"
     cursor = connection.cursor()
-    request.session['list_playlist'] = []
-    request.session['list_lagu_artist'] = []
-    request.session['list_lagu_songwriter'] = []
 
+    request.session['list_podcast'] = ["tes"]
+    #Hanya buat testing nanti "tes" nya bisa dihapus
 
-    if ("Podcaster" in request.session.get('role')):
+    cursor.execute(get_user_playlist(request.session.get('email')))
+    list_playlist = cursor.fetchall()
+    playlist_dashboard = []
+    for i in list_playlist:
+        temp={}
+        temp['email_pembuat'] = i[0]
+        temp['id_user_playlist'] = str(i[1])
+        temp['judul'] = i[2]
+        temp['deskripsi'] = i[3]
+        temp['jumlah_lagu'] = i[4]
+        temp['id_playlist'] = str(i[6])
+        temp['durasi'] = f"{i[7]} Menit" if i[7] < 60 else f"{i[7]//60} Jam {i[7]%60} Menit"
+        playlist_dashboard.append(temp)
+
+    request.session['list_playlist'] = playlist_dashboard
+    request.session['list_lagu_artist'] = ["tes"]
+    request.session['list_lagu_songwriter'] = ["tes"]
+    print(request.session.get('list_playlist'))
+    if (request.session.get('role') == "Podcaster"):
         load_podcast(request)
         
-    if ("Artist" in request.session.get('role')):
+    if (request.session.get('role') == "Artist"):
         load_lagu_artist(request)
 
-    if ("Songwriter" in request.session.get('role')):
+    if (request.session.get('role') == "Songwriter"):
         load_lagu_songwriter(request)
-
-    if ("Pengguna Biasa" in request.session.get('role')):
-        load_playlist(request)
-
-    if (request.session.get('premium')):
-        status = "Premium"
 
     context = {
         'email': request.session.get('email'),
@@ -46,7 +55,6 @@ def dashboard(request):
         'tanggal_lahir': request.session.get('tanggal_lahir'),
         'is_verified': request.session.get('is_verified'),
         'kota_asal': request.session.get('kota_asal'),
-        'status': status,
         'role': request.session.get('role'),
         'list_podcast': request.session.get('list_podcast'),
         'list_playlist': request.session.get('list_playlist'),
@@ -57,7 +65,7 @@ def dashboard(request):
     return render(request, "dashboard.html", context)
 
 def dashboard_label(request):
-    request.session['list_album'] = []
+    request.session['list_album'] = ["tes"]
 
     load_album_label(request)
 
@@ -74,25 +82,21 @@ def dashboard_label(request):
 def set_role(request):
     cursor = connection.cursor()
     result_role = "Pengguna Biasa"
-    list_role = ["Pengguna Biasa"]
 
     cursor.execute(get_artist_role(request.session.get('email')))
     temp_role = cursor.fetchall()
     if (temp_role != []):
         result_role = "Artist"
-        list_role.append(result_role)
 
     cursor.execute(get_songwriter_role(request.session.get('email')))
     temp_role = cursor.fetchall()
     if (temp_role != []):
         result_role = "Songwriter"
-        list_role.append(result_role)
 
     cursor.execute(get_podcaster_role(request.session.get('email')))
     temp_role = cursor.fetchall()
     if (temp_role != []):
         result_role = "Podcaster"
-        list_role.append(result_role)
 
     cursor.execute(get_premium_role(request.session.get('email')))
     temp_role = cursor.fetchall()
@@ -104,8 +108,7 @@ def set_role(request):
     if (temp_role != []):
         request.session['premium'] = False
 
-    role_string = ', '.join(list_role)
-    request.session['role'] = role_string
+    request.session['role'] = result_role
 
 def dashboard_pengguna(request):
     return render(request, "dashboard-pengguna.html")

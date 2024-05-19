@@ -11,12 +11,12 @@
         <div class="wrap-podcast-detail">
             <header class="header">
                 <div class="top-title">
-                    <form method="get" action="{{ temp_path }}">
-                        <button type="submit" class="back-button" style="background-color: #FFFFFF;">
+                    <a href="#">
+                        <div class="back-button">
                             <img class="vector" src="../../static/img/icon/Back.png"  alt="Vector-3-1" />
                             <div class="text-wrapper">Kembali</div>
-                        </button>
-                    </form>
+                        </div>
+                    </a>
                     <div class="title">
                         <img class="mask-group" src="../../static/img/icon/Podcast.png"   />
                         <div class="div">Podcast Detail</div>
@@ -30,31 +30,31 @@
                     <div class="wrap-detail">
                         <div class="wrap-bagian">
                             <div class="content-title">Judul</div>
-                            <div class="content-detail">{{list_detail_podcast.0}}</div>
+                            <div class="content-detail">Podcast1</div>
                         </div>
                         <div class="wrap-bagian">
                             <div class="content-title">Genre</div>
-                            <div class="content-detail">{{list_detail_podcast.3}}</div>
+                            <div class="content-detail">Genre 1</div>
                         </div>
                     </div>
                     <div class="wrap-detail-2">
                         <div class="wrap-bagian-2">
                             <div class="content-title">Podcaster</div>
-                            <div class="content-detail">{{list_detail_podcast.1}}</div>
+                            <div class="content-detail">Artist1</div>
                         </div>
                         <div class="wrap-bagian-2">
                             <div class="content-title">Total Durasi</div>
-                            <div class="content-detail">{{list_detail_podcast.4}}</div>
+                            <div class="content-detail">8 Jam 20 Menit</div>
                         </div>
                     </div>
                     <div class="wrap-detail-3">
                         <div class="wrap-bagian-2">
                             <div class="content-title">Tanggal Rilis</div>
-                            <div class="content-detail">{{list_detail_podcast.2}}</div>
+                            <div class="content-detail">18/03/24</div>
                         </div>
                         <div class="wrap-bagian-2">
                             <div class="content-title">Tahun</div>
-                            <div class="content-detail">{{list_detail_podcast.5}}</div>
+                            <div class="content-detail">2024</div>
                         </div>
                     </div>
                 </div>
@@ -71,14 +71,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for episode in list_detail_episode %}
                         <tr>
-                            <td>{{episode.0}}</td>
-                            <td>{{episode.1}}</td>
-                            <td>{{episode.2}}</td>
-                            <td>{{episode.3}}</td>
+                            <td>SubTitle1</td>
+                            <td>Lorem ipsum dolor sit amet consectetur.</td>
+                            <td>59 Minutes</td>
+                            <td>18/03/2024</td>
                         </tr>
-                        {% endfor %}
+                        <tr>
+                            <td>SubTitle2</td>
+                            <td>Lorem ipsum dolor sit amet consectetur.</td>
+                            <td>1 Hour 2 Minutes</td>
+                            <td>25/03/2024</td>
+                        </tr>
+                        <tr>
+                            <td>SubTitle3</td>
+                            <td>Lorem ipsum dolor sit amet consectetur.</td>
+                            <td>1 Hour 2 Minutes</td>
+                            <td>25/03/2024</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

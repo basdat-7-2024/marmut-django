@@ -15,8 +15,7 @@
           <div class="div">Register Label</div>
         </div>
       </div>
-      <form class="body-login form-control" method="POST" style="border: none; flex-direction: column;">
-        {% csrf_token %}
+      <form class="body-login form-control" style="border: none; flex-direction: column;">
         <div class="input-field">
           <div style="flex-direction: row; display: flex;">
             <div class="col" style="display: flex; flex-direction: column; gap: 24px;">
@@ -25,7 +24,7 @@
                 <div class="text-input">
                   <img class="img" src="https://i.ibb.co/VN56vyF/envelope-fill.png" />
                   <div class="frame-2">
-                    <input class="frame-2" placeholder="Email" type="email" id="email" name="email" />
+                    <input class="frame-2" placeholder="Email" type="email" id="email" />
                   </div>
                 </div>
               </div>
@@ -34,7 +33,7 @@
                 <div class="text-input">
                   <img class="img" src="https://i.ibb.co/ZYvQFby/Vector-2.png" />
                   <div class="frame-2">
-                    <input class="frame-2" placeholder="Nama" type="text" id="nama" name="nama"/>
+                    <input class="frame-2" placeholder="Nama" type="text" id="nama" />
                   </div>
                 </div>
               </div>
@@ -48,7 +47,7 @@
                 <div class="text-input">
                   <img class="img" src="https://i.ibb.co/sFxfCkq/Vector-1.png" />
                   <div class="frame-2">
-                    <input class="frame-2" placeholder="password" type="password" id="password" name="password"/>
+                    <input class="frame-2" placeholder="Password" type="text" id="tempat-lahir" />
                   </div>
                 </div>
               </div>
@@ -60,7 +59,7 @@
                     call
                   </span>
                   <div class="frame-2">
-                    <input class="frame-2" placeholder="Kontak" type="text" id="kontak" name="kontak"/>
+                    <input class="frame-2" placeholder="Kontak" type="text" id="kontak" />
                   </div>
                 </div>
               </div>
@@ -99,28 +98,6 @@
         </div>
     </div> -->
 
-    {% if error %}
-    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="max-width: 400px;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="errorModalLabel">Error</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center" style="max-width: 400px;">
-                    <p>{{ error }}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        var errorModal = new bootstrap.Modal(document.getElementById('errorModal'), {});
-        errorModal.show();
-    </script>
-    {% endif %}
 </body>
 
 <style>
@@ -137,7 +114,6 @@
     box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
     max-width: calc(70%);
     overflow: auto;
-    justify-content: center;
   }
 
   .form-register .wrap-login {
