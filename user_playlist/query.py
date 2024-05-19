@@ -14,12 +14,3 @@ def insert_into_akun_play_user_playlist(email_pemain, id_user_playlist, email_pe
     datetime.datetime.now
     time_now =  datetime.datetime.now(tzinfo)
     return f"insert into akun_play_user_playlist (email_pemain, id_user_playlist, email_pembuat, waktu) values (\'{email_pemain}\', \'{id_user_playlist}\', \'{email_pembuat}\', \'{time_now}\')"
-
-def get_song_detail_info_from_id(id):
-    return f"select id_konten, id_artist, id_album, total_play, total_download, judul, tanggal_rilis, tahun, durasi, nama_album, artist from (select * from song where id_konten=\'{id}\') song left join lateral (select * from konten where id_konten=song.id_konten) konten on song.id_konten=konten.id left join lateral (select judul as nama_album from album where id=song.id_album) album on song.id_konten=konten.id inner join lateral (select nama as artist from akun where email in (select email_akun from artist where id=song.id_artist)) artist on song.id_konten=konten.id"
-
-def get_songwriter_from_id(id):
-    return f"select nama from akun where email in (select email_akun from songwriter where id in (select id_songwriter from songwriter_write_song where id_song=\'{id}\'))"
-
-def get_genre_from_id(id):
-    return f"select genre from genre where id_konten=\'{id}\'"

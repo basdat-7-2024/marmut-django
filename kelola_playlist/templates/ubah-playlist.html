@@ -3,49 +3,30 @@
     <div class="modal-content">
       <div class="modal-header">
         <div class="container-title">
-          <div>Ubah Playlist</div>
+          <div class="text-wrapper">Ubah Playlist</div>
         </div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="form" action="{%  url 'kelola_playlist:ubah_playlist' %}?next=dashboard" method="POST">
-          {% csrf_token %}
-          <input type="text" id="id_ubah" name="id" hidden value="">
+        <form id="form" onsubmit="return false;">
           <div class="mb-3">
             <label for="title" class="col-form-label">Judul</label>
-            <input type="text" class="form-control" id="title_ubah" name="title" placeholder="Judul"></input>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Judul"></input>
           </div>
           <div class="mb-3">
             <label for="description" class="form-label">Deskripsi</label>
-            <textarea class="form-control" id="description_ubah" name="description" rows="3"
+            <textarea class="form-control" id="description" name="description" rows="3"
               placeholder="Deskripsi"></textarea>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="button button-2" id="button_submit" data-bs-dismiss="modal">Submit</button>
           </div>
         </form>
       </div>
-
+      <div class="modal-footer">
+        <button type="button" class="button button-2" id="button_submit" data-bs-dismiss="modal">Submit</button>
+      </div>
     </div>
   </div>
 </div>
 
-<script>
-  let id_ubah = ""
-  function ubah_playlist(j, d, id) {
-    let id_ubah = document.getElementById("id_ubah")
-    id_ubah.setAttribute("value", id)
-    id_ubah.value = id
-    let title = document.getElementById("title_ubah")
-    title.setAttribute("value", j)
-    title.value = j
-
-    let desc = document.getElementById("description_ubah")
-    desc.setAttribute("value", d)
-    desc.value = d
-  }
-
-</script>
 
 <style>
   .modal-content {

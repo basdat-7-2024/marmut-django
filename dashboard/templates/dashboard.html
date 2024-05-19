@@ -3,45 +3,42 @@
 <head>
     <!-- Setting Specific Css -->
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard_podcaster_style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/general_dashboard_style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard_podcaster_style.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/general_dashboard_style.css' %}"> 
 </head>
 
 <body>
     {% include "create-episode.html" %}
     {% include "create-podcast.html" %}
-    {% include "create-playlist.html" %}
 
     <!-- Start Fe Here-->
     <div class="dashboard-podcaster dashboard">
         {% include "detail-pengguna.html" %}
 
         {% if role == 'Podcaster' %}
-        {% if list_podcast %}
-        {% include "list-podcast.html" %}
-        {% else %}
-        {% include "kelola-podcast-none.html" %}
-        {% endif %}
+            {% if list_podcast %}
+                {% include "list-podcast.html" %}
+            {% else %}
+                {% include "kelola-podcast-none.html" %}
+            {% endif %}
         {% endif %}
 
         {% if role == 'Pengguna Biasa' %}
-        {% if list_playlist %}
-        {% include "list-playlist.html" %}
-        {% else %}
-        {% include "dashboard-pengguna-none.html" %}
-        {% endif %}
+            {% if list_playlist %}
+                {% include "list-playlist.html" %}
+            {% endif %}
         {% endif %}
 
         {% if role == 'Artist' %}
-        {% if list_lagu_artist %}
-        {% include "list-artist.html" %}
-        {% endif %}
+            {% if list_lagu_artist %}
+                {% include "list-artist.html" %}
+            {% endif %}
         {% endif %}
 
         {% if role == 'Songwriter' %}
-        {% if list_lagu_songwriter %}
-        {% include "list-songwriter.html" %}
-        {% endif %}
+            {% if list_lagu_songwriter %}
+                {% include "list-songwriter.html" %}
+            {% endif %}
         {% endif %}
     </div>
 </body>

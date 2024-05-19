@@ -1,4 +1,3 @@
-import uuid
 from django.db import connection
 from django.shortcuts import render
 import datetime
@@ -23,29 +22,13 @@ from podcast.views import *
 def dashboard(request):
     set_role(request)
 
-    cursor = connection.cursor()
+    request.session['list_podcast'] = []
 
-    request.session['list_podcast'] = ["tes"]
     #Hanya buat testing nanti "tes" nya bisa dihapus
-
-    cursor.execute(get_user_playlist(request.session.get('email')))
-    list_playlist = cursor.fetchall()
-    playlist_dashboard = []
-    for i in list_playlist:
-        temp={}
-        temp['email_pembuat'] = i[0]
-        temp['id_user_playlist'] = str(i[1])
-        temp['judul'] = i[2]
-        temp['deskripsi'] = i[3]
-        temp['jumlah_lagu'] = i[4]
-        temp['id_playlist'] = str(i[6])
-        temp['durasi'] = f"{i[7]} Menit" if i[7] < 60 else f"{i[7]//60} Jam {i[7]%60} Menit"
-        playlist_dashboard.append(temp)
-
-    request.session['list_playlist'] = playlist_dashboard
+    request.session['list_playlist'] = ["tes"]
     request.session['list_lagu_artist'] = ["tes"]
     request.session['list_lagu_songwriter'] = ["tes"]
-    print(request.session.get('list_playlist'))
+
     if (request.session.get('role') == "Podcaster"):
         load_podcast(request)
         
@@ -132,11 +115,3 @@ def song_detail(request):
 
 def playlist_detail(request):
     return render(request, "playlist-detail.html")
-
-def tambah_playlist(request):
-    cursor = connection.cursor()
-    if(request.method == "POST"):
-        title = request.POST.get('title')
-        description = request.POST.get('description')
-        cursor.execute(add_playlist(title, description, request.session.get('email')))
-    return HttpResponseRedirect(reverse('dashboard:dashboard'))

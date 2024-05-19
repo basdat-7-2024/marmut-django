@@ -8,8 +8,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="form" action="{% url 'dashboard:tambah_playlist' %}" method="post">
-          {% csrf_token %}
+        <form id="form" onsubmit="return false;">
           <div class="mb-3">
             <label for="title" class="col-form-label">Judul</label>
             <input type="text" class="form-control" id="title" name="title" placeholder="Judul"></input>
@@ -19,10 +18,10 @@
             <textarea class="form-control" id="description" name="description" rows="3"
               placeholder="Deskripsi"></textarea>
           </div>
-          <div class="modal-footer">
-            <button type="submit" class="button button-2" id="button_submit" data-bs-dismiss="modal">Submit</button>
-          </div>
         </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button button-2" id="button_submit" data-bs-dismiss="modal">Submit</button>
       </div>
     </div>
   </div>

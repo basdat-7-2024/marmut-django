@@ -11,12 +11,10 @@
         <div class="div">
             <header class="header">
                 <div class="frame">
-                    <a href="{% url 'kelola_playlist:kelola_playlist' %}">
-                        <div class="frame-2">
-                            <img class="vector" src="../../static/img/icon/Back.png" />
-                            <div class="text-wrapper">Kembali</div>
-                        </div>
-                    </a>
+                    <div class="frame-2">
+                        <img class="vector" src="../../static/img/icon/Back.png" />
+                        <div class="text-wrapper">Kembali</div>
+                    </div>
                     <div class="frame-3">
                         <img class="path" src="../../static/img/icon/Downloaded Song.png" />
                         <div class="text-wrapper-2">User Playlist Detail</div>
@@ -32,32 +30,36 @@
                     <div class="wrap-double">
                         <div class="wrap-title">
                             <div class="text-wrapper-3">Judul</div>
-                            <div class="text-wrapper-4">{{ playlist_info.judul }}</div>
+                            <div class="text-wrapper-4">Playlist 1</div>
                         </div>
                         <div class="wrap-title">
                             <div class="text-wrapper-3">Pembuat</div>
-                            <div class="text-wrapper-4">{{ playlist_info.nama }}</div>
+                            <div class="text-wrapper-4">Pembuat 1</div>
                         </div>
                     </div>
                     <div class="wrap-double-2">
                         <div class="wrap-title-2">
                             <div class="text-wrapper-3">Jumlah Lagu</div>
-                            <div class="text-wrapper-4">{{ playlist_info.jumlah_lagu }} Lagu</div>
+                            <div class="text-wrapper-4">12 Lagu</div>
                         </div>
                         <div class="wrap-title-2">
                             <div class="text-wrapper-3">Total Durasi</div>
-                            <div class="text-wrapper-4">{{playlist_info.total_durasi}}</div>
+                            <div class="text-wrapper-4">8 Jam 20 Menit</div>
                         </div>
                     </div>
                     <div class="wrap-double-3">
                         <div class="wrap-title-2">
                             <div class="text-wrapper-3">Tanggal Dibuat</div>
-                            <div class="text-wrapper-4">{{ playlist_info.tanggal_dibuat }}</div>
+                            <div class="text-wrapper-4">18/03/24</div>
                         </div>
                         <div class="wrap-title-2">
                             <div class="text-wrapper-3">Deskripsi</div>
                             <p class="p">
-                                {{playlist_info.deskripsi}}
+                                Lorem ipsum dolor sit amet consectetur. Nunc consequat consequat sed neque habitant
+                                dolor tincidunt
+                                purus. Pretium nec gravida non lacus sit feugiat in pellentesque sapien. Sit diam
+                                hendrerit enim vel
+                                vestibulum tincidunt. Morbi et lorem feugiat libero non odio.
                             </p>
                         </div>
                     </div>
@@ -81,18 +83,39 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for i in songs %}
                             <tr>
-                                <td>{{ i.judul }}</td>
-                                <td>{{ i.artist }}</td>
-                                <td>{{ i.durasi }}</td>
+                                <td>Song 1</td>
+                                <td>Artist 1</td>
+                                <td>2 Menit</td>
                                 <td class="row-action">
-                                    <button class="frame-6" style="background-color: var(--red);">Detail</button>
+                                    <button class="fill-wrapper"><img class="fill"
+                                            src="../../static/img/icon/Delete Icon.png" /></button>
                                     <button class="frame-6">Lihat</button>
                                     <button class="frame-7">Play</button>
                                 </td>
                             </tr>
-                            {% endfor %}
+                            <tr>
+                                <td>Song 2</td>
+                                <td>Artist 2</td>
+                                <td>3 Menit</td>
+                                <td class="row-action">
+                                    <button class="fill-wrapper"><img class="fill"
+                                            src="../../static/img/icon/Delete Icon.png" /></button>
+                                    <button class="frame-6">Lihat</button>
+                                    <button class="frame-7">Play</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Song 3</td>
+                                <td>Artist 2</td>
+                                <td>4 Menit</td>
+                                <td class="row-action">
+                                    <button class="fill-wrapper"><img class="fill"
+                                            src="../../static/img/icon/Delete Icon.png" /></button>
+                                    <button class="frame-6">Lihat</button>
+                                    <button class="frame-7">Play</button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

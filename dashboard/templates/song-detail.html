@@ -1,8 +1,8 @@
 {% include 'base.html' %}
 
 <head>
-  <!-- Setting Specific Css -->
-  {% load static %}
+    <!-- Setting Specific Css -->
+    {% load static %}
 </head>
 
 <body>
@@ -25,41 +25,37 @@
             <div class="div-8">
               <div class="div-9">
                 <div class="text-wrapper-3">Judul</div>
-                <div class="text-wrapper-4">{{song_info.judul}}</div>
+                <div class="text-wrapper-4">Song 1</div>
               </div>
               <div class="div-9">
                 <div class="text-wrapper-3">Genre</div>
-                {% for i in song_info.genre %}
-                <div class="text-wrapper-5">{{i}}</div>
-                {% endfor %}
+                <div class="text-wrapper-5">Genre 1<br />Genre 2</div>
               </div>
             </div>
             <div class="div-10">
               <div class="div-11">
                 <div class="text-wrapper-3">Artist</div>
                 <div class="div-wrapper">
-                  <div class="text-wrapper-6">{{song_info.artist}}</div>
+                  <div class="text-wrapper-6">Artist 1</div>
                 </div>
               </div>
               <div class="div-11">
                 <div class="text-wrapper-3">Song Writter</div>
-                {% for i in song_info.songwriter %}
-                <div class="text-wrapper-5">{{i}}</div>
-                {% endfor %}
+                <div class="text-wrapper-5">Songwritter 1<br />Songwritter 2</div>
               </div>
             </div>
             <div class="div-12">
               <div class="div-11">
                 <div class="text-wrapper-7">Durasi</div>
-                <div class="text-wrapper-8">{{song_info.durasi}}</div>
+                <div class="text-wrapper-8">3 Menit</div>
               </div>
               <div class="div-11">
                 <div class="text-wrapper-7">Tanggal Liris</div>
-                <div class="text-wrapper-9">{{song_info.tanggal_rilis}}</div>
+                <div class="text-wrapper-9">18/03/24</div>
               </div>
               <div class="div-11">
                 <div class="text-wrapper-7">Tahun</div>
-                <div class="text-wrapper-9">{{song_info.tahun}}</div>
+                <div class="text-wrapper-9">2024</div>
               </div>
             </div>
           </div>
@@ -68,19 +64,19 @@
           <div class="frame-wrapper">
             <div class="div-14">
               <div class="text-wrapper-10">Total Play</div>
-              <div class="text-wrapper-11">{{song_info.total_play}}</div>
+              <div class="text-wrapper-11">321.312</div>
             </div>
           </div>
           <div class="frame-wrapper-2">
             <div class="div-14">
               <div class="text-wrapper-10">Total Download</div>
-              <div class="text-wrapper-11">{{song_info.total_download}}</div>
+              <div class="text-wrapper-11">402</div>
             </div>
           </div>
           <div class="frame-wrapper-3">
             <div class="div-14">
               <div class="text-wrapper-10">Album</div>
-              <div class="text-wrapper-11" style="text-wrap: wrap; font-size: large;">{{song_info.nama_album}}</div>
+              <div class="text-wrapper-11">Album 1</div>
             </div>
           </div>
         </div>
