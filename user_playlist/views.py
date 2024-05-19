@@ -72,8 +72,6 @@ def song_detail(request, *args, **kwargs):
 
     cursor_info.execute(get_song_detail_info_from_id(id))
     song_info = cursor_info.fetchone()
-
-
     
     cursor_songwriter.execute(get_songwriter_from_id(id))
     songwriter = cursor_songwriter.fetchall()

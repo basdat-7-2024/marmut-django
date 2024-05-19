@@ -54,9 +54,12 @@ def playlist_detail(request, *args, **kwargs):
         temp['artist'] = artist
         lagu_in_playlist.append(temp)
 
+    data = load_all_song()
+    print(data)
     context = {
         'playlist_info': playlist_info,
-        'songs':lagu_in_playlist
+        'songs':lagu_in_playlist,
+        'all_song': data,
     }
     return render(request, "playlist-detail.html", context)
 
@@ -76,3 +79,42 @@ def hapus_playlist(request, *args, **kwargs):
     cursor.execute(delete_playlist(id))
 
     return redirect(reverse("dashboard:dashboard"))
+
+def load_playlist(request):
+    cursor = connection.cursor()
+    cursor.execute(get_user_playlist(request.session.get('email')))
+    list_playlist = cursor.fetchall()
+    playlist_dashboard = []
+    for i in list_playlist:
+        temp={}
+        temp['email_pembuat'] = i[0]
+        temp['id_user_playlist'] = str(i[1])
+        temp['judul'] = i[2]
+        temp['deskripsi'] = i[3]
+        temp['jumlah_lagu'] = i[4]
+        temp['id_playlist'] = str(i[6])
+        temp['durasi'] = f"{i[7]} Menit" if i[7] < 60 else f"{i[7]//60} Jam {i[7]%60} Menit"
+        playlist_dashboard.append(temp)
+
+    request.session['list_playlist'] = playlist_dashboard
+
+def load_all_song():
+    cursor = connection.cursor()
+    cursor.execute("select id, judul from konten where id in (select id_konten from song)")
+    data_raw = cursor.fetchall()
+    data=[]
+    for i in data_raw:
+        temp={}
+        temp['id'] = i[0]
+        temp['judul'] = i[1]
+        data.append(temp)
+    return data
+
+def tambah_lagu_playlist(request):
+    cursor = connection.cursor()
+    if request.method == 'POST':
+        id = request.POST.get('id')
+        id_playlist = request.POST.get('id_playlist')
+        cursor.execute(f"insert into playlist_song (id_playlist, id_song) values (\'{id_playlist}\', \'{id}\')")
+        return redirect(reverse("kelola_playlist:playlist_detail", kwargs={'id': id_playlist}))
+    return Http404
