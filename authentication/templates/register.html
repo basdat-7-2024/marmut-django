@@ -15,7 +15,7 @@
                     <div class="div">Form Register</div>
                 </div>
             </div>
-            <form class="body-login form-control" method="POST" style="border: none; flex-direction: column;">
+            <form class="body-login form-control" style="border: none; flex-direction: column;">\
                 {% csrf_token %}
                 <div class="input-field">
                     <div style="flex-direction: row; display: flex;">
@@ -25,8 +25,7 @@
                                 <div class="text-input">
                                     <img class="img" src="../../static/img/icon/Mail.png" />
                                     <div class="frame-2">
-                                        <input class="frame-2" placeholder="Email" type="email" id="email"
-                                            name="email" />
+                                        <input class="frame-2" placeholder="Email" type="email" id="email" />
                                     </div>
                                 </div>
                             </div>
@@ -35,7 +34,7 @@
                                 <div class="text-input">
                                     <img class="img" src="../../static/img/icon/Name.png" />
                                     <div class="frame-2">
-                                        <input class="frame-2" placeholder="Nama" type="text" id="nama" name="nama" />
+                                        <input class="frame-2" placeholder="Nama" type="text" id="nama" />
                                     </div>
                                 </div>
                             </div>
@@ -44,8 +43,7 @@
                                 <div class="text-input">
                                     <img class="img" src="../../static/img/icon/Tempat Lahir.png" />
                                     <div class="frame-2">
-                                        <input class="frame-2" placeholder="tempat-lahir" type="text" id="tempat-lahir"
-                                            name="tempat-lahir" />
+                                        <input class="frame-2" placeholder="Password" type="text" id="tempat-lahir" />
                                     </div>
                                 </div>
                             </div>
@@ -54,8 +52,7 @@
                                 <div class="text-input">
                                     <img class="img" src="../../static/img/icon/Kota Asal.png" />
                                     <div class="frame-2">
-                                        <input class="frame-2" placeholder="Kota Asal" type="Text" id="kota-asal"
-                                            name="kota-asal" />
+                                        <input class="frame-2" placeholder="Kota Asal" type="Text" id="tempat-lahir" />
                                     </div>
                                 </div>
                             </div>
@@ -69,8 +66,7 @@
                                 <div class="text-input">
                                     <img class="img" src="../../static/img/icon/Password.png" />
                                     <div class="frame-2">
-                                        <input class="frame-2" placeholder="Password" type="password" id="password"
-                                            name="password" />
+                                        <input class="frame-2" placeholder="Password" type="text" id="tempat-lahir" />
                                     </div>
                                 </div>
                             </div>
@@ -79,10 +75,7 @@
                                 <div class="text-input">
                                     <img class="img" src="../../static/img/icon/Gender.png" />
                                     <div class="frame-2">
-                                        <select id="gender" name="gender">
-                                            <option value="Laki-laki">Laki-laki</option>
-                                            <option value="Perempuan">Perempuan</option>
-                                        </select>
+                                        <input class="frame-2" placeholder="Gender" type="text" id="gender" />
                                     </div>
                                 </div>
                             </div>
@@ -91,8 +84,7 @@
                                 <div class="text-input">
                                     <img class="img" src="../../static/img/icon/Tanggal Lahir.png" />
                                     <div class="frame-2">
-                                        <input class="frame-2" placeholder="Tanggal Lahir" type="date"
-                                            id="tanggal-lahir" name="tanggal-lahir" />
+                                        <input class="frame-2" placeholder="Password" type="date" id="tempat-lahir" />
                                     </div>
                                 </div>
                             </div>
@@ -154,71 +146,9 @@
         </div>
     </div> -->
 
-    {% if error %}
-    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
-        <div class="modal-dialog" style="max-width: 400px;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="errorModalLabel">Error</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center" style="max-width: 400px;">
-                    <p>{{ error }}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        var errorModal = new bootstrap.Modal(document.getElementById('errorModal'), {});
-        errorModal.show();
-    </script>
-    {% endif %}
-
 </body>
 
 <style>
-    .form-register .frame-2 select {
-        height: 40px;
-        /* Sesuaikan tinggi */
-        width: 100%;
-        /* Lebar penuh dalam container-nya */
-        padding: 8px 12px;
-        /* Padding yang nyaman */
-        border: none;
-        /* Border serupa dengan input lain */
-        border-radius: 20px;
-        /* Border radius yang serupa */
-        background-color: #ffffff;
-        /* Warna latar belakang yang sama */
-        font-family: inherit;
-        /* Warisan font dari parent */
-        font-size: 16px;
-        /* Ukuran font yang sama */
-        color: #333;
-        /* Warna teks */
-        box-sizing: border-box;
-        /* Border dan padding dihitung ke dalam width/height */
-        -webkit-appearance: none;
-        /* Menghilangkan style default pada beberapa browser */
-        -moz-appearance: none;
-        /* Menghilangkan style default pada beberapa browser */
-        appearance: none;
-        /* Menghilangkan style default pada beberapa browser */
-    }
-
-    /* Tambahkan ikon panah bawaan untuk dropdown */
-    .form-register .frame-2 select {
-        background-image: url('path_to_your_dropdown_arrow_icon');
-        background-repeat: no-repeat;
-        background-position: right 10px center;
-        /* Posisi ikon di kanan tengah */
-        background-size: 12px;
-        /* Ukuran ikon */
-    }
-
     .form-register {
         padding: 0;
         display: flex;
@@ -232,7 +162,6 @@
         box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
         max-width: calc(70%);
         overflow: auto;
-        justify-content: center;
     }
 
     .form-register .wrap-login {
