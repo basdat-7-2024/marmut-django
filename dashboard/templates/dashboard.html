@@ -16,7 +16,7 @@
     <div class="dashboard-podcaster dashboard">
         {% include "detail-pengguna.html" %}
 
-        {% if role == 'Podcaster' %}
+        {% if 'Podcaster' in role %}
         {% if list_podcast %}
         {% include "list-podcast.html" %}
         {% else %}
@@ -24,23 +24,27 @@
         {% endif %}
         {% endif %}
 
-        {% if role == 'Pengguna Biasa' %}
+        {% if 'Artist' in role %}
+        {% if list_lagu_artist %}
+        {% include "list-artist.html" %}
+        {% else %}
+        {% include "list-artist-none.html" %}
+        {% endif %}
+        {% endif %}
+
+        {% if 'Songwriter' in role %}
+        {% if list_lagu_songwriter %}
+        {% include "list-songwriter.html" %}
+        {% else %}
+        {% include "list-songwriter-none.html" %}
+        {% endif %}
+        {% endif %}
+
+        {% if 'Pengguna Biasa' in role %}
         {% if list_playlist %}
         {% include "list-playlist.html" %}
         {% else %}
-        {% include "dashboard-pengguna-none.html" %}
-        {% endif %}
-        {% endif %}
-
-        {% if role == 'Artist' %}
-        {% if list_lagu_artist %}
-        {% include "list-artist.html" %}
-        {% endif %}
-        {% endif %}
-
-        {% if role == 'Songwriter' %}
-        {% if list_lagu_songwriter %}
-        {% include "list-songwriter.html" %}
+        {% include "kelola-playlist-none.html" %}
         {% endif %}
         {% endif %}
     </div>

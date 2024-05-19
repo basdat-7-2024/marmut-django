@@ -4,7 +4,7 @@
 
 <nav class="navigation-bar navbar navbar-expand-lg">
     <a href="#" class="logo-navbar navbar-brand">
-        <img class="marmut-image" src="../../static/img/Logo Marmut Auth.png" alt="Marmut" />
+        <img class="marmut-image" src="{% static 'img/Logo Marmut Auth.png' %}" alt="Marmut" />
         <div class="text-navbar">Marmut</div>
     </a>
     {% if user_is_login %}
@@ -15,7 +15,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedMarmut">
             <ul class="section-navbar navbar-nav">
-                {% if user_role != 'Label' %}
+                {% if 'Label' not in user_role %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'dashboard:dashboard' %}">Dashboard</a>
                     </li>
@@ -33,29 +33,29 @@
                         <a class="nav-link" href="{% url 'downloaded_song:daftardownload' %}">Downloaded Song</a>
                     </li>
                     {% endif %}
-                    {% if user_role == 'Podcaster' %}
+                    {% if 'Podcaster' in user_role %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'podcast:kelola_podcast' %}">Kelola Podcast</a>
                     </li>
                     {% endif %}
-                    {% if user_role == 'Artist' or user_role == 'Songwriter' %}
+                    {% if 'Artist' in user_role or 'Songwriter' in user_role %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kelola Album & Song</a>
+                        <a class="nav-link" href="{% url 'albumsong:kelola_album_artist_songwriter' %}">Kelola Album & Song</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cek Royalti</a>
+                        <a class="nav-link" href="{% url 'cek_royalti:cek_royalti_artist_songwriter' %}">Cek Royalti</a>
                     </li>
                     {% endif %}
                 {% endif %}
-                {% if user_role == 'Label' %}
+                {% if 'Label' in user_role %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'dashboard:dashboard_label' %}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kelola Album</a>
+                        <a class="nav-link" href="{% url 'albumsong:kelola_album' %}">Kelola Album</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cek Royalti</a>
+                        <a class="nav-link" href="{% url 'cek_royalti:cek_royalti_label' %}">Cek Royalti</a>
                     </li>
                 {% endif %}
             </ul>
@@ -75,7 +75,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="btn btn-outline-success logout-button" href="{% url 'authentication:login' %}" role="button">Login</a>
-            <a class="btn btn-outline-danger logout-button" href="{% url 'authentication:register' %}"
+            <a class="btn btn-outline-danger logout-button" href="{% url 'authentication:pilih_register' %}"
                 role="button">Register</a>
         </div>
     {% endif %}

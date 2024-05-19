@@ -1,0 +1,212 @@
+.chart-list {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 64px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 48px 64px 64px;
+    background-color: #ffffff;
+    border-radius: 32px;
+    box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
+    max-width: calc(85%);
+    overflow: auto;
+}
+
+.chart-list .header-list {
+    width: 990px;
+    height: 81px;
+    justify-content: space-around;
+    gap: 18px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.chart-list .title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.chart-list .icon-title {
+    position: relative;
+    width: 48px;
+    height: 48px;
+}
+
+.chart-list .text-wrapper {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: var(--h2-font-family);
+    font-weight: var(--h2-font-weight);
+    color: var(--black);
+    font-size: var(--h2-font-size);
+    letter-spacing: var(--h2-letter-spacing);
+    line-height: var(--h2-line-height);
+    white-space: nowrap;
+    font-style: var(--h2-font-style);
+}
+
+.chart-list .isi-list {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.chart-list .div {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: var(--large-text-medium-font-family);
+    font-weight: var(--large-text-medium-font-weight);
+    color: var(--dark-grey);
+    font-size: var(--large-text-medium-font-size);
+    letter-spacing: var(--large-text-medium-letter-spacing);
+    line-height: var(--large-text-medium-line-height);
+    white-space: nowrap;
+    font-style: var(--large-text-medium-font-style);
+}
+
+.chart-list .datatable {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 0px 12px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #E2E8F0;
+}
+
+.chart-list .table-header {
+    padding: 8px 60px;
+    background-color: #eef5fe;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    align-self: stretch;
+    width: 200%;
+    flex: 0 0 auto;
+}
+
+.chart-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    border: 1px solid;
+    border-color: #E2E8F0 !important;
+    table-layout: fixed;
+}
+
+.chart-list .table-header .header-2 {
+    padding-left: 47%; /* Menggeser header 'Actions' ke kanan */
+    text-align: left; /* Menyelaraskan teks ke kiri setelah digeser */
+}
+
+.chart-list th,
+.chart-list td {
+    text-align: left;
+    padding: 20px 60px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.chart-list tr {
+    width: 100%;
+}
+
+.chart-list th {
+    background-color: #EFF6FF;
+    padding: 32px 60px;
+}
+
+.chart-list th.centered {
+    text-align: center;
+}
+
+
+.chart-list tr:last-child td {
+    border-bottom: none;
+}
+
+.chart-list .button-table {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center; /* Ensure vertical center alignment */
+    justify-content: center; /* Center text horizontally */
+    width: 190px; /* Adjust width as necessary */
+    height: 46px; /* Adjust height as necessary */
+    padding: 0; /* Adjust padding as necessary */
+    position: relative;
+    background-color: #FFA54B;
+    border-radius: var(--variable-collection-border-radius);
+    border: 2px solid transparent;
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    font-family: var(--desktop-semibold-large-text-font-family);
+    font-weight: var(--desktop-semibold-large-text-font-weight);
+    font-size: var(--desktop-semibold-large-text-font-size);
+    cursor: pointer;
+}
+
+.chart-list .button-table:hover {
+    background-color: #eba55f; /* Slightly lighter shade for hover */
+}
+
+.button-table a {
+    text-decoration: none;
+    color: white; /* Ensure the link is white */
+    display: block;
+    width: 100%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Center button horizontally */
+    margin-top: 20px; /* Add some space above the button */
+}
+
+.chart-list .button {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    width: 280px;
+    height: 56px;
+    align-items: center;
+    justify-content: center;
+    gap: var(--tokens-measurements-button-gap);
+    padding: 0px 32px;
+    position: relative;
+    background-color: var(--cyan);
+    border-radius: var(--variable-collection-border-radius);
+    border: 2px solid;
+    border-color: transparent;
+    text-decoration: none; /* Remove underline from links */
+    color: #ffffff; /* Set text color */
+    text-align: center;
+    font-family: var(--desktop-semibold-large-text-font-family);
+    font-weight: var(--desktop-semibold-large-text-font-weight);
+    font-size: var(--desktop-semibold-large-text-font-size);
+    cursor: pointer; /* Make it look clickable */
+}
+
+
+.chart-list .button:hover {
+    background-color: #00b4d8; /* Slightly lighter shade for hover */
+}

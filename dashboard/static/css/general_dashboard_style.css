@@ -99,8 +99,9 @@
 
 .dashboard .text-wrapper-4 {
     position: absolute;
+    width: 100%;
     top: 211px;
-    left: 80px;
+    margin-left: auto;
     font-family: var(--large-text-bold-font-family);
     font-weight: var(--large-text-bold-font-weight);
     color: var(--red);
@@ -109,6 +110,7 @@
     line-height: var(--large-text-bold-line-height);
     white-space: nowrap;
     font-style: var(--large-text-bold-font-style);
+    white-space: normal;
 }
 
 .dashboard .text-wrapper-5 {
@@ -224,13 +226,11 @@
 }
 
 .dashboard .text-wrapper-13 {
-    position: absolute;
-    top: 175px;
-    left: 32px;
+    position: relative;
     font-family: var(--h3-font-family);
     font-weight: var(--h3-font-weight);
     color: #ffa54b;
-    font-size: var(--h3-font-size);
+    font-size: var(--h4-font-size);
     letter-spacing: var(--h3-letter-spacing);
     line-height: var(--h3-line-height);
     white-space: nowrap;

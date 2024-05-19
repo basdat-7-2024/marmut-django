@@ -1,0 +1,376 @@
+{% include 'base.html' %}
+
+<head>
+    <!-- Setting Specific Css -->
+    {% load static %}
+</head>
+
+<body>
+    <!-- Setting Css di Static -->
+    <div class="podcast-detail">
+        <div class="wrap-podcast-detail">
+            <header class="header">
+                <div class="top-title">
+                    <form method="get" action="{{ temp_path }}">
+                        <button type="submit" class="back-button" style="background-color: #FFFFFF;">
+                            <img class="vector" src="../../static/img/icon/Back.png"  alt="Vector-3-1" />
+                            <div class="text-wrapper">Kembali</div>
+                        </button>
+                    </form>
+                    <div class="title">
+                        <img class="mask-group" src="../../static/img/icon/Podcast.png"   />
+                        <div class="div">Podcast Detail</div>
+                    </div>
+                    <div class="element">
+                        <img class="img" src="img/vector-3.svg" />
+                        <div class="text-wrapper">Kembali</div>
+                    </div>
+                </div>
+                <div class="podcast-text">
+                    <div class="wrap-detail">
+                        <div class="wrap-bagian">
+                            <div class="content-title">Judul</div>
+                            <div class="content-detail">{{list_detail_podcast.0}}</div>
+                        </div>
+                        <div class="wrap-bagian">
+                            <div class="content-title">Genre</div>
+                            <div class="content-detail">{{list_detail_podcast.3}}</div>
+                        </div>
+                    </div>
+                    <div class="wrap-detail-2">
+                        <div class="wrap-bagian-2">
+                            <div class="content-title">Podcaster</div>
+                            <div class="content-detail">{{list_detail_podcast.1}}</div>
+                        </div>
+                        <div class="wrap-bagian-2">
+                            <div class="content-title">Total Durasi</div>
+                            <div class="content-detail">{{list_detail_podcast.4}}</div>
+                        </div>
+                    </div>
+                    <div class="wrap-detail-3">
+                        <div class="wrap-bagian-2">
+                            <div class="content-title">Tanggal Rilis</div>
+                            <div class="content-detail">{{list_detail_podcast.2}}</div>
+                        </div>
+                        <div class="wrap-bagian-2">
+                            <div class="content-title">Tahun</div>
+                            <div class="content-detail">{{list_detail_podcast.5}}</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="table-wrap">
+                <div class="text-wrapper-4">Daftar Episode</div>
+                <table class="datatable">
+                    <thead>
+                        <tr>
+                            <th scope="col">Episode Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Duration</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for episode in list_detail_episode %}
+                        <tr>
+                            <td>{{episode.0}}</td>
+                            <td>{{episode.1}}</td>
+                            <td>{{episode.2}}</td>
+                            <td>{{episode.3}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <style>
+        .podcast-detail {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 64px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 48px 64px 64px;
+            background-color: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 4px 6px rgba(170, 170, 170, 0.1);
+            max-width: calc(85%);
+            overflow: auto;
+        }
+
+        .podcast-detail .wrap-podcast-detail {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 64px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .podcast-detail .header {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 48px;
+            position: relative;
+            flex: 0 0 auto;
+            background-color: transparent;
+        }
+
+        .podcast-detail .top-title {
+            display: flex;
+            width: 1150px;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .podcast-detail .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .podcast-detail .vector {
+            position: relative;
+            width: 28.6px;
+            height: 20.8px;
+            margin-left: -1.3px;
+        }
+
+        .podcast-detail .text-wrapper {
+            position: relative;
+            width: fit-content;
+            margin-top: -1px;
+            font-family: var(--large-text-semi-bold-font-family);
+            font-weight: var(--large-text-semi-bold-font-weight);
+            color: var(--dark-grey);
+            font-size: var(--large-text-semi-bold-font-size);
+            text-align: center;
+            letter-spacing: var(--large-text-semi-bold-letter-spacing);
+            line-height: var(--large-text-semi-bold-line-height);
+            white-space: nowrap;
+            font-style: var(--large-text-semi-bold-font-style);
+        }
+
+        .podcast-detail .title {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .podcast-detail .mask-group {
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+
+        .podcast-detail .div {
+            position: relative;
+            width: fit-content;
+            margin-top: -1px;
+            font-family: var(--h2-font-family);
+            font-weight: var(--h2-font-weight);
+            color: var(--black);
+            font-size: var(--h2-font-size);
+            letter-spacing: var(--h2-letter-spacing);
+            line-height: var(--h2-line-height);
+            white-space: nowrap;
+            font-style: var(--h2-font-style);
+        }
+
+        .podcast-detail .element {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+            flex: 0 0 auto;
+            opacity: 0;
+        }
+
+        .podcast-detail .img {
+            position: relative;
+            width: 26px;
+            height: 18.2px;
+            margin-top: -11259.1px;
+            margin-right: -4400px;
+        }
+
+        .podcast-detail .podcast-text {
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 124px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .podcast-detail .wrap-detail {
+            gap: 36px;
+            display: flex;
+            flex-direction: column;
+            width: 197px;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .podcast-detail .wrap-bagian {
+            gap: 8px;
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            width: 197px;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .podcast-detail .content-title {
+            position: relative;
+            width: fit-content;
+            margin-top: -1px;
+            font-family: var(--h4-font-family);
+            font-weight: 500;
+            color: var(--dark-grey);
+            font-size: var(--h4-font-size);
+            letter-spacing: var(--h4-letter-spacing);
+            line-height: var(--h4-line-height);
+            white-space: nowrap;
+            font-style: var(--h4-font-style);
+        }
+
+        .podcast-detail .content-detail {
+            position: relative;
+            width: fit-content;
+            font-family: var(--h4-font-family);
+            font-weight: var(--h4-font-weight);
+            color: var(--black);
+            font-size: var(--h4-font-size);
+            letter-spacing: var(--h4-letter-spacing);
+            line-height: var(--h4-line-height);
+            white-space: nowrap;
+            font-style: var(--h4-font-style);
+        }
+
+        .podcast-detail .wrap-detail-2 {
+            gap: 36px;
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .podcast-detail .wrap-bagian-2 {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .podcast-detail .wrap-detail-3 {
+            gap: 24px;
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .podcast-detail .table-wrap {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 28px;
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .podcast-detail .text-wrapper-4 {
+            position: relative;
+            width: fit-content;
+            margin-top: -1px;
+            font-family: var(--h3-font-family);
+            font-weight: var(--h3-font-weight);
+            color: var(--black);
+            font-size: var(--h3-font-size);
+            letter-spacing: var(--h3-letter-spacing);
+            line-height: var(--h3-line-height);
+            white-space: nowrap;
+            font-style: var(--h3-font-style);
+        }
+
+        .podcast-detail .datatable {
+            width: 100%;
+            overflow: hidden;
+            background-color: #ffffffcf;
+            align-items: flex-end;
+            border-radius: 16px;
+            padding: 0px 0px 16px;
+            border: 1px solid;
+            border-color: #E2E8F0 !important;
+            box-shadow: 0px 0px 0px 1px #E2E8F0;
+
+        }
+
+
+        .podcast-detail table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+            border: 1px solid;
+            border-color: #E2E8F0 !important;
+            table-layout: fixed;
+        }
+
+        .podcast-detail th,
+        .podcast-detail td {
+            text-align: left;
+            padding: 20px 60px;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .podcast-detail tr {
+            width: 100%;
+        }
+
+        .podcast-detail th {
+            background-color: #EFF6FF;
+            padding: 32px 60px;
+        }
+
+        .podcast-detail th.centered {
+            text-align: center;
+        }
+
+
+        .podcast-detail tr:last-child td {
+            border-bottom: none;
+        }
+
+        .description-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-height: 3.6em; /* Adjust based on your line-height */
+            line-height: 1.8em; /* Adjust based on your preferences */
+        }
+
+    </style>
+
+</body>

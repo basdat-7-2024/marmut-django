@@ -1,3 +1,4 @@
+from django.db import connection
 from django.shortcuts import render
 import datetime
 from django.http import HttpResponseRedirect
@@ -15,8 +16,26 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
 
+from chart.query import *
+
 def chart_list(request):
-    return render(request, "chart-list.html")
+    cursor = connection.cursor()
+    cursor.execute(get_chart())
+    temp_chart = cursor.fetchall()
+
+    context = {
+        'list_chart': temp_chart
+    }
+
+    return render(request, "chart-list.html", context)
 
 def chart_detail(request):
-    return render(request, "chart-detail.html")
+    cursor = connection.cursor()
+    cursor.execute(get_all_chart())
+    temp_chart_detail = cursor.fetchall()
+
+    context = {
+        'list_chart_detail': temp_chart_detail
+    }
+
+    return render(request, "chart-detail.html", context)
