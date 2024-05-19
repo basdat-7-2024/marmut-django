@@ -81,7 +81,9 @@
                                 <td>{{ i.artist }}</td>
                                 <td>{{ i.durasi }}</td>
                                 <td class="row-action">
-                                    <button class="frame-6">Lihat</button>
+                                    <a href="{% url 'user_playlist:song_detail' i.id_song %}">
+                                        <button class="frame-6">Lihat</button>
+                                    </a>
                                     <button class="frame-7">Play</button>
                                 </td>
                             </tr>

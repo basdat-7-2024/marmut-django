@@ -23,6 +23,7 @@
                     </a>
                 </div>
                 <div class="div-4">
+
                     <table class="datatable">
                         <thead>
                             <tr class="table-header">
@@ -40,33 +41,38 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody style="width: calc(100%)">
-                            {% for playlist in list_playlist %}
+                        <tbody style="width: calc(100%);">
+
+
+                            {% for i in list_playlist %}
                             <tr class="table-row">
                                 <td class="table-row-cell">
-                                    <div class="text-wrapper-19">{{playlist.0}}</div>
+                                    <div class="text-wrapper-19">{{i.judul}}</div>
                                 </td>
                                 <td class="table-row-cell">
-                                    <div class="text-wrapper-20">{{playlist.1}}</div>
+                                    <div class="text-wrapper-20">{{i.jumlah_lagu}}</div>
                                 </td>
                                 <td class="table-row-cell">
-                                    <div class="text-wrapper-21">{{playlist.2}}</div>
+                                    <div class="text-wrapper-21">{{i.durasi}}</div>
                                 </td>
                                 <td>
-                                    <div class="frame-2" style="justify-content: end; width: 400px">
-                                        <div class="frame-3" style="background-color: var(--red)">
-                                            <a href="{% url 'kelola_playlist:playlist_detail' %}">
+                                    <div class="frame-2" style="justify-content: end; width: 400px;">
+                                        <a href="{% url 'kelola_playlist:playlist_detail' i.id_playlist %}">
+                                            <div class="frame-3" style="background-color: var(--red);">
                                                 <div class="text-wrapper-22">Detail</div>
-                                            </a>
-                                        </div>
-                                        <div class="frame-3">
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#ubah-playlist">
+                                            </div>
+                                        </a>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#ubah-playlist"
+                                            onclick="ubah_playlist('{{i.judul}}', '{{i.deskripsi}}', '{{i.id_playlist}}')">
+                                            <div class="frame-3">
                                                 <div class="text-wrapper-22">Ubah</div>
-                                            </a>
-                                        </div>
-                                        <div class="frame-4">
-                                            <div class="text-wrapper-22">Hapus</div>
-                                        </div>
+                                            </div>
+                                        </a>
+                                        <a href="{% url 'kelola_playlist:hapus_playlist' i.id_playlist %}">
+                                            <div class="frame-4">
+                                                <div class="text-wrapper-22">Hapus</div>
+                                            </div>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
