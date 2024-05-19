@@ -1,66 +1,79 @@
-<div class="modal fade" id="create-album" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="create-lagu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="container-title">
-                    <div class="text-wrapper">Tambah Album</div>
+                    <div class="text-wrapper">Tambah Lagu</div>
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form-add-album" method="post">
+                <form id="form-add-lagu" method="post">
                     {% csrf_token %}
                     <div class="mb-3">
-                        <label for="album-title" class="col-form-label">Judul Album</label>
-                        <input type="text" class="form-control" id="album-title" name="album_title" placeholder="Judul Album" required>
+                        <label id="albumLabel" for="album" class="col-form-label">Album: </label>
                     </div>
                     <div class="mb-3">
-                        <label for="album-label" class="form-label">Label</label>
-                        <select class="form-select" id="album-label" name="album_label" required>
-                            {% for label in labels %}
-                            <option value="{{ label.id }}">{{ label.nama }}</option>
+                        <label for="song-title-2" class="col-form-label">Judul Lagu</label>
+                        <input type="text" class="form-control" id="song-title-2" name="song_title" placeholder="Judul Lagu" required>
+                    </div>
+                    
+                    {% if 'Artist' in role %}
+                    <div class="mb-3">
+                        <label id="artist-2" for="artist-2" class="col-form-label">Artist: {{nama}} </label>
+                    </div>
+                    {% else %}
+                    <div class="mb-3">
+                        <label for="artist-2" class="form-label">Artist</label>
+                        <select class="form-select" id="artist-2" name="artist-2" multiple required>
+                            {% for artist in artists %}
+                            <option value="{{ artist.id }}">{{ artist }}</option>
                             {% endfor %}
                         </select>
                     </div>
-                    <hr>
-                    <h5>LAGU PERTAMA</h5>
+                    {% endif %}
+                    
+                    {% if 'Songwriter' in role %}
                     <div class="mb-3">
-                        <label for="song-title" class="col-form-label">Judul Lagu</label>
-                        <input type="text" class="form-control" id="song-title" name="song-title" placeholder="Judul Lagu" required>
+                        <label id="songwriter-2" for="songwriter-2" class="col-form-label">Songwriter: {{nama}} </label>
                     </div>
+
+                    {% else %}
                     <div class="mb-3">
-                        <label for="artist" class="form-label">Artist</label>
-                        <input type="text" class="form-control" id="artist" name="artist" placeholder="Nama Artist" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="songwriter" class="form-label">Songwriter</label>
-                        <select class="form-select" id="songwriter" name="songwriter" multiple required>
+                        <label for="songwriter-2" class="form-label">Songwriter</label>
+                        <select class="form-select" id="songwriter-2" name="songwriter-2" multiple required>
                             {% for songwriter in songwriters %}
-                            <option value="{{ songwriter }}">{{ songwriter }}</option>
+                            <option value="{{ songwriter.id }}">
+                                {{ songwriter }}
+                            </option>
                             {% endfor %}
                         </select>
                     </div>
+
+
+                    {% endif %}
+
+                    
                     <div class="mb-3">
-                        <label for="genre" class="form-label">Genre</label>
-                        <select class="form-select" id="genre" name="genre" multiple required>
+                        <label for="genre-2" class="form-label">Genre</label>
+                        <select class="form-select" id="genre-2" name="genre-2" multiple required>
                             {% for genre in genres %}
-                            <option value="{{ genre }}">{{ genre }}</option>
+                            <option value="{{ genre.id }}">{{ genre }}</option>
                             {% endfor %}
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="duration" class="col-form-label">Durasi</label>
-                        <input type="text" class="form-control" id="duration" name="duration" placeholder="Durasi (menit)" required>
+                        <label for="duration-2" class="col-form-label">Durasi (menit)</label>
+                        <input type="text" class="form-control" id="duration-2" name="duration-2" placeholder="Durasi (menit)" required>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="button button-2" id="button_submit_song">Submit</button>
+                <button type="button" class="button button-2" id="button_submit_lagu">Submit</button>
             </div>
         </div>
     </div>
 </div>
-
   
   
   <style>
@@ -179,73 +192,49 @@
 
 <script>
     $(document).ready(function(){
-        $('#button_submit').click(function(){
-            $.ajax({
-                type: 'POST',
-                url: '/albumsong/add_album_ajax/',
-                data: {
-                    album_title: $('#album-title').val(),
-                    album_label: $('#album-label').val(),
-                    csrfmiddlewaretoken: '{{ csrf_token }}'
-                },
-                success: function(response) {
-                    alert(response.message);
-                    // Reset form fields
-                    $('#album-form')[0].reset();
-                    $('#create-album').modal('hide');
-                },
-                error: function(response) {
-                    alert(response.responseJSON.message);
-                }
-            });
-        });
 
-        
-
-        $('#button_submit_song').click(function(){
-            var form_data = $('#form-add-album').serializeArray();
+        $('#button_submit_lagu').click(function(){
+            var form_data = $('#form-add-lagu').serializeArray();
 
                    // Add additional data manually
-        form_data.push({
-            name: 'album_title',
-            value: $('#album-title').val()
-        });
-        form_data.push({
-            name: 'album_label',
-            value: $('#album-label').val()
-        });
+
         form_data.push({
             name: 'song_title',
-            value: $('#song-title').val()
+            value: $('#song-title-2').val()
         });
         form_data.push({
             name: 'artist',
-            value: $('#artist').val()
+            value: $('#artist-2').val()
         });
         form_data.push({
             name: 'duration',
-            value: $('#duration').val()
+            value: $('#duration-2').val()
         });
-
+        
         form_data.push({
             name: 'csrfmiddlewaretoken',
             value: '{{ csrf_token }}'
         });
+
+        
             $.ajax({
 
                 type: 'POST',
-                url: '/albumsong/add_album_ajax/',
+                url: '/albumsong/add_lagu_ajax_post/' + albumTitle + '/',
                 data: form_data,
                 success: function(response) {
                     alert(response.message);
                     // Reset form fields
-                     $('#form-add-album')[0].reset();
+                     $('#form-add-lagu')[0].reset();
                     // Optionally, you can reload the page or update the album list
                 },
                 error: function(response) {
                     alert(response.responseJSON.message);
                 }
             });
+
         });
     });
+
+
 </script>
