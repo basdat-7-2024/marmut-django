@@ -26,7 +26,7 @@
                     <h5>LAGU PERTAMA</h5>
                     <div class="mb-3">
                         <label for="song-title" class="col-form-label">Judul Lagu</label>
-                        <input type="text" class="form-control" id="song-title" name="song_title" placeholder="Judul Lagu" required>
+                        <input type="text" class="form-control" id="song-title" name="song-title" placeholder="Judul Lagu" required>
                     </div>
                     <div class="mb-3">
                         <label for="artist" class="form-label">Artist</label>
@@ -36,7 +36,7 @@
                         <label for="songwriter" class="form-label">Songwriter</label>
                         <select class="form-select" id="songwriter" name="songwriter" multiple required>
                             {% for songwriter in songwriters %}
-                            <option value="{{ songwriter.id }}">{{ songwriter }}</option>
+                            <option value="{{ songwriter }}">{{ songwriter }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -55,7 +55,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="button button-2" id="button_submit">Submit</button>
+                <button type="button" class="button button-2" id="button_submit_song">Submit</button>
             </div>
         </div>
     </div>
@@ -201,22 +201,43 @@
         });
 
         $('#button_submit_song').click(function(){
+            var form_data = $('#form-add-album').serializeArray();
+
+                   // Add additional data manually
+        form_data.push({
+            name: 'album_title',
+            value: $('#album-title').val()
+        });
+        form_data.push({
+            name: 'album_label',
+            value: $('#album-label').val()
+        });
+        form_data.push({
+            name: 'song_title',
+            value: $('#song-title').val()
+        });
+        form_data.push({
+            name: 'artist',
+            value: $('#artist').val()
+        });
+        form_data.push({
+            name: 'duration',
+            value: $('#duration').val()
+        });
+        
+        form_data.push({
+            name: 'csrfmiddlewaretoken',
+            value: '{{ csrf_token }}'
+        });
             $.ajax({
+
                 type: 'POST',
-                url: '/albumsong/add_song_ajax/',
-                data: {
-                    album_title: $('#album-title').val(),
-                    song_title: $('#song-title').val(),
-                    artist: $('#artist').val(),
-                    songwriter: $('#songwriter').val(),
-                    genre: $('#genre').val(),
-                    duration: $('#duration').val(),
-                    csrfmiddlewaretoken: '{{ csrf_token }}'
-                },
+                url: '/albumsong/add_album_ajax/',
+                data: form_data,
                 success: function(response) {
                     alert(response.message);
                     // Reset form fields
-                    $('#song-form')[0].reset();
+                     $('#form-add-album')[0].reset();
                     // Optionally, you can reload the page or update the album list
                 },
                 error: function(response) {

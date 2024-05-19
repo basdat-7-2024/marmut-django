@@ -277,61 +277,35 @@ def add_album_ajax(request):
                 cursor.execute("SELECT id FROM ALBUM WHERE judul = %s", [album_title])
                 album_id = cursor.fetchone()[0]
 
-                # Insert new content for the song (lagu pertama)
+                # Insert new KONTEN for the first song
+                first_song_title = request.POST.get('song_title')
+                first_song_duration = request.POST.get('duration')
+
                 cursor.execute("""
                     INSERT INTO KONTEN (id, judul, tanggal_rilis, tahun, durasi)
-                    VALUES (uuid_generate_v4(), %s, NOW(), EXTRACT(YEAR FROM NOW()), 0)
-                """, [album_title])
+                    VALUES (uuid_generate_v4(), %s, NOW(), EXTRACT(YEAR FROM NOW()), %s)""", 
+                    [first_song_title, first_song_duration])
 
-                # Get the ID of the newly inserted content (lagu pertama)
-                cursor.execute("SELECT id FROM KONTEN WHERE judul = %s", [album_title])
-                content_id = cursor.fetchone()[0]
-
-                # Insert the relationship between artist and album in the SONG table for the first song
+                # Insert into SONG table for the first song
                 cursor.execute("""
-                    INSERT INTO SONG (id_konten, id_artist, id_album)
-                    VALUES (%s, %s, %s)
-                """, [content_id, artist_id, album_id])
+                    INSERT INTO SONG (id_konten, id_artist, id_album, total_play, total_download)
+                    VALUES ((SELECT id FROM KONTEN WHERE judul = %s), %s, %s, 0, 0)
+                """, [first_song_title, artist_id, album_id])
 
-                # Insert the relationship between artist and album in the SONG table
+                songwriter_name = request.POST.get('songwriter')
+                genre = request.POST.get('genre')
+
+                # Insert into GENRE
                 cursor.execute("""
-                    INSERT INTO SONG (id_konten, id_artist, id_album)
-                    VALUES (uuid_generate_v4(), %s, %s)
-                """, [artist_id, album_id])
+                    INSERT INTO Genre (id_konten, genre)
+                    VALUES ((SELECT id FROM KONTEN WHERE judul = %s), %s)
+                """, [first_song_title, request.POST.get('genre')])
 
-                # Insert the first song of the album
-                song_title = request.POST.get('song_title')
-                genre_ids = request.POST.getlist('genre_ids[]')
-                duration = request.POST.get('duration')
-
-                # Insert new song
-                cursor.execute("""
-                    INSERT INTO KONTEN (id, judul, tanggal_rilis, tahun, durasi)
-                    VALUES (uuid_generate_v4(), %s, NOW(), EXTRACT(YEAR FROM NOW()), %s)
-                """, [song_title, duration])
-
-                # Get the ID of the newly inserted song
-                cursor.execute("SELECT id FROM KONTEN WHERE judul = %s", [song_title])
-                song_id = cursor.fetchone()[0]
-
-                # Insert genre for the song
-                for genre_id in genre_ids:
-                    cursor.execute("""
-                        INSERT INTO Genre (id_konten, genre)
-                        VALUES (%s, %s)
-                    """, [song_id, genre_id])
-
-                # Insert the relationship between artist and song in the SONGWRITER_WRITE_SONG table
+                # Insert into SONGWRITER_WRITE_SONG
                 cursor.execute("""
                     INSERT INTO SONGWRITER_WRITE_SONG (id_songwriter, id_song)
-                    VALUES (%s, %s)
-                """, [artist_id, song_id])
-
-                # Insert the relationship between album and song in the SONG table
-                cursor.execute("""
-                    INSERT INTO SONG (id_konten, id_artist, id_album)
-                    VALUES (%s, %s, %s)
-                """, [song_id, artist_id, album_id])
+                    VALUES ((SELECT id FROM SONGWRITER WHERE email_akun = (SELECT email FROM AKUN WHERE nama = %s)), (SELECT id FROM KONTEN WHERE judul = %s))
+                """, [songwriter_name, first_song_title])
             
             return JsonResponse({'message': 'Album and song successfully added'}, status=200)
         except Exception as e:
