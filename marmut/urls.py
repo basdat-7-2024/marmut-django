@@ -29,4 +29,5 @@ urlpatterns = [
     path('albumsong/', include('albumsong.urls')),
     path('playlist/', include('user_playlist.urls')),
     path('kelola-playlist/', include('kelola_playlist.urls')),
+    path('cek-royalti/', include('cek_royalti.urls')),
 ]

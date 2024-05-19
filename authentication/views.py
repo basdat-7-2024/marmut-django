@@ -1,3 +1,4 @@
+import uuid
 from django.shortcuts import render
 import datetime
 from django.http import HttpResponseRedirect
@@ -12,7 +13,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
-from django.db import connection
+from django.db import DataError, InternalError, connection
 from django.http import JsonResponse
 from authentication.query import *
 
@@ -92,16 +93,93 @@ def login(request):
         else:
             request.session['is_login'] = False
             messages.error(request, "Login gagal! Email atau password salah.")
+            return render(request, 'login.html', {'error': 'Login gagal! Email atau password salah.'})
     
     return render(request, 'login.html')
 
 def register(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        nama = request.POST.get('nama')
+        tempat_lahir = request.POST.get('tempat-lahir')
+        kota_asal = request.POST.get('kota-asal')
+        password = request.POST.get('password')
+        gender = request.POST.get('gender')
+        tanggal_lahir = request.POST.get('tanggal-lahir')
+        role_podcaster = request.POST.get('podcaster')
+        role_artist = request.POST.get('artist')
+        role_songwriter = request.POST.get('songwriter')
+        uuid_artist = uuid.uuid4()
+        uuid_songwriter = uuid.uuid4()
+        uuid_pemilik_hak = uuid.uuid4()
+        rate_royalti = 10
+
+        if gender == 'Perempuan':
+            gender = 0
+        
+        elif gender == 'Laki-laki':
+            gender = 1
+
+        is_verified = False
+        if role_artist != None or role_podcaster != None or role_songwriter != None:
+            is_verified = True
+
+        try:
+            cursor = connection.cursor()
+            cursor.execute(register_to_akun_to_tabel(email, password, nama, gender, tempat_lahir, tanggal_lahir, is_verified, kota_asal))
+
+            if role_artist == 'artist' or role_songwriter == 'songwriter':
+                cursor.execute(register_pemilik_to_tabel(uuid_pemilik_hak, rate_royalti))
+
+            if role_artist == 'artist':
+                cursor.execute(register_artist_to_tabel(uuid_artist, email, uuid_pemilik_hak))
+
+            if role_songwriter == 'songwriter':
+                cursor.execute(register_songwriter_to_tabel(uuid_songwriter, email, uuid_pemilik_hak))
+
+            if role_podcaster == 'podcaster':
+                cursor.execute(register_podcaster_to_tabel(email))
+
+            messages.success(request, "Register berhasil!")
+            return HttpResponseRedirect(reverse("authentication:login"))
+        
+        except InternalError as e:
+            if 'Email' in str(e):
+                messages.error(request, 'Email sudah terdaftar.')
+                return render(request, 'register.html', {'error': 'Email sudah terdaftar, silakan coba Email lain!.'})
+            
+        except DataError as e:
+            messages.error(request, 'Input tidak sesuai!.')
+            return render(request, 'register.html', {'error': 'Input tidak sesuai, isi yang benar!.'})
+            
     return render(request, "register.html")
 
 def pilih_register(request):
     return render(request, "pilih-register.html")
 
 def register_label(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        nama = request.POST.get('nama')
+        password = request.POST.get('password')
+        kontak = request.POST.get('kontak')
+        uuid_pemilik_hak = uuid.uuid4()
+        uuid_label = uuid.uuid4()
+        rate_royalti = 10
+
+        try:
+            cursor = connection.cursor()
+            cursor.execute(register_pemilik_to_tabel(uuid_pemilik_hak, rate_royalti))
+
+            cursor.execute(register_label_to_tabel(uuid_label, nama, email, password, kontak, uuid_pemilik_hak))
+
+            messages.success(request, "Register berhasil!")
+            return HttpResponseRedirect(reverse("authentication:login"))
+        except InternalError as e:
+            if 'Email' in str(e):
+                messages.error(request, 'Email sudah terdaftar.')
+                return render(request, 'register-label.html', {'error': 'Email sudah terdaftar, silakan coba Email lain!.'})
+    
     return render(request, "register-label.html")
 
 def logout(request):
