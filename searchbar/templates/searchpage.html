@@ -58,7 +58,7 @@
                             <div class="text-wrapper-5">{{ result.2 }}</div> <!-- By -->
                         </td>
                         <td>
-                            <form method="get" action="/search/{{ result.0|lower }}/{{ result.3 }}/">
+                            <form method="get" action="/{{ result.0|lower }}/{{ result.1|slugify }}/">
                                 <button type="submit" class="lihat-button">
                                     <div class="text-wrapper-6">Lihat</div>
                                 </button>
